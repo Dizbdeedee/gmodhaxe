@@ -1,6 +1,8 @@
 package gmod.sent;
 #if server
 class ENT_POINT extends gmod.sent.ENT {
+    var self(default,never):gmod.gclass.Entity;
+	public final TYPE = "point";
     /**
         Called whenever the transmit state should be updated. 
 		

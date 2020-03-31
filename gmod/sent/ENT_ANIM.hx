@@ -1,8 +1,9 @@
 package gmod.sent;
 
 class ENT_ANIM extends gmod.sent.ENT {
-
-	private static var TYPE = "anim";
+	
+	public final TYPE = "anim";
+	var self(default,never):gmod.gclass.Entity;
     #if server
     /**
         Called when the entity is blocked. 
