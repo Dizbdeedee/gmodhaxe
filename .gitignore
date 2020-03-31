@@ -3,3 +3,6 @@ tests
 generated
 temp
 lua
+test_client.hxml
+test_server.hxml
+

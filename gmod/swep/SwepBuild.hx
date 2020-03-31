@@ -1,8 +1,8 @@
-package gmod.structs;
-/**
-    Information about a SWEP, used by [SANDBOX](https://wiki.garrysmod.com/page/Category:SANDBOX_Hooks): [PlayerGiveSWEP](https://wiki.garrysmod.com/page/SANDBOX/PlayerGiveSWEP) and SWEP creation. For list of callbacks, see [Category:WEAPON_Hooks](https://wiki.garrysmod.com/page/Category:WEAPON_Hooks). While some of the fields may be serverside or clientside only, it is recommended to provide them on both so addons could use their values.
-**/
-typedef SWEP = {
+package gmod.swep;
+
+
+typedef SwepFields = {
+
     /**
         (Clientside) Sets the spawnmenu content icon type for the entity, used by spawnmenu in the Sandbox-derived gamemodes. See spawnmenu.AddContentType for more information. 
 		
@@ -156,7 +156,7 @@ typedef SWEP = {
     /**
         Primary attack settings. The table contains these fields:
     **/
-    var Primary : AttackSettings;
+    var Primary : gmod.structs.SWEP.AttackSettings;
     /**
         (Clientside) Makes the player models hands bonemerged onto the view model
 		
@@ -178,7 +178,7 @@ typedef SWEP = {
     /**
         Secondary attack settings, has same fields as Primary attack settings
     **/
-    var ?Secondary : AttackSettings;
+    var ?Secondary : gmod.structs.SWEP.AttackSettings;
     /**
         (Clientside) Should draw the weapon selection info box, containing SWEP.Instructions, etc. 
 		
@@ -222,14 +222,6 @@ typedef SWEP = {
     **/
     var ?ViewModelFlip2 : Bool;
     /**
-        The entity that owns/wields this SWEP, if any
-    **/
-    var ?Owner : Entity;
-    /**
-        The folder from where the weapon was loaded. This should always be "weapons/weapon_myweapon", regardless whether your SWEP is stored as a file, or multiple files in a folder. It is set automatically on load
-    **/
-    var ?Folder : String;
-    /**
         (Clientside) How to use your weapon, to be shown in weapon selection 
 		
 		Default: ""
@@ -241,31 +233,9 @@ typedef SWEP = {
 		Default: ""
     **/
     var ?Author : String;
-    /**
-        Entity class name of the SWEP (file or folder name of your SWEP). This is set automatically
-    **/
-    var ?ClassName : String;
-    
 }
 
-/**
-    Attack settings for primary/secondary fire of a swep
-**/
-typedef AttackSettings = {
-    /**
-        Ammo type ("Pistol", "SMG1" etc)
-    **/
-    var Ammo : String;
-    /**
-        The maximum amount of bullets one clip can hold
-    **/
-    var ClipSize : Int;
-    /**
-        Default ammo in the clip, making it higher than ClipSize will give player additional ammo on spawn
-    **/
-    var DefaultClip : Int;
-    /**
-        If true makes the weapon shoot automatically as long as the player has primary attack button held down
-    **/
-    var Automatic : Bool;
+@:autoBuild(gmod.macros.SentMacro.build(true,false))
+interface SwepBuild {
+    private final properties:SwepFields;
 }

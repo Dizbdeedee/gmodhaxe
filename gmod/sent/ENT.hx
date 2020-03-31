@@ -1,9 +1,6 @@
 package gmod.sent;
 
-import lua.Lua;
-
 class ENT {
-	private static var BASE = "base_entity";
     /**
         Called when the entity is created. This is called when you Entity:Spawn the custom entity. 
 		
