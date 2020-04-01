@@ -1,4 +1,4 @@
-package gmod.hooks;
+package gmod.gamemode;
 
 
 /**
@@ -6,7 +6,7 @@ package gmod.hooks;
 	
 	See also: GM structure
 **/
-class Gm {
+class GM {
     #if server
     /**
         Executes when a player connects to the server. Called before the player has been assigned a UserID and entity. See the player_connect gameevent for a version of this hook called after the player entity has been created.
@@ -39,7 +39,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerConnect(name:String, ip:String):Void {}
+    function PlayerConnect(name:String, ip:String):Void {}
 	#elseif client
 	/**
         Executes when a player connects to the server. Called before the player has been assigned a UserID and entity. See the player_connect gameevent for a version of this hook called after the player entity has been created.
@@ -68,7 +68,7 @@ class Gm {
 		
 		Player1 has joined the game.
     **/
-	public function PlayerConnect(name:String):Void {}
+	function PlayerConnect(name:String):Void {}
 	#end
     #if server
     /**
@@ -126,7 +126,7 @@ class Gm {
     **/
     
     @:hook
-    public function IsSpawnpointSuitable(ply:Player, spawnpoint:Entity, makeSuitable:Bool):Bool {return null;}
+    function IsSpawnpointSuitable(ply:Player, spawnpoint:Entity, makeSuitable:Bool):Bool {return null;}
     #end
     #if server
     /**
@@ -140,7 +140,7 @@ class Gm {
     **/
     
     @:hook
-    public function LoadGModSave(data:String, map:String, timestamp:Float):Void {}
+    function LoadGModSave(data:String, map:String, timestamp:Float):Void {}
     #end
     #if client
     /**
@@ -158,7 +158,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostDrawViewModel(viewmodel:Entity, player:Player, weapon:Weapon):Void {}
+    function PostDrawViewModel(viewmodel:Entity, player:Player, weapon:Weapon):Void {}
     #end
     #if server
     /**
@@ -170,7 +170,7 @@ class Gm {
     **/
     
     @:hook
-    public function ShowTeam(ply:Player):Void {}
+    function ShowTeam(ply:Player):Void {}
     #end
     
     /**
@@ -211,7 +211,7 @@ class Gm {
     **/
     
     @:hook
-    public function ShouldCollide(ent1:Entity, ent2:Entity):Bool {return null;}
+    function ShouldCollide(ent1:Entity, ent2:Entity):Bool {return null;}
     
     #if server
     /**
@@ -227,7 +227,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerCanPickupItem(ply:Player, item:Entity):Bool {return null;}
+    function PlayerCanPickupItem(ply:Player, item:Entity):Bool {return null;}
     #end
     #if client
     /**
@@ -259,7 +259,7 @@ class Gm {
     **/
     
     @:hook
-    public function StartChat(isTeamChat:Bool):Bool {return null;}
+    function StartChat(isTeamChat:Bool):Bool {return null;}
     #end
     #if client
     /**
@@ -269,7 +269,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostDrawEffects():Void {}
+    function PostDrawEffects():Void {}
     #end
     #if server
     /**
@@ -284,7 +284,7 @@ class Gm {
     **/
     
     @:hook
-    public function CreateEntityRagdoll(owner:Entity, ragdoll:Entity):Void {}
+    function CreateEntityRagdoll(owner:Entity, ragdoll:Entity):Void {}
     #end
     #if client
     /**
@@ -294,7 +294,7 @@ class Gm {
     **/
     
     @:hook
-    public function NeedsDepthPass():Bool {return null;}
+    function NeedsDepthPass():Bool {return null;}
     #end
     
     /**
@@ -306,7 +306,7 @@ class Gm {
     **/
     
     @:hook
-    public function Saved():Void {}
+    function Saved():Void {}
     
     #if client
     /**
@@ -388,7 +388,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnPlayerChat(ply:Player, text:String, teamChat:Bool, isDead:Bool):Bool {return null;}
+    function OnPlayerChat(ply:Player, text:String, teamChat:Bool, isDead:Bool):Bool {return null;}
     #end
     #if server
     /**
@@ -418,7 +418,7 @@ class Gm {
     **/
     
     @:hook
-    public function AllowPlayerPickup(ply:Player, ent:Entity):Bool {return null;}
+    function AllowPlayerPickup(ply:Player, ent:Entity):Bool {return null;}
     #end
     
     /**
@@ -452,7 +452,7 @@ class Gm {
     **/
     
     @:hook
-    public function ScalePlayerDamage(ply:Player, hitgroup:HITGROUP, dmginfo:CTakeDamageInfo):Bool {return null;}
+    function ScalePlayerDamage(ply:Player, hitgroup:HITGROUP, dmginfo:CTakeDamageInfo):Bool {return null;}
     
     #if client
     /**
@@ -472,7 +472,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreDrawOpaqueRenderables(isDrawingDepth:Bool, isDrawSkybox:Bool):Bool {return null;}
+    function PreDrawOpaqueRenderables(isDrawingDepth:Bool, isDrawSkybox:Bool):Bool {return null;}
     #end
     #if server
     /**
@@ -513,7 +513,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerInitialSpawn(player:Player, transition:Bool):Void {}
+    function PlayerInitialSpawn(player:Player, transition:Bool):Void {}
     #end
     #if server
     /**
@@ -526,7 +526,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerJoinTeam(ply:Player, team:Float):Void {}
+    function PlayerJoinTeam(ply:Player, team:Float):Void {}
     #end
     #if server
     /**
@@ -563,7 +563,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnPhysgunFreeze(weapon:Entity, physobj:PhysObj, ent:Entity, ply:Player):Bool {return null;}
+    function OnPhysgunFreeze(weapon:Entity, physobj:PhysObj, ent:Entity, ply:Player):Bool {return null;}
     #end
     #if server
     /**
@@ -592,7 +592,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerLoadout(ply:Player):Void {}
+    function PlayerLoadout(ply:Player):Void {}
     #end
     
     /**
@@ -602,7 +602,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreCleanupMap():Void {}
+    function PreCleanupMap():Void {}
     
     
     /**
@@ -612,7 +612,7 @@ class Gm {
     **/
     
     @:hook
-    public function CreateTeams():Void {}
+    function CreateTeams():Void {}
     
     #if client
     /**
@@ -620,7 +620,7 @@ class Gm {
     **/
     
     @:hook
-    public function HideTeam():Void {}
+    function HideTeam():Void {}
     #end
     #if client
     /**
@@ -632,7 +632,7 @@ class Gm {
     **/
     
     @:hook
-    public function ChatTextChanged(text:String):Void {}
+    function ChatTextChanged(text:String):Void {}
     #end
     #if client
     /**
@@ -647,7 +647,7 @@ class Gm {
     **/
     
     @:hook
-    public function VGUIMousePressAllowed(button:MOUSE):Bool {return null;}
+    function VGUIMousePressAllowed(button:MOUSE):Bool {return null;}
     #end
     
     /**
@@ -770,7 +770,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnLuaError(error:String, realm:Float, name:String, id:Float):Void {}
+    function OnLuaError(error:String, realm:Float, name:String, id:Float):Void {}
     
     #if server
     /**
@@ -783,7 +783,7 @@ class Gm {
     **/
     
     @:hook
-    public function GravGunOnDropped(ply:Player, ent:Entity):Void {}
+    function GravGunOnDropped(ply:Player, ent:Entity):Void {}
     #end
     #if client
     /**
@@ -815,7 +815,7 @@ class Gm {
     **/
     
     @:hook
-    public function InputMouseApply(cmd:CUserCmd, x:Float, y:Float, ang:Angle):Bool {return null;}
+    function InputMouseApply(cmd:CUserCmd, x:Float, y:Float, ang:Angle):Bool {return null;}
     #end
     
     /**
@@ -859,7 +859,7 @@ class Gm {
     **/
     
     @:hook
-    public function KeyPress(ply:Player, key:IN):Void {}
+    function KeyPress(ply:Player, key:IN):Void {}
     
     
     /**
@@ -875,7 +875,7 @@ class Gm {
     **/
     
     @:hook
-    public function HandlePlayerVaulting(ply:Player, velocity:Float):Bool {return null;}
+    function HandlePlayerVaulting(ply:Player, velocity:Float):Bool {return null;}
     
     #if server
     /**
@@ -893,7 +893,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerCanSeePlayersChat(text:String, teamOnly:Bool, listener:Player, speaker:Player):Bool {return null;}
+    function PlayerCanSeePlayersChat(text:String, teamOnly:Bool, listener:Player, speaker:Player):Bool {return null;}
     #end
     #if server
     /**
@@ -912,7 +912,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerDeathThink(ply:Player):Bool {return null;}
+    function PlayerDeathThink(ply:Player):Bool {return null;}
     #end
     
     /**
@@ -931,7 +931,7 @@ class Gm {
     **/
     
     @:hook
-    public function EntityKeyValue(ent:Entity, key:String, value:String):String {return null;}
+    function EntityKeyValue(ent:Entity, key:String, value:String):String {return null;}
     
     #if client
     /**
@@ -952,7 +952,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreDrawViewModel(vm:Entity, ply:Player, weapon:Weapon):Bool {return null;}
+    function PreDrawViewModel(vm:Entity, ply:Player, weapon:Weapon):Bool {return null;}
     #end
     
     /**
@@ -969,7 +969,7 @@ class Gm {
     **/
     
     @:hook
-    public function HandlePlayerLanding(ply:Player, velocity:Float, onGround:Bool):Bool {return null;}
+    function HandlePlayerLanding(ply:Player, velocity:Float, onGround:Bool):Bool {return null;}
     
     #if server
     /**
@@ -1018,7 +1018,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerCanPickupWeapon(ply:Player, wep:Weapon):Bool {return null;}
+    function PlayerCanPickupWeapon(ply:Player, wep:Weapon):Bool {return null;}
     #end
     
     /**
@@ -1026,7 +1026,7 @@ class Gm {
     **/
     
     @:hook
-    public function WorkshopEnd():Void {}
+    function WorkshopEnd():Void {}
     
     #if server
     /**
@@ -1042,7 +1042,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostPlayerDeath(ply:Player):Void {}
+    function PostPlayerDeath(ply:Player):Void {}
     #end
     #if client
     /**
@@ -1057,7 +1057,7 @@ class Gm {
     **/
     
     @:hook
-    public function GUIMouseDoublePressed(mouseCode:MOUSE, aimVector:Vector):Void {}
+    function GUIMouseDoublePressed(mouseCode:MOUSE, aimVector:Vector):Void {}
     #end
     
     /**
@@ -1073,7 +1073,7 @@ class Gm {
     **/
     
     @:hook
-    public function SetPlayerSpeed(ply:Player, walkSpeed:Float, runSpeed:Float):Void {}
+    function SetPlayerSpeed(ply:Player, walkSpeed:Float, runSpeed:Float):Void {}
     
     #if client
     /**
@@ -1083,7 +1083,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostDrawSkyBox():Void {}
+    function PostDrawSkyBox():Void {}
     #end
     
     /**
@@ -1103,7 +1103,7 @@ class Gm {
     **/
     
     @:hook
-    public function FinishMove(ply:Player, mv:CMoveData):Bool {return null;}
+    function FinishMove(ply:Player, mv:CMoveData):Bool {return null;}
     
     #if server
     /**
@@ -1129,7 +1129,7 @@ class Gm {
     **/
     
     @:hook
-    public function CanPlayerSuicide(player:Player):Bool {return null;}
+    function CanPlayerSuicide(player:Player):Bool {return null;}
     #end
     #if client
     /**
@@ -1158,7 +1158,7 @@ class Gm {
     **/
     
     @:hook
-    public function CreateClientsideRagdoll(entity:Entity, ragdoll:Entity):Void {}
+    function CreateClientsideRagdoll(entity:Entity, ragdoll:Entity):Void {}
     #end
     
     /**
@@ -1171,7 +1171,7 @@ class Gm {
     **/
     
     @:hook
-    public function StartEntityDriving(ent:Entity, ply:Player):Void {}
+    function StartEntityDriving(ent:Entity, ply:Player):Void {}
     
     #if client
     /**
@@ -1181,7 +1181,7 @@ class Gm {
     **/
     
     @:hook
-    public function SetupWorldFog():Bool {return null;}
+    function SetupWorldFog():Bool {return null;}
     #end
     #if server
     /**
@@ -1218,7 +1218,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerDeath(victim:Player, inflictor:Entity, attacker:Entity):Void {}
+    function PlayerDeath(victim:Player, inflictor:Entity, attacker:Entity):Void {}
     #end
     #if server
     /**
@@ -1251,7 +1251,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerCanHearPlayersVoice(listener:Player, talker:Player):HaxeMultiReturn<GmPlayerCanHearPlayersVoiceHaxeReturn> {return null;} //return
+    function PlayerCanHearPlayersVoice(listener:Player, talker:Player):HaxeMultiReturn<GmPlayerCanHearPlayersVoiceHaxeReturn> {return null;} //return
     #end
     #if server
     /**
@@ -1267,7 +1267,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnPlayerChangedTeam(ply:Player, oldTeam:Float, newTeam:Float):Void {}
+    function OnPlayerChangedTeam(ply:Player, oldTeam:Float, newTeam:Float):Void {}
     #end
     
     /**
@@ -1282,7 +1282,7 @@ class Gm {
     **/
     
     @:hook
-    public function HandlePlayerDriving(ply:Player):Bool {return null;}
+    function HandlePlayerDriving(ply:Player):Bool {return null;}
     
     #if server
     /**
@@ -1300,7 +1300,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerEnteredVehicle(ply:Player, veh:Vehicle, role:Float):Void {}
+    function PlayerEnteredVehicle(ply:Player, veh:Vehicle, role:Float):Void {}
     #end
     #if client
     /**
@@ -1312,7 +1312,7 @@ class Gm {
     **/
     
     @:hook
-    public function HUDItemPickedUp(itemName:String):Void {}
+    function HUDItemPickedUp(itemName:String):Void {}
     #end
     #if client
     /**
@@ -1327,7 +1327,7 @@ class Gm {
     **/
     
     @:hook
-    public function GUIMousePressed(mouseCode:MOUSE, aimVector:Vector):Void {}
+    function GUIMousePressed(mouseCode:MOUSE, aimVector:Vector):Void {}
     #end
     #if client
     /**
@@ -1337,7 +1337,7 @@ class Gm {
     **/
     
     @:hook
-    public function HUDPaintBackground():Void {}
+    function HUDPaintBackground():Void {}
     #end
     #if server
     /**
@@ -1351,7 +1351,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSilentDeath(ply:Player):Void {}
+    function PlayerSilentDeath(ply:Player):Void {}
     #end
     #if server
     /**
@@ -1376,7 +1376,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnDamagedByExplosion(ply:Player, dmginfo:CTakeDamageInfo):Void {}
+    function OnDamagedByExplosion(ply:Player, dmginfo:CTakeDamageInfo):Void {}
     #end
     #if server
     /**
@@ -1407,7 +1407,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSay(sender:Player, text:String, teamChat:Bool):String {return null;}
+    function PlayerSay(sender:Player, text:String, teamChat:Bool):String {return null;}
     #end
     
     /**
@@ -1417,7 +1417,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostCleanupMap():Void {}
+    function PostCleanupMap():Void {}
     
     
     /**
@@ -1429,7 +1429,7 @@ class Gm {
     **/
     
     @:hook
-    public function MouthMoveAnimation(ply:Player):Void {}
+    function MouthMoveAnimation(ply:Player):Void {}
     
     
     /**
@@ -1441,7 +1441,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerPostThink(ply:Player):Void {}
+    function PlayerPostThink(ply:Player):Void {}
     
     
     /**
@@ -1497,7 +1497,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerNoClip(ply:Player, desiredState:Bool):Bool {return null;}
+    function PlayerNoClip(ply:Player, desiredState:Bool):Bool {return null;}
     
     
     /**
@@ -1509,7 +1509,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerDriveAnimate(ply:Player):Void {}
+    function PlayerDriveAnimate(ply:Player):Void {}
     
     #if server
     /**
@@ -1547,7 +1547,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerLeaveVehicle(ply:Player, veh:Vehicle):Void {}
+    function PlayerLeaveVehicle(ply:Player, veh:Vehicle):Void {}
     #end
     
     /**
@@ -1557,7 +1557,7 @@ class Gm {
     **/
     
     @:hook
-    public function Restored():Void {}
+    function Restored():Void {}
     
     #if client
     /**
@@ -1576,7 +1576,7 @@ class Gm {
     **/
     
     @:hook
-    public function ShouldDrawLocalPlayer(ply:Player):Bool {return null;}
+    function ShouldDrawLocalPlayer(ply:Player):Bool {return null;}
     #end
     
     /**
@@ -1589,7 +1589,7 @@ class Gm {
     **/
     
     @:hook
-    public function EndEntityDriving(ent:Entity, ply:Player):Void {}
+    function EndEntityDriving(ent:Entity, ply:Player):Void {}
     
     #if server
     /**
@@ -1601,7 +1601,7 @@ class Gm {
     **/
     
     @:hook
-    public function ShowSpare2(ply:Player):Void {}
+    function ShowSpare2(ply:Player):Void {}
     #end
     #if server
     /**
@@ -1617,7 +1617,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSelectTeamSpawn(team:Float, ply:Player):Entity {return null;}
+    function PlayerSelectTeamSpawn(team:Float, ply:Player):Entity {return null;}
     #end
     #if server
     /**
@@ -1630,7 +1630,7 @@ class Gm {
     **/
     
     @:hook
-    public function NetworkIDValidated(name:String, steamID:String):Void {}
+    function NetworkIDValidated(name:String, steamID:String):Void {}
     #end
     
     /**
@@ -1682,7 +1682,7 @@ class Gm {
     **/
     
     @:hook
-    public function SetupMove(ply:Player, mv:CMoveData, cmd:CUserCmd):Void {}
+    function SetupMove(ply:Player, mv:CMoveData, cmd:CUserCmd):Void {}
     
     
     /**
@@ -1697,7 +1697,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerButtonDown(ply:Player, button:BUTTON_CODE):Void {}
+    function PlayerButtonDown(ply:Player, button:BUTTON_CODE):Void {}
     
     #if client
     /**
@@ -1732,7 +1732,7 @@ class Gm {
     **/
     
     @:hook
-    public function HUDShouldDraw(name:String):Bool {return null;}
+    function HUDShouldDraw(name:String):Bool {return null;}
     #end
     #if client
     /**
@@ -1740,7 +1740,7 @@ class Gm {
     **/
     
     @:hook
-    public function ScoreboardHide():Void {}
+    function ScoreboardHide():Void {}
     #end
     
     /**
@@ -1790,7 +1790,7 @@ class Gm {
     **/
     
     @:hook
-    public function DoAnimationEvent(ply:Player, event:PLAYERANIMEVENT, ?data:ACT):ACT {return null;}
+    function DoAnimationEvent(ply:Player, event:PLAYERANIMEVENT, ?data:ACT):ACT {return null;}
     
     
     /**
@@ -1798,7 +1798,7 @@ class Gm {
     **/
     
     @:hook
-    public function MenuStart():Void {}
+    function MenuStart():Void {}
     
     
     /**
@@ -1806,7 +1806,7 @@ class Gm {
     **/
     
     @:hook
-    public function StartGame():Void {}
+    function StartGame():Void {}
     
     #if client
     /**
@@ -1825,7 +1825,7 @@ class Gm {
     **/
     
     @:hook
-    public function RenderScene(origin:Vector, angles:Angle, fov:Float):Bool {return null;}
+    function RenderScene(origin:Vector, angles:Angle, fov:Float):Bool {return null;}
     #end
     
     /**
@@ -1840,7 +1840,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerButtonUp(ply:Player, button:BUTTON_CODE):Void {}
+    function PlayerButtonUp(ply:Player, button:BUTTON_CODE):Void {}
     
     
     /**
@@ -1855,7 +1855,7 @@ class Gm {
     **/
     
     @:hook
-    public function WorkshopDownloadFile(id:Float, imageID:Float, title:String, size:Float):Void {}
+    function WorkshopDownloadFile(id:Float, imageID:Float, title:String, size:Float):Void {}
     
     #if client
     /**
@@ -1938,7 +1938,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostPlayerDraw(ply:Player):Void {}
+    function PostPlayerDraw(ply:Player):Void {}
     #end
     #if client
     /**
@@ -1948,7 +1948,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostRenderVGUI():Void {}
+    function PostRenderVGUI():Void {}
     #end
     #if server
     /**
@@ -1980,7 +1980,7 @@ class Gm {
     **/
     
     @:hook
-    public function VariableEdited(ent:Entity, ply:Player, key:String, val:String, editor:AnyTable):Void {}
+    function VariableEdited(ent:Entity, ply:Player, key:String, val:String, editor:AnyTable):Void {}
     #end
     #if server
     /**
@@ -1998,7 +1998,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSwitchFlashlight(ply:Player, enabled:Bool):Bool {return null;}
+    function PlayerSwitchFlashlight(ply:Player, enabled:Bool):Bool {return null;}
     #end
     #if server
     /**
@@ -2012,7 +2012,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnNPCKilled(npc:NPC, attacker:Entity, inflictor:Entity):Void {}
+    function OnNPCKilled(npc:NPC, attacker:Entity, inflictor:Entity):Void {}
     #end
     #if client
     /**
@@ -2027,7 +2027,7 @@ class Gm {
     **/
     
     @:hook
-    public function GetTeamNumColor(team:Float):AnyTable {return null;}
+    function GetTeamNumColor(team:Float):AnyTable {return null;}
     #end
     #if client
     /**
@@ -2041,7 +2041,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnTextEntryGetFocus(panel:Panel):Void {}
+    function OnTextEntryGetFocus(panel:Panel):Void {}
     #end
     #if server
     /**
@@ -2067,7 +2067,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSpray(sprayer:Player):Bool {return null;}
+    function PlayerSpray(sprayer:Player):Bool {return null;}
     #end
     
     /**
@@ -2100,9 +2100,9 @@ class Gm {
     
 	@:hook
 	#if server
-    public function PlayerFootstep(ply:Player, pos:Vector, foot:Float, sound:String, volume:Float, filter:CRecipientFilter):Bool {return null;}
+    function PlayerFootstep(ply:Player, pos:Vector, foot:Float, sound:String, volume:Float, filter:CRecipientFilter):Bool {return null;}
 	#else
-	public function PlayerFootstep(ply:Player, pos:Vector, foot:Float, sound:String, volume:Float):Bool {return null;}
+	function PlayerFootstep(ply:Player, pos:Vector, foot:Float, sound:String, volume:Float):Bool {return null;}
 	#end
     /**
         Called when the player changes their weapon to another one - and their viewmodel model changes.
@@ -2117,7 +2117,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnViewModelChanged(viewmodel:Entity, oldModel:String, newModel:String):Void {}
+    function OnViewModelChanged(viewmodel:Entity, oldModel:String, newModel:String):Void {}
     
     
     /**
@@ -2142,7 +2142,7 @@ class Gm {
     **/
     
     @:hook
-    public function PropBreak(attacker:Player, prop:Entity):Void {}
+    function PropBreak(attacker:Player, prop:Entity):Void {}
     
     #if server
     /**
@@ -2172,7 +2172,7 @@ class Gm {
     **/
     
     @:hook
-    public function GetPreferredCarryAngles(ent:Entity):Angle {return null;}
+    function GetPreferredCarryAngles(ent:Entity):Angle {return null;}
     #end
     #if server
     /**
@@ -2189,7 +2189,7 @@ class Gm {
     **/
     
     @:hook
-    public function CanPlayerUnfreeze(player:Player, entity:Entity, phys:PhysObj):Bool {return null;}
+    function CanPlayerUnfreeze(player:Player, entity:Entity, phys:PhysObj):Bool {return null;}
     #end
     #if client
     /**
@@ -2218,7 +2218,7 @@ class Gm {
     **/
     
     @:hook
-    public function AddDeathNotice(attacker:String, attackerTeam:Float, inflictor:String, victim:String, victimTeam:Float):Void {}
+    function AddDeathNotice(attacker:String, attackerTeam:Float, inflictor:String, victim:String, victimTeam:Float):Void {}
     #end
     #if client
     /**
@@ -2228,7 +2228,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreDrawHalos():Void {}
+    function PreDrawHalos():Void {}
     #end
     
     /**
@@ -2236,7 +2236,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostGamemodeLoaded():Void {}
+    function PostGamemodeLoaded():Void {}
     
     #if client
     /**
@@ -2248,7 +2248,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnContextMenuClose():Void {}
+    function OnContextMenuClose():Void {}
     #end
     #if client
     /**
@@ -2267,7 +2267,7 @@ class Gm {
     **/
     
     @:hook
-    public function CreateMove(cmd:CUserCmd):Bool {return null;}
+    function CreateMove(cmd:CUserCmd):Bool {return null;}
     #end
     
     /**
@@ -2280,7 +2280,7 @@ class Gm {
     **/
     
     @:hook
-    public function PhysgunDrop(ply:Player, ent:Entity):Void {}
+    function PhysgunDrop(ply:Player, ent:Entity):Void {}
     
     #if server
     /**
@@ -2290,7 +2290,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerDeathSound():Bool {return null;}
+    function PlayerDeathSound():Bool {return null;}
     #end
     #if client
     /**
@@ -2303,7 +2303,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnAchievementAchieved(ply:Player, achievement:Float):Void {}
+    function OnAchievementAchieved(ply:Player, achievement:Float):Void {}
     #end
     
     /**
@@ -2319,7 +2319,7 @@ class Gm {
     **/
     
     @:hook
-    public function HandlePlayerSwimming(ply:Player, velocity:Float):Bool {return null;}
+    function HandlePlayerSwimming(ply:Player, velocity:Float):Bool {return null;}
     
     
     /**
@@ -2342,7 +2342,7 @@ class Gm {
     **/
     
     @:hook
-    public function CalcMainActivity(ply:Player, vel:Vector):Dynamic {return null;}
+    function CalcMainActivity(ply:Player, vel:Vector):Dynamic {return null;}
     
     #if client
     /**
@@ -2354,7 +2354,7 @@ class Gm {
     **/
     
     @:hook
-    public function HUDWeaponPickedUp(weapon:Weapon):Void {}
+    function HUDWeaponPickedUp(weapon:Weapon):Void {}
     #end
     #if client
     /**
@@ -2387,7 +2387,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostDraw2DSkyBox():Void {}
+    function PostDraw2DSkyBox():Void {}
     #end
     #if client
     /**
@@ -2401,7 +2401,7 @@ class Gm {
     **/
     
     @:hook
-    public function DrawOverlay():Void {}
+    function DrawOverlay():Void {}
     #end
     #if server
     /**
@@ -2432,7 +2432,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSetHandsModel(ply:Player, ent:Entity):Void {}
+    function PlayerSetHandsModel(ply:Player, ent:Entity):Void {}
     #end
     
     /**
@@ -2442,7 +2442,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnGamemodeLoaded():Void {}
+    function OnGamemodeLoaded():Void {}
     
     #if client
     /**
@@ -2452,7 +2452,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreDrawEffects():Void {}
+    function PreDrawEffects():Void {}
     #end
     #if server
     /**
@@ -2493,7 +2493,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSpawn(player:Player, transition:Bool):Void {}
+    function PlayerSpawn(player:Player, transition:Bool):Void {}
     #end
     #if client
     /**
@@ -2508,7 +2508,7 @@ class Gm {
     **/
     
     @:hook
-    public function SetupSkyboxFog(scale:Float):Bool {return null;}
+    function SetupSkyboxFog(scale:Float):Bool {return null;}
     #end
     
     /**
@@ -2526,7 +2526,7 @@ class Gm {
     **/
     
     @:hook
-    public function GravGunPunt(ply:Player, ent:Entity):Bool {return null;}
+    function GravGunPunt(ply:Player, ent:Entity):Bool {return null;}
     
     #if server
     /**
@@ -2562,7 +2562,7 @@ class Gm {
     **/
     
     @:hook
-    public function GetFallDamage(ply:Player, speed:Float):Float {return null;}
+    function GetFallDamage(ply:Player, speed:Float):Float {return null;}
     #end
     #if server
     /**
@@ -2589,7 +2589,7 @@ class Gm {
     **/
     
     @:hook
-    public function CanExitVehicle(veh:Vehicle, ply:Player):Bool {return null;}
+    function CanExitVehicle(veh:Vehicle, ply:Player):Bool {return null;}
     #end
     #if client
     /**
@@ -2627,7 +2627,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerBindPress(ply:Player, bind:String, pressed:Bool):Bool {return null;}
+    function PlayerBindPress(ply:Player, bind:String, pressed:Bool):Bool {return null;}
     #end
     #if client
     /**
@@ -2644,7 +2644,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostDrawOpaqueRenderables(bDrawingDepth:Bool, bDrawingSkybox:Bool):Void {}
+    function PostDrawOpaqueRenderables(bDrawingDepth:Bool, bDrawingSkybox:Bool):Void {}
     #end
     #if client
     /**
@@ -2663,7 +2663,7 @@ class Gm {
     **/
     
     @:hook
-    public function CalcVehicleView(veh:Vehicle, ply:Player, view:CamData):CamData {return null;}
+    function CalcVehicleView(veh:Vehicle, ply:Player, view:CamData):CamData {return null;}
     #end
     #if client
     /**
@@ -2694,7 +2694,7 @@ class Gm {
     **/
     
     @:hook
-    public function ChatText(index:Float, name:String, text:String, type:String):Bool {return null;}
+    function ChatText(index:Float, name:String, text:String, type:String):Bool {return null;}
     #end
     #if server
     /**
@@ -2728,7 +2728,7 @@ class Gm {
     **/
     
     @:hook
-    public function AcceptInput(ent:Entity, input:String, activator:Entity, caller:Entity, value:Dynamic):Bool {return null;}
+    function AcceptInput(ent:Entity, input:String, activator:Entity, caller:Entity, value:Dynamic):Bool {return null;}
     #end
     #if server
     /**
@@ -2743,7 +2743,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnPhysgunPickup(ply:Player, ent:Entity):Void {}
+    function OnPhysgunPickup(ply:Player, ent:Entity):Void {}
     #end
     #if client
     /**
@@ -2758,7 +2758,7 @@ class Gm {
     **/
     
     @:hook
-    public function AdjustMouseSensitivity(defaultSensitivity:Float):Float {return null;}
+    function AdjustMouseSensitivity(defaultSensitivity:Float):Float {return null;}
     #end
     #if client
     /**
@@ -2839,7 +2839,7 @@ class Gm {
     **/
     
     @:hook
-    public function SpawniconGenerated(lastmodel:String, imagename:String, modelsleft:Float):Void {}
+    function SpawniconGenerated(lastmodel:String, imagename:String, modelsleft:Float):Void {}
     #end
     #if client
     /**
@@ -2857,7 +2857,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreDrawPlayerHands(hands:Entity, vm:Entity, ply:Player, weapon:Weapon):Bool {return null;}
+    function PreDrawPlayerHands(hands:Entity, vm:Entity, ply:Player, weapon:Weapon):Bool {return null;}
     #end
     
     /**
@@ -2890,7 +2890,7 @@ class Gm {
     **/
     
     @:hook
-    public function PhysgunPickup(player:Player, entity:Entity):Bool {return null;}
+    function PhysgunPickup(player:Player, entity:Entity):Bool {return null;}
     
     #if server
     /**
@@ -2902,7 +2902,7 @@ class Gm {
     **/
     
     @:hook
-    public function ShowHelp(ply:Player):Void {}
+    function ShowHelp(ply:Player):Void {}
     #end
     #if client
     /**
@@ -2910,7 +2910,7 @@ class Gm {
     **/
     
     @:hook
-    public function CloseDermaMenus():Void {}
+    function CloseDermaMenus():Void {}
     #end
     
     /**
@@ -2949,7 +2949,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnPlayerHitGround(player:Entity, inWater:Bool, onFloater:Bool, speed:Float):Bool {return null;}
+    function OnPlayerHitGround(player:Entity, inWater:Bool, onFloater:Bool, speed:Float):Bool {return null;}
     
     #if server
     /**
@@ -2962,7 +2962,7 @@ class Gm {
     **/
     
     @:hook
-    public function GravGunOnPickedUp(ply:Player, ent:Entity):Void {}
+    function GravGunOnPickedUp(ply:Player, ent:Entity):Void {}
     #end
     
     /**
@@ -3052,7 +3052,7 @@ class Gm {
     **/
     
     @:hook
-    public function Move(ply:Player, mv:CMoveData):Bool {return null;}
+    function Move(ply:Player, mv:CMoveData):Bool {return null;}
     
     #if client
     /**
@@ -3065,7 +3065,7 @@ class Gm {
     **/
     
     @:hook
-    public function GUIMouseReleased(mouseCode:MOUSE, aimVector:Vector):Void {}
+    function GUIMouseReleased(mouseCode:MOUSE, aimVector:Vector):Void {}
     #end
     #if client
     /**
@@ -3077,7 +3077,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerStartVoice(ply:Player):Void {}
+    function PlayerStartVoice(ply:Player):Void {}
     #end
     
     /**
@@ -3094,7 +3094,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerTick(player:Player, mv:CMoveData):Void {}
+    function PlayerTick(player:Player, mv:CMoveData):Void {}
     
     
     /**
@@ -3120,7 +3120,7 @@ class Gm {
     **/
     
     @:hook
-    public function Initialize():Void {}
+    function Initialize():Void {}
     
     
     /**
@@ -3195,7 +3195,7 @@ class Gm {
     **/
     
     @:hook
-    public function StartCommand(ply:Player, ucmd:CUserCmd):Void {}
+    function StartCommand(ply:Player, ucmd:CUserCmd):Void {}
     
     #if server
     /**
@@ -3211,7 +3211,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerCanJoinTeam(ply:Player, team:Float):Bool {return null;}
+    function PlayerCanJoinTeam(ply:Player, team:Float):Bool {return null;}
     #end
     #if client
     /**
@@ -3223,7 +3223,7 @@ class Gm {
     **/
     
     @:hook
-    public function NetworkEntityCreated(ent:Entity):Void {}
+    function NetworkEntityCreated(ent:Entity):Void {}
     #end
     
     /**
@@ -3233,7 +3233,7 @@ class Gm {
     **/
     
     @:hook
-    public function CaptureVideo():Void {}
+    function CaptureVideo():Void {}
     
     
     /**
@@ -3264,7 +3264,7 @@ class Gm {
     **/
     
     @:hook
-    public function KeyRelease(ply:Player, key:IN):Void {}
+    function KeyRelease(ply:Player, key:IN):Void {}
     
     #if server
     /**
@@ -3278,7 +3278,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerFrozeObject(ply:Player, ent:Entity, physobj:PhysObj):Void {}
+    function PlayerFrozeObject(ply:Player, ent:Entity, physobj:PhysObj):Void {}
     #end
     #if client
     /**
@@ -3322,7 +3322,7 @@ class Gm {
     **/
     
     @:hook
-    public function PopulateMenuBar(menubar:Panel):Void {}
+    function PopulateMenuBar(menubar:Panel):Void {}
     #end
     #if client
     /**
@@ -3330,7 +3330,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnSpawnMenuOpen():Void {}
+    function OnSpawnMenuOpen():Void {}
     #end
     #if client
     /**
@@ -3354,7 +3354,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreDrawTranslucentRenderables(isDrawingDepth:Bool, isDrawSkybox:Bool):Bool {return null;}
+    function PreDrawTranslucentRenderables(isDrawingDepth:Bool, isDrawSkybox:Bool):Bool {return null;}
     #end
     #if server
     /**
@@ -3398,7 +3398,7 @@ class Gm {
     **/
     
     @:hook
-    public function CheckPassword(steamID64:String, ipAddress:String, svPassword:String, clPassword:String, name:String):Dynamic {return null;}
+    function CheckPassword(steamID64:String, ipAddress:String, svPassword:String, clPassword:String, name:String):Dynamic {return null;}
     #end
     #if client
     /**
@@ -3406,7 +3406,7 @@ class Gm {
     **/
     
     @:hook
-    public function ScoreboardShow():Void {}
+    function ScoreboardShow():Void {}
     #end
     #if client
     /**
@@ -3431,7 +3431,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreDrawHUD():Void {}
+    function PreDrawHUD():Void {}
     #end
     #if client
     /**
@@ -3443,7 +3443,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnTextEntryLoseFocus(panel:Panel):Void {}
+    function OnTextEntryLoseFocus(panel:Panel):Void {}
     #end
     #if server
     /**
@@ -3455,7 +3455,7 @@ class Gm {
     **/
     
     @:hook
-    public function ShowSpare1(ply:Player):Void {}
+    function ShowSpare1(ply:Player):Void {}
     #end
     #if client
     /**
@@ -3478,7 +3478,7 @@ class Gm {
     **/
     
     @:hook
-    public function CalcViewModelView(wep:Weapon, vm:Entity, oldPos:Vector, oldAng:Angle, pos:Vector, ang:Angle):Dynamic {return null;}
+    function CalcViewModelView(wep:Weapon, vm:Entity, oldPos:Vector, oldAng:Angle, pos:Vector, ang:Angle):Dynamic {return null;}
     #end
     
     /**
@@ -3494,7 +3494,7 @@ class Gm {
     **/
     
     @:hook
-    public function WorkshopDownloadProgress(id:Float, imageID:Float, title:String, downloaded:Float, expected:Float):Void {}
+    function WorkshopDownloadProgress(id:Float, imageID:Float, title:String, downloaded:Float, expected:Float):Void {}
     
     #if client
     /**
@@ -3533,7 +3533,7 @@ class Gm {
     **/
     
     @:hook
-    public function CalcView(ply:Player, origin:Vector, angles:Angle, fov:Float, znear:Float, zfar:Float):CamData {return null;}
+    function CalcView(ply:Player, origin:Vector, angles:Angle, fov:Float, znear:Float, zfar:Float):CamData {return null;}
     #end
     #if server
     /**
@@ -3547,7 +3547,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerUnfrozeObject(ply:Player, ent:Entity, physobj:PhysObj):Void {}
+    function PlayerUnfrozeObject(ply:Player, ent:Entity, physobj:PhysObj):Void {}
     #end
     
     /**
@@ -3563,7 +3563,7 @@ class Gm {
     **/
     
     @:hook
-    public function TranslateActivity(ply:Player, act:ACT):Float {return null;}
+    function TranslateActivity(ply:Player, act:ACT):Float {return null;}
     
     #if server
     /**
@@ -3579,7 +3579,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerShouldTaunt(ply:Player, act:ACT):Bool {return null;}
+    function PlayerShouldTaunt(ply:Player, act:ACT):Bool {return null;}
     #end
     #if client
     /**
@@ -3594,7 +3594,7 @@ class Gm {
     **/
     
     @:hook
-    public function PrePlayerDraw(player:Player):Bool {return null;}
+    function PrePlayerDraw(player:Player):Bool {return null;}
     #end
     #if client
     /**
@@ -3609,7 +3609,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostDrawPlayerHands(hands:Entity, vm:Entity, ply:Player, weapon:Weapon):Void {}
+    function PostDrawPlayerHands(hands:Entity, vm:Entity, ply:Player, weapon:Weapon):Void {}
     #end
     #if client
     /**
@@ -3624,7 +3624,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostProcessPermitted(ppeffect:String):Bool {return null;}
+    function PostProcessPermitted(ppeffect:String):Bool {return null;}
     #end
     
     /**
@@ -3642,7 +3642,7 @@ class Gm {
     **/
     
     @:hook
-    public function VehicleMove(ply:Player, veh:Vehicle, mv:CMoveData):Void {}
+    function VehicleMove(ply:Player, veh:Vehicle, mv:CMoveData):Void {}
     
     #if server
     /**
@@ -3662,7 +3662,7 @@ class Gm {
     **/
     
     @:hook
-    public function GravGunPickupAllowed(ply:Player, ent:Entity):Bool {return null;}
+    function GravGunPickupAllowed(ply:Player, ent:Entity):Bool {return null;}
     #end
     
     /**
@@ -3670,7 +3670,7 @@ class Gm {
     **/
     
     @:hook
-    public function ShutDown():Void {}
+    function ShutDown():Void {}
     
     #if server
     /**
@@ -3702,7 +3702,7 @@ class Gm {
     **/
     
     @:hook
-    public function CanEditVariable(ent:Entity, ply:Player, key:String, val:String, editor:AnyTable):Bool {return null;}
+    function CanEditVariable(ent:Entity, ply:Player, key:String, val:String, editor:AnyTable):Bool {return null;}
     #end
     
     /**
@@ -3734,7 +3734,7 @@ class Gm {
     **/
     
     @:hook
-    public function EntityNetworkedVarChanged(ent:Entity, name:String, oldval:Dynamic, newval:Dynamic):Void {}
+    function EntityNetworkedVarChanged(ent:Entity, name:String, oldval:Dynamic, newval:Dynamic):Void {}
     
     
     /**
@@ -3752,7 +3752,7 @@ class Gm {
     **/
     
     @:hook
-    public function EntityFireBullets(ent:Entity, data:Bullet):Bool {return null;}
+    function EntityFireBullets(ent:Entity, data:Bullet):Bool {return null;}
     
     
     /**
@@ -3768,7 +3768,7 @@ class Gm {
     **/
     
     @:hook
-    public function HandlePlayerJumping(ply:Player, velocity:Float):Bool {return null;}
+    function HandlePlayerJumping(ply:Player, velocity:Float):Bool {return null;}
     
     #if client
     /**
@@ -3780,7 +3780,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerEndVoice(ply:Player):Void {}
+    function PlayerEndVoice(ply:Player):Void {}
     #end
     
     /**
@@ -3792,7 +3792,7 @@ class Gm {
     **/
     
     @:hook
-    public function Think():Void {}
+    function Think():Void {}
     
     #if server
     /**
@@ -3810,7 +3810,7 @@ class Gm {
     **/
     
     @:hook
-    public function DoPlayerDeath(ply:Player, attacker:Entity, dmg:CTakeDamageInfo):Void {}
+    function DoPlayerDeath(ply:Player, attacker:Entity, dmg:CTakeDamageInfo):Void {}
     #end
     #if server
     /**
@@ -3864,7 +3864,7 @@ class Gm {
     **/
     
     @:hook
-    public function EntityTakeDamage(target:Entity, dmg:CTakeDamageInfo):Bool {return null;}
+    function EntityTakeDamage(target:Entity, dmg:CTakeDamageInfo):Bool {return null;}
     #end
     #if client
     /**
@@ -3872,7 +3872,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnSpawnMenuClose():Void {}
+    function OnSpawnMenuClose():Void {}
     #end
     #if client
     /**
@@ -3885,7 +3885,7 @@ class Gm {
     **/
     
     @:hook
-    public function HUDAmmoPickedUp(itemName:String, amount:Float):Void {}
+    function HUDAmmoPickedUp(itemName:String, amount:Float):Void {}
     #end
     #if server
     /**
@@ -3913,7 +3913,7 @@ class Gm {
     **/
     
     @:hook
-    public function ScaleNPCDamage(npc:NPC, hitgroup:HITGROUP, dmginfo:CTakeDamageInfo):Void {}
+    function ScaleNPCDamage(npc:NPC, hitgroup:HITGROUP, dmginfo:CTakeDamageInfo):Void {}
     #end
     #if server
     /**
@@ -3944,7 +3944,7 @@ class Gm {
     **/
     
     @:hook
-    public function WeaponEquip(weapon:Weapon, owner:Player):Void {}
+    function WeaponEquip(weapon:Weapon, owner:Player):Void {}
     #end
     
     /**
@@ -3952,7 +3952,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreGamemodeLoaded():Void {}
+    function PreGamemodeLoaded():Void {}
     
     #if client
     /**
@@ -3985,7 +3985,7 @@ class Gm {
     **/
     
     @:hook
-    public function RenderScreenspaceEffects():Void {}
+    function RenderScreenspaceEffects():Void {}
     #end
     
     /**
@@ -3995,7 +3995,7 @@ class Gm {
     **/
     
     @:hook
-    public function WorkshopStart():Void {}
+    function WorkshopStart():Void {}
     
     #if server
     /**
@@ -4024,7 +4024,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerHurt(victim:Player, attacker:Entity, healthRemaining:Float, damageTaken:Float):Void {}
+    function PlayerHurt(victim:Player, attacker:Entity, healthRemaining:Float, damageTaken:Float):Void {}
     #end
     
     /**
@@ -4037,7 +4037,7 @@ class Gm {
     **/
     
     @:hook
-    public function WorkshopDownloadTotals(remain:Float, total:Float):Void {}
+    function WorkshopDownloadTotals(remain:Float, total:Float):Void {}
     
     #if server
     /**
@@ -4053,7 +4053,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerShouldTakeDamage(ply:Player, attacker:Entity):Bool {return null;}
+    function PlayerShouldTakeDamage(ply:Player, attacker:Entity):Bool {return null;}
     #end
     #if client
     /**
@@ -4066,7 +4066,7 @@ class Gm {
     **/
     
     @:hook
-    public function DrawDeathNotice(x:Float, y:Float):Void {}
+    function DrawDeathNotice(x:Float, y:Float):Void {}
     #end
     
     /**
@@ -4074,7 +4074,7 @@ class Gm {
     **/
     
     @:hook
-    public function Tick():Void {}
+    function Tick():Void {}
     
     
     /**
@@ -4088,7 +4088,7 @@ class Gm {
     **/
     
     @:hook
-    public function UpdateAnimation(ply:Player, velocity:Vector, maxSeqGroundSpeed:Float):Void {}
+    function UpdateAnimation(ply:Player, velocity:Vector, maxSeqGroundSpeed:Float):Void {}
     
     #if client
     /**
@@ -4101,7 +4101,7 @@ class Gm {
     **/
     
     @:hook
-    public function VGUIMousePressed(pnl:Panel, mouseCode:MOUSE):Void {}
+    function VGUIMousePressed(pnl:Panel, mouseCode:MOUSE):Void {}
     #end
     
     /**
@@ -4149,7 +4149,7 @@ class Gm {
     **/
     
     @:hook
-    public function EntityEmitSound(data:EmitSoundInfo):Bool {return null;}
+    function EntityEmitSound(data:EmitSoundInfo):Bool {return null;}
     
     
     /**
@@ -4157,7 +4157,7 @@ class Gm {
     **/
     
     @:hook
-    public function GameContentChanged():Void {}
+    function GameContentChanged():Void {}
     
     #if server
     /**
@@ -4176,7 +4176,7 @@ class Gm {
     **/
     
     @:hook
-    public function CanPlayerEnterVehicle(player:Player, vehicle:Vehicle, role:Float):Bool {return null;}
+    function CanPlayerEnterVehicle(player:Player, vehicle:Vehicle, role:Float):Bool {return null;}
     #end
     #if server
     /**
@@ -4202,7 +4202,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSpawnAsSpectator(ply:Player):Void {}
+    function PlayerSpawnAsSpectator(ply:Player):Void {}
     #end
     #if client
     /**
@@ -4264,7 +4264,7 @@ class Gm {
     **/
     
     @:hook
-    public function DrawPhysgunBeam(ply:Player, physgun:Weapon, enabled:Bool, target:Entity, physBone:Float, hitPos:Vector):Bool {return null;}
+    function DrawPhysgunBeam(ply:Player, physgun:Weapon, enabled:Bool, target:Entity, physBone:Float, hitPos:Vector):Bool {return null;}
     #end
     #if client
     /**
@@ -4274,7 +4274,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnContextMenuOpen():Void {}
+    function OnContextMenuOpen():Void {}
     #end
     #if server
     /**
@@ -4287,7 +4287,7 @@ class Gm {
     **/
     
     @:hook
-    public function SetupPlayerVisibility(ply:Player, viewEntity:Entity):Void {}
+    function SetupPlayerVisibility(ply:Player, viewEntity:Entity):Void {}
     #end
     #if server
     /**
@@ -4301,7 +4301,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerStartTaunt(ply:Player, act:Float, length:Float):Void {}
+    function PlayerStartTaunt(ply:Player, act:Float, length:Float):Void {}
     #end
     #if client
     /**
@@ -4318,7 +4318,7 @@ class Gm {
     **/
     
     @:hook
-    public function NotifyShouldTransmit(ent:Entity, shouldtransmit:Bool):Void {}
+    function NotifyShouldTransmit(ent:Entity, shouldtransmit:Bool):Void {}
     #end
     
     /**
@@ -4336,7 +4336,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerTraceAttack(ply:Player, dmginfo:CTakeDamageInfo, dir:Vector, trace:TraceResult):Bool {return null;}
+    function PlayerTraceAttack(ply:Player, dmginfo:CTakeDamageInfo, dir:Vector, trace:TraceResult):Bool {return null;}
     
     #if client
     /**
@@ -4359,7 +4359,7 @@ class Gm {
     **/
     
     @:hook
-    public function ForceDermaSkin():String {return null;}
+    function ForceDermaSkin():String {return null;}
     #end
     
     /**
@@ -4369,7 +4369,7 @@ class Gm {
     **/
     
     @:hook
-    public function GetGameDescription():String {return null;}
+    function GetGameDescription():String {return null;}
     
     #if client
     /**
@@ -4393,7 +4393,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreRender():Bool {return null;}
+    function PreRender():Bool {return null;}
     #end
     #if server
     /**
@@ -4425,7 +4425,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSelectSpawn(ply:Player, transition:Bool):Entity {return null;}
+    function PlayerSelectSpawn(ply:Player, transition:Bool):Entity {return null;}
     #end
     #if client
     /**
@@ -4457,7 +4457,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnUndo(name:String, customText:String):Void {}
+    function OnUndo(name:String, customText:String):Void {}
     #end
     #if client
     /**
@@ -4472,7 +4472,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnChatTab(text:String):String {return null;}
+    function OnChatTab(text:String):String {return null;}
     #end
     #if client
     /**
@@ -4512,7 +4512,7 @@ class Gm {
     **/
     
     @:hook
-    public function GetMotionBlurValues(horizontal:Float, vertical:Float, forward:Float, rotational:Float):Dynamic {return null;}
+    function GetMotionBlurValues(horizontal:Float, vertical:Float, forward:Float, rotational:Float):Dynamic {return null;}
     #end
     
     /**
@@ -4540,7 +4540,7 @@ class Gm {
     **/
     
     @:hook
-    public function InitPostEntity():Void {}
+    function InitPostEntity():Void {}
     
     
     /**
@@ -4552,7 +4552,7 @@ class Gm {
     **/
     
     @:hook
-    public function GrabEarAnimation(ply:Player):Void {}
+    function GrabEarAnimation(ply:Player):Void {}
     
     #if client
     /**
@@ -4567,7 +4567,7 @@ class Gm {
     **/
     @:deprecated("INTERNAL")
     @:hook
-    public function PlayerClassChanged(ply:Player, newID:Float):Void {}
+    function PlayerClassChanged(ply:Player, newID:Float):Void {}
     #end
     #if server
     /**
@@ -4593,7 +4593,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSetModel(ply:Player):Void {}
+    function PlayerSetModel(ply:Player):Void {}
     #end
     #if client
     /**
@@ -4611,7 +4611,7 @@ class Gm {
     **/
     
     @:hook
-    public function HUDDrawTargetID():Void {}
+    function HUDDrawTargetID():Void {}
     #end
     #if server
     /**
@@ -4628,7 +4628,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerDroppedWeapon(owner:Player, wep:Weapon):Void {}
+    function PlayerDroppedWeapon(owner:Player, wep:Weapon):Void {}
     #end
     
     /**
@@ -4641,7 +4641,7 @@ class Gm {
     **/
     
     @:hook
-    public function WorkshopDownloadedFile(id:Float, title:String):Void {}
+    function WorkshopDownloadedFile(id:Float, title:String):Void {}
     
     #if server
     /**
@@ -4658,7 +4658,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerRequestTeam(ply:Player, team:Float):Void {}
+    function PlayerRequestTeam(ply:Player, team:Float):Void {}
     #end
     #if server
     /**
@@ -4704,7 +4704,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerUse(ply:Player, ent:Entity):Bool {return null;}
+    function PlayerUse(ply:Player, ent:Entity):Bool {return null;}
     #end
     #if client
     /**
@@ -4723,7 +4723,7 @@ class Gm {
     **/
     
     @:hook
-    public function FinishChat():Void {}
+    function FinishChat():Void {}
     #end
     #if client
     /**
@@ -4749,7 +4749,7 @@ class Gm {
     **/
     
     @:hook
-    public function HUDPaint():Void {}
+    function HUDPaint():Void {}
     #end
     
     /**
@@ -4765,7 +4765,7 @@ class Gm {
     **/
     
     @:hook
-    public function HandlePlayerNoClipping(ply:Player, velocity:Float):Bool {return null;}
+    function HandlePlayerNoClipping(ply:Player, velocity:Float):Bool {return null;}
     
     #if client
     /**
@@ -4775,7 +4775,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostDrawHUD():Void {}
+    function PostDrawHUD():Void {}
     #end
     #if client
     /**
@@ -4787,7 +4787,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreDrawSkyBox():Bool {return null;}
+    function PreDrawSkyBox():Bool {return null;}
     #end
     
     /**
@@ -4803,7 +4803,7 @@ class Gm {
     **/
     
     @:hook
-    public function HandlePlayerDucking(ply:Player, velocity:Float):Bool {return null;}
+    function HandlePlayerDucking(ply:Player, velocity:Float):Bool {return null;}
     
     #if client
     /**
@@ -4813,7 +4813,7 @@ class Gm {
     **/
     
     @:hook
-    public function HUDDrawScoreBoard():Void {}
+    function HUDDrawScoreBoard():Void {}
     #end
     
     /**
@@ -4825,7 +4825,7 @@ class Gm {
     **/
     
     @:hook
-    public function EntityRemoved(ent:Entity):Void {}
+    function EntityRemoved(ent:Entity):Void {}
     
     #if client
     /**
@@ -4840,7 +4840,7 @@ class Gm {
     **/
     
     @:hook
-    public function GetTeamColor(ent:Entity):AnyTable {return null;}
+    function GetTeamColor(ent:Entity):AnyTable {return null;}
     #end
     
     /**
@@ -4850,7 +4850,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnReloaded():Void {}
+    function OnReloaded():Void {}
     
     #if client
     /**
@@ -4858,7 +4858,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostRender():Void {}
+    function PostRender():Void {}
     #end
     #if client
     /**
@@ -4903,7 +4903,7 @@ class Gm {
     **/
     
     @:hook
-    public function PostDrawTranslucentRenderables(bDrawingDepth:Bool, bDrawingSkybox:Bool):Void {}
+    function PostDrawTranslucentRenderables(bDrawingDepth:Bool, bDrawingSkybox:Bool):Void {}
     #end
     
     /**
@@ -4918,7 +4918,7 @@ class Gm {
     **/
     @:deprecated("INTERNAL")
     @:hook
-    public function WorkshopSubscriptionsProgress(num:Float, max:Float):Void {}
+    function WorkshopSubscriptionsProgress(num:Float, max:Float):Void {}
     
     
     /**
@@ -4967,7 +4967,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnEntityCreated(entity:Entity):Void {}
+    function OnEntityCreated(entity:Entity):Void {}
     
     
     /**
@@ -4984,7 +4984,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerStepSoundTime(ply:Player, type:STEPSOUNDTIME, walking:Bool):Float {return null;}
+    function PlayerStepSoundTime(ply:Player, type:STEPSOUNDTIME, walking:Bool):Float {return null;}
     
     #if client
     /**
@@ -5006,7 +5006,7 @@ class Gm {
     **/
     
     @:hook
-    public function PreventScreenClicks():Bool {return null;}
+    function PreventScreenClicks():Bool {return null;}
     #end
     
     /**
@@ -5040,7 +5040,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerSwitchWeapon(player:Player, oldWeapon:Weapon, newWeapon:Weapon):Bool {return null;}
+    function PlayerSwitchWeapon(player:Player, oldWeapon:Weapon, newWeapon:Weapon):Bool {return null;}
     
     #if client
     /**
@@ -5048,7 +5048,7 @@ class Gm {
     **/
     
     @:hook
-    public function DrawMonitors():Void {}
+    function DrawMonitors():Void {}
     #end
     #if client
     /**
@@ -5056,7 +5056,7 @@ class Gm {
     **/
     
     @:hook
-    public function HUDDrawPickupHistory():Void {}
+    function HUDDrawPickupHistory():Void {}
     #end
     #if server
     /**
@@ -5085,7 +5085,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerDisconnected(ply:Player):Void {}
+    function PlayerDisconnected(ply:Player):Void {}
     #end
     #if server
     /**
@@ -5101,7 +5101,7 @@ class Gm {
     **/
     
     @:hook
-    public function OnPhysgunReload(physgun:Weapon, ply:Player):Bool {return null;}
+    function OnPhysgunReload(physgun:Weapon, ply:Player):Bool {return null;}
     #end
     #if server
     /**
@@ -5129,7 +5129,7 @@ class Gm {
     **/
     
     @:hook
-    public function PlayerAuthed(ply:Player, steamid:String, uniqueid:String):Void {}
+    function PlayerAuthed(ply:Player, steamid:String, uniqueid:String):Void {}
     #end
     
     /**
@@ -5147,7 +5147,7 @@ class Gm {
     **/
     
     @:hook
-    public function FindUseEntity(ply:Player, defaultEnt:Entity):Entity {return null;}
+    function FindUseEntity(ply:Player, defaultEnt:Entity):Entity {return null;}
     
     
 }
