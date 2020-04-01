@@ -47,11 +47,13 @@ Build in both contexts at once using `full_compile.hxml`.
 If you want to change between building for an addon/gamemode, or if you want to change the addons name, change the following lines in `client.hxml` and `server.hxml`
 
 `-D addonname=myaddon`
+
 `-D gamemode=myaddon`
 
 Remove gamemode to develop for just an addon only. Haven't tested this much
 
 If you want to automatically copy files on a successful build, head into `client.hxml` and uncomment this line
+
 `#-D gmodAddonFolder=C:/steam/garrysmod/addons`
 
 ## Examples
