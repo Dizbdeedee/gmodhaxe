@@ -4698,10 +4698,5 @@ enum abstract GMHook<T:Function>(Hook<T>) to String to Hook<T> {
     **/
     var FindUseEntity:GMHook<(ply:Player, defaultEnt:Entity) -> Entity>; 
 
-    public inline function new(name:String) {
-        this = name;
-	}
-	
-	
 }
 
