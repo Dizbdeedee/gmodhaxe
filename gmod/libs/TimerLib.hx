@@ -14,7 +14,7 @@ package gmod.libs;
 		`identifier` | Identifier of the timer to remove.
     **/
     
-    public static function Remove(identifier:String):Void;
+    static function Remove(identifier:String):Void;
     
     
     /**
@@ -30,7 +30,7 @@ package gmod.libs;
 		`**Returns:** The amount of time left (in seconds).
     **/
     
-    public static function TimeLeft(identifier:Dynamic):Float;
+    static function TimeLeft(identifier:Dynamic):Float;
     
     
     /**
@@ -44,7 +44,7 @@ package gmod.libs;
 		`**Returns:** false if the timer didn't exist or was already running, true otherwise.
     **/
     
-    public static function UnPause(identifier:Dynamic):Bool;
+    static function UnPause(identifier:Dynamic):Bool;
     
     
     /**
@@ -91,7 +91,7 @@ package gmod.libs;
 		--11 seconds into game 1st zombie disappears --12 seconds into game 2nd zombie disappears etc.
     **/
     
-    public static function Simple(delay:Float, func:Function):Void;
+    static function Simple(delay:Float, func:Function):Void;
     
     
     /**
@@ -104,7 +104,7 @@ package gmod.libs;
 		`identifier` | Identifier of the timer to destroy.
     **/
     @:deprecated("You should be using timer. Remove instead.")
-    public static function Destroy(identifier:String):Void;
+    static function Destroy(identifier:String):Void;
     
     
     /**
@@ -176,7 +176,7 @@ package gmod.libs;
 		Timer Iteration #1 had a delay of 0.014999389648438 Timer Iteration #2 had a delay of 0.014999389648438 Timer Iteration #3 had a delay of 0.014999389648438 Timer Iteration #4 had a delay of 0.0150146484375 Timer Iteration #5 had a delay of 0.014999389648438 Timer Iteration #6 had a delay of 0.014999389648438 Timer Iteration #7 had a delay of 0.014999389648438 Timer Iteration #8 had a delay of 0.014999389648438 Timer Iteration #9 had a delay of 0.014999389648438
     **/
     
-    public static function Create(identifier:String, delay:Float, repetitions:Float, func:Function):Void;
+    static function Create(identifier:String, delay:Float, repetitions:Float, func:Function):Void;
     
     
     /**
@@ -190,7 +190,7 @@ package gmod.libs;
 		`**Returns:** false if the timer didn't exist or was already paused, true otherwise.
     **/
     
-    public static function Pause(identifier:Dynamic):Bool;
+    static function Pause(identifier:Dynamic):Bool;
     
     
     /**
@@ -208,7 +208,7 @@ package gmod.libs;
 		`**Returns:** true if the timer exists, false if it doesn't.
     **/
     
-    public static function Start(identifier:Dynamic):Bool;
+    static function Start(identifier:Dynamic):Bool;
     
     
     /**
@@ -222,7 +222,7 @@ package gmod.libs;
 		`**Returns:** The amount of executions left.
     **/
     
-    public static function RepsLeft(identifier:Dynamic):Float;
+    static function RepsLeft(identifier:Dynamic):Float;
     
     
     /**
@@ -231,7 +231,7 @@ package gmod.libs;
 		This function does nothing.
     **/
     @:deprecated("")
-    public static function Check():Void;
+    static function Check():Void;
     
     
     /**
@@ -268,7 +268,7 @@ package gmod.libs;
 		The timer does not exist! I'm a Timer I'm a Timer I'm a Timer I'm a Timer
     **/
     
-    public static function Exists(identifier:String):Bool;
+    static function Exists(identifier:String):Bool;
     
     
     /**
@@ -285,7 +285,7 @@ package gmod.libs;
 		`**Returns:** true if succeeded
     **/
     
-    public static function Adjust(identifier:Dynamic, delay:Float, repetitions:Float, func:Function):Bool;
+    static function Adjust(identifier:Dynamic, delay:Float, repetitions:Float, func:Function):Bool;
     
     
     /**
@@ -299,7 +299,7 @@ package gmod.libs;
 		`**Returns:** status of the timer.
     **/
     
-    public static function Toggle(identifier:Dynamic):Bool;
+    static function Toggle(identifier:Dynamic):Bool;
     
     
     /**
@@ -313,7 +313,7 @@ package gmod.libs;
 		`**Returns:** false if the timer didn't exist or was already stopped, true otherwise.
     **/
     
-    public static function Stop(identifier:Dynamic):Bool;
+    static function Stop(identifier:Dynamic):Bool;
     
     
 

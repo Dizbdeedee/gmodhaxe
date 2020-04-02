@@ -16,7 +16,7 @@ package gmod.libs;
 		`path` | Path of the file to be added, relative to garrysmod/
     **/
     
-    public static function AddSingleFile(path:String):Void;
+    static function AddSingleFile(path:String):Void;
     
     
     /**
@@ -48,7 +48,7 @@ package gmod.libs;
 		Players joining the server will now be forced to download the Achievement Viewer addon.
     **/
     
-    public static function AddWorkshop(workshopid:String):Void;
+    static function AddWorkshop(workshopid:String):Void;
     
     
     /**
@@ -77,7 +77,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddFile(path:String):Void;
+    static function AddFile(path:String):Void;
     
     
 

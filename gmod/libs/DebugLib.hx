@@ -21,7 +21,7 @@ package gmod.libs;
 		`c` | Hook count
     **/
     
-    public static function gethook(?thread:Thread):DebugLibGethookReturn;
+    static function gethook(?thread:Thread):DebugLibGethookReturn;
     
     
     /**
@@ -35,7 +35,7 @@ package gmod.libs;
 		`**Returns:** Environment
     **/
     
-    public static function getfenv(object:AnyTable):AnyTable;
+    static function getfenv(object:AnyTable):AnyTable;
     
     
     /**
@@ -51,7 +51,7 @@ package gmod.libs;
 		`count` | How often to call the hook (in instructions). 0 for every instruction
     **/
     
-    public static function sethook(thread:Thread, hook:Function, mask:String, count:Float):Void;
+    static function sethook(thread:Thread, hook:Function, mask:String, count:Float):Void;
     
     
     /**
@@ -65,7 +65,7 @@ package gmod.libs;
 		`**Returns:** The metatable of the given object.
     **/
     
-    public static function getmetatable(object:Dynamic):AnyTable;
+    static function getmetatable(object:Dynamic):AnyTable;
     
     
     /**
@@ -125,7 +125,7 @@ package gmod.libs;
 		2	=	Chemo-chi
     **/
     
-    public static function setlocal(?thread:Thread, level:Float, index:Float, ?value:Dynamic):String;
+    static function setlocal(?thread:Thread, level:Float, index:Float, ?value:Dynamic):String;
     
     
     /**
@@ -152,7 +152,7 @@ package gmod.libs;
 		userdata
     **/
     
-    public static function upvalueid(func:Function, index:Float):Float;
+    static function upvalueid(func:Function, index:Float):Float;
     
     
     /**
@@ -167,7 +167,7 @@ package gmod.libs;
 		`**Returns:** true if the object's metatable was set successfully.
     **/
     
-    public static function setmetatable(object:Dynamic, metatable:AnyTable):Bool;
+    static function setmetatable(object:Dynamic, metatable:AnyTable):Bool;
     
     
     /**
@@ -181,7 +181,7 @@ package gmod.libs;
 		`n2` | 
     **/
     
-    public static function upvaluejoin(f1:Function, n1:Float, f2:Function, n2:Float):Void;
+    static function upvaluejoin(f1:Function, n1:Float, f2:Function, n2:Float):Void;
     
     
     /**
@@ -210,7 +210,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function setupvalue(func:Function, index:Float, ?val:Dynamic):String;
+    static function setupvalue(func:Function, index:Float, ?val:Dynamic):String;
     
     
     /**
@@ -223,7 +223,7 @@ package gmod.libs;
 		`**Returns:** The Lua registry
     **/
     
-    public static function getregistry():AnyTable;
+    static function getregistry():AnyTable;
     
     
     /**
@@ -269,14 +269,14 @@ package gmod.libs;
 		 lua_run:1: in main chunk
     **/
     
-    public static function traceback(?thread:Thread, ?message:String, ?level:Float):String;
+    static function traceback(?thread:Thread, ?message:String, ?level:Float):String;
     
     
     /**
         Enters an interactive mode with the user, running each string that the user enters. Using simple commands and other debug facilities, the user can inspect global and local variables, change their values, evaluate expressions, and so on. A line containing only the word cont finishes this function, so that the caller continues its execution.
     **/
     
-    public static function debug():Void;
+    static function debug():Void;
     
     
     /**
@@ -312,7 +312,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function setfenv(object:AnyTable, env:AnyTable):AnyTable;
+    static function setfenv(object:AnyTable, env:AnyTable):AnyTable;
     
     
     /**
@@ -402,7 +402,7 @@ package gmod.libs;
 				3	=	variable
     **/
     
-    public static function getupvalue(func:Function, index:DebugInfo):DebugLibGetupvalueReturn;
+    static function getupvalue(func:Function, index:DebugInfo):DebugLibGetupvalueReturn;
     
     
     /**
@@ -480,7 +480,7 @@ package gmod.libs;
 		func
     **/
     
-    public static function getlocal(?thread:Thread, level:Float, index:Float):DebugLibGetlocalReturn;
+    static function getlocal(?thread:Thread, level:Float, index:Float):DebugLibGetlocalReturn;
     
     
     /**
@@ -501,7 +501,7 @@ package gmod.libs;
 		 2: Line 1 "(null)" LuaCmd
     **/
     
-    public static function Trace():Void;
+    static function Trace():Void;
     
     
     /**
@@ -525,7 +525,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function getinfo(funcOrStackLevel:Function, ?fields:String):DebugInfo;
+    static function getinfo(funcOrStackLevel:Function, ?fields:String):DebugInfo;
     
     
 

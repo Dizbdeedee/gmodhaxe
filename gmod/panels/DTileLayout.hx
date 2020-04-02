@@ -60,7 +60,7 @@ extern class DTileLayout extends DDragBase {
     **/
     
     @:hook 
-    function OnModified():Void;
+    private function OnModified():Void;
     /**
         ***INTERNAL** 
 		

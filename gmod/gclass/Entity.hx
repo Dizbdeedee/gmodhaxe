@@ -36,7 +36,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetPhysConstraintObjects(Phys1:PhysObj, Phys2:PhysObj):Void;
+    function SetPhysConstraintObjects(Phys1:PhysObj, Phys2:PhysObj):Void;
     #end
     
     /**
@@ -54,7 +54,7 @@ extern class Entity {
 		`value` | The value to set
     **/
     @:deprecated("You should use Entity: SetNWInt instead.")
-    public function SetNetworkedInt(key:String, ?value:Float):Void;
+    function SetNetworkedInt(key:String, ?value:Float):Void;
     
     
     /**
@@ -63,7 +63,7 @@ extern class Entity {
 		`**Returns:** The water level.
     **/
     
-    public function WaterLevel():Float;
+    function WaterLevel():Float;
     
     
     /**
@@ -81,7 +81,7 @@ extern class Entity {
 		`**Returns:** Requested entity.
     **/
     @:deprecated("INTERNAL")
-    public function GetDTEntity(key:Float):Entity;
+    function GetDTEntity(key:Float):Entity;
     
     
     /**
@@ -95,7 +95,7 @@ extern class Entity {
 		`**Returns:** Name of given pose parameter
     **/
     
-    public function GetPoseParameterName(id:Float):String;
+    function GetPoseParameterName(id:Float):String;
     
     
     /**
@@ -104,7 +104,7 @@ extern class Entity {
 		`**Returns:** The owner entity of this entity.
     **/
     
-    public function GetOwner():Entity;
+    function GetOwner():Entity;
     
     
     /**
@@ -132,7 +132,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetTouchTrace():TraceResult;
+    function GetTouchTrace():TraceResult;
     
     
     /**
@@ -151,7 +151,7 @@ extern class Entity {
 		Removes whichever prop is first found or errors if no entity was found.
     **/
     
-    public function Remove():Void;
+    function Remove():Void;
     
     
     /**
@@ -188,7 +188,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetBoneName(index:Float):String;
+    function GetBoneName(index:Float):String;
     
     
     /**
@@ -197,7 +197,7 @@ extern class Entity {
 		`**Returns:** The base velocity of the entity.
     **/
     
-    public function GetBaseVelocity():Vector;
+    function GetBaseVelocity():Vector;
     
     
     /**
@@ -206,7 +206,7 @@ extern class Entity {
 		`**Returns:** The current render FX of the entity. See kRenderFx_ Enums
     **/
     
-    public function GetRenderFX():KRenderFx;
+    function GetRenderFX():KRenderFx;
     
     
     /**
@@ -224,7 +224,7 @@ extern class Entity {
 		`**Returns:** Requested boolean.
     **/
     @:deprecated("INTERNAL")
-    public function GetDTBool(key:Float):Bool;
+    function GetDTBool(key:Float):Bool;
     
     #if client
     /**
@@ -240,7 +240,7 @@ extern class Entity {
 		`**Returns:** Whether the operation was successful or not
     **/
     
-    public function SnatchModelInstance(srcEntity:Entity):Bool;
+    function SnatchModelInstance(srcEntity:Entity):Bool;
     #end
     
     /**
@@ -255,7 +255,7 @@ extern class Entity {
 		`persist` | Whether or not the entity should be persistent.
     **/
     
-    public function SetPersistent(persist:Bool):Void;
+    function SetPersistent(persist:Bool):Void;
     
     #if server
     /**
@@ -269,7 +269,7 @@ extern class Entity {
 		`stopTransmitting` | true to stop the entity from networking, false to make it network again.
     **/
     
-    public function SetPreventTransmit(player:Player, stopTransmitting:Bool):Void;
+    function SetPreventTransmit(player:Player, stopTransmitting:Bool):Void;
     #end
     
     /**
@@ -295,7 +295,7 @@ extern class Entity {
 		Outputs 'true' to the console if the player 1 is on ground.
     **/
     
-    public function IsOnGround():Bool;
+    function IsOnGround():Bool;
     
     
     /**
@@ -309,7 +309,7 @@ extern class Entity {
 		`**Returns:** The surface property of the bone to be used with util. GetSurfaceIndex or an empty string on failure.
     **/
     
-    public function GetBoneSurfaceProp(bone:Float):String;
+    function GetBoneSurfaceProp(bone:Float):String;
     
     
     /**
@@ -330,7 +330,7 @@ extern class Entity {
 		By default, 100.
     **/
     
-    public function GetMaxHealth():Float;
+    function GetMaxHealth():Float;
     
     
     /**
@@ -343,7 +343,7 @@ extern class Entity {
 		`**Returns:** The velocity of the entity.
     **/
     
-    public function GetVelocity():Vector;
+    function GetVelocity():Vector;
     
     
     /**
@@ -380,7 +380,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetEyeTarget(pos:Vector):Void;
+    function SetEyeTarget(pos:Vector):Void;
     
     #if server
     /**
@@ -394,7 +394,7 @@ extern class Entity {
 		`integer` | You can usually set this to 1.
     **/
     
-    public function Use(activator:Player, caller:Entity, useType:USE, integer:Float):Void;
+    function Use(activator:Player, caller:Entity, useType:USE, integer:Float):Void;
     #end
     
     /**
@@ -415,7 +415,7 @@ extern class Entity {
 		1
     **/
     
-    public function GetModelScale():Float;
+    function GetModelScale():Float;
     
     #if server
     /**
@@ -431,7 +431,7 @@ extern class Entity {
 		`**Returns:** The duration of the layer
     **/
     
-    public function GetLayerDuration(layerID:Float):Float;
+    function GetLayerDuration(layerID:Float):Float;
     #end
     
     /**
@@ -449,7 +449,7 @@ extern class Entity {
 		`**Returns:** The matrix Some entities don't update animation every frame such as prop_physics and won't have accurate bone matrix.
     **/
     
-    public function GetBoneMatrix(boneID:Float):VMatrix;
+    function GetBoneMatrix(boneID:Float):VMatrix;
     
     #if server
     /**
@@ -460,7 +460,7 @@ extern class Entity {
 		`**Returns:** IsBeingHeld
     **/
     
-    public function IsPlayerHolding():Bool;
+    function IsPlayerHolding():Bool;
     #end
     #if server
     /**
@@ -476,7 +476,7 @@ extern class Entity {
 		`**Returns:** The amount the momentary_rot_button is turned, ranging from 0 to 1, or nil if the entity is not a momentary_rot_button.
     **/
     
-    public function GetMomentaryRotButtonPos(turnAngle:Angle):Float;
+    function GetMomentaryRotButtonPos(turnAngle:Angle):Float;
     #end
     
     /**
@@ -485,7 +485,7 @@ extern class Entity {
 		`**Returns:** Whether the entity is dormant or not.
     **/
     
-    public function IsDormant():Bool;
+    function IsDormant():Bool;
     
     
     /**
@@ -498,7 +498,7 @@ extern class Entity {
 		`movetype` | The new movetype, see MOVETYPE_ Enums
     **/
     
-    public function SetMoveType(movetype:MOVETYPE):Void;
+    function SetMoveType(movetype:MOVETYPE):Void;
     
     
     /**
@@ -522,7 +522,7 @@ extern class Entity {
 		weapon_pitch -90 / 20 weapon_yaw -40 / 40 rudder -45 / 45
     **/
     
-    public function GetNumPoseParameters():Float;
+    function GetNumPoseParameters():Float;
     
     
     /**
@@ -537,7 +537,7 @@ extern class Entity {
 		`velocity` | The new velocity to set.
     **/
     
-    public function SetVelocity(velocity:Vector):Void;
+    function SetVelocity(velocity:Vector):Void;
     
     
     /**
@@ -593,14 +593,14 @@ extern class Entity {
 		Rotation of the ammo box of all HL2 buggies.
     **/
     
-    public function ManipulateBoneAngles(boneID:Float, ang:Angle):Void;
+    function ManipulateBoneAngles(boneID:Float, ang:Angle):Void;
     
     #if server
     /**
         Normalizes the ragdoll. This is used alongside Kinect in Entity:SetRagdollBuildFunction, for more info see ragdoll_motion entity.
     **/
     
-    public function RagdollSolve():Void;
+    function RagdollSolve():Void;
     #end
     #if client
     /**
@@ -609,7 +609,7 @@ extern class Entity {
 		`**Returns:** angle
     **/
     
-    public function GetNetworkAngles():Angle;
+    function GetNetworkAngles():Angle;
     #end
     #if server
     /**
@@ -620,7 +620,7 @@ extern class Entity {
 		`**Returns:** True if the entity is unfreezable, false otherwise.
     **/
     
-    public function GetUnFreezable():Bool;
+    function GetUnFreezable():Bool;
     #end
     
     /**
@@ -649,7 +649,7 @@ extern class Entity {
 		```
     **/
     
-    public function ManipulateBoneJiggle(boneID:Float, enabled:Float):Void;
+    function ManipulateBoneJiggle(boneID:Float, enabled:Float):Void;
     
     
     /**
@@ -660,7 +660,7 @@ extern class Entity {
 		`angVel` | The angular velocity to set.
     **/
     
-    public function SetLocalAngularVelocity(angVel:Angle):Void;
+    function SetLocalAngularVelocity(angVel:Angle):Void;
     
     
     /**
@@ -669,7 +669,7 @@ extern class Entity {
 		`**Returns:** The flex scale
     **/
     
-    public function GetFlexScale():Float;
+    function GetFlexScale():Float;
     
     
     /**
@@ -704,7 +704,7 @@ extern class Entity {
 		-- The rest of the sequences
     **/
     
-    public function GetSequenceList():AnyTable;
+    function GetSequenceList():AnyTable;
     
     
     /**
@@ -713,7 +713,7 @@ extern class Entity {
 		`**Returns:** The amount of sequences ( animations ) the entity's model has.
     **/
     
-    public function GetSequenceCount():Float;
+    function GetSequenceCount():Float;
     
     
     /**
@@ -726,7 +726,7 @@ extern class Entity {
 		`modelName` | New model value.
     **/
     
-    public function SetModel(modelName:String):Void;
+    function SetModel(modelName:String):Void;
     
     
     /**
@@ -749,7 +749,7 @@ extern class Entity {
 		UserGroup	=	owner
     **/
     @:deprecated("You should be using Entity: GetNWVarTable instead.")
-    public function GetNetworkedVarTable():AnyTable;
+    function GetNetworkedVarTable():AnyTable;
     
     
     /**
@@ -765,7 +765,7 @@ extern class Entity {
 		`ent` | The entity to write on this entity's datatable.
     **/
     @:deprecated("INTERNAL")
-    public function SetDTEntity(key:Float, ent:Entity):Void;
+    function SetDTEntity(key:Float, ent:Entity):Void;
     
     
     /**
@@ -797,7 +797,7 @@ extern class Entity {
 		```
     **/
     @:deprecated("INTERNAL")
-    public function DTVar(Type:String, ID:Float, Name:String):Void;
+    function DTVar(Type:String, ID:Float, Name:String):Void;
     
     #if server
     /**
@@ -808,7 +808,7 @@ extern class Entity {
 		`ply` | The creator
     **/
     
-    public function SetCreator(ply:Player):Void;
+    function SetCreator(ply:Player):Void;
     #end
     
     /**
@@ -831,7 +831,7 @@ extern class Entity {
 		1: id = 1 name = eyes 2: id = 2 name = lefteye 3: id = 3 name = righteye 4: id = 4 name = nose 5: id = 5 name = mouth 6: id = 6 name = tie 7: id = 7 name = pen 8: id = 8 name = chest 9: id = 9 name = hips 10: id = 10 name = lefthand 11: id = 11 name = righthand 12: id = 12 name = forward 13: id = 13 name = anim_attachment_RH 14: id = 14 name = anim_attachment_LH 15: id = 15 name = anim_attachment_head
     **/
     
-    public function GetAttachments():AttachmentData;
+    function GetAttachments():AttachmentData;
     
     
     /**
@@ -840,7 +840,7 @@ extern class Entity {
 		`**Returns:** origin
     **/
     
-    public function GetNetworkOrigin():Vector;
+    function GetNetworkOrigin():Vector;
     
     
     /**
@@ -864,7 +864,7 @@ extern class Entity {
 		LeftClick will not run for no ent, invalid ents, players, or worldspawn.
     **/
     
-    public function IsWorld():Bool;
+    function IsWorld():Bool;
     
     
     /**
@@ -876,7 +876,7 @@ extern class Entity {
 		`b` | The maximum vector of the bounds
     **/
     
-    public function GetModelBounds():EntityGetModelBoundsReturn;
+    function GetModelBounds():EntityGetModelBoundsReturn;
     
     
     /**
@@ -890,7 +890,7 @@ extern class Entity {
 		`**Returns:** Index of the given bone name
     **/
     
-    public function LookupBone(boneName:String):Float;
+    function LookupBone(boneName:String):Float;
     
     #if client
     /**
@@ -901,7 +901,7 @@ extern class Entity {
 		`enabled` | Enable or disable clipping planes
     **/
     
-    public function SetRenderClipPlaneEnabled(enabled:Bool):Void;
+    function SetRenderClipPlaneEnabled(enabled:Bool):Void;
     #end
     
     /**
@@ -917,7 +917,7 @@ extern class Entity {
 		`duration` | How long the animation should take in seconds.
     **/
     
-    public function Weapon_SetActivity(act:ACT, duration:Float):Void;
+    function Weapon_SetActivity(act:ACT, duration:Float):Void;
     
     
     /**
@@ -928,7 +928,7 @@ extern class Entity {
 		`skinIndex` | 0-based index of the skin to use.
     **/
     
-    public function SetSkin(skinIndex:Float):Void;
+    function SetSkin(skinIndex:Float):Void;
     
     
     /**
@@ -942,7 +942,7 @@ extern class Entity {
 		`**Returns:** Bodygroup ID, -1 if not found
     **/
     
-    public function FindBodygroupByName(name:String):Float;
+    function FindBodygroupByName(name:String):Float;
     
     #if client
     /**
@@ -956,7 +956,7 @@ extern class Entity {
 		`b` | The maximum vector of the bounds.
     **/
     
-    public function GetRenderBounds():EntityGetRenderBoundsReturn;
+    function GetRenderBounds():EntityGetRenderBoundsReturn;
     #end
     #if server
     /**
@@ -972,7 +972,7 @@ extern class Entity {
 		`**Returns:** The current weight of the layer
     **/
     
-    public function GetLayerWeight(layerID:Float):Float;
+    function GetLayerWeight(layerID:Float):Float;
     #end
     
     /**
@@ -986,7 +986,7 @@ extern class Entity {
 		`**Returns:** Is set or not
     **/
     
-    public function IsEFlagSet(flag:EFL):Bool;
+    function IsEFlagSet(flag:EFL):Bool;
     
     #if server
     /**
@@ -1002,7 +1002,7 @@ extern class Entity {
 		`**Returns:** Whether the given layer ID is valid and exists on this entity.
     **/
     
-    public function IsValidLayer(layerID:Float):Bool;
+    function IsValidLayer(layerID:Float):Bool;
     #end
     
     /**
@@ -1016,7 +1016,7 @@ extern class Entity {
 		`**Returns:** The contents as a CONTENTS_ Enums or 0 on failure.
     **/
     
-    public function GetBoneContents(bone:Float):CONTENTS;
+    function GetBoneContents(bone:Float):CONTENTS;
     
     
     /**
@@ -1025,7 +1025,7 @@ extern class Entity {
 		`**Returns:** Relative position
     **/
     
-    public function GetLocalPos():Vector;
+    function GetLocalPos():Vector;
     
     
     /**
@@ -1052,7 +1052,7 @@ extern class Entity {
 		Something like "0.000 34.529 0.000" in console.
     **/
     
-    public function GetAngles():Angle;
+    function GetAngles():Angle;
     
     
     /**
@@ -1072,7 +1072,7 @@ extern class Entity {
 		`c` | The delta angle of the animation.
     **/
     
-    public function GetSequenceMovement(sequenceId:Float, startCycle:Float, endCyclnde:Float):EntityGetSequenceMovementReturn;
+    function GetSequenceMovement(sequenceId:Float, startCycle:Float, endCyclnde:Float):EntityGetSequenceMovementReturn;
     
     #if server
     /**
@@ -1083,7 +1083,7 @@ extern class Entity {
 		`toggleConstraints` | Set to true to enable the constraints and false to disable them. Disabling constraints will delete the constraint entities.
     **/
     
-    public function EnableConstraints(toggleConstraints:Bool):Void;
+    function EnableConstraints(toggleConstraints:Bool):Void;
     #end
     #if client
     /**
@@ -1094,7 +1094,7 @@ extern class Entity {
 		`name` | The name of the particle to stop.
     **/
     
-    public function StopParticlesNamed(name:String):Void;
+    function StopParticlesNamed(name:String):Void;
     #end
     #if client
     /**
@@ -1105,7 +1105,7 @@ extern class Entity {
 		`newOrigin` | The new origin in world coordinates where the Entity's model will now be rendered from.
     **/
     
-    public function SetRenderOrigin(newOrigin:Vector):Void;
+    function SetRenderOrigin(newOrigin:Vector):Void;
     #end
     
     /**
@@ -1128,7 +1128,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetCycle(value:Float):Void;
+    function SetCycle(value:Float):Void;
     
     #if server
     /**
@@ -1139,7 +1139,7 @@ extern class Entity {
 		`target` | The entity to face.
     **/
     
-    public function PointAtEntity(target:Entity):Void;
+    function PointAtEntity(target:Entity):Void;
     #end
     #if server
     /**
@@ -1153,7 +1153,7 @@ extern class Entity {
 		`blendOut` | 
     **/
     
-    public function SetLayerBlendOut(layerID:Float, blendOut:Float):Void;
+    function SetLayerBlendOut(layerID:Float, blendOut:Float):Void;
     #end
     
     /**
@@ -1162,7 +1162,7 @@ extern class Entity {
 		`**Returns:** Whether the entity is solid or not.
     **/
     
-    public function IsSolid():Bool;
+    function IsSolid():Bool;
     
     
     /**
@@ -1179,7 +1179,7 @@ extern class Entity {
 		`**Returns:** The retrieved value
     **/
     @:deprecated("You should use Entity: GetNWEntity instead.")
-    public function GetNetworkedEntity(key:String, ?fallback:Entity):Entity;
+    function GetNetworkedEntity(key:String, ?fallback:Entity):Entity;
     
     
     /**
@@ -1191,7 +1191,7 @@ extern class Entity {
 		`weight` | The new weight to set
     **/
     
-    public function SetFlexWeight(flex:Float, weight:Float):Void;
+    function SetFlexWeight(flex:Float, weight:Float):Void;
     
     
     /**
@@ -1214,7 +1214,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetShouldPlayPickupSound(?playsound:Bool):Void;
+    function SetShouldPlayPickupSound(?playsound:Bool):Void;
     
     
     /**
@@ -1232,7 +1232,7 @@ extern class Entity {
 		`scale` | Scale vector to apply. Note that the scale is relative to the original bone scale, not relative to the world or the entity. BUG The vector will be normalised if its longer than 32 units. Issue Tracker: #1249
     **/
     
-    public function ManipulateBoneScale(boneID:Float, scale:Vector):Void;
+    function ManipulateBoneScale(boneID:Float, scale:Vector):Void;
     
     #if server
     /**
@@ -1243,7 +1243,7 @@ extern class Entity {
 		`mappingName` | The name to set for the entity.
     **/
     
-    public function SetName(mappingName:String):Void;
+    function SetName(mappingName:String):Void;
     #end
     
     /**
@@ -1269,7 +1269,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetSaveValue(name:String, value:Dynamic):Bool;
+    function SetSaveValue(name:String, value:Dynamic):Bool;
     
     #if client
     /**
@@ -1278,7 +1278,7 @@ extern class Entity {
 		`**Returns:** The render group. See RENDERGROUP_ Enums
     **/
     
-    public function GetRenderGroup():RENDERGROUP;
+    function GetRenderGroup():RENDERGROUP;
     #end
     
     /**
@@ -1295,7 +1295,7 @@ extern class Entity {
 		`**Returns:** The value associated with the key
     **/
     
-    public function GetNWInt(key:String, ?fallback:Dynamic):Dynamic;
+    function GetNWInt(key:String, ?fallback:Dynamic):Dynamic;
     
     
     /**
@@ -1327,7 +1327,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetNWInt(key:String, value:Float):Void;
+    function SetNWInt(key:String, value:Float):Void;
     
     
     /**
@@ -1338,14 +1338,14 @@ extern class Entity {
 		`enable` | Enable or disable the custom collision check
     **/
     
-    public function SetCustomCollisionCheck(enable:Bool):Void;
+    function SetCustomCollisionCheck(enable:Bool):Void;
     
     #if client
     /**
         Stops all particle effects parented to the entity and immediately destroys them.
     **/
     
-    public function StopAndDestroyParticles():Void;
+    function StopAndDestroyParticles():Void;
     #end
     #if server
     /**
@@ -1356,7 +1356,7 @@ extern class Entity {
 		`**Returns:** The map creation ID or -1 if the entity is not compiled into the map.
     **/
     
-    public function MapCreationID():Float;
+    function MapCreationID():Float;
     #end
     #if server
     /**
@@ -1371,7 +1371,7 @@ extern class Entity {
 		`autokill` | 
     **/
     
-    public function RestartGesture(activity:ACT, ?addIfMissing:Bool, ?autokill:Bool):Void;
+    function RestartGesture(activity:ACT, ?addIfMissing:Bool, ?autokill:Bool):Void;
     #end
     #if client
     /**
@@ -1382,7 +1382,7 @@ extern class Entity {
 		`nextthink` | The next time, relative to CurTime, to execute the ENTITY: Think clientside.
     **/
     
-    public function SetNextClientThink(nextthink:Float):Void;
+    function SetNextClientThink(nextthink:Float):Void;
     #end
     
     /**
@@ -1399,7 +1399,7 @@ extern class Entity {
 		`**Returns:** The retrieved value
     **/
     @:deprecated("You should use Entity: GetNWAngle instead.")
-    public function GetNetworkedAngle(key:String, ?fallback:Angle):Angle;
+    function GetNetworkedAngle(key:String, ?fallback:Angle):Angle;
     
     
     /**
@@ -1408,7 +1408,7 @@ extern class Entity {
 		`**Returns:** Whether the entity is a weapon
     **/
     
-    public function IsWeapon():Bool;
+    function IsWeapon():Bool;
     
     #if server
     /**
@@ -1417,7 +1417,7 @@ extern class Entity {
 		`**Returns:** The name of the Entity
     **/
     
-    public function GetName():String;
+    function GetName():String;
     #end
     
     /**
@@ -1431,7 +1431,7 @@ extern class Entity {
 		`**Returns:** The current weight of the flex
     **/
     
-    public function GetFlexWeight(flex:Float):Float;
+    function GetFlexWeight(flex:Float):Float;
     
     
     /**
@@ -1446,7 +1446,7 @@ extern class Entity {
 		`**Returns:** The position and angle matrix.
     **/
     
-    public function GetWorldTransformMatrix():VMatrix;
+    function GetWorldTransformMatrix():VMatrix;
     
     #if server
     /**
@@ -1455,7 +1455,7 @@ extern class Entity {
 		`**Returns:** The lighting entity. This will usually be NULL.
     **/
     
-    public function GetLightingOriginEntity():Entity;
+    function GetLightingOriginEntity():Entity;
     #end
     
     /**
@@ -1471,7 +1471,7 @@ extern class Entity {
 		`integer` | The integer to write on the entity's datatable. This will be cast to a 32-bit signed integer internally.
     **/
     @:deprecated("INTERNAL")
-    public function SetDTInt(key:Float, integer:Float):Void;
+    function SetDTInt(key:Float, integer:Float):Void;
     
     
     /**
@@ -1482,7 +1482,7 @@ extern class Entity {
 		`flag` | Flag to add, see FL_ Enums
     **/
     
-    public function AddFlags(flag:FL):Void;
+    function AddFlags(flag:FL):Void;
     
     
     /**
@@ -1500,7 +1500,7 @@ extern class Entity {
 		`**Returns:** The PhysObj ID of the given bone. -1 if we somehow cannot translate
     **/
     
-    public function TranslateBoneToPhysBone(boneID:Float):Float;
+    function TranslateBoneToPhysBone(boneID:Float):Float;
     
     #if client
     /**
@@ -1513,7 +1513,7 @@ extern class Entity {
 		`lod` | The Level Of Detail model ID to use. -1 leaves the engine to automatically set the Level of Detail. The Level Of Detail may range from 0 to 8, with 0 being the highest quality and 8 the lowest.
     **/
     
-    public function SetLOD(?lod:Float):Void;
+    function SetLOD(?lod:Float):Void;
     #end
     
     /**
@@ -1558,14 +1558,14 @@ extern class Entity {
 		Prints variable name, old value and new value whenever SetEndPos function is called
     **/
     
-    public function NetworkVarNotify(name:String, callback:Function):Void;
+    function NetworkVarNotify(name:String, callback:Function):Void;
     
     #if client
     /**
         Refreshes the shadow of the entity.
     **/
     
-    public function MarkShadowAsDirty():Void;
+    function MarkShadowAsDirty():Void;
     #end
     #if server
     /**
@@ -1602,7 +1602,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetMaterialType():MAT;
+    function GetMaterialType():MAT;
     #end
     
     /**
@@ -1625,7 +1625,7 @@ extern class Entity {
 		`b` | The bone's angle relative to the world.
     **/
     
-    public function GetBonePosition(boneIndex:Float):EntityGetBonePositionReturn;
+    function GetBonePosition(boneIndex:Float):EntityGetBonePositionReturn;
     
     #if server
     /**
@@ -1636,7 +1636,7 @@ extern class Entity {
 		 This is required for Entity:GibBreakServer and Entity:GibBreakClient to work.
     **/
     
-    public function PrecacheGibs():Void;
+    function PrecacheGibs():Void;
     #end
     
     /**
@@ -1649,7 +1649,7 @@ extern class Entity {
 		`bone` | Physics bone number to attach to. Use 0 for objects with only one physics bone. (See Entity: GetPhysicsObjectNum)
     **/
     
-    public function SetParentPhysNum(bone:Float):Void;
+    function SetParentPhysNum(bone:Float):Void;
     
     
     /**
@@ -1658,7 +1658,7 @@ extern class Entity {
 		`**Returns:** The amount of skins the entity's model has.
     **/
     
-    public function SkinCount():Float;
+    function SkinCount():Float;
     
     
     /**
@@ -1674,7 +1674,7 @@ extern class Entity {
 		`allowPhysicsRotation` | Whether to allow the physics shadow to rotate under stress.
     **/
     
-    public function MakePhysicsObjectAShadow(allowPhysicsMovement:Bool, allowPhysicsRotation:Bool):Void;
+    function MakePhysicsObjectAShadow(allowPhysicsMovement:Bool, allowPhysicsRotation:Bool):Void;
     
     
     /**
@@ -1683,7 +1683,7 @@ extern class Entity {
 		Sets up Data Tables from entity to use with [Entity](https://wiki.garrysmod.com/page/Category:Entity): [NetworkVar](https://wiki.garrysmod.com/page/Entity/NetworkVar).
     **/
     @:deprecated("INTERNAL")
-    public function InstallDataTable():Void;
+    function InstallDataTable():Void;
     
     
     /**
@@ -1703,7 +1703,7 @@ extern class Entity {
 		`forceMaterial` | Use it if you wish to apply material other than VertexLitGeneric (such as tools/toolswhite).
     **/
     
-    public function SetMaterial(materialName:String, ?forceMaterial:Bool):Void;
+    function SetMaterial(materialName:String, ?forceMaterial:Bool):Void;
     
     
     /**
@@ -1712,7 +1712,7 @@ extern class Entity {
 		`**Returns:** The contents of the entity's model. See CONTENTS_ Enums.
     **/
     
-    public function GetModelContents():CONTENTS;
+    function GetModelContents():CONTENTS;
     
     
     /**
@@ -1721,7 +1721,7 @@ extern class Entity {
 		`**Returns:** Move type. See MOVETYPE_ Enums
     **/
     
-    public function GetMoveType():MOVETYPE;
+    function GetMoveType():MOVETYPE;
     
     
     /**
@@ -1738,7 +1738,7 @@ extern class Entity {
 		`**Returns:** A table containing full paths to the materials of the model. BUG This table is limited to 127 materials, even if the entity has more. Issue Tracker: #3216
     **/
     
-    public function GetMaterials():AnyTable;
+    function GetMaterials():AnyTable;
     
     #if server
     /**
@@ -1754,7 +1754,7 @@ extern class Entity {
 		`**Returns:** The player. If entity that was set is not a player, it will return NULL entity.
     **/
     
-    public function GetPhysicsAttacker(timeLimit:Float):Player;
+    function GetPhysicsAttacker(timeLimit:Float):Player;
     #end
     
     /**
@@ -1763,7 +1763,7 @@ extern class Entity {
 		`**Returns:** rightDir
     **/
     
-    public function GetRight():Vector;
+    function GetRight():Vector;
     
     
     /**
@@ -1799,7 +1799,7 @@ extern class Entity {
 		```
     **/
     
-    public function EmitSound(soundName:String, ?soundLevel:SNDLVL, ?pitchPercent:Float, ?volume:Float, ?channel:CHAN):Void;
+    function EmitSound(soundName:String, ?soundLevel:SNDLVL, ?pitchPercent:Float, ?volume:Float, ?channel:CHAN):Void;
     
     #if server
     /**
@@ -1828,7 +1828,7 @@ extern class Entity {
 		The entity plays the scene.
     **/
     
-    public function PlayScene(scene:String, ?delay:Float):Void;
+    function PlayScene(scene:String, ?delay:Float):Void;
     #end
     
     /**
@@ -1844,7 +1844,7 @@ extern class Entity {
 		`callback` | The function to be called when the NWVar changes.
     **/
     @:deprecated("You should be using Entity: SetNWVarProxy instead.")
-    public function SetNetworkedVarProxy(name:String, callback:Function):Void;
+    function SetNetworkedVarProxy(name:String, callback:Function):Void;
     
     
     /**
@@ -1855,7 +1855,7 @@ extern class Entity {
 		`**Returns:** The movement parent of this entity.
     **/
     
-    public function GetMoveParent():Entity;
+    function GetMoveParent():Entity;
     
     
     /**
@@ -1866,7 +1866,7 @@ extern class Entity {
 		`tab` | Table for the entity to use
     **/
     
-    public function SetTable(tab:AnyTable):Void;
+    function SetTable(tab:AnyTable):Void;
     
     
     /**
@@ -1875,7 +1875,7 @@ extern class Entity {
 		`**Returns:** OBBCenter
     **/
     
-    public function OBBCenter():Vector;
+    function OBBCenter():Vector;
     
     
     /**
@@ -1887,7 +1887,7 @@ extern class Entity {
 		`pos` | Position vector to apply Note that the position is relative to the original bone position, not relative to the world or the entity.
     **/
     
-    public function ManipulateBonePosition(boneID:Float, pos:Vector):Void;
+    function ManipulateBonePosition(boneID:Float, pos:Vector):Void;
     
     
     /**
@@ -1901,7 +1901,7 @@ extern class Entity {
 		`**Returns:** Name of the sequence.
     **/
     
-    public function GetSequenceName(index:Float):String;
+    function GetSequenceName(index:Float):String;
     
     
     /**
@@ -1912,7 +1912,7 @@ extern class Entity {
 		`**Returns:** Whether the entity's rendering and transmitting has been disabled.
     **/
     
-    public function GetNoDraw():Bool;
+    function GetNoDraw():Bool;
     
     
     /**
@@ -1927,7 +1927,7 @@ extern class Entity {
 		`**Returns:** The value associated with the key
     **/
     
-    public function GetNWBool(key:String, ?fallback:Dynamic):Dynamic;
+    function GetNWBool(key:String, ?fallback:Dynamic):Dynamic;
     
     
     /**
@@ -1951,7 +1951,7 @@ extern class Entity {
 		Sets first bodygroup value to 0, second to 2 and third to 1.
     **/
     
-    public function SetBodyGroups(bodygroups:String):Void;
+    function SetBodyGroups(bodygroups:String):Void;
     
     
     /**
@@ -1974,7 +1974,7 @@ extern class Entity {
 		The amount of bones in player 1, which normally would be 68.
     **/
     
-    public function GetBoneCount():Float;
+    function GetBoneCount():Float;
     
     
     /**
@@ -1992,7 +1992,7 @@ extern class Entity {
 		`**Returns:** Requested angle.
     **/
     @:deprecated("INTERNAL")
-    public function GetDTAngle(key:Float):Angle;
+    function GetDTAngle(key:Float):Angle;
     
     #if server
     /**
@@ -2008,7 +2008,7 @@ extern class Entity {
 		`**Returns:** Whether there's a gesture is given activity being played.
     **/
     
-    public function IsPlayingGesture(activity:ACT):Bool;
+    function IsPlayingGesture(activity:ACT):Bool;
     #end
     
     /**
@@ -2017,7 +2017,7 @@ extern class Entity {
 		`**Returns:** The center of the entity
     **/
     
-    public function WorldSpaceCenter():Vector;
+    function WorldSpaceCenter():Vector;
     
     
     /**
@@ -2058,7 +2058,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetPhysicsObjectNum(physNum:Float):PhysObj;
+    function GetPhysicsObjectNum(physNum:Float):PhysObj;
     
     #if server
     /**
@@ -2071,7 +2071,7 @@ extern class Entity {
 		`activity` | The activity remove. See ACT_ Enums.
     **/
     
-    public function RemoveGesture(activity:ACT):Void;
+    function RemoveGesture(activity:ACT):Void;
     #end
     
     /**
@@ -2090,7 +2090,7 @@ extern class Entity {
 		`**Returns:** Returns true on success, false otherwise
     **/
     
-    public function PhysicsInitSphere(radius:Float, physmat:String):Bool;
+    function PhysicsInitSphere(radius:Float, physmat:String):Bool;
     
     
     /**
@@ -2099,7 +2099,7 @@ extern class Entity {
 		`**Returns:** View position of the entity.
     **/
     
-    public function EyePos():Vector;
+    function EyePos():Vector;
     
     
     /**
@@ -2111,7 +2111,7 @@ extern class Entity {
 		`b` | The current hit box set name, or no value if the entity doesn't have hit boxes
     **/
     
-    public function GetHitboxSet():EntityGetHitboxSetReturn;
+    function GetHitboxSet():EntityGetHitboxSetReturn;
     
     
     /**
@@ -2135,7 +2135,7 @@ extern class Entity {
 		Entity(1)'s viewmodel now plays animations 50% slower.
     **/
     
-    public function SetPlaybackRate(fSpeed:Float):Void;
+    function SetPlaybackRate(fSpeed:Float):Void;
     
     
     /**
@@ -2175,7 +2175,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetOwner(?owner:Entity):Void;
+    function SetOwner(?owner:Entity):Void;
     
     
     /**
@@ -2200,7 +2200,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetPos():Vector;
+    function GetPos():Vector;
     
     
     /**
@@ -2229,7 +2229,7 @@ extern class Entity {
 		```
     **/
     @:deprecated("You should be using Entity: GetNWVarProxy instead.")
-    public function GetNetworkedVarProxy(name:String):Function;
+    function GetNetworkedVarProxy(name:String):Function;
     
     #if client
     /**
@@ -2240,7 +2240,7 @@ extern class Entity {
 		`newAngles` | The new render angles to be set to.
     **/
     
-    public function SetRenderAngles(newAngles:Angle):Void;
+    function SetRenderAngles(newAngles:Angle):Void;
     #end
     
     /**
@@ -2249,7 +2249,7 @@ extern class Entity {
 		`**Returns:** Relative angle
     **/
     
-    public function GetLocalAngles():Angle;
+    function GetLocalAngles():Angle;
     
     
     /**
@@ -2266,7 +2266,7 @@ extern class Entity {
 		`b` | The sequence duration 0 if the sequence is invalid
     **/
     
-    public function LookupSequence(name:String):EntityLookupSequenceReturn;
+    function LookupSequence(name:String):EntityLookupSequenceReturn;
     
     
     /**
@@ -2279,7 +2279,7 @@ extern class Entity {
 		`**Returns:** True if the entity has been bone manipulated, false otherwise.
     **/
     
-    public function HasBoneManipulations():Bool;
+    function HasBoneManipulations():Bool;
     
     
     /**
@@ -2302,7 +2302,7 @@ extern class Entity {
 		1
     **/
     
-    public function EntIndex():Int;
+    function EntIndex():Int;
     
     
     /**
@@ -2314,7 +2314,7 @@ extern class Entity {
 		`callbackid` | The callback id previously retrieved with the return of Entity: AddCallback or Entity: GetCallbacks
     **/
     
-    public function RemoveCallback(hook:String, callbackid:Float):Void;
+    function RemoveCallback(hook:String, callbackid:Float):Void;
     
     #if server
     /**
@@ -2323,7 +2323,7 @@ extern class Entity {
 		`**Returns:** Is created by map?
     **/
     
-    public function CreatedByMap():Bool;
+    function CreatedByMap():Bool;
     #end
     
     /**
@@ -2337,7 +2337,7 @@ extern class Entity {
 		`value` | Value to set the variable to
     **/
     
-    public function SetVar(key:Dynamic, value:Dynamic):Void;
+    function SetVar(key:Dynamic, value:Dynamic):Void;
     
     
     /**
@@ -2367,7 +2367,7 @@ extern class Entity {
 		true
     **/
     
-    public function SetNWBool(key:String, value:Bool):Void;
+    function SetNWBool(key:String, value:Bool):Void;
     
     
     /**
@@ -2391,7 +2391,7 @@ extern class Entity {
 		`**Returns:** Returns true on success, false otherwise.
     **/
     
-    public function PhysicsInit(solidType:SOLID):Bool;
+    function PhysicsInit(solidType:SOLID):Bool;
     
     #if server
     /**
@@ -2405,7 +2405,7 @@ extern class Entity {
 		`loop` | Whether the layer should loop or not.
     **/
     
-    public function SetLayerLooping(layerID:Float, loop:Bool):Void;
+    function SetLayerLooping(layerID:Float, loop:Bool):Void;
     #end
     
     /**
@@ -2416,7 +2416,7 @@ extern class Entity {
 		`**Returns:** The entity's model. Will be a filesystem path for most models. This will be nil for entities which cannot have models, such as point entities.
     **/
     
-    public function GetModel():String;
+    function GetModel():String;
     
     
     /**
@@ -2429,7 +2429,7 @@ extern class Entity {
 		`**Returns:** material
     **/
     
-    public function GetMaterial():String;
+    function GetMaterial():String;
     
     
     /**
@@ -2438,7 +2438,7 @@ extern class Entity {
 		`**Returns:** The frame of the currently played sequence
     **/
     
-    public function GetCycle():Float;
+    function GetCycle():Float;
     
     
     /**
@@ -2447,7 +2447,7 @@ extern class Entity {
 		`**Returns:** If the entity is going to be deleted.
     **/
     
-    public function IsMarkedForDeletion():Bool;
+    function IsMarkedForDeletion():Bool;
     
     
     /**
@@ -2506,7 +2506,7 @@ extern class Entity {
 		```
     **/
     
-    public function ResetSequence(sequence:Float):Void;
+    function ResetSequence(sequence:Float):Void;
     
     #if server
     /**
@@ -2523,7 +2523,7 @@ extern class Entity {
 		`**Returns:** Layer ID of created layer
     **/
     
-    public function AddLayeredSequence(sequence:Float, priority:Float):Float;
+    function AddLayeredSequence(sequence:Float, priority:Float):Float;
     #end
     
     /**
@@ -2534,14 +2534,14 @@ extern class Entity {
 		`moveCollideType` | The move collide type, see MOVECOLLIDE_ Enums
     **/
     
-    public function SetMoveCollide(moveCollideType:MOVECOLLIDE):Void;
+    function SetMoveCollide(moveCollideType:MOVECOLLIDE):Void;
     
     #if server
     /**
         Makes the physics objects follow the set bone positions. This is used alongside Kinect in Entity:SetRagdollBuildFunction, for more info see ragdoll_motion entity.
     **/
     
-    public function RagdollUpdatePhysics():Void;
+    function RagdollUpdatePhysics():Void;
     #end
     
     /**
@@ -2559,7 +2559,7 @@ extern class Entity {
 		`**Returns:** Requested float.
     **/
     @:deprecated("INTERNAL")
-    public function GetDTFloat(key:Float):Float;
+    function GetDTFloat(key:Float):Float;
     
     
     /**
@@ -2577,7 +2577,7 @@ extern class Entity {
 		`attachment` | The attachment ID to parent to
     **/
     @:deprecated("You should be using Entity: SetParent instead.")
-    public function SetAttachment(ent:Entity, attachment:Float):Void;
+    function SetAttachment(ent:Entity, attachment:Float):Void;
     
     
     /**
@@ -2609,7 +2609,7 @@ extern class Entity {
 		pos has the coordinates of the AABB center.
     **/
     
-    public function GetRotatedAABB(min:Vector, max:Vector):EntityGetRotatedAABBReturn;
+    function GetRotatedAABB(min:Vector, max:Vector):EntityGetRotatedAABBReturn;
     
     
     /**
@@ -2618,7 +2618,7 @@ extern class Entity {
 		`**Returns:** The collision group. See COLLISION_GROUP_ Enums
     **/
     
-    public function GetCollisionGroup():COLLISION_GROUP;
+    function GetCollisionGroup():COLLISION_GROUP;
     
     
     /**
@@ -2627,7 +2627,7 @@ extern class Entity {
 		`**Returns:** The physics object id, or nil if the entity has no parent
     **/
     
-    public function GetParentPhysNum():Float;
+    function GetParentPhysNum():Float;
     
     
     /**
@@ -2636,7 +2636,7 @@ extern class Entity {
 		`**Returns:** The radius of the bounding box.
     **/
     
-    public function BoundingRadius():Float;
+    function BoundingRadius():Float;
     
     
     /**
@@ -2647,7 +2647,7 @@ extern class Entity {
 		`renderMode` | New render mode to set, see RENDERMODE_ Enums.
     **/
     
-    public function SetRenderMode(renderMode:RENDERMODE):Void;
+    function SetRenderMode(renderMode:RENDERMODE):Void;
     
     
     /**
@@ -2670,7 +2670,7 @@ extern class Entity {
 		```
     **/
     
-    public function LocalToWorld(lpos:Vector):Vector;
+    function LocalToWorld(lpos:Vector):Vector;
     
     
     /**
@@ -2681,7 +2681,7 @@ extern class Entity {
 		`**Returns:** The parented attachment index
     **/
     
-    public function GetParentAttachment():Float;
+    function GetParentAttachment():Float;
     
     
     /**
@@ -2695,7 +2695,7 @@ extern class Entity {
 		`**Returns:** The entity's position manipulation of the given bone.
     **/
     
-    public function GetManipulateBonePosition(boneId:Float):Vector;
+    function GetManipulateBonePosition(boneId:Float):Vector;
     
     
     /**
@@ -2711,7 +2711,7 @@ extern class Entity {
 		`**Returns:** Parent bone ID or -1 if we failed for some reason.
     **/
     
-    public function GetBoneParent(bone:Float):Float;
+    function GetBoneParent(bone:Float):Float;
     
     #if client
     /**
@@ -2729,7 +2729,7 @@ extern class Entity {
 		`**Returns:** The created particle system.
     **/
     
-    public function CreateParticleEffect(particle:String, attachment:Float, ?options:PATTACH):CNewParticleEffect;
+    function CreateParticleEffect(particle:String, attachment:Float, ?options:PATTACH):CNewParticleEffect;
     #end
     
     /**
@@ -2746,7 +2746,7 @@ extern class Entity {
 		**Note:** Only works on a scripted Entity of anim type.
     **/
     
-    public function StartMotionController():Void;
+    function StartMotionController():Void;
     
     
     /**
@@ -2764,7 +2764,7 @@ extern class Entity {
 		`**Returns:** 32-bit signed integer
     **/
     @:deprecated("INTERNAL")
-    public function GetDTInt(key:Float):Float;
+    function GetDTInt(key:Float):Float;
     
     
     /**
@@ -2773,7 +2773,7 @@ extern class Entity {
 		`**Returns:** Is the TransmitWithParent flag is set or not
     **/
     
-    public function GetTransmitWithParent():Bool;
+    function GetTransmitWithParent():Bool;
     
     
     /**
@@ -2811,7 +2811,7 @@ extern class Entity {
 		Checks if the entity has the spawnEffect flag set to true and checks if it was created in the last second, and then shows the propspawn effect.
     **/
     
-    public function GetSpawnEffect():Bool;
+    function GetSpawnEffect():Bool;
     
     #if server
     /**
@@ -2826,7 +2826,7 @@ extern class Entity {
 		`inflictor` | The entity that applied the damage, eg. a weapon.
     **/
     
-    public function TakeDamage(damageAmount:Float, attacker:Entity, inflictor:Entity):Void;
+    function TakeDamage(damageAmount:Float, attacker:Entity, inflictor:Entity):Void;
     #end
     
     /**
@@ -2835,7 +2835,7 @@ extern class Entity {
 		`**Returns:** The move collide type, see MOVECOLLIDE_ Enums
     **/
     
-    public function GetMoveCollide():MOVECOLLIDE;
+    function GetMoveCollide():MOVECOLLIDE;
     
     
     /**
@@ -2846,7 +2846,7 @@ extern class Entity {
 		`**Returns:** Whether the entity is a widget or not.
     **/
     
-    public function IsWidget():Bool;
+    function IsWidget():Bool;
     
     
     /**
@@ -2855,7 +2855,7 @@ extern class Entity {
 		`**Returns:** The flag(s) of the entity, see FSOLID_ Enums.
     **/
     
-    public function GetSolidFlags():FSOLID;
+    function GetSolidFlags():FSOLID;
     
     
     /**
@@ -2884,7 +2884,7 @@ extern class Entity {
 		```
     **/
     
-    public function IsConstrained():Bool;
+    function IsConstrained():Bool;
     
     
     /**
@@ -2893,7 +2893,7 @@ extern class Entity {
 		`**Returns:** skinIndex
     **/
     
-    public function GetSkin():Float;
+    function GetSkin():Float;
     
     
     /**
@@ -2918,7 +2918,7 @@ extern class Entity {
 		When looking straight down, it might return Angle(89,-175.38,0)
     **/
     
-    public function EyeAngles():Angle;
+    function EyeAngles():Angle;
     
     #if server
     /**
@@ -2929,7 +2929,7 @@ extern class Entity {
 		`entityToUnremove` | The entity to be removed from the list of entities to delete
     **/
     
-    public function DontDeleteOnRemove(entityToUnremove:Entity):Void;
+    function DontDeleteOnRemove(entityToUnremove:Entity):Void;
     #end
     
     /**
@@ -2946,7 +2946,7 @@ extern class Entity {
 		`b` | The maximum value for this flex
     **/
     
-    public function GetFlexBounds(flex:Float):EntityGetFlexBoundsReturn;
+    function GetFlexBounds(flex:Float):EntityGetFlexBoundsReturn;
     
     
     /**
@@ -2960,7 +2960,7 @@ extern class Entity {
 		`value` | The value to set on the specified bone controller.
     **/
     
-    public function SetBoneController(boneControllerID:Float, value:Float):Void;
+    function SetBoneController(boneControllerID:Float, value:Float):Void;
     
     
     /**
@@ -2988,7 +2988,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetNWAngle(key:String, value:Angle):Void;
+    function SetNWAngle(key:String, value:Angle):Void;
     
     
     /**
@@ -3014,7 +3014,7 @@ extern class Entity {
 		"1" in console, if player 1 is aiming at airboat.
     **/
     
-    public function GetBodygroup(id:Float):Float;
+    function GetBodygroup(id:Float):Float;
     
     
     /**
@@ -3028,7 +3028,7 @@ extern class Entity {
 		`**Returns:** The entity's angle manipulation of the given bone.
     **/
     
-    public function GetManipulateBoneAngles(boneID:Float):Angle;
+    function GetManipulateBoneAngles(boneID:Float):Angle;
     
     
     /**
@@ -3051,7 +3051,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetPhysicsObjectCount():Float;
+    function GetPhysicsObjectCount():Float;
     
     
     /**
@@ -3060,7 +3060,7 @@ extern class Entity {
 		`**Returns:** View model index, ranges from 0 to 2, nil if the entity is not a view model
     **/
     
-    public function ViewModelIndex():Float;
+    function ViewModelIndex():Float;
     
     #if server
     /**
@@ -3076,7 +3076,7 @@ extern class Entity {
 		`param` | The value to give to the input. Can be either a string, a number or a boolean.
     **/
     
-    public function Input(input:String, activator:Entity, caller:Entity, ?param:Dynamic):Void;
+    function Input(input:String, activator:Entity, caller:Entity, ?param:Dynamic):Void;
     #end
     
     /**
@@ -3085,7 +3085,7 @@ extern class Entity {
 		`**Returns:** Bodygroups as a table of BodyGroupData structures if the entity can have bodygroups.
     **/
     
-    public function GetBodyGroups():BodyGroupData;
+    function GetBodyGroups():BodyGroupData;
     
     
     /**
@@ -3099,7 +3099,7 @@ extern class Entity {
 		`**Returns:** The nearest hit point of the entity's bounding box in world coordinates.
     **/
     
-    public function NearestPoint(position:Vector):Vector;
+    function NearestPoint(position:Vector):Vector;
     
     
     /**
@@ -3118,7 +3118,7 @@ extern class Entity {
 		`**Returns:** The retrieved value
     **/
     @:deprecated("You should use Entity: GetNWFloat instead.")
-    public function GetNetworkedFloat(key:String, ?fallback:Float):Float;
+    function GetNetworkedFloat(key:String, ?fallback:Float):Float;
     
     #if server
     /**
@@ -3131,7 +3131,7 @@ extern class Entity {
 		`maketrigger` | Make the entity trigger or not
     **/
     
-    public function SetTrigger(maketrigger:Bool):Void;
+    function SetTrigger(maketrigger:Bool):Void;
     #end
     
     /**
@@ -3152,7 +3152,7 @@ extern class Entity {
 		`**Returns:** Returns true on success, nil otherwise. This fails when the game cannot create any more PhysCollides.
     **/
     
-    public function PhysicsInitBox(mins:Vector, maxs:Vector):Bool;
+    function PhysicsInitBox(mins:Vector, maxs:Vector):Bool;
     
     
     /**
@@ -3177,7 +3177,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetNWVarProxy(key:Dynamic):Function;
+    function GetNWVarProxy(key:Dynamic):Function;
     
     
     /**
@@ -3195,7 +3195,7 @@ extern class Entity {
 		`value` | The value to set
     **/
     @:deprecated("You should use Entity: SetNWVector instead.")
-    public function SetNetworkedVector(key:String, ?value:Vector):Void;
+    function SetNetworkedVector(key:String, ?value:Vector):Void;
     
     
     /**
@@ -3225,7 +3225,7 @@ extern class Entity {
 		"John"
     **/
     
-    public function SetNWString(key:String, value:String):Void;
+    function SetNWString(key:String, value:String):Void;
     
     
     /**
@@ -3242,7 +3242,7 @@ extern class Entity {
 		`**Returns:** The sequence ID
     **/
     
-    public function SelectWeightedSequenceSeeded(act:ACT, seed:Float):Float;
+    function SelectWeightedSequenceSeeded(act:ACT, seed:Float):Float;
     
     
     /**
@@ -3269,7 +3269,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetEntity(name:String, entity:Entity):Void;
+    function SetEntity(name:String, entity:Entity):Void;
     
     
     /**
@@ -3292,7 +3292,7 @@ extern class Entity {
 				id	=	0
     **/
     
-    public function GetSubModels():AnyTable;
+    function GetSubModels():AnyTable;
     
     #if server
     /**
@@ -3307,7 +3307,7 @@ extern class Entity {
 		`friction` | Friction multiplier
     **/
     
-    public function SetFriction(friction:Float):Void;
+    function SetFriction(friction:Float):Void;
     #end
     
     /**
@@ -3323,7 +3323,7 @@ extern class Entity {
 		`float` | The float to write on the entity's datatable.
     **/
     @:deprecated("INTERNAL")
-    public function SetDTFloat(key:Float, float:Float):Void;
+    function SetDTFloat(key:Float, float:Float):Void;
     
     
     /**
@@ -3337,7 +3337,7 @@ extern class Entity {
 		`**Returns:** The local vector
     **/
     
-    public function WorldToLocal(wpos:Vector):Vector;
+    function WorldToLocal(wpos:Vector):Vector;
     
     
     /**
@@ -3348,7 +3348,7 @@ extern class Entity {
 		`origin` | The position to make clients think this entity is at.
     **/
     
-    public function SetNetworkOrigin(origin:Vector):Void;
+    function SetNetworkOrigin(origin:Vector):Void;
     
     #if client
     /**
@@ -3363,7 +3363,7 @@ extern class Entity {
 		**Bug:** BUG Calling this on a clientside entity will crash the game. Issue Tracker: #3368
     **/
     @:deprecated("")
-    public function InitializeAsClientEntity():Void;
+    function InitializeAsClientEntity():Void;
     #end
     
     /**
@@ -3372,7 +3372,7 @@ extern class Entity {
 		`**Returns:** parentEntity
     **/
     
-    public function GetParent():Entity;
+    function GetParent():Entity;
     
     #if server
     /**
@@ -3386,7 +3386,7 @@ extern class Entity {
 		`**Returns:** The yaw delta. Returns 99999 for no movement.
     **/
     
-    public function GetSequenceMoveYaw(seq:Float):Float;
+    function GetSequenceMoveYaw(seq:Float):Float;
     #end
     
     /**
@@ -3395,7 +3395,7 @@ extern class Entity {
 		`**Returns:** Is ragdoll or not
     **/
     
-    public function IsRagdoll():Bool;
+    function IsRagdoll():Bool;
     
     
     /**
@@ -3413,7 +3413,7 @@ extern class Entity {
 		`**Returns:** Returns true on success, nil otherwise.
     **/
     
-    public function PhysicsFromMesh(vertices:MeshVertex):Bool;
+    function PhysicsFromMesh(vertices:MeshVertex):Bool;
     
     #if server
     /**
@@ -3424,7 +3424,7 @@ extern class Entity {
 		`func` | The build function. This function has one argument: Entity ragdoll - The ragdoll to build
     **/
     
-    public function SetRagdollBuildFunction(func:Function):Void;
+    function SetRagdollBuildFunction(func:Function):Void;
     #end
     #if client
     /**
@@ -3449,7 +3449,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetAnimTime(time:Float):Void;
+    function SetAnimTime(time:Float):Void;
     #end
     
     /**
@@ -3522,7 +3522,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetSaveTable(showAll:Bool):AnyTable;
+    function GetSaveTable(showAll:Bool):AnyTable;
     
     
     /**
@@ -3543,7 +3543,7 @@ extern class Entity {
 		Outputs 'true' to the console if the player 1 is on fire.
     **/
     
-    public function IsOnFire():Bool;
+    function IsOnFire():Bool;
     
     
     /**
@@ -3564,7 +3564,7 @@ extern class Entity {
 		72
     **/
     
-    public function GetModelRadius():Float;
+    function GetModelRadius():Float;
     
     #if server
     /**
@@ -3580,7 +3580,7 @@ extern class Entity {
 		`**Returns:** The animation cycle/frame for given layer.
     **/
     
-    public function GetLayerCycle(layerID:Float):Float;
+    function GetLayerCycle(layerID:Float):Float;
     #end
     
     /**
@@ -3595,7 +3595,7 @@ extern class Entity {
 		`dir` | Direction of the attack.
     **/
     
-    public function DispatchTraceAttack(damageInfo:CTakeDamageInfo, traceRes:TraceResult, ?dir:Vector):Void;
+    function DispatchTraceAttack(damageInfo:CTakeDamageInfo, traceRes:TraceResult, ?dir:Vector):Void;
     
     
     /**
@@ -3611,7 +3611,7 @@ extern class Entity {
 		`vec` | The vector to write on the entity's datatable.
     **/
     @:deprecated("INTERNAL")
-    public function SetDTVector(key:Float, vec:Vector):Void;
+    function SetDTVector(key:Float, vec:Vector):Void;
     
     
     /**
@@ -3649,7 +3649,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetSequence(sequenceId:Float):Void;
+    function SetSequence(sequenceId:Float):Void;
     
     
     /**
@@ -3664,7 +3664,7 @@ extern class Entity {
 		`**Returns:** Whether the bone has that flag or not
     **/
     
-    public function BoneHasFlag(boneID:Float, flag:BONE):Bool;
+    function BoneHasFlag(boneID:Float, flag:BONE):Bool;
     
     #if server
     /**
@@ -3681,7 +3681,7 @@ extern class Entity {
 		`**Returns:** The centered vector.
     **/
     
-    public function BodyTarget(origin:Vector, ?noisy:Bool):Vector;
+    function BodyTarget(origin:Vector, ?noisy:Bool):Vector;
     #end
     
     /**
@@ -3698,7 +3698,7 @@ extern class Entity {
 		`physObj` | The PhysObj to add to the motion controller.
     **/
     
-    public function AddToMotionController(physObj:PhysObj):Void;
+    function AddToMotionController(physObj:PhysObj):Void;
     
     
     /**
@@ -3725,7 +3725,7 @@ extern class Entity {
 		"superadmin" in single-player
     **/
     
-    public function GetNWString(key:String, ?fallback:Dynamic):Dynamic;
+    function GetNWString(key:String, ?fallback:Dynamic):Dynamic;
     
     
     /**
@@ -3734,7 +3734,7 @@ extern class Entity {
 		`**Returns:** The amount of brush model planes of the entity's model. This will be 0 for any non-brush model.
     **/
     
-    public function GetBrushPlaneCount():Float;
+    function GetBrushPlaneCount():Float;
     
     #if server
     /**
@@ -3745,7 +3745,7 @@ extern class Entity {
 		`bloodColor` | An integer corresponding to BLOOD_COLOR_ Enums.
     **/
     
-    public function SetBloodColor(bloodColor:BLOOD_COLOR):Void;
+    function SetBloodColor(bloodColor:BLOOD_COLOR):Void;
     #end
     
     /**
@@ -3759,7 +3759,7 @@ extern class Entity {
 		`**Returns:** whether an entity has the engine effect applied or not.
     **/
     
-    public function IsEffectActive(effect:EF):Bool;
+    function IsEffectActive(effect:EF):Bool;
     
     #if client
     /**
@@ -3772,14 +3772,14 @@ extern class Entity {
 		`add` | If defined, adds this vector to maxs and subtracts this vector from mins.
     **/
     
-    public function SetRenderBounds(mins:Vector, maxs:Vector, ?add:Vector):Void;
+    function SetRenderBounds(mins:Vector, maxs:Vector, ?add:Vector):Void;
     #end
     
     /**
         Stops the motion controller created with Entity:StartMotionController.
     **/
     
-    public function StopMotionController():Void;
+    function StopMotionController():Void;
     
     
     /**
@@ -3788,7 +3788,7 @@ extern class Entity {
 		`**Returns:** The playback rate.
     **/
     
-    public function GetPlaybackRate():Float;
+    function GetPlaybackRate():Float;
     
     
     /**
@@ -3807,7 +3807,7 @@ extern class Entity {
 		```
     **/
     
-    public function PhysWake():Void;
+    function PhysWake():Void;
     
     
     /**
@@ -3830,7 +3830,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetAbsVelocity(velocity:Vector):Void;
+    function SetAbsVelocity(velocity:Vector):Void;
     
     #if server
     /**
@@ -3842,7 +3842,7 @@ extern class Entity {
 		`pos` | Angle to set
     **/
     
-    public function SetRagdollAng(boneid:Float, pos:Angle):Void;
+    function SetRagdollAng(boneid:Float, pos:Angle):Void;
     #end
     
     /**
@@ -3867,7 +3867,7 @@ extern class Entity {
 		```
     **/
     
-    public function CallOnRemove(identifier:String, removeFunc:Function, argn:Rest<Dynamic>):Void;
+    function CallOnRemove(identifier:String, removeFunc:Function, argn:Rest<Dynamic>):Void;
     
     
     /**
@@ -3881,7 +3881,7 @@ extern class Entity {
 		`**Returns:** The local angles
     **/
     
-    public function WorldToLocalAngles(ang:Angle):Angle;
+    function WorldToLocalAngles(ang:Angle):Angle;
     
     #if client
     /**
@@ -3893,7 +3893,7 @@ extern class Entity {
 		`attachment` | The attachment of the entity to stop particles on.
     **/
     
-    public function StopParticlesWithNameAndAttachment(name:String, attachment:Float):Void;
+    function StopParticlesWithNameAndAttachment(name:String, attachment:Float):Void;
     #end
     
     /**
@@ -3902,7 +3902,7 @@ extern class Entity {
 		`**Returns:** The number of flexes.
     **/
     
-    public function GetFlexNum():Float;
+    function GetFlexNum():Float;
     
     
     /**
@@ -3928,7 +3928,7 @@ extern class Entity {
 		```
     **/
     
-	public function SetKeyValue(key:String, value:Dynamic):Void;
+	function SetKeyValue(key:String, value:Dynamic):Void;
     
     
     /**
@@ -3952,7 +3952,7 @@ extern class Entity {
 		1 = Entity [184][prop_dynamic]
     **/
     
-    public function GetChildren():AnyTable;
+    function GetChildren():AnyTable;
     
     
     /**
@@ -3961,7 +3961,7 @@ extern class Entity {
 		`**Returns:** elasticity
     **/
     
-    public function GetElasticity():Float;
+    function GetElasticity():Float;
     
     
     /**
@@ -3970,7 +3970,7 @@ extern class Entity {
 		`**Returns:** The position and angle matrix. If the entity has no move parent, an identity matrix will be returned. If the entity is parented to attachment 0 or the parent isn't a BaseAnimating entity, the equivalent of Entity:GetMoveParent():GetWorldTransformMatrix() will be returned.
     **/
     
-    public function GetParentWorldTransformMatrix():VMatrix;
+    function GetParentWorldTransformMatrix():VMatrix;
     
     #if server
     /**
@@ -3983,7 +3983,7 @@ extern class Entity {
 		`**Returns:** The workshop ID
     **/
     @:deprecated("")
-    public function GetWorkshopID():Float;
+    function GetWorkshopID():Float;
     #end
     
     /**
@@ -4020,7 +4020,7 @@ extern class Entity {
 		```
     **/
     
-    public function GibBreakClient(force:Vector, ?clr:AnyTable):Void;
+    function GibBreakClient(force:Vector, ?clr:AnyTable):Void;
     
     #if client
     /**
@@ -4029,7 +4029,7 @@ extern class Entity {
 		`**Returns:** The last time the entity had an animation update.
     **/
     
-    public function GetAnimTime():Float;
+    function GetAnimTime():Float;
     #end
     
     /**
@@ -4065,14 +4065,14 @@ extern class Entity {
 		true
     **/
     
-    public function HasFlexManipulatior():Bool;
+    function HasFlexManipulatior():Bool;
     
     
     /**
         Resets all pose parameters such as aim_yaw, aim_pitch and rotation.
     **/
     
-    public function ClearPoseParameters():Void;
+    function ClearPoseParameters():Void;
     
     
     /**
@@ -4081,7 +4081,7 @@ extern class Entity {
 		`**Returns:** Whether this entity uses custom collision check or not
     **/
     
-    public function GetCustomCollisionCheck():Bool;
+    function GetCustomCollisionCheck():Bool;
     
     
     /**
@@ -4095,7 +4095,7 @@ extern class Entity {
 		`**Returns:** The world angle
     **/
     
-    public function LocalToWorldAngles(ang:Angle):Angle;
+    function LocalToWorldAngles(ang:Angle):Angle;
     
     
     /**
@@ -4118,7 +4118,7 @@ extern class Entity {
 		```
     **/
     
-    public function IsFlagSet(flag:FL):Bool;
+    function IsFlagSet(flag:FL):Bool;
     
     #if server
     /**
@@ -4135,7 +4135,7 @@ extern class Entity {
 		`**Returns:** Layer ID of the started gesture, used to manipulate the played gesture by other functions.
     **/
     
-    public function AddGestureSequence(sequence:Float, ?autokill:Bool):Float;
+    function AddGestureSequence(sequence:Float, ?autokill:Bool):Float;
     #end
     #if client
     /**
@@ -4144,7 +4144,7 @@ extern class Entity {
 		`**Returns:** The entitys render origin
     **/
     
-    public function GetRenderOrigin():Vector;
+    function GetRenderOrigin():Vector;
     #end
     #if server
     /**
@@ -4177,7 +4177,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetConstrainedEntities():EntityGetConstrainedEntitiesReturn;
+    function GetConstrainedEntities():EntityGetConstrainedEntitiesReturn;
     #end
     
     /**
@@ -4196,7 +4196,7 @@ extern class Entity {
 		`**Returns:** Return true on success, nil otherwise.
     **/
     
-    public function PhysicsInitShadow(?allowPhysicsMovement:Bool, ?allowPhysicsRotation:Bool):Bool;
+    function PhysicsInitShadow(?allowPhysicsMovement:Bool, ?allowPhysicsRotation:Bool):Bool;
     
     #if server
     /**
@@ -4210,7 +4210,7 @@ extern class Entity {
 		`cycle` | The new animation cycle/frame for given layer.
     **/
     
-    public function SetLayerCycle(layerID:Float, cycle:Float):Void;
+    function SetLayerCycle(layerID:Float, cycle:Float):Void;
     #end
     
     /**
@@ -4219,7 +4219,7 @@ extern class Entity {
 		**Note:** Does nothing on server.
     **/
     
-    public function UseClientSideAnimation():Void;
+    function UseClientSideAnimation():Void;
     
     
     /**
@@ -4228,7 +4228,7 @@ extern class Entity {
 		`**Returns:** Returns true if entity is scripted ( SENT ), false if not ( A built-in engine entity )
     **/
     
-    public function IsScripted():Bool;
+    function IsScripted():Bool;
     
     
     /**
@@ -4248,7 +4248,7 @@ extern class Entity {
 		`value` | The value to set
     **/
     @:deprecated("You should use Entity: SetNWFloat instead.")
-    public function SetNetworkedFloat(key:String, ?value:Float):Void;
+    function SetNetworkedFloat(key:String, ?value:Float):Void;
     
     #if server
     /**
@@ -4264,7 +4264,7 @@ extern class Entity {
 		`**Returns:** The head position.
     **/
     
-    public function HeadTarget(origin:Vector):Vector;
+    function HeadTarget(origin:Vector):Vector;
     #end
     
     /**
@@ -4278,7 +4278,7 @@ extern class Entity {
 		`maxs` | The maximum vector of the bounds. The vector must be bigger than first argument on all axises.
     **/
     
-    public function SetCollisionBounds(mins:Vector, maxs:Vector):Void;
+    function SetCollisionBounds(mins:Vector, maxs:Vector):Void;
     
     
     /**
@@ -4304,7 +4304,7 @@ extern class Entity {
 		```
     **/
     
-    public function Activate():Void;
+    function Activate():Void;
     
     
     /**
@@ -4320,7 +4320,7 @@ extern class Entity {
 		`**Returns:** The value set on the bone controller.
     **/
     
-    public function GetBoneController(boneID:Float):Float;
+    function GetBoneController(boneID:Float):Float;
     
     
     /**
@@ -4329,7 +4329,7 @@ extern class Entity {
 		`**Returns:** forwardDir
     **/
     
-    public function GetForward():Vector;
+    function GetForward():Vector;
     
     
     /**
@@ -4346,7 +4346,7 @@ extern class Entity {
 		`**Returns:** The transition sequence, -1 if not available.
     **/
     
-    public function FindTransitionSequence(currentSequence:Float, goalSequence:Float):Float;
+    function FindTransitionSequence(currentSequence:Float, goalSequence:Float):Float;
     
     #if server
     /**
@@ -4376,7 +4376,7 @@ extern class Entity {
 		```
     **/
     
-    public function Fire(input:String, ?param:String, ?delay:Float):Void;
+    function Fire(input:String, ?param:String, ?delay:Float):Void;
     #end
     #if server
     /**
@@ -4397,7 +4397,7 @@ extern class Entity {
 		false
     **/
     
-    public function IsConstraint():Bool;
+    function IsConstraint():Bool;
     #end
     
     /**
@@ -4406,7 +4406,7 @@ extern class Entity {
 		`**Returns:** The velocity
     **/
     
-    public function GetLocalAngularVelocity():Angle;
+    function GetLocalAngularVelocity():Angle;
     
     #if client
     /**
@@ -4417,7 +4417,7 @@ extern class Entity {
 		`angle` | Networked angle.
     **/
     
-    public function SetNetworkAngles(angle:Angle):Void;
+    function SetNetworkAngles(angle:Angle):Void;
     #end
     
     /**
@@ -4433,7 +4433,7 @@ extern class Entity {
 		`**Returns:** Returns a value ranging from 0 to 255 depending on the value set with Entity: ManipulateBoneJiggle.
     **/
     
-    public function GetManipulateBoneJiggle(boneID:Float):Float;
+    function GetManipulateBoneJiggle(boneID:Float):Float;
     
     #if server
     /**
@@ -4442,7 +4442,7 @@ extern class Entity {
 		`**Returns:** The creator, NULL for no creator.
     **/
     
-    public function GetCreator():Player;
+    function GetCreator():Player;
     #end
     
     /**
@@ -4466,7 +4466,7 @@ extern class Entity {
 		In most cases, true.
     **/
     
-    public function OnGround():Bool;
+    function OnGround():Bool;
     
     #if client
     /**
@@ -4475,7 +4475,7 @@ extern class Entity {
 		This should be called after calling Entity:SetPoseParameter.
     **/
     
-    public function InvalidateBoneCache():Void;
+    function InvalidateBoneCache():Void;
     #end
     
     /**
@@ -4493,7 +4493,7 @@ extern class Entity {
 		`**Returns:** Requested string.
     **/
     @:deprecated("INTERNAL")
-    public function GetDTString(key:Float):String;
+    function GetDTString(key:Float):String;
     
     
     /**
@@ -4511,7 +4511,7 @@ extern class Entity {
 		`value` | The value to set
     **/
     @:deprecated("You should use Entity: SetNWEntity instead.")
-    public function SetNetworkedEntity(key:String, ?value:Entity):Void;
+    function SetNetworkedEntity(key:String, ?value:Entity):Void;
     
     #if client
     /**
@@ -4524,7 +4524,7 @@ extern class Entity {
 		`ang` | The angles to set
     **/
     
-    public function SetBonePosition(bone:Float, pos:Vector, ang:Angle):Void;
+    function SetBonePosition(bone:Float, pos:Vector, ang:Angle):Void;
     #end
     
     /**
@@ -4542,7 +4542,7 @@ extern class Entity {
 		`value` | The value to set
     **/
     @:deprecated("You should use Entity: SetNWAngle instead.")
-    public function SetNetworkedAngle(key:String, ?value:Angle):Void;
+    function SetNetworkedAngle(key:String, ?value:Angle):Void;
     
     
     /**
@@ -4553,7 +4553,7 @@ extern class Entity {
 		`playerAnim` | Player animation, see PLAYER_ Enums.
     **/
     
-    public function SetAnimation(playerAnim:PLAYER):Void;
+    function SetAnimation(playerAnim:PLAYER):Void;
     
     
     /**
@@ -4566,7 +4566,7 @@ extern class Entity {
 		`soundscript` | The name of the sound script to stop playback of.
     **/
     
-    public function StopSound(soundscript:String):Void;
+    function StopSound(soundscript:String):Void;
     
     
     /**
@@ -4580,7 +4580,7 @@ extern class Entity {
 		`vec2` | The second vector of the bounds.
     **/
     
-    public function SetCollisionBoundsWS(vec1:Vector, vec2:Vector):Void;
+    function SetCollisionBoundsWS(vec1:Vector, vec2:Vector):Void;
     
     
     /**
@@ -4589,7 +4589,7 @@ extern class Entity {
 		`**Returns:** Amount of bodygroups the entitys model has
     **/
     
-    public function GetNumBodyGroups():Float;
+    function GetNumBodyGroups():Float;
     
     
     /**
@@ -4687,7 +4687,7 @@ extern class Entity {
 		```
     **/
     
-    public function PhysicsInitMultiConvex(vertices:AnyTable):Bool;
+    function PhysicsInitMultiConvex(vertices:AnyTable):Bool;
     
     
     /**
@@ -4698,7 +4698,7 @@ extern class Entity {
 		`ang` | The local angle
     **/
     
-    public function SetLocalAngles(ang:Angle):Void;
+    function SetLocalAngles(ang:Angle):Void;
     
     
     /**
@@ -4709,7 +4709,7 @@ extern class Entity {
 		`flags` | The flag(s) to remove, see FSOLID_ Enums.
     **/
     
-    public function RemoveSolidFlags(flags:FSOLID):Void;
+    function RemoveSolidFlags(flags:FSOLID):Void;
     
     
     /**
@@ -4731,7 +4731,7 @@ extern class Entity {
 		`**Returns:** Returns true on success, false otherwise. This will fail if the entity's current model has no associated physics mesh.
     **/
     
-    public function PhysicsInitStatic(solidType:SOLID):Bool;
+    function PhysicsInitStatic(solidType:SOLID):Bool;
     
     #if server
     /**
@@ -4750,7 +4750,7 @@ extern class Entity {
 		Extinguishes the first player if he is on fire.
     **/
     
-    public function Extinguish():Void;
+    function Extinguish():Void;
     #end
     
     /**
@@ -4763,7 +4763,7 @@ extern class Entity {
 		`angles` | The new angles.
     **/
     
-    public function SetAngles(angles:Angle):Void;
+    function SetAngles(angles:Angle):Void;
     
     
     /**
@@ -4779,7 +4779,7 @@ extern class Entity {
 		`suppressHostEvents` | Has the effect of encasing the FireBullets call in SuppressHostEvents, only works in multiplayer.
     **/
     
-    public function FireBullets(bulletInfo:Bullet, ?suppressHostEvents:Bool):Void;
+    function FireBullets(bulletInfo:Bullet, ?suppressHostEvents:Bool):Void;
     
     
     /**
@@ -4807,7 +4807,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetNWVector(key:String, value:Vector):Void;
+    function SetNWVector(key:String, value:Vector):Void;
     
     #if server
     /**
@@ -4816,7 +4816,7 @@ extern class Entity {
 		`**Returns:** The creation ID
     **/
     
-    public function GetCreationID():Float;
+    function GetCreationID():Float;
     #end
     
     /**
@@ -4832,7 +4832,7 @@ extern class Entity {
 		`**Returns:** A table containing the callbackid and function of all the callbacks for the specified hook
     **/
     
-    public function GetCallbacks(hook:String):AnyTable;
+    function GetCallbacks(hook:String):AnyTable;
     
     #if client
     /**
@@ -4843,7 +4843,7 @@ extern class Entity {
 		`matrixType` | The name of the matrix type to disable. The only known matrix type is "RenderMultiply".
     **/
     
-    public function DisableMatrix(matrixType:String):Void;
+    function DisableMatrix(matrixType:String):Void;
     #end
     
     /**
@@ -4873,7 +4873,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetMoveParent(Parent:Entity):Void;
+    function SetMoveParent(Parent:Entity):Void;
     
     
     /**
@@ -4882,7 +4882,7 @@ extern class Entity {
 		`**Returns:** The index of the model sequence.
     **/
     
-    public function GetSequence():Float;
+    function GetSequence():Float;
     
     
     /**
@@ -4905,7 +4905,7 @@ extern class Entity {
 		```
     **/
     
-    public function AddEffects(effect:EF):Void;
+    function AddEffects(effect:EF):Void;
     
     #if client
     /**
@@ -4914,7 +4914,7 @@ extern class Entity {
 		This is ran automatically on every client by Entity:StopParticles if called on the server.
     **/
     
-    public function StopParticleEmission():Void;
+    function StopParticleEmission():Void;
     #end
     
     /**
@@ -4932,7 +4932,7 @@ extern class Entity {
 		`str` | The string to write on the entity's datatable, can't be more than 512 characters per string.
     **/
     @:deprecated("INTERNAL")
-    public function SetDTString(key:Float, str:String):Void;
+    function SetDTString(key:Float, str:String):Void;
     
     
     /**
@@ -4951,7 +4951,7 @@ extern class Entity {
 		```
     **/
     
-    public function IsPlayer():Bool;
+    function IsPlayer():Bool;
     
     
     /**
@@ -4960,7 +4960,7 @@ extern class Entity {
 		`**Returns:** entTable
     **/
     
-    public function GetTable():AnyTable;
+    function GetTable():AnyTable;
     
     #if client
     /**
@@ -4982,7 +4982,7 @@ extern class Entity {
 		Draws the shadow of an entity
     **/
     
-    public function CreateShadow():Void;
+    function CreateShadow():Void;
     #end
     
     /**
@@ -4995,7 +4995,7 @@ extern class Entity {
 		`**Returns:** The bitfield, a combination of the FCAP_ flags.
     **/
     
-    public function ObjectCaps():Float;
+    function ObjectCaps():Float;
     
     
     /**
@@ -5010,7 +5010,7 @@ extern class Entity {
 		`**Returns:** The value associated with the key
     **/
     
-    public function GetNWFloat(key:String, ?fallback:Dynamic):Dynamic;
+    function GetNWFloat(key:String, ?fallback:Dynamic):Dynamic;
     
     
     /**
@@ -5033,7 +5033,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetSolidFlags(flags:FSOLID):Void;
+    function SetSolidFlags(flags:FSOLID):Void;
     
     
     /**
@@ -5044,7 +5044,7 @@ extern class Entity {
 		`elasticity` | The elasticity to set.
     **/
     
-    public function SetElasticity(elasticity:Float):Void;
+    function SetElasticity(elasticity:Float):Void;
     
     
     /**
@@ -5055,7 +5055,7 @@ extern class Entity {
 		`id` | The sound ID returned by Entity: StartLoopingSound
     **/
     
-    public function StopLoopingSound(id:Float):Void;
+    function StopLoopingSound(id:Float):Void;
     
     
     /**
@@ -5064,7 +5064,7 @@ extern class Entity {
 		`**Returns:** Whether the entity is a vehicle.
     **/
     
-    public function IsVehicle():Bool;
+    function IsVehicle():Bool;
     
     
     /**
@@ -5093,7 +5093,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetAttachment(attachmentId:Float):AngPos;
+    function GetAttachment(attachmentId:Float):AngPos;
     
     #if server
     /**
@@ -5107,7 +5107,7 @@ extern class Entity {
 		`duration` | The new duration of the layer in seconds.
     **/
     
-    public function SetLayerDuration(layerID:Float, duration:Float):Void;
+    function SetLayerDuration(layerID:Float, duration:Float):Void;
     #end
     
     /**
@@ -5135,7 +5135,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetNWEntity(key:String, value:Entity):Void;
+    function SetNWEntity(key:String, value:Entity):Void;
     
     
     /**
@@ -5146,7 +5146,7 @@ extern class Entity {
 		`IsNotSolid` | True will make the entity not solid, false will make it solid.
     **/
     
-    public function SetNotSolid(IsNotSolid:Bool):Void;
+    function SetNotSolid(IsNotSolid:Bool):Void;
     
     
     /**
@@ -5155,7 +5155,7 @@ extern class Entity {
 		On client, this is the same as Entity:StopParticleEmission. ( and you should use StopParticleEmission instead ) On server, this is the same as running Entity:StopParticleEmission on every client.
     **/
     
-    public function StopParticles():Void;
+    function StopParticles():Void;
     
     
     /**
@@ -5168,7 +5168,7 @@ extern class Entity {
 		`velocity` | The new velocity to set.
     **/
     
-    public function SetLocalVelocity(velocity:Vector):Void;
+    function SetLocalVelocity(velocity:Vector):Void;
     
     
     /**
@@ -5179,7 +5179,7 @@ extern class Entity {
 		`**Returns:** Whether the entity is an NPC.
     **/
     
-    public function IsNPC():Bool;
+    function IsNPC():Bool;
     
     
     /**
@@ -5219,7 +5219,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetBoneMatrix(boneid:Float, matrix:VMatrix):Void;
+    function SetBoneMatrix(boneid:Float, matrix:VMatrix):Void;
     
     
     /**
@@ -5228,7 +5228,7 @@ extern class Entity {
 		`**Returns:** Returns true if ragdoll will be created on server, false if on client
     **/
     
-    public function GetShouldServerRagdoll():Bool;
+    function GetShouldServerRagdoll():Bool;
     
     
     /**
@@ -5239,7 +5239,7 @@ extern class Entity {
 		`solid_type` | The solid type. See the SOLID_ Enums.
     **/
     
-    public function SetSolid(solid_type:SOLID):Void;
+    function SetSolid(solid_type:SOLID):Void;
     
     
     /**
@@ -5253,14 +5253,14 @@ extern class Entity {
 		`**Returns:** A table of bone ids
     **/
     
-    public function GetChildBones(boneid:Float):AnyTable;
+    function GetChildBones(boneid:Float):AnyTable;
     
     
     /**
         Forces the Entity to be dropped, when it is being held by a player's gravitygun or physgun.
     **/
     
-    public function ForcePlayerDrop():Void;
+    function ForcePlayerDrop():Void;
     
     #if server
     /**
@@ -5269,7 +5269,7 @@ extern class Entity {
 		`**Returns:** friction
     **/
     
-    public function GetFriction():Float;
+    function GetFriction():Float;
     #end
     
     /**
@@ -5282,7 +5282,7 @@ extern class Entity {
 		`shouldNotDraw` | true disables drawing
     **/
     
-    public function SetNoDraw(shouldNotDraw:Bool):Void;
+    function SetNoDraw(shouldNotDraw:Bool):Void;
     
     
     /**
@@ -5291,7 +5291,7 @@ extern class Entity {
 		`**Returns:** The local position of the lowest corner of the entity's oriented bounding box.
     **/
     
-    public function OBBMins():Vector;
+    function OBBMins():Vector;
     
     
     /**
@@ -5330,7 +5330,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetPoseParameter(poseName:String, poseValue:Float):Void;
+    function SetPoseParameter(poseName:String, poseValue:Float):Void;
     
     
     /**
@@ -5348,7 +5348,7 @@ extern class Entity {
 		`**Returns:** The ID number of started sound starting with 0, or -1 if we failed for some reason.
     **/
     
-    public function StartLoopingSound(sound:String):Float;
+    function StartLoopingSound(sound:String):Float;
     
     
     /**
@@ -5396,7 +5396,7 @@ extern class Entity {
 		You can walk through the player for 10 seconds
     **/
     
-    public function SetCollisionGroup(group:COLLISION_GROUP):Void;
+    function SetCollisionGroup(group:COLLISION_GROUP):Void;
     
     
     /**
@@ -5409,7 +5409,7 @@ extern class Entity {
 		`onoff` | Will set the TransmitWithParent flag on or off
     **/
     
-    public function SetTransmitWithParent(onoff:Bool):Void;
+    function SetTransmitWithParent(onoff:Bool):Void;
     
     #if client
     /**
@@ -5461,7 +5461,7 @@ extern class Entity {
 		```
     **/
     
-    public function DrawModel():Void;
+    function DrawModel():Void;
     #end
     
     /**
@@ -5516,7 +5516,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetAnimInfo(animIndex:Float):AnyTable;
+    function GetAnimInfo(animIndex:Float):AnyTable;
     
     
     /**
@@ -5529,7 +5529,7 @@ extern class Entity {
 		`gravityMultiplier` | Value which specifies the gravity multiplier.
     **/
     
-    public function SetGravity(gravityMultiplier:Float):Void;
+    function SetGravity(gravityMultiplier:Float):Void;
     
     
     /**
@@ -5547,7 +5547,7 @@ extern class Entity {
 		`boundSize` | The distance/size of the trigger bounds.
     **/
     
-    public function UseTriggerBounds(enable:Bool, ?boundSize:Float):Void;
+    function UseTriggerBounds(enable:Bool, ?boundSize:Float):Void;
     
     
     /**
@@ -5561,7 +5561,7 @@ extern class Entity {
 		`**Returns:** Returns true if the line of sight is clear
     **/
     
-    public function IsLineOfSightClear(target:Vector):Bool;
+    function IsLineOfSightClear(target:Vector):Bool;
     
     #if server
     /**
@@ -5573,7 +5573,7 @@ extern class Entity {
 		`pos` | Position to set
     **/
     
-    public function SetRagdollPos(boneid:Float, pos:Vector):Void;
+    function SetRagdollPos(boneid:Float, pos:Vector):Void;
     #end
     
     /**
@@ -5598,14 +5598,14 @@ extern class Entity {
 		While a player is dead and their ragdoll is spawned this returns: Player [1][PlayerName]
     **/
     
-    public function GetRagdollOwner():Entity;
+    function GetRagdollOwner():Entity;
     
     
     /**
         Fires the muzzle flash effect of the weapon the entity is carrying. This only creates a light effect and is often called alongside Weapon:SendWeaponAnim
     **/
     
-    public function MuzzleFlash():Void;
+    function MuzzleFlash():Void;
     
     #if client
     /**
@@ -5614,7 +5614,7 @@ extern class Entity {
 		`**Returns:** The entitys render angles
     **/
     
-    public function GetRenderAngles():Angle;
+    function GetRenderAngles():Angle;
     #end
     #if client
     /**
@@ -5623,7 +5623,7 @@ extern class Entity {
 		`**Returns:** How many physics bones exist on the model.
     **/
     
-    public function GetModelPhysBoneCount():Float;
+    function GetModelPhysBoneCount():Float;
     #end
     #if server
     /**
@@ -5634,7 +5634,7 @@ extern class Entity {
 		`**Returns:** Is the entity in world
     **/
     
-    public function IsInWorld():Bool;
+    function IsInWorld():Bool;
     #end
     #if client
     /**
@@ -5660,7 +5660,7 @@ extern class Entity {
 		```
     **/
     
-    public function BecomeRagdollOnClient():CSEnt;
+    function BecomeRagdollOnClient():CSEnt;
     #end
     
     /**
@@ -5677,7 +5677,7 @@ extern class Entity {
 		`**Returns:** The retrieved value
     **/
     @:deprecated("You should use Entity: GetNWInt instead.")
-    public function GetNetworkedInt(key:String, ?fallback:Float):Float;
+    function GetNetworkedInt(key:String, ?fallback:Float):Float;
     
     
     /**
@@ -5693,7 +5693,7 @@ extern class Entity {
 		`material` | The material to override the default one with. Set to nil to revert to default material.
     **/
     
-    public function SetSubMaterial(?index:Float, ?material:String):Void;
+    function SetSubMaterial(?index:Float, ?material:String):Void;
     
     #if server
     /**
@@ -5702,7 +5702,7 @@ extern class Entity {
 		`**Returns:** Whether the entity is lag compensated or not.
     **/
     
-    public function IsLagCompensated():Bool;
+    function IsLagCompensated():Bool;
     #end
     #if client
     /**
@@ -5715,7 +5715,7 @@ extern class Entity {
 		`add` | If defined, adds this vector to maxs and subtracts this vector from mins.
     **/
     
-    public function SetRenderBoundsWS(mins:Vector, maxs:Vector, ?add:Vector):Void;
+    function SetRenderBoundsWS(mins:Vector, maxs:Vector, ?add:Vector):Void;
     #end
     #if client
     /**
@@ -5726,7 +5726,7 @@ extern class Entity {
 		`enabled` | Whether the entity should use the old bone transformation behaviour or not.
     **/
     
-    public function SetLegacyTransform(enabled:Bool):Void;
+    function SetLegacyTransform(enabled:Bool):Void;
     #end
     
     /**
@@ -5742,7 +5742,7 @@ extern class Entity {
 		`**Returns:** The internal variable value
     **/
     
-    public function GetInternalVariable(VariableName:String):Dynamic;
+    function GetInternalVariable(VariableName:String):Dynamic;
     
     
     /**
@@ -5757,7 +5757,7 @@ extern class Entity {
 		`physObj` | The PhysObj to remove from the motion controller.
     **/
     
-    public function RemoveFromMotionController(physObj:PhysObj):Void;
+    function RemoveFromMotionController(physObj:PhysObj):Void;
     
     
     /**
@@ -5787,7 +5787,7 @@ extern class Entity {
 		```
     **/
     
-    public function HasSpawnFlags(spawnFlags:SF):Bool;
+    function HasSpawnFlags(spawnFlags:SF):Bool;
     
     
     /**
@@ -5813,7 +5813,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetVar(key:Dynamic, ?_default:Dynamic):Dynamic;
+    function GetVar(key:Dynamic, ?_default:Dynamic):Dynamic;
     
     
     /**
@@ -5824,7 +5824,7 @@ extern class Entity {
 		`shouldDraw` | True to enable, false to disable shadow drawing.
     **/
     
-    public function DrawShadow(shouldDraw:Bool):Void;
+    function DrawShadow(shouldDraw:Bool):Void;
     
     
     /**
@@ -5833,7 +5833,7 @@ extern class Entity {
 		`**Returns:** The local position of the highest corner of the entity's oriented bounding box.
     **/
     
-    public function OBBMaxs():Vector;
+    function OBBMaxs():Vector;
     
     
     /**
@@ -5847,7 +5847,7 @@ extern class Entity {
 		`**Returns:** The ID of flex nil if no flex with given name was found
     **/
     
-    public function GetFlexIDByName(name:String):Float;
+    function GetFlexIDByName(name:String):Float;
     
     #if server
     /**
@@ -5856,7 +5856,7 @@ extern class Entity {
 		**Note:** This function only works on BaseAnimatingOverlay entites!
     **/
     
-    public function RemoveAllGestures():Void;
+    function RemoveAllGestures():Void;
     #end
     
     /**
@@ -5867,7 +5867,7 @@ extern class Entity {
 		`**Returns:** True if it plays the pickup sound, false otherwise.
     **/
     
-    public function GetShouldPlayPickupSound():Bool;
+    function GetShouldPlayPickupSound():Bool;
     
     
     /**
@@ -5878,14 +5878,14 @@ extern class Entity {
 		`effect` | The effect to remove, see EF_ Enums.
     **/
     
-    public function RemoveEffects(effect:EF):Void;
+    function RemoveEffects(effect:EF):Void;
     
     
     /**
         Destroys the current physics object of an entity.
     **/
     
-    public function PhysicsDestroy():Void;
+    function PhysicsDestroy():Void;
     
     
     /**
@@ -5899,7 +5899,7 @@ extern class Entity {
 		`**Returns:** The entity's scale manipulation of the given bone
     **/
     
-    public function GetManipulateBoneScale(boneID:Float):Vector;
+    function GetManipulateBoneScale(boneID:Float):Vector;
     
     
     /**
@@ -5931,7 +5931,7 @@ extern class Entity {
 		-1.250000 -6.500000 -3.190000 8.250000 3.500000 3.310000
     **/
     
-    public function GetHitBoxBounds(hitbox:Float, group:Float):EntityGetHitBoxBoundsReturn;
+    function GetHitBoxBounds(hitbox:Float, group:Float):EntityGetHitBoxBoundsReturn;
     
     
     /**
@@ -5979,7 +5979,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetSequenceInfo(sequenceId:Float):SequenceInfo;
+    function GetSequenceInfo(sequenceId:Float):SequenceInfo;
     
     
     /**
@@ -6000,7 +6000,7 @@ extern class Entity {
 		```
     **/
     
-    public function RemoveCallOnRemove(identifier:String):Void;
+    function RemoveCallOnRemove(identifier:String):Void;
     
     
     /**
@@ -6011,7 +6011,7 @@ extern class Entity {
 		`**Returns:** True if the entity is set to be persistent.
     **/
     
-    public function GetPersistent():Bool;
+    function GetPersistent():Bool;
     
     #if server
     /**
@@ -6025,7 +6025,7 @@ extern class Entity {
 		`timeLimit` | Time in seconds until the entity forgets its physics attacker and prevents it from getting the kill credit.
     **/
     
-    public function SetPhysicsAttacker(ent:Player, ?timeLimit:Float):Void;
+    function SetPhysicsAttacker(ent:Player, ?timeLimit:Float):Void;
     #end
     #if server
     /**
@@ -6036,7 +6036,7 @@ extern class Entity {
 		`freezable` | True to make the entity unfreezable, false otherwise.
     **/
     
-    public function SetUnFreezable(?freezable:Bool):Void;
+    function SetUnFreezable(?freezable:Bool):Void;
     #end
     
     /**
@@ -6054,7 +6054,7 @@ extern class Entity {
 		`attachmentId` | The attachment id to use when parenting, defaults to -1 or whatever the parent had set previously. NOTE You must call Entity:SetMoveType( MOVETYPE_NONE ) on the child for this argument to have any effect!
     **/
     
-    public function SetParent(?parent:Entity, ?attachmentId:Float):Void;
+    function SetParent(?parent:Entity, ?attachmentId:Float):Void;
     
     
     /**
@@ -6068,7 +6068,7 @@ extern class Entity {
 		`**Returns:** The activity ID, ie ACT_ Enums
     **/
     
-    public function GetSequenceActivity(seq:Float):ACT;
+    function GetSequenceActivity(seq:Float):ACT;
     
     
     /**
@@ -6105,7 +6105,7 @@ extern class Entity {
 		```
     **/
     
-    public function EnableCustomCollisions(useCustom:Bool):Void;
+    function EnableCustomCollisions(useCustom:Bool):Void;
     
     
     /**
@@ -6123,7 +6123,7 @@ extern class Entity {
 		`boneid` | The bone to follow
     **/
     
-    public function FollowBone(?parent:Entity, boneid:Float):Void;
+    function FollowBone(?parent:Entity, boneid:Float):Void;
     
     
     /**
@@ -6132,7 +6132,7 @@ extern class Entity {
 		`**Returns:** gravityMultiplier
     **/
     
-    public function GetGravity():Float;
+    function GetGravity():Float;
     
     
     /**
@@ -6141,7 +6141,7 @@ extern class Entity {
 		`**Returns:** Engine flags, see EFL_ Enums
     **/
     
-    public function GetEFlags():EFL;
+    function GetEFlags():EFL;
     
     
     /**
@@ -6159,7 +6159,7 @@ extern class Entity {
 		`value` | The value to set
     **/
     @:deprecated("You should use Entity: SetNWString instead.")
-    public function SetNetworkedString(key:String, ?value:String):Void;
+    function SetNetworkedString(key:String, ?value:String):Void;
     
     #if client
     /**
@@ -6195,7 +6195,7 @@ extern class Entity {
 		```
     **/
     
-    public function EnableMatrix(matrixType:String, matrix:VMatrix):Void;
+    function EnableMatrix(matrixType:String, matrix:VMatrix):Void;
     #end
     
     /**
@@ -6226,7 +6226,7 @@ extern class Entity {
 		Player [1][Rubat] 303 2.7499999180436
     **/
     
-    public function SequenceDuration(?seqid:Float):Float;
+    function SequenceDuration(?seqid:Float):Float;
     
     
     /**
@@ -6240,7 +6240,7 @@ extern class Entity {
 		`**Returns:** The ACT_ Enums as a string, returns "Not Found!" with an invalid sequence and "No model!" when no model is set.
     **/
     
-    public function GetSequenceActivityName(sequenceId:Float):ACT;
+    function GetSequenceActivityName(sequenceId:Float):ACT;
     
     #if client
     /**
@@ -6261,7 +6261,7 @@ extern class Entity {
 		`setPredictable` | whether to make this entity predictable or not.
     **/
     
-    public function SetPredictable(setPredictable:Bool):Void;
+    function SetPredictable(setPredictable:Bool):Void;
     #end
     
     /**
@@ -6277,7 +6277,7 @@ extern class Entity {
 		`ang` | The angle to write on the entity's datatable.
     **/
     @:deprecated("INTERNAL")
-    public function SetDTAngle(key:Float, ang:Angle):Void;
+    function SetDTAngle(key:Float, ang:Angle):Void;
     
     #if server
     /**
@@ -6288,7 +6288,7 @@ extern class Entity {
 		`maxhealth` | What the max health should be
     **/
     
-    public function SetMaxHealth(maxhealth:Float):Void;
+    function SetMaxHealth(maxhealth:Float):Void;
     #end
     
     /**
@@ -6306,7 +6306,7 @@ extern class Entity {
 		`**Returns:** Requested vector.
     **/
     @:deprecated("INTERNAL")
-    public function GetDTVector(key:Float):Vector;
+    function GetDTVector(key:Float):Vector;
     
     
     /**
@@ -6344,7 +6344,7 @@ extern class Entity {
 		Hit box group 0, hit box 0 is attached to bone ValveBiped.Bip01_Head1, etc.
     **/
     
-    public function GetHitBoxBone(hitbox:Float, group:Float):Float;
+    function GetHitBoxBone(hitbox:Float, group:Float):Float;
     
     
     /**
@@ -6353,7 +6353,7 @@ extern class Entity {
 		`**Returns:** The render Mode. See RENDERMODE_ Enums
     **/
     
-    public function GetRenderMode():RENDERMODE;
+    function GetRenderMode():RENDERMODE;
     
     
     /**
@@ -6384,7 +6384,7 @@ extern class Entity {
 		Sends the primary attack enumeration sequence to the view model and plays it.
     **/
     
-    public function SendViewModelMatchingSequence(seq:Float):Void;
+    function SendViewModelMatchingSequence(seq:Float):Void;
     
     #if server
     /**
@@ -6402,7 +6402,7 @@ extern class Entity {
 		`**Returns:** If the entities can see each other.
     **/
     
-    public function Visible(target:Entity):Bool;
+    function Visible(target:Entity):Bool;
     #end
     
     /**
@@ -6431,7 +6431,7 @@ extern class Entity {
 		Sets ent1's angle to one where ent1 faces up from ent2.
     **/
     
-    public function AlignAngles(from:Angle, to:Angle):Angle;
+    function AlignAngles(from:Angle, to:Angle):Angle;
     
     #if server
     /**
@@ -6463,7 +6463,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetConstrainedPhysObjects():EntityGetConstrainedPhysObjectsReturn;
+    function GetConstrainedPhysObjects():EntityGetConstrainedPhysObjectsReturn;
     #end
     #if server
     /**
@@ -6479,7 +6479,7 @@ extern class Entity {
 		`**Returns:** True if the testPoint is within our PVS.
     **/
     
-    public function TestPVS(testPoint:Dynamic):Bool;
+    function TestPVS(testPoint:Dynamic):Bool;
     #end
     
     /**
@@ -6496,7 +6496,7 @@ extern class Entity {
 		`**Returns:** The retrieved value
     **/
     @:deprecated("You should use Entity: GetNWString instead.")
-    public function GetNetworkedString(key:String, ?fallback:String):String;
+    function GetNetworkedString(key:String, ?fallback:String):String;
     
     
     /**
@@ -6507,7 +6507,7 @@ extern class Entity {
 		`flag` | The flag(s) to remove, see FL_ Enums
     **/
     
-    public function RemoveFlags(flag:FL):Void;
+    function RemoveFlags(flag:FL):Void;
     
     
     /**
@@ -6537,7 +6537,7 @@ extern class Entity {
 		The player is now located at Vector(0, 0, 0)
     **/
     
-    public function SetPos(position:Vector):Void;
+    function SetPos(position:Vector):Void;
     
     
     /**
@@ -6546,7 +6546,7 @@ extern class Entity {
 		This calls ENTITY:Initialize on Lua-defined entities.
     **/
     
-    public function Spawn():Void;
+    function Spawn():Void;
     
     
     /**
@@ -6582,7 +6582,7 @@ extern class Entity {
 		The entity now has 50 less health.
     **/
     
-    public function SetHealth(newHealth:Float):Void;
+    function SetHealth(newHealth:Float):Void;
     
     
     /**
@@ -6598,7 +6598,7 @@ extern class Entity {
 		`**Returns:** Count of values of passed bodygroup.
     **/
     
-    public function GetBodygroupCount(bodygroup:Float):Float;
+    function GetBodygroupCount(bodygroup:Float):Float;
     
     #if server
     /**
@@ -6615,7 +6615,7 @@ extern class Entity {
 		`**Returns:** Layer ID of the started gesture, used to manipulate the played gesture by other functions.
     **/
     
-    public function AddGesture(activity:ACT, ?autokill:Bool):Float;
+    function AddGesture(activity:ACT, ?autokill:Bool):Float;
     #end
     
     /**
@@ -6626,7 +6626,7 @@ extern class Entity {
 		`id` | The new hitbox set to set. Can be a name as a string, or the ID as a number. If the operation failed, the function will silently fail.
     **/
     
-    public function SetHitboxSet(id:Float):Void;
+    function SetHitboxSet(id:Float):Void;
     
     
     /**
@@ -6650,7 +6650,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetNWVarProxy(key:Dynamic, callback:Function):Void;
+    function SetNWVarProxy(key:Dynamic, callback:Function):Void;
     
     #if server
     /**
@@ -6669,7 +6669,7 @@ extern class Entity {
 		`**Returns:** Whether the entity info passes the entity filter.
     **/
     
-    public function PassesFilter(caller:Entity, ent:Entity):Bool;
+    function PassesFilter(caller:Entity, ent:Entity):Bool;
     #end
     
     /**
@@ -6684,7 +6684,7 @@ extern class Entity {
 		`**Returns:** The value associated with the key
     **/
     
-    public function GetNWEntity(key:String, ?fallback:Dynamic):Dynamic;
+    function GetNWEntity(key:String, ?fallback:Dynamic):Dynamic;
     
     #if server
     /**
@@ -6698,7 +6698,7 @@ extern class Entity {
 		`weight` | The new layer weight.
     **/
     
-    public function SetLayerWeight(layerID:Float, weight:Float):Void;
+    function SetLayerWeight(layerID:Float, weight:Float):Void;
     #end
     
     /**
@@ -6728,7 +6728,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetNWFloat(key:String, value:Float):Void;
+    function SetNWFloat(key:String, value:Float):Void;
     
     #if server
     /**
@@ -6749,7 +6749,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetUseType(useType:USETYPE):Void;
+    function SetUseType(useType:USETYPE):Void;
     #end
     #if client
     /**
@@ -6785,7 +6785,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetupPhonemeMappings(fileRoot:String):Void;
+    function SetupPhonemeMappings(fileRoot:String):Void;
     #end
     
     /**
@@ -6824,7 +6824,7 @@ extern class Entity {
 		Spawns the ragdoll and then sets the spawnEffect flag to true.
     **/
     
-    public function SetSpawnEffect(spawnEffect:Bool):Void;
+    function SetSpawnEffect(spawnEffect:Bool):Void;
     
     
     /**
@@ -6855,7 +6855,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetSequenceGroundSpeed(sequenceId:Float):Float;
+    function GetSequenceGroundSpeed(sequenceId:Float):Float;
     
     
     /**
@@ -6869,7 +6869,7 @@ extern class Entity {
 		`**Returns:** The attachment index, or 0 if the attachment does not exist and -1 if the model is invalid.
     **/
     
-    public function LookupAttachment(attachmentName:String):Float;
+    function LookupAttachment(attachmentName:String):Float;
     
     #if client
     /**
@@ -6900,7 +6900,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetRenderClipPlane(planeNormal:Vector, planePosition:Float):Void;
+    function SetRenderClipPlane(planeNormal:Vector, planePosition:Float):Void;
     #end
     
     /**
@@ -6933,7 +6933,7 @@ extern class Entity {
 		Hello, World! every second the entity exists in the world.
     **/
     
-    public function NextThink(timestamp:Float):Void;
+    function NextThink(timestamp:Float):Void;
     
     #if server
     /**
@@ -6947,7 +6947,7 @@ extern class Entity {
 		`priority` | The new priority of the layer.
     **/
     
-    public function SetLayerPriority(layerID:Float, priority:Float):Void;
+    function SetLayerPriority(layerID:Float, priority:Float):Void;
     #end
     
     /**
@@ -6973,7 +6973,7 @@ extern class Entity {
 		"Weapon" in console, if player 1 is aiming at airboat.
     **/
     
-    public function GetBodygroupName(id:Float):String;
+    function GetBodygroupName(id:Float):String;
     
     #if client
     /**
@@ -6986,7 +6986,7 @@ extern class Entity {
 		`**Returns:** Is the entity being looked at by the local player and within 256 units.
     **/
     
-    public function BeingLookedAtByLocalPlayer():Bool;
+    function BeingLookedAtByLocalPlayer():Bool;
     #end
     
     /**
@@ -7027,7 +7027,7 @@ extern class Entity {
 		```
     **/
     
-    public function NetworkVar(type:String, slot:Float, name:String, ?extended:AnyTable):Void;
+    function NetworkVar(type:String, slot:Float, name:String, ?extended:AnyTable):Void;
     
     #if server
     /**
@@ -7036,7 +7036,7 @@ extern class Entity {
 		`**Returns:** Color from BLOOD_COLOR_ Enums
     **/
     
-    public function GetBloodColor():BLOOD_COLOR;
+    function GetBloodColor():BLOOD_COLOR;
     #end
     
     /**
@@ -7056,7 +7056,7 @@ extern class Entity {
 		`c` | The "distance" of the plane. The distance is the dot product of the plane's normal and the point it was initialized with.
     **/
     
-    public function GetBrushPlane(id:Float):EntityGetBrushPlaneReturn;
+    function GetBrushPlane(id:Float):EntityGetBrushPlaneReturn;
     
     
     /**
@@ -7072,7 +7072,7 @@ extern class Entity {
 		`bool` | The boolean to write on the entity's metatable.
     **/
     @:deprecated("INTERNAL")
-    public function SetDTBool(key:Float, bool:Bool):Void;
+    function SetDTBool(key:Float, bool:Bool):Void;
     
     #if server
     /**
@@ -7085,7 +7085,7 @@ extern class Entity {
 		`enable` | Whether the entity should be lag compensated or not.
     **/
     
-    public function SetLagCompensated(enable:Bool):Void;
+    function SetLagCompensated(enable:Bool):Void;
     #end
     
     /**
@@ -7096,7 +7096,7 @@ extern class Entity {
 		`**Returns:** The velocity of the entity.
     **/
     
-    public function GetAbsVelocity():Vector;
+    function GetAbsVelocity():Vector;
     
     #if server
     /**
@@ -7125,7 +7125,7 @@ extern class Entity {
 		```
     **/
     
-    public function DropToFloor():Void;
+    function DropToFloor():Void;
     #end
     
     /**
@@ -7136,7 +7136,7 @@ extern class Entity {
 		`flag` | The flag to remove, see EFL_ Enums
     **/
     
-    public function RemoveEFlags(flag:EFL):Void;
+    function RemoveEFlags(flag:EFL):Void;
     
     
     /**
@@ -7145,7 +7145,7 @@ extern class Entity {
 		`**Returns:** Engine effect flags, see EF_ Enums
     **/
     
-    public function GetEffects():EF;
+    function GetEffects():EF;
     
     #if server
     /**
@@ -7180,7 +7180,7 @@ extern class Entity {
 		```
     **/
     
-    public function DeleteOnRemove(entityToRemove:Entity):Void;
+    function DeleteOnRemove(entityToRemove:Entity):Void;
     #end
     
     /**
@@ -7206,7 +7206,7 @@ extern class Entity {
 		-496.828125 11730.426758 5189.393066
     **/
     
-    public function WorldSpaceAABB():EntityWorldSpaceAABBReturn;
+    function WorldSpaceAABB():EntityWorldSpaceAABBReturn;
     
     
     /**
@@ -7221,7 +7221,7 @@ extern class Entity {
 		`**Returns:** The value associated with the key
     **/
     
-    public function GetNWAngle(key:String, ?fallback:Dynamic):Dynamic;
+    function GetNWAngle(key:String, ?fallback:Dynamic):Dynamic;
     
     #if client
     /**
@@ -7232,7 +7232,7 @@ extern class Entity {
 		`useIK` | The state of the IK.
     **/
     
-    public function SetIK(?useIK:Bool):Void;
+    function SetIK(?useIK:Bool):Void;
     #end
     
     /**
@@ -7249,7 +7249,7 @@ extern class Entity {
 		`b` | The maximum value
     **/
     
-    public function GetPoseParameterRange(id:Float):EntityGetPoseParameterRangeReturn;
+    function GetPoseParameterRange(id:Float):EntityGetPoseParameterRangeReturn;
     
     
     /**
@@ -7273,7 +7273,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetNetworkedNumber(index:Dynamic, number:Float):Void;
+    function SetNetworkedNumber(index:Dynamic, number:Float):Void;
     
     
     /**
@@ -7282,7 +7282,7 @@ extern class Entity {
 		`**Returns:** The ground entity.
     **/
     
-    public function GetGroundEntity():Entity;
+    function GetGroundEntity():Entity;
     
     
     /**
@@ -7381,7 +7381,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetWeaponModel(viewModel:String, ?weapon:Weapon):Void;
+    function SetWeaponModel(viewModel:String, ?weapon:Weapon):Void;
     
     #if server
     /**
@@ -7390,7 +7390,7 @@ extern class Entity {
 		Only usable on HL2 pickups and any weapons. Seems to be buggy with weapons. Very unreliable.
     **/
     
-    public function Respawn():Void;
+    function Respawn():Void;
     #end
     
     /**
@@ -7418,7 +7418,7 @@ extern class Entity {
 		Loop through all players, and print their color.
     **/
     
-    public function GetColor():Color;
+    function GetColor():Color;
     
     
     /**
@@ -7437,14 +7437,14 @@ extern class Entity {
 		```
     **/
     
-    public function GetHitBoxGroupCount():Float;
+    function GetHitBoxGroupCount():Float;
     
     
     /**
         Reset entity sequence info such as playback rate, ground speed, last event check, etc.
     **/
     
-    public function ResetSequenceInfo():Void;
+    function ResetSequenceInfo():Void;
     
     #if server
     /**
@@ -7462,7 +7462,7 @@ extern class Entity {
 		`**Returns:** Whether the damage info passes the entity filter.
     **/
     
-    public function PassesDamageFilter(dmg:CTakeDamageInfo):Bool;
+    function PassesDamageFilter(dmg:CTakeDamageInfo):Bool;
     #end
     
     /**
@@ -7473,7 +7473,7 @@ extern class Entity {
 		`serverragdoll` | Set true if ragdoll should be created on server, false if on client
     **/
     
-    public function SetShouldServerRagdoll(serverragdoll:Bool):Void;
+    function SetShouldServerRagdoll(serverragdoll:Bool):Void;
     
     
     /**
@@ -7484,7 +7484,7 @@ extern class Entity {
 		`renderFX` | The new render FX to set, see kRenderFx_ Enums
     **/
     
-    public function SetRenderFX(renderFX:KRenderFx):Void;
+    function SetRenderFX(renderFX:KRenderFx):Void;
     
     
     /**
@@ -7505,7 +7505,7 @@ extern class Entity {
 		UserGroup	=	owner
     **/
     
-    public function GetNWVarTable():AnyTable;
+    function GetNWVarTable():AnyTable;
     
     #if server
     /**
@@ -7516,7 +7516,7 @@ extern class Entity {
 		`**Returns:** A table of key values.
     **/
     
-    public function GetKeyValues():AnyTable;
+    function GetKeyValues():AnyTable;
     #end
     
     /**
@@ -7530,7 +7530,7 @@ extern class Entity {
 		`b` | The maximum vector of the collision bounds
     **/
     
-    public function GetCollisionBounds():EntityGetCollisionBoundsReturn;
+    function GetCollisionBounds():EntityGetCollisionBoundsReturn;
     
     
     /**
@@ -7541,7 +7541,7 @@ extern class Entity {
 		**Warning:** Failure to use this function correctly will result in a crash of the physics engine.
     **/
     
-    public function CollisionRulesChanged():Void;
+    function CollisionRulesChanged():Void;
     
     #if server
     /**
@@ -7573,7 +7573,7 @@ extern class Entity {
 		```
     **/
     
-    public function TakeDamageInfo(damageInfo:CTakeDamageInfo):Void;
+    function TakeDamageInfo(damageInfo:CTakeDamageInfo):Void;
     #end
     
     /**
@@ -7582,7 +7582,7 @@ extern class Entity {
 		`**Returns:** Flags of given entity as a bitflag, see FL_ Enums
     **/
     
-    public function GetFlags():FL;
+    function GetFlags():FL;
     
     
     /**
@@ -7608,7 +7608,7 @@ extern class Entity {
 		Returns 0
     **/
     
-    public function BoneLength(boneID:Float):Float;
+    function BoneLength(boneID:Float):Float;
     
     
     /**
@@ -7653,7 +7653,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetGroundEntity(ground:Entity):Void;
+    function SetGroundEntity(ground:Entity):Void;
     
     #if client
     /**
@@ -7664,7 +7664,7 @@ extern class Entity {
 		 Doesn't affect shadows from flashlight/lamps/env_projectedtexture.
     **/
     
-    public function DestroyShadow():Void;
+    function DestroyShadow():Void;
     #end
     
     /**
@@ -7698,7 +7698,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetModelScale(scale:Float, ?deltaTime:Float):Void;
+    function SetModelScale(scale:Float, ?deltaTime:Float):Void;
     
     
     /**
@@ -7728,7 +7728,7 @@ extern class Entity {
 		The bone number of what the client is looking at
     **/
     
-    public function TranslatePhysBoneToBone(physNum:Float):Float;
+    function TranslatePhysBoneToBone(physNum:Float):Float;
     
     
     /**
@@ -7746,7 +7746,7 @@ extern class Entity {
 		`value` | The value to set
     **/
     @:deprecated("You should use Entity: SetNWBool instead.")
-    public function SetNetworkedBool(key:String, ?value:Bool):Void;
+    function SetNetworkedBool(key:String, ?value:Bool):Void;
     
     
     /**
@@ -7757,7 +7757,7 @@ extern class Entity {
 		`pos` | The local position
     **/
     
-    public function SetLocalPos(pos:Vector):Void;
+    function SetLocalPos(pos:Vector):Void;
     
     
     /**
@@ -7775,7 +7775,7 @@ extern class Entity {
 		```
     **/
     
-    public function RemoveAllDecals():Void;
+    function RemoveAllDecals():Void;
     
     
     /**
@@ -7797,7 +7797,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetSpawnFlags():Float;
+    function GetSpawnFlags():Float;
     
     
     /**
@@ -7806,7 +7806,7 @@ extern class Entity {
 		`**Returns:** The amount of hitbox sets in the entity.
     **/
     
-    public function GetHitboxSetCount():Float;
+    function GetHitboxSetCount():Float;
     
     
     /**
@@ -7819,7 +7819,7 @@ extern class Entity {
 		`scale` | The new flex scale to set to
     **/
     
-    public function SetFlexScale(scale:Float):Void;
+    function SetFlexScale(scale:Float):Void;
     
     
     /**
@@ -7831,7 +7831,7 @@ extern class Entity {
 		`value` | The value you're setting the bodygroup to. Starts from 0.
     **/
     
-    public function SetBodygroup(bodygroup:Float, value:Float):Void;
+    function SetBodygroup(bodygroup:Float, value:Float):Void;
     
     #if server
     /**
@@ -7845,7 +7845,7 @@ extern class Entity {
 		`rate` | The new playback rate.
     **/
     
-    public function SetLayerPlaybackRate(layerID:Float, rate:Float):Void;
+    function SetLayerPlaybackRate(layerID:Float, rate:Float):Void;
     #end
     #if server
     /**
@@ -7856,7 +7856,7 @@ extern class Entity {
 		`dmginfo` | The damageinfo to apply. Only CTakeDamageInfo: GetDamageForce and CTakeDamageInfo: GetDamagePosition are used.
     **/
     
-    public function TakePhysicsDamage(dmginfo:CTakeDamageInfo):Void;
+    function TakePhysicsDamage(dmginfo:CTakeDamageInfo):Void;
     #end
     
     /**
@@ -7867,7 +7867,7 @@ extern class Entity {
 		`modelname` | The new model name.
     **/
     
-    public function SetModelName(modelname:String):Void;
+    function SetModelName(modelname:String):Void;
     
     
     /**
@@ -7876,7 +7876,7 @@ extern class Entity {
 		`**Returns:** The time the entity was created on.
     **/
     
-    public function GetCreationTime():Float;
+    function GetCreationTime():Float;
     
     
     /**
@@ -7934,7 +7934,7 @@ extern class Entity {
 		Will play the ACT_VM_RELOAD_EMPTY enumeration if the model has it. If not, it will play the normal reload enum.
     **/
     
-    public function SelectWeightedSequence(act:ACT):Float;
+    function SelectWeightedSequence(act:ACT):Float;
     
     #if server
     /**
@@ -7948,7 +7948,7 @@ extern class Entity {
 		`blendIn` | 
     **/
     
-    public function SetLayerBlendIn(layerID:Float, blendIn:Float):Void;
+    function SetLayerBlendIn(layerID:Float, blendIn:Float):Void;
     #end
     
     /**
@@ -7960,7 +7960,7 @@ extern class Entity {
 		`b` | The maximum vector of the bounds
     **/
     
-    public function GetModelRenderBounds():EntityGetModelRenderBoundsReturn;
+    function GetModelRenderBounds():EntityGetModelRenderBoundsReturn;
     
     
     /**
@@ -7971,7 +7971,7 @@ extern class Entity {
 		`flags` | The flag(s) to apply, see FSOLID_ Enums.
     **/
     
-    public function AddSolidFlags(flags:FSOLID):Void;
+    function AddSolidFlags(flags:FSOLID):Void;
     
     #if server
     /**
@@ -7987,7 +7987,7 @@ extern class Entity {
 		`**Returns:** Within line of sight
     **/
     
-    public function VisibleVec(pos:Vector):Bool;
+    function VisibleVec(pos:Vector):Bool;
     #end
     
     /**
@@ -8002,7 +8002,7 @@ extern class Entity {
 		`**Returns:** The value associated with the key
     **/
     
-    public function GetNWVector(key:String, ?fallback:Dynamic):Dynamic;
+    function GetNWVector(key:String, ?fallback:Dynamic):Dynamic;
     
     #if client
     /**
@@ -8013,7 +8013,7 @@ extern class Entity {
 		`**Returns:** Whether this entity is predictable or not.
     **/
     
-    public function GetPredictable():Bool;
+    function GetPredictable():Bool;
     #end
     
     /**
@@ -8034,7 +8034,7 @@ extern class Entity {
 		`force` | The force to apply to the created gibs
     **/
     
-    public function GibBreakServer(force:Vector):Void;
+    function GibBreakServer(force:Vector):Void;
     
     
     /**
@@ -8082,7 +8082,7 @@ extern class Entity {
 		```
     **/
     
-    public function AddCallback(hook:String, func:Function):Float;
+    function AddCallback(hook:String, func:Function):Float;
     
     
     /**
@@ -8110,7 +8110,7 @@ extern class Entity {
 		Animates the entity
     **/
     
-    public function FrameAdvance(interval:Float):Void;
+    function FrameAdvance(interval:Float):Void;
     
     
     /**
@@ -8128,7 +8128,7 @@ extern class Entity {
 		`**Returns:** The material that overrides this index, if any.
     **/
     
-    public function GetSubMaterial(index:Float):String;
+    function GetSubMaterial(index:Float):String;
     
     
     /**
@@ -8149,7 +8149,7 @@ extern class Entity {
 		Prints the classname of the weapon that the player is holding. (ie weapon_crowbar)
     **/
     
-    public function GetClass():String;
+    function GetClass():String;
     
     
     /**
@@ -8158,7 +8158,7 @@ extern class Entity {
 		`**Returns:** The solid type. See the SOLID_ Enums.
     **/
     
-    public function GetSolid():SOLID;
+    function GetSolid():SOLID;
     
     #if server
     /**
@@ -8167,7 +8167,7 @@ extern class Entity {
 		`**Returns:** The ground speed velocity.
     **/
     
-    public function GetGroundSpeedVelocity():Vector;
+    function GetGroundSpeedVelocity():Vector;
     #end
     
     /**
@@ -8178,7 +8178,7 @@ extern class Entity {
 		`flag` | Engine flag to add, see EFL_ Enums
     **/
     
-    public function AddEFlags(flag:EFL):Void;
+    function AddEFlags(flag:EFL):Void;
     
     
     /**
@@ -8238,7 +8238,7 @@ extern class Entity {
 		1/4 ... 3/4 A lua error telling us 'ImportantGameData' is a nil value and thus can't perform math on it But this shouldn't be possible, because we just created a value there. No red flags are present up until this point; all code up until this will run fine. Make sure to add an IsValid() check when the seemingly impossible happens.
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     #if server
     /**
@@ -8251,7 +8251,7 @@ extern class Entity {
 		`entity` | The entity that is blocking us
     **/
     @:deprecated("INTERNAL")
-    public function Blocked(entity:Entity):Void;
+    function Blocked(entity:Entity):Void;
     #end
     #if client
     /**
@@ -8260,7 +8260,7 @@ extern class Entity {
 		**Note:** This calls the BuildBonePositions callback added via Entity:AddCallback, so avoid calling this function inside it to prevent an infinite loop.
     **/
     
-    public function SetupBones():Void;
+    function SetupBones():Void;
     #end
     
     /**
@@ -8277,14 +8277,14 @@ extern class Entity {
 		`**Returns:** The retrieved value
     **/
     @:deprecated("You should use Entity: GetNWVector instead.")
-    public function GetNetworkedVector(key:String, ?fallback:Vector):Vector;
+    function GetNetworkedVector(key:String, ?fallback:Vector):Vector;
     
     #if server
     /**
         ***Deprecated:** You should use Entity: GetHitBoxBone instead.
     **/
     @:deprecated("You should use Entity: GetHitBoxBone instead.")
-    public function GetHitboxBone():Void;
+    function GetHitboxBone():Void;
     #end
     
     /**
@@ -8341,7 +8341,7 @@ extern class Entity {
 		```
     **/
     
-    public function PhysicsInitConvex(points:AnyTable):Bool;
+    function PhysicsInitConvex(points:AnyTable):Bool;
     
     
     /**
@@ -8372,7 +8372,7 @@ extern class Entity {
 		"Hit box group 0 has 17 hit boxes!"
     **/
     
-    public function GetHitBoxCount(group:Float):Float;
+    function GetHitBoxCount(group:Float):Float;
     
     #if server
     /**
@@ -8383,7 +8383,7 @@ extern class Entity {
 		`lightOrigin` | The lighting entity.
     **/
     
-    public function SetLightingOriginEntity(lightOrigin:Entity):Void;
+    function SetLightingOriginEntity(lightOrigin:Entity):Void;
     #end
     #if server
     /**
@@ -8436,7 +8436,7 @@ extern class Entity {
 		1.557984873557e-006
     **/
     
-    public function GetSequenceMoveDist(sequenceId:Float):Float;
+    function GetSequenceMoveDist(sequenceId:Float):Float;
     #end
     
     /**
@@ -8461,7 +8461,7 @@ extern class Entity {
 		```
     **/
     
-    public function GetPhysicsObject():PhysObj;
+    function GetPhysicsObject():PhysObj;
     
     
     /**
@@ -8470,7 +8470,7 @@ extern class Entity {
 		`**Returns:** upDir
     **/
     
-    public function GetUp():Vector;
+    function GetUp():Vector;
     
     #if server
     /**
@@ -8494,7 +8494,7 @@ extern class Entity {
 		```
     **/
     
-    public function Ignite(length:Float, ?radius:Float):Void;
+    function Ignite(length:Float, ?radius:Float):Void;
     #end
     
     /**
@@ -8511,7 +8511,7 @@ extern class Entity {
 		`**Returns:** The retrieved value
     **/
     @:deprecated("You should use Entity: GetNWBool instead.")
-    public function GetNetworkedBool(key:String, ?fallback:Bool):Bool;
+    function GetNetworkedBool(key:String, ?fallback:Bool):Bool;
     
     
     /**
@@ -8548,7 +8548,7 @@ extern class Entity {
 		```
     **/
     
-    public function SetColor(?color:Color):Void;
+    function SetColor(?color:Color):Void;
     
     
     /**
@@ -8569,14 +8569,14 @@ extern class Entity {
 		"true" entity's health is greater than or equal to their max health, or "false" otherwise.
     **/
     
-    public function Health():Float;
+    function Health():Float;
     
     #if server
     /**
         Sets the function to build the ragdoll. This is used alongside Kinect in Entity:SetRagdollBuildFunction, for more info see ragdoll_motion entity.
     **/
     
-    public function RagdollStopControlling():Void;
+    function RagdollStopControlling():Void;
     #end
     
     /**
@@ -8592,7 +8592,7 @@ extern class Entity {
 		`**Returns:** The translated activity
     **/
     
-    public function Weapon_TranslateActivity(act:Float):Float;
+    function Weapon_TranslateActivity(act:Float):Float;
     
     
     /**
@@ -8606,7 +8606,7 @@ extern class Entity {
 		`**Returns:** The flex name
     **/
     
-    public function GetFlexName(id:Float):String;
+    function GetFlexName(id:Float):String;
     
     
     /**
@@ -8622,7 +8622,7 @@ extern class Entity {
 		`**Returns:** Value of given pose parameter. WARNING This value will be from 0 - 1 on the client and from minimum range to maximum range on the server! You'll have to remap this value clientside to Entity:GetPoseParameterRange's returns if you want get the actual pose parameter value. See Entity:SetPoseParameter's example.
     **/
     
-    public function GetPoseParameter(name:String):Float;
+    function GetPoseParameter(name:String):Float;
     
     
 }

@@ -19,7 +19,7 @@ extern class Panel {
 		`offsetBottom` | The bottom offset to the parent.
     **/
     
-    public function StretchToParent(offsetLeft:Float, offsetTop:Float, offsetRight:Float, offsetBottom:Float):Void;
+    function StretchToParent(offsetLeft:Float, offsetTop:Float, offsetRight:Float, offsetBottom:Float):Void;
     
     
     /**
@@ -28,7 +28,7 @@ extern class Panel {
 		`**Returns:** The Z order position of the panel.
     **/
     
-    public function GetZPos():Float;
+    function GetZPos():Float;
     
     
     /**
@@ -39,7 +39,7 @@ extern class Panel {
 		`stayAtBack` | If true, the popup panel will not draw in front of others when it gets focus, for example when it is clicked.
     **/
     
-    public function SetPopupStayAtBack(stayAtBack:Bool):Void;
+    function SetPopupStayAtBack(stayAtBack:Bool):Void;
     
     
     /**
@@ -50,7 +50,7 @@ extern class Panel {
 		`width` | Desired width to set
     **/
     
-    public function SetWide(width:Float):Void;
+    function SetWide(width:Float):Void;
     
     
     /**
@@ -63,7 +63,7 @@ extern class Panel {
 		**Note:** Tab characters will be dropped from the pasted text
     **/
     
-    public function Paste():Void;
+    function Paste():Void;
     
     
     /**
@@ -76,7 +76,7 @@ extern class Panel {
 		`cmd` | The command to be run.
     **/
     @:deprecated("INTERNAL")
-    public function Exec(cmd:String):Void;
+    function Exec(cmd:String):Void;
     
     
     /**
@@ -92,7 +92,7 @@ extern class Panel {
 		`height` | The height of the panel.
     **/
     
-    public function SetSize(width:Float, height:Float):Void;
+    function SetSize(width:Float, height:Float):Void;
     
     
     /**
@@ -103,7 +103,7 @@ extern class Panel {
 		`ignoreCache` | If true, the refresh will ignore cached content similar to "ctrl+f5" in most browsers.
     **/
     
-    public function Refresh(?ignoreCache:Bool):Void;
+    function Refresh(?ignoreCache:Bool):Void;
     
     
     /**
@@ -197,7 +197,7 @@ extern class Panel {
 		```
     **/
     
-    public function InsertFade(sustain:Float, length:Float):Void;
+    function InsertFade(sustain:Float, length:Float):Void;
     
     
     /**
@@ -206,7 +206,7 @@ extern class Panel {
 		Will automatically call Panel:InvalidateParent.
     **/
     
-    public function Remove():Void;
+    function Remove():Void;
     
     
     /**
@@ -233,7 +233,7 @@ extern class Panel {
 		Panel's value is changed when the convar changes.
     **/
     
-    public function ConVarStringThink():Void;
+    function ConVarStringThink():Void;
     
     
     /**
@@ -244,7 +244,7 @@ extern class Panel {
 		`mouseCode` | The code for the mouse button pressed, passed by, for example, PANEL: OnMousePressed. See the MOUSE_ Enums.
     **/
     
-    public function DragMousePress(mouseCode:MOUSE):Void;
+    function DragMousePress(mouseCode:MOUSE):Void;
     
     
     /**
@@ -257,7 +257,7 @@ extern class Panel {
 		`enabled` | 
     **/
     
-    public function SetWorldClicker(enabled:Bool):Void;
+    function SetWorldClicker(enabled:Bool):Void;
     
     
     /**
@@ -266,7 +266,7 @@ extern class Panel {
 		This function does nothing.
     **/
     @:deprecated("This function does nothing.")
-    public function SetPaintFunction():Void;
+    function SetPaintFunction():Void;
     
     
     /**
@@ -279,7 +279,7 @@ extern class Panel {
 		`size` | A two-membered table containing the width and heights as numbers: number w - The width. number h - The height.
     **/
     @:deprecated("INTERNAL")
-    public function GWEN_SetSize(size:AnyTable):Void;
+    function GWEN_SetSize(size:AnyTable):Void;
     
     
     /**
@@ -288,21 +288,21 @@ extern class Panel {
 		See also Panel:SaveUndoState.
     **/
     
-    public function Undo():Void;
+    function Undo():Void;
     
     
     /**
         Causes a SpawnIcon to rebuild its model image.
     **/
     
-    public function RebuildSpawnIcon():Void;
+    function RebuildSpawnIcon():Void;
     
     
     /**
         Focuses the next panel in the focus queue.
     **/
     
-    public function FocusNext():Void;
+    function FocusNext():Void;
     
     
     /**
@@ -311,7 +311,7 @@ extern class Panel {
 		`**Returns:** isVisible
     **/
     
-    public function IsVisible():Bool;
+    function IsVisible():Bool;
     
     
     /**
@@ -322,7 +322,7 @@ extern class Panel {
 		`base` | Panel to position the width from.
     **/
     
-    public function CopyPos(base:Panel):Void;
+    function CopyPos(base:Panel):Void;
     
     
     /**
@@ -334,7 +334,7 @@ extern class Panel {
 		`posY` | The y coordinate to draw the panel from.
     **/
     
-    public function PaintAt(posX:Float, posY:Float):Void;
+    function PaintAt(posX:Float, posY:Float):Void;
     
     
     /**
@@ -362,7 +362,7 @@ extern class Panel {
 		```
     **/
     
-    public function DisableLerp():Void;
+    function DisableLerp():Void;
     
     
     /**
@@ -379,7 +379,7 @@ extern class Panel {
 		`**Returns:** The value of the stored cookie, or the default value should the cookie not exist.
     **/
     
-    public function GetCookie(cookieName:String, _default:String):String;
+    function GetCookie(cookieName:String, _default:String):String;
     
     
     /**
@@ -390,7 +390,7 @@ extern class Panel {
 		`selCanvas` | Any value other than nil or false will enable the panel object for selection. It is recommended to pass true.
     **/
     
-    public function SetSelectionCanvas(selCanvas:Dynamic):Void;
+    function SetSelectionCanvas(selCanvas:Dynamic):Void;
     
     
     /**
@@ -404,7 +404,7 @@ extern class Panel {
 		`**Returns:** True if the panel is contained within parentPanel.
     **/
     
-    public function HasParent(parentPanel:Panel):Bool;
+    function HasParent(parentPanel:Panel):Bool;
     
     
     /**
@@ -413,7 +413,7 @@ extern class Panel {
 		`**Returns:** Whether the object is in multi-line mode or not.
     **/
     
-    public function IsMultiline():Bool;
+    function IsMultiline():Bool;
     
     
     /**
@@ -422,7 +422,7 @@ extern class Panel {
 		`**Returns:** mouseInputEnabled
     **/
     
-    public function IsMouseInputEnabled():Bool;
+    function IsMouseInputEnabled():Bool;
     
     
     /**
@@ -437,7 +437,7 @@ extern class Panel {
 		`bodygroups` | The body groups to set. Each single-digit number in the string represents a separate bodygroup, up to 9 in total.
     **/
     
-    public function SetModel(ModelPath:String, ?skin:Float, ?bodygroups:String):Void;
+    function SetModel(ModelPath:String, ?skin:Float, ?bodygroups:String):Void;
     
     
     /**
@@ -448,7 +448,7 @@ extern class Panel {
 		`selectable` | Whether the panel object should be selectable or not.
     **/
     
-    public function SetSelectable(selectable:Bool):Void;
+    function SetSelectable(selectable:Bool):Void;
     
     
     /**
@@ -493,7 +493,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetBGColor(color:Color, g:Float, b:Float, a:Float):Void;
+    function SetBGColor(color:Color, g:Float, b:Float, a:Float):Void;
     
     
     /**
@@ -506,7 +506,7 @@ extern class Panel {
 		`display` | True to display the vertical text scroll bar, false to hide it.
     **/
     
-    public function SetVerticalScrollbarEnabled(?display:Bool):Void;
+    function SetVerticalScrollbarEnabled(?display:Bool):Void;
     
     
     /**
@@ -530,7 +530,7 @@ extern class Panel {
 		`b` | The Y coordinate relative to the screen.
     **/
     
-    public function LocalToScreen(posX:Float, posY:Float):PanelLocalToScreenReturn;
+    function LocalToScreen(posX:Float, posY:Float):PanelLocalToScreenReturn;
     
     
     /**
@@ -545,7 +545,7 @@ extern class Panel {
 		`data` | The data to load controls from. Format unknown.
     **/
     @:deprecated("INTERNAL")
-    public function LoadControlsFromString(data:String):Void;
+    function LoadControlsFromString(data:String):Void;
     
     
     /**
@@ -556,7 +556,7 @@ extern class Panel {
 		`skinName` | The name of the skin to use. The default derma skin is Default.
     **/
     
-    public function SetSkin(skinName:String):Void;
+    function SetSkin(skinName:String):Void;
     
     
     /**
@@ -570,14 +570,14 @@ extern class Panel {
 		`d` | Bottom margin.
     **/
     
-    public function GetDockMargin():PanelGetDockMarginReturn;
+    function GetDockMargin():PanelGetDockMarginReturn;
     
     
     /**
         Centers the panel on its parent.
     **/
     
-    public function Center():Void;
+    function Center():Void;
     
     
     /**
@@ -588,7 +588,7 @@ extern class Panel {
 		`Length` | Time to complete the animation.
     **/
     
-    public function SlideDown(Length:Float):Void;
+    function SlideDown(Length:Float):Void;
     
     
     /**
@@ -599,7 +599,7 @@ extern class Panel {
 		`offset` | The align offset.
     **/
     
-    public function AlignLeft(?offset:Float):Void;
+    function AlignLeft(?offset:Float):Void;
     
     
     /**
@@ -610,7 +610,7 @@ extern class Panel {
 		`offset` | The offset in the panel's back/forward history, relative to the current page, that you would like to skip to. Because this is relative, 0 = current page while negative goes back and positive goes forward. For example, -2 will go back 2 pages in the history.
     **/
     
-    public function GoToHistoryOffset(offset:Float):Void;
+    function GoToHistoryOffset(offset:Float):Void;
     
     
     /**
@@ -624,7 +624,7 @@ extern class Panel {
 		`**Returns:** New panel
     **/
     
-    public function Add(object:Panel):Panel;
+    function Add(object:Panel):Panel;
     
     
     /**
@@ -635,7 +635,7 @@ extern class Panel {
 		`**Returns:** The panel's text.
     **/
     
-    public function GetText():String;
+    function GetText():String;
     
     
     /**
@@ -646,7 +646,7 @@ extern class Panel {
 		**Note:** Only works on Label derived panels such as DLabel by default, and on any panel that manually implemented the Panel:SizeToContents method, such as DNumberWang and DImage.
     **/
     
-    public function SizeToContents():Void;
+    function SizeToContents():Void;
     
     
     /**
@@ -658,7 +658,7 @@ extern class Panel {
 		`b` | The slot table.
     **/
     
-    public function GetValidReceiverSlot():PanelGetValidReceiverSlotReturn;
+    function GetValidReceiverSlot():PanelGetValidReceiverSlotReturn;
     
     
     /**
@@ -674,7 +674,7 @@ extern class Panel {
 		`height` | The height of the drop area.
     **/
     @:deprecated("INTERNAL")
-    public function DrawDragHover(x:Float, y:Float, width:Float, height:Float):Void;
+    function DrawDragHover(x:Float, y:Float, width:Float, height:Float):Void;
     
     
     /**
@@ -690,7 +690,7 @@ extern class Panel {
 		`a` | The alpha channel of the color.
     **/
     @:deprecated("INTERNAL")
-    public function SetBGColorEx(r:Float, g:Float, b:Float, a:Float):Void;
+    function SetBGColorEx(r:Float, g:Float, b:Float, a:Float):Void;
     
     
     /**
@@ -699,7 +699,7 @@ extern class Panel {
 		`**Returns:** keyboardInputEnabled
     **/
     
-    public function IsKeyboardInputEnabled():Bool;
+    function IsKeyboardInputEnabled():Bool;
     
     
     /**
@@ -708,7 +708,7 @@ extern class Panel {
 		Installs Lua defined functions into the panel.
     **/
     @:deprecated("INTERNAL")
-    public function Prepare():Void;
+    function Prepare():Void;
     
     
     /**
@@ -719,7 +719,7 @@ extern class Panel {
 		`name` | The new name of the panel.
     **/
     
-    public function SetName(name:String):Void;
+    function SetName(name:String):Void;
     
     
     /**
@@ -768,7 +768,7 @@ extern class Panel {
 		```
     **/
     
-    public function ChildrenSize():PanelChildrenSizeReturn;
+    function ChildrenSize():PanelChildrenSizeReturn;
     
     
     /**
@@ -781,7 +781,7 @@ extern class Panel {
 		`clip` | Whether to clip or not.
     **/
     
-    public function NoClipping(clip:Bool):Void;
+    function NoClipping(clip:Bool):Void;
     
     
     /**
@@ -811,7 +811,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetMinimumSize(?minW:Float, ?minH:Float):Void;
+    function SetMinimumSize(?minW:Float, ?minH:Float):Void;
     
     
     /**
@@ -822,7 +822,7 @@ extern class Panel {
 		`alignment` | The direction of the content, based on the number pad. 7: top-left 8: top-center 9: top-right 4: middle-left 5: center 6: middle-right 1: bottom-left 2: bottom-center 3: bottom-right
     **/
     
-    public function SetContentAlignment(alignment:Float):Void;
+    function SetContentAlignment(alignment:Float):Void;
     
     
     /**
@@ -836,7 +836,7 @@ extern class Panel {
 		`b` | The height of the text in the DLabel.
     **/
     
-    public function GetTextSize():PanelGetTextSizeReturn;
+    function GetTextSize():PanelGetTextSizeReturn;
     
     
     /**
@@ -868,7 +868,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetAllowNonAsciiCharacters(allowed:Bool):Void;
+    function SetAllowNonAsciiCharacters(allowed:Bool):Void;
     
     
     /**
@@ -877,7 +877,7 @@ extern class Panel {
 		`**Returns:** name
     **/
     
-    public function GetName():String;
+    function GetName():String;
     
     
     /**
@@ -930,7 +930,7 @@ extern class Panel {
 		```
     **/
     
-    public function ResetAllFades(hold:Bool, expiredOnly:Bool, newSustain:Float):Void;
+    function ResetAllFades(hold:Bool, expiredOnly:Bool, newSustain:Float):Void;
     
     
     /**
@@ -941,14 +941,14 @@ extern class Panel {
 		`mouseInput` | Whenever to enable or disable mouse input.
     **/
     
-    public function SetMouseInputEnabled(mouseInput:Bool):Void;
+    function SetMouseInputEnabled(mouseInput:Bool):Void;
     
     
     /**
         Performs the "CONTROL + X" ( delete text and copy it to clipboard buffer ) action on selected text.
     **/
     
-    public function CutSelected():Void;
+    function CutSelected():Void;
     
     
     /**
@@ -964,7 +964,7 @@ extern class Panel {
 		```
     **/
     
-    public function ParentToHUD():Void;
+    function ParentToHUD():Void;
     
     
     /**
@@ -976,7 +976,7 @@ extern class Panel {
 		`offset` | The align offset.
     **/
     
-    public function MoveAbove(panel:Panel, ?offset:Float):Void;
+    function MoveAbove(panel:Panel, ?offset:Float):Void;
     
     
     /**
@@ -987,7 +987,7 @@ extern class Panel {
 		`layoutNow` | If true, the re-layout will occur immediately, otherwise it will be performed in the next frame.
     **/
     
-    public function InvalidateParent(?layoutNow:Bool):Void;
+    function InvalidateParent(?layoutNow:Bool):Void;
     
     
     /**
@@ -1072,7 +1072,7 @@ extern class Panel {
 		CreateSteamUserGrid(64, 64) The white question mark avatars mean no custom icon used or the user hasn't set up a community profile. The blue question mark avatars mean the user doesn't exist.
     **/
     
-    public function SetSteamID(steamid:String, size:Float):Void;
+    function SetSteamID(steamid:String, size:Float):Void;
     
     
     /**
@@ -1083,14 +1083,14 @@ extern class Panel {
 		`base` | The panel to copy size and position from.
     **/
     
-    public function CopyBounds(base:Panel):Void;
+    function CopyBounds(base:Panel):Void;
     
     
     /**
         Toggles the visibility of a panel and all its children.
     **/
     
-    public function ToggleVisible():Void;
+    function ToggleVisible():Void;
     
     
     /**
@@ -1103,7 +1103,7 @@ extern class Panel {
 		`width` | The new width of the panel.
     **/
     
-    public function SetWidth(width:Float):Void;
+    function SetWidth(width:Float):Void;
     
     
     /**
@@ -1118,7 +1118,7 @@ extern class Panel {
 		`layoutNow` | If true the panel will re-layout instantly and not wait for the next frame.
     **/
     
-    public function InvalidateLayout(?layoutNow:Bool):Void;
+    function InvalidateLayout(?layoutNow:Bool):Void;
     
     
     /**
@@ -1186,7 +1186,7 @@ extern class Panel {
 		```
     **/
     
-    public function InsertClickableTextStart(signalValue:String):Void;
+    function InsertClickableTextStart(signalValue:String):Void;
     
     
     /**
@@ -1230,7 +1230,7 @@ extern class Panel {
 		```
     **/
     
-    public function GetContentSize():PanelGetContentSizeReturn;
+    function GetContentSize():PanelGetContentSizeReturn;
     
     
     /**
@@ -1272,7 +1272,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetToFullHeight():Void;
+    function SetToFullHeight():Void;
     
     
     /**
@@ -1283,14 +1283,14 @@ extern class Panel {
 		`newValue` | The new value to set the associated console variable to.
     **/
     
-    public function ConVarChanged(newValue:String):Void;
+    function ConVarChanged(newValue:String):Void;
     
     
     /**
         Makes a panel invisible.
     **/
     
-    public function Hide():Void;
+    function Hide():Void;
     
     
     /**
@@ -1299,7 +1299,7 @@ extern class Panel {
 		**Bug:** BUG You can still click in the world even if locked. Issue Tracker: #3457
     **/
     
-    public function DoModal():Void;
+    function DoModal():Void;
     
     
     /**
@@ -1315,7 +1315,7 @@ extern class Panel {
 		`value` | The value to store in the cookie. This can be retrieved later as a string or number.
     **/
     
-    public function SetCookie(cookieName:String, value:String):Void;
+    function SetCookie(cookieName:String, value:String):Void;
     
     
     /**
@@ -1326,7 +1326,7 @@ extern class Panel {
 		`autoDelete` | Whenever to delete if the parent was removed or not.
     **/
     
-    public function SetAutoDelete(autoDelete:Bool):Void;
+    function SetAutoDelete(autoDelete:Bool):Void;
     
     
     /**
@@ -1369,7 +1369,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetWrap(wrap:Bool):Void;
+    function SetWrap(wrap:Bool):Void;
     
     
     /**
@@ -1383,7 +1383,7 @@ extern class Panel {
 		`callbackName` | 
     **/
     @:deprecated("INTERNAL")
-    public function NewObjectCallback(objectName:String, callbackName:String):Void;
+    function NewObjectCallback(objectName:String, callbackName:String):Void;
     
     
     /**
@@ -1397,7 +1397,7 @@ extern class Panel {
 		`**Returns:** foundPanel
     **/
     
-    public function Find(panelName:String):Panel;
+    function Find(panelName:String):Panel;
     
     
     /**
@@ -1408,7 +1408,7 @@ extern class Panel {
 		`doCapture` | Set to true to enable, set to false to disable.
     **/
     
-    public function MouseCapture(doCapture:Bool):Void;
+    function MouseCapture(doCapture:Bool):Void;
     
     
     /**
@@ -1420,7 +1420,7 @@ extern class Panel {
 		`insetY` | The top margin for the text, in pixels.
     **/
     
-    public function SetTextInset(insetX:Float, insetY:Float):Void;
+    function SetTextInset(insetX:Float, insetY:Float):Void;
     
     
     /**
@@ -1434,7 +1434,7 @@ extern class Panel {
 		`b` | Y coordinate, relative to this panels parents top left corner.
     **/
     
-    public function GetPos():PanelGetPosReturn;
+    function GetPos():PanelGetPosReturn;
     
     
     /**
@@ -1445,7 +1445,7 @@ extern class Panel {
 		`multiline` | Whether to enable multiline or not.
     **/
     
-    public function SetMultiline(multiline:Bool):Void;
+    function SetMultiline(multiline:Bool):Void;
     
     
     /**
@@ -1457,7 +1457,7 @@ extern class Panel {
 		`offset` | The gap to leave between this and the passed panel. Negative values will cause the panel's height to increase, forming an overlap.
     **/
     
-    public function StretchBottomTo(tgtPanel:Panel, ?offset:Float):Void;
+    function StretchBottomTo(tgtPanel:Panel, ?offset:Float):Void;
     
     
     /**
@@ -1470,7 +1470,7 @@ extern class Panel {
 		`dockState` | The dock mode to pass to the panel's Dock method. This reads a string and applies the approriate DOCK_ Enums. Right: Dock right. Left: Dock left. Bottom: Dock at the bottom. Top: Dock at the top. Fill: Fill the parent panel.
     **/
     @:deprecated("INTERNAL")
-    public function GWEN_SetDock(dockState:DOCK):Void;
+    function GWEN_SetDock(dockState:DOCK):Void;
     
     
     /**
@@ -1481,21 +1481,21 @@ extern class Panel {
 		`cookieName` | The unique cookie name to delete.
     **/
     
-    public function DeleteCookie(cookieName:String):Void;
+    function DeleteCookie(cookieName:String):Void;
     
     
     /**
         Used to draw the magenta highlight colour of a panel object when it is selected. This should be called in the object's PANEL:PaintOver hook. Once this is implemented, the highlight colour will be displayed only when the object is selectable and selected. This is achieved using Panel:SetSelectable and Panel:SetSelected respectively.
     **/
     
-    public function DrawSelections():Void;
+    function DrawSelections():Void;
     
     
     /**
         Goes forward one page in the HTML panel's history if available.
     **/
     
-    public function GoForward():Void;
+    function GoForward():Void;
     
     
     /**
@@ -1504,7 +1504,7 @@ extern class Panel {
 		`**Returns:** markedForDeletion
     **/
     
-    public function IsMarkedForDeletion():Bool;
+    function IsMarkedForDeletion():Bool;
     
     
     /**
@@ -1515,7 +1515,7 @@ extern class Panel {
 		`base` | Panel to copy the width from.
     **/
     
-    public function CopyWidth(base:Panel):Void;
+    function CopyWidth(base:Panel):Void;
     
     
     /**
@@ -1524,7 +1524,7 @@ extern class Panel {
 		`**Returns:** alphaMul
     **/
     
-    public function GetAlpha():Float;
+    function GetAlpha():Float;
     
     
     /**
@@ -1538,14 +1538,14 @@ extern class Panel {
 		`b` | height
     **/
     
-    public function GetSize():PanelGetSizeReturn;
+    function GetSize():PanelGetSizeReturn;
     
     
     /**
         Enables the queue for panel animations. If enabled, the next new animation will begin after all current animations have ended. This must be called before Panel:NewAnimation to work, and only applies to the next new animation. If you want to queue many, you must call this before each.
     **/
     
-    public function Queue():Void;
+    function Queue():Void;
     
     
     /**
@@ -1557,7 +1557,7 @@ extern class Panel {
 		`b` | The top margin of the text, in pixels.
     **/
     
-    public function GetTextInset():PanelGetTextInsetReturn;
+    function GetTextInset():PanelGetTextInsetReturn;
     
     
     /**
@@ -1600,7 +1600,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetFontInternal(fontName:String):Void;
+    function SetFontInternal(fontName:String):Void;
     
     
     /**
@@ -1609,7 +1609,7 @@ extern class Panel {
 		`**Returns:** height
     **/
     
-    public function GetTall():Float;
+    function GetTall():Float;
     
     
     /**
@@ -1707,7 +1707,7 @@ extern class Panel {
 		```
     **/
     
-    public function InsertColorChange(r:Float, g:Float, b:Float, a:Float):Void;
+    function InsertColorChange(r:Float, g:Float, b:Float, a:Float):Void;
     
     
     /**
@@ -1751,7 +1751,7 @@ extern class Panel {
 		Inner HTML of document body in DHTML panel is now set to "HTML changed from Lua using JavaScript!".
     **/
     
-    public function RunJavascript(js:String):Void;
+    function RunJavascript(js:String):Void;
     
     
     /**
@@ -1760,7 +1760,7 @@ extern class Panel {
 		`**Returns:** A table of any child objects that are selected, including tables for children of the child objects (These tables may also contain table members, as the method is recursive).
     **/
     
-    public function GetSelectedChildren():AnyTable;
+    function GetSelectedChildren():AnyTable;
     
     
     /**
@@ -1776,7 +1776,7 @@ extern class Panel {
 		`height` | The height of the drop area.
     **/
     
-    public function SetDropTarget(x:Float, y:Float, width:Float, height:Float):Void;
+    function SetDropTarget(x:Float, y:Float, width:Float, height:Float):Void;
     
     
     /**
@@ -1787,7 +1787,7 @@ extern class Panel {
 		`**Returns:** fontName
     **/
     
-    public function GetFont():String;
+    function GetFont():String;
     
     
     /**
@@ -1832,7 +1832,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetTooltipPanel(?tooltipPanel:Panel):Void;
+    function SetTooltipPanel(?tooltipPanel:Panel):Void;
     
     
     /**
@@ -1846,14 +1846,14 @@ extern class Panel {
 		`**Returns:** false if the passed panel is not a sibling, otherwise nil.
     **/
     
-    public function MoveToAfter(siblingPanel:Panel):Bool;
+    function MoveToAfter(siblingPanel:Panel):Bool;
     
     
     /**
         Begins a box selection, enables mouse capture for the panel object, and sets the start point of the selection box to the mouse cursor's position, relative to this object. For this to work, either the object or its parent must be enabled as a selection canvas. This is set using Panel:SetSelectionCanvas.
     **/
     
-    public function StartBoxSelection():Void;
+    function StartBoxSelection():Void;
     
     
     /**
@@ -1862,7 +1862,7 @@ extern class Panel {
 		`**Returns:** The derma skin table currently being used by this object.
     **/
     
-    public function GetSkin():AnyTable;
+    function GetSkin():AnyTable;
     
     
     /**
@@ -1875,14 +1875,14 @@ extern class Panel {
 		`hAlign` | The alignment, as a string, to pass to Panel:SetContentAlignment. Accepts: Right: Align mid-right. Left: Align mid-left. Center: Align mid-center.
     **/
     @:deprecated("INTERNAL")
-    public function GWEN_SetHorizontalAlign(hAlign:String):Void;
+    function GWEN_SetHorizontalAlign(hAlign:String):Void;
     
     
     /**
         Selects all the text in a panel object. Will not select non-text items; for this, use Panel:SelectAll.
     **/
     
-    public function SelectAllText():Void;
+    function SelectAllText():Void;
     
     
     /**
@@ -1893,7 +1893,7 @@ extern class Panel {
 		`offset` | The align offset.
     **/
     
-    public function AlignRight(?offset:Float):Void;
+    function AlignRight(?offset:Float):Void;
     
     
     /**
@@ -1905,7 +1905,7 @@ extern class Panel {
 		`Color` | The color of the shadow. Uses the Color structure.
     **/
     
-    public function SetExpensiveShadow(distance:Float, Color:Color):Void;
+    function SetExpensiveShadow(distance:Float, Color:Color):Void;
     
     
     /**
@@ -1918,7 +1918,7 @@ extern class Panel {
 		`height` | The height to be set.
     **/
     
-    public function SetHeight(height:Float):Void;
+    function SetHeight(height:Float):Void;
     
     
     /**
@@ -1929,7 +1929,7 @@ extern class Panel {
 		`paintBorder` | Whenever to draw the border or not.
     **/
     
-    public function SetPaintBorderEnabled(paintBorder:Bool):Void;
+    function SetPaintBorderEnabled(paintBorder:Bool):Void;
     
     
     /**
@@ -1938,7 +1938,7 @@ extern class Panel {
 		Called to end a drag and hover action. This resets the panel's [PANEL](https://wiki.garrysmod.com/page/Category:PANEL_Hooks): [PaintOver](https://wiki.garrysmod.com/page/PANEL/PaintOver) method, and is primarily used by [dragndrop](https://wiki.garrysmod.com/page/Category:dragndrop). [StopDragging](https://wiki.garrysmod.com/page/dragndrop/StopDragging).
     **/
     @:deprecated("INTERNAL")
-    public function DragHoverEnd():Void;
+    function DragHoverEnd():Void;
     
     
     /**
@@ -1965,7 +1965,7 @@ extern class Panel {
 		Panel's value is changed when the convar changes.
     **/
     
-    public function ConVarNumberThink():Void;
+    function ConVarNumberThink():Void;
     
     
     /**
@@ -1976,7 +1976,7 @@ extern class Panel {
 		**Note:** Panels derived from Panel will not work properly with this function. Due to this, any children will not be intractable with keyboard. Derive from EditablePanel instead.
     **/
     
-    public function MakePopup():Void;
+    function MakePopup():Void;
     
     
     /**
@@ -2045,7 +2045,7 @@ extern class Panel {
 		```
     **/
     
-    public function SizeToChildren(?sizeW:Bool, ?sizeH:Bool):Void;
+    function SizeToChildren(?sizeW:Bool, ?sizeH:Bool):Void;
     
     
     /**
@@ -2054,7 +2054,7 @@ extern class Panel {
 		`**Returns:** The parent of given panel
     **/
     
-    public function GetParent():Panel;
+    function GetParent():Panel;
     
     
     /**
@@ -2065,7 +2065,7 @@ extern class Panel {
 		`alpha` | The alpha value in the range of 0-255.
     **/
     
-    public function SetAlpha(alpha:Float):Void;
+    function SetAlpha(alpha:Float):Void;
     
     
     /**
@@ -2077,7 +2077,7 @@ extern class Panel {
 		`size` | The size of the avatar to use. Acceptable sizes are 32, 64, 184.
     **/
     
-    public function SetPlayer(player:Player, size:Float):Void;
+    function SetPlayer(player:Player, size:Float):Void;
     
     
     /**
@@ -2092,7 +2092,7 @@ extern class Panel {
 		`zIndex` | The z position of the panel. Can't be lower than -32768 or higher than 32767.
     **/
     
-    public function SetZPos(zIndex:Float):Void;
+    function SetZPos(zIndex:Float):Void;
     
     
     /**
@@ -2122,7 +2122,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetTooltip(str:String):Void;
+    function SetTooltip(str:String):Void;
     
     
     /**
@@ -2135,7 +2135,7 @@ extern class Panel {
 		`txt` | The text to be applied to the panel.
     **/
     @:deprecated("INTERNAL")
-    public function GWEN_SetText(txt:String):Void;
+    function GWEN_SetText(txt:String):Void;
     
     
     /**
@@ -2144,7 +2144,7 @@ extern class Panel {
 		`**Returns:** Whether the end point of the selection box was within the selection canvas.
     **/
     
-    public function EndBoxSelection():Bool;
+    function EndBoxSelection():Bool;
     
     
     /**
@@ -2155,7 +2155,7 @@ extern class Panel {
 		**Note:** A good place to call this is in the GM:PreRender hook
     **/
     
-    public function UpdateHTMLTexture():Void;
+    function UpdateHTMLTexture():Void;
     
     
     /**
@@ -2170,7 +2170,7 @@ extern class Panel {
 		`drawOnTop` | Whether or not to draw the panel in front of all others.
     **/
     
-    public function SetDrawOnTop(?drawOnTop:Bool):Void;
+    function SetDrawOnTop(?drawOnTop:Bool):Void;
     
     
     /**
@@ -2179,7 +2179,7 @@ extern class Panel {
 		`**Returns:** hasChilds
     **/
     
-    public function HasChildren():Bool;
+    function HasChildren():Bool;
     
     
     /**
@@ -2193,7 +2193,7 @@ extern class Panel {
 		`**Returns:** The linear (straight-line) distance between the centres of the two objects.
     **/
     
-    public function Distance(tgtPanel:Panel):Float;
+    function Distance(tgtPanel:Panel):Float;
     
     
     /**
@@ -2204,7 +2204,7 @@ extern class Panel {
 		`cursor` | The cursor to be set. Can be one of the following: arrow beam hourglass waitarrow crosshair up sizenwse sizenesw sizewe sizens sizeall no hand blank Set to anything else to set it to "none", the default fallback. Do note that a value of "none" does not, as one might assume, result in no cursor being drawn - hiding the cursor requires a value of "blank" instead.
     **/
     
-    public function SetCursor(cursor:String):Void;
+    function SetCursor(cursor:String):Void;
     
     
     /**
@@ -2221,7 +2221,7 @@ extern class Panel {
 		`b` | The vertical (y) position of the child relative to this panel object.
     **/
     
-    public function GetChildPosition(pnl:Panel):PanelGetChildPositionReturn;
+    function GetChildPosition(pnl:Panel):PanelGetChildPositionReturn;
     
     
     /**
@@ -2235,7 +2235,7 @@ extern class Panel {
 		`**Returns:** True if the panel contains childPanel.
     **/
     
-    public function IsOurChild(childPanel:Panel):Bool;
+    function IsOurChild(childPanel:Panel):Bool;
     
     
     /**
@@ -2247,21 +2247,21 @@ extern class Panel {
 		`offset` | The gap to leave between this and the passed panel. Negative values will cause the panel's width to increase, forming an overlap.
     **/
     
-    public function StretchRightTo(tgtPanel:Panel, ?offset:Float):Void;
+    function StretchRightTo(tgtPanel:Panel, ?offset:Float):Void;
     
     
     /**
         Recursively deselects this panel object and all of its children. This will cascade to all child objects at every level below the parent.
     **/
     
-    public function UnselectAll():Void;
+    function UnselectAll():Void;
     
     
     /**
         ***Deprecated:** Alias of Panel: SetTooltip.
     **/
     @:deprecated("Alias of Panel: SetTooltip.")
-    public function SetToolTip():Void;
+    function SetToolTip():Void;
     
     
     /**
@@ -2278,7 +2278,7 @@ extern class Panel {
 		`**Returns:** A table of panel objects that lie at least partially within the specified rectangle.
     **/
     
-    public function GetChildrenInRect(x:Float, y:Float, w:Float, h:Float):AnyTable;
+    function GetChildrenInRect(x:Float, y:Float, w:Float, h:Float):AnyTable;
     
     
     /**
@@ -2289,7 +2289,7 @@ extern class Panel {
 		`**Returns:** Always returns true.
     **/
     @:deprecated("INTERNAL")
-    public function DragClick():Bool;
+    function DragClick():Bool;
     
     
     /**
@@ -2298,7 +2298,7 @@ extern class Panel {
 		`**Returns:** width
     **/
     
-    public function GetWide():Float;
+    function GetWide():Float;
     
     
     /**
@@ -2309,7 +2309,7 @@ extern class Panel {
 		`offset` | The align offset.
     **/
     
-    public function AlignTop(?offset:Float):Void;
+    function AlignTop(?offset:Float):Void;
     
     
     /**
@@ -2320,14 +2320,14 @@ extern class Panel {
 		`visible` | The visibility of the panel.
     **/
     
-    public function SetVisible(visible:Bool):Void;
+    function SetVisible(visible:Bool):Void;
     
     
     /**
         Focuses the previous panel in the focus queue.
     **/
     
-    public function FocusPrevious():Void;
+    function FocusPrevious():Void;
     
     
     /**
@@ -2336,7 +2336,7 @@ extern class Panel {
 		`**Returns:** hasFocus
     **/
     
-    public function HasFocus():Bool;
+    function HasFocus():Bool;
     
     
     /**
@@ -2351,7 +2351,7 @@ extern class Panel {
 		`addVal` | The number of extra pixels to add to the width. Can be a negative number, to reduce the width.
     **/
     
-    public function SizeToContentsX(?addVal:Float):Void;
+    function SizeToContentsX(?addVal:Float):Void;
     
     
     /**
@@ -2369,7 +2369,7 @@ extern class Panel {
 		`b` | The distance that this child was from the point.
     **/
     
-    public function GetClosestChild(x:Float, y:Float):PanelGetClosestChildReturn;
+    function GetClosestChild(x:Float, y:Float):PanelGetClosestChildReturn;
     
     
     /**
@@ -2378,14 +2378,14 @@ extern class Panel {
 		`**Returns:** The amount of children the panel has.
     **/
     
-    public function ChildCount():Float;
+    function ChildCount():Float;
     
     
     /**
         Attempts to obtain focus for this panel.
     **/
     
-    public function RequestFocus():Void;
+    function RequestFocus():Void;
     
     
     /**
@@ -2398,7 +2398,7 @@ extern class Panel {
 		`enable` | Whether to enable or disable the panel object.
     **/
     
-    public function SetEnabled(enable:Bool):Void;
+    function SetEnabled(enable:Bool):Void;
     
     
     /**
@@ -2407,7 +2407,7 @@ extern class Panel {
 		`**Returns:** The panel object this method was called on if enabled as a selection canvas, otherwise nil.
     **/
     
-    public function GetSelectionCanvas():Panel;
+    function GetSelectionCanvas():Panel;
     
     
     /**
@@ -2418,7 +2418,7 @@ extern class Panel {
 		`enable` | Whether to enable or disable animations.
     **/
     
-    public function SetAnimationEnabled(enable:Bool):Void;
+    function SetAnimationEnabled(enable:Bool):Void;
     
     
     /**
@@ -2427,7 +2427,7 @@ extern class Panel {
 		`**Returns:** The name the panel uses when reading or writing cookies. The format used is as follows: panelCookieName.individualCookieName
     **/
     
-    public function GetCookieName():String;
+    function GetCookieName():String;
     
     
     /**
@@ -2440,7 +2440,7 @@ extern class Panel {
 		`childIndex` | The index of the child to get. NOTE This index starts at 0, except when you use this on a DMenu.
     **/
     
-    public function GetChild(childIndex:Float):Void;
+    function GetChild(childIndex:Float):Void;
     
     
     /**
@@ -2456,7 +2456,7 @@ extern class Panel {
 		`a` | The alpha channel of the color.
     **/
     @:deprecated("INTERNAL")
-    public function SetFGColorEx(r:Float, g:Float, b:Float, a:Float):Void;
+    function SetFGColorEx(r:Float, g:Float, b:Float, a:Float):Void;
     
     
     /**
@@ -2476,7 +2476,7 @@ extern class Panel {
 		```
     **/
     
-    public function GetChildren():AnyTable;
+    function GetChildren():AnyTable;
     
     
     /**
@@ -2512,7 +2512,7 @@ extern class Panel {
 		```
     **/
     
-    public function LocalCursorPos():PanelLocalCursorPosReturn;
+    function LocalCursorPos():PanelLocalCursorPosReturn;
     
     
     /**
@@ -2521,7 +2521,7 @@ extern class Panel {
 		`**Returns:** The caret position/offset from the start of the text. A value of 0 means the caret sits before the first character.
     **/
     
-    public function GetCaretPos():Float;
+    function GetCaretPos():Float;
     
     
     /**
@@ -2533,7 +2533,7 @@ extern class Panel {
 		`offset` | The align offset.
     **/
     
-    public function MoveBelow(panel:Panel, ?offset:Float):Void;
+    function MoveBelow(panel:Panel, ?offset:Float):Void;
     
     
     /**
@@ -2547,7 +2547,7 @@ extern class Panel {
 		`**Returns:** false if the passed panel is not a sibling, otherwise nil.
     **/
     
-    public function MoveToBefore(siblingPanel:Panel):Bool;
+    function MoveToBefore(siblingPanel:Panel):Bool;
     
     
     /**
@@ -2602,14 +2602,14 @@ extern class Panel {
 		A Panel with a functional TAB Button.
     **/
     
-    public function SetTabPosition(position:Float):Void;
+    function SetTabPosition(position:Float):Void;
     
     
     /**
         Deselects all items in a panel object. For text-based objects, this will deselect all text.
     **/
     
-    public function SelectNone():Void;
+    function SelectNone():Void;
     
     
     /**
@@ -2645,14 +2645,14 @@ extern class Panel {
 		```
     **/
     
-    public function RebuildSpawnIconEx(data:AnyTable):Void;
+    function RebuildSpawnIconEx(data:AnyTable):Void;
     
     
     /**
         Draws a hollow rectangle the size of the panel object this method is called on, with a border width of 1 px. The border colour is set using surface.SetDrawColor. This should only be called within the object's PANEL:Paint or PANEL:PaintOver hooks, as a shortcut for surface.DrawOutlinedRect.
     **/
     
-    public function DrawOutlinedRect():Void;
+    function DrawOutlinedRect():Void;
     
     
     /**
@@ -2664,7 +2664,7 @@ extern class Panel {
 		`strPath` | The PATH to search in. See File Search Paths. This isn't used internally.
     **/
     
-    public function LoadTGAImage(imageName:String, strPath:String):Void;
+    function LoadTGAImage(imageName:String, strPath:String):Void;
     
     
     /**
@@ -2677,7 +2677,7 @@ extern class Panel {
 		`pos` | A two-membered table containing the x and y coordinates as numbers: number x - The x coordinate. number y - The y coordinate.
     **/
     @:deprecated("INTERNAL")
-    public function GWEN_SetPosition(pos:AnyTable):Void;
+    function GWEN_SetPosition(pos:AnyTable):Void;
     
     
     /**
@@ -2688,7 +2688,7 @@ extern class Panel {
 		`paintedManually` | True if the panel should be painted manually.
     **/
     
-    public function SetPaintedManually(paintedManually:Bool):Void;
+    function SetPaintedManually(paintedManually:Bool):Void;
     
     
     /**
@@ -2699,7 +2699,7 @@ extern class Panel {
 		`offset` | The align offset.
     **/
     
-    public function AlignBottom(?offset:Float):Void;
+    function AlignBottom(?offset:Float):Void;
     
     
     /**
@@ -2710,7 +2710,7 @@ extern class Panel {
 		`txt` | The text to append (add on).
     **/
     
-    public function AppendText(txt:String):Void;
+    function AppendText(txt:String):Void;
     
     
     /**
@@ -2770,7 +2770,7 @@ extern class Panel {
 		```
     **/
     
-    public function Receiver(name:String, func:Function, menu:AnyTable):Void;
+    function Receiver(name:String, func:Function, menu:AnyTable):Void;
     
     
     /**
@@ -2825,7 +2825,7 @@ extern class Panel {
 		PerformLayout called 2 times: 5 line(s) returned
     **/
     
-    public function GetNumLines():Float;
+    function GetNumLines():Float;
     
     
     /**
@@ -2834,14 +2834,14 @@ extern class Panel {
 		See also Panel:Undo.
     **/
     
-    public function SaveUndoState():Void;
+    function SaveUndoState():Void;
     
     
     /**
         Remove the focus from the panel.
     **/
     
-    public function KillFocus():Void;
+    function KillFocus():Void;
     
     
     /**
@@ -2852,7 +2852,7 @@ extern class Panel {
 		`state` | 
     **/
     
-    public function SetFocusTopLevel(state:Bool):Void;
+    function SetFocusTopLevel(state:Bool):Void;
     
     
     /**
@@ -2867,7 +2867,7 @@ extern class Panel {
 		`**Returns:** The linear (straight-line) distance between the specified point and the centre of the panel object.
     **/
     
-    public function DistanceFrom(posX:Float, posY:Float):Float;
+    function DistanceFrom(posX:Float, posY:Float):Float;
     
     
     /**
@@ -2881,7 +2881,7 @@ extern class Panel {
 		`callback` | The function to be called once the animation finishes. Arguments are: table animData - The AnimationData structure that was used. Panel pnl - The panel object whose alpha was changed.
     **/
     
-    public function AlphaTo(alpha:Float, duration:Float, ?delay:Float, callback:AnimationData):Void;
+    function AlphaTo(alpha:Float, duration:Float, ?delay:Float, callback:AnimationData):Void;
     
     
     /**
@@ -2890,7 +2890,7 @@ extern class Panel {
 		Performs the per-frame operations required for panel animations. This is called every frame by PANEL:AnimationThink.
     **/
     @:deprecated("INTERNAL")
-    public function AnimationThinkInternal():Void;
+    function AnimationThinkInternal():Void;
     
     
     /**
@@ -2901,7 +2901,7 @@ extern class Panel {
 		`url` | The URL to set. This must begin with http://.
     **/
     
-    public function SetURL(url:String):Void;
+    function SetURL(url:String):Void;
     
     
     /**
@@ -2912,7 +2912,7 @@ extern class Panel {
 		`offset` | Caret position/offset from the start of text. A value of 0 places the caret before the first character.
     **/
     
-    public function SetCaretPos(offset:Float):Void;
+    function SetCaretPos(offset:Float):Void;
     
     
     /**
@@ -2962,7 +2962,7 @@ extern class Panel {
 		```
     **/
     
-    public function NewAnimation(length:Float, ?delay:Float, ?ease:Float, ?callback:AnimationData):AnimationData;
+    function NewAnimation(length:Float, ?delay:Float, ?ease:Float, ?callback:AnimationData):AnimationData;
     
     
     /**
@@ -2971,7 +2971,7 @@ extern class Panel {
 		`**Returns:** A table containing all the members of given panel object.
     **/
     
-    public function GetTable():AnyTable;
+    function GetTable():AnyTable;
     
     
     /**
@@ -2984,7 +2984,7 @@ extern class Panel {
 		`minValue` | The minimum value the element is to permit.
     **/
     @:deprecated("INTERNAL")
-    public function GWEN_SetMin(minValue:Float):Void;
+    function GWEN_SetMin(minValue:Float):Void;
     
     
     /**
@@ -2993,7 +2993,7 @@ extern class Panel {
 		`**Returns:** Whether the panel object is selected or not. Always returns false if the object is not selectable. This can be modified using Panel: SetSelectable.
     **/
     
-    public function IsSelected():Bool;
+    function IsSelected():Bool;
     
     
     /**
@@ -3133,7 +3133,7 @@ extern class Panel {
 		```
     **/
     
-    public function GetHTMLMaterial():IMaterial;
+    function GetHTMLMaterial():IMaterial;
     
     
     /**
@@ -3221,7 +3221,7 @@ extern class Panel {
 		```
     **/
     
-    public function Dock(dockType:DOCK):Void;
+    function Dock(dockType:DOCK):Void;
     
     
     /**
@@ -3232,7 +3232,7 @@ extern class Panel {
 		`renderInScreenshot` | Whenever to render or not.
     **/
     
-    public function SetRenderInScreenshots(renderInScreenshot:Bool):Void;
+    function SetRenderInScreenshots(renderInScreenshot:Bool):Void;
     
     
     /**
@@ -3243,35 +3243,35 @@ extern class Panel {
 		`name` | The panel's cookie name. Used as prefix for Panel: SetCookie
     **/
     
-    public function SetCookieName(name:String):Void;
+    function SetCookieName(name:String):Void;
     
     
     /**
         Toggles the selected state of a selectable panel object. This functionality is set with Panel:SetSelectable and checked with Panel:IsSelectable. To check whether the object is selected or not, Panel:IsSelected is used.
     **/
     
-    public function ToggleSelection():Void;
+    function ToggleSelection():Void;
     
     
     /**
         Goes back one page in the HTML panel's history if available.
     **/
     
-    public function GoBack():Void;
+    function GoBack():Void;
     
     
     /**
         Makes a panel visible.
     **/
     
-    public function Show():Void;
+    function Show():Void;
     
     
     /**
         If called on a text entry, clicking the text entry for the first time will automatically select all of the text ready to be copied by the user.
     **/
     
-    public function SelectAllOnFocus():Void;
+    function SelectAllOnFocus():Void;
     
     
     /**
@@ -3287,7 +3287,7 @@ extern class Panel {
 		`**Returns:** Blank table stored on the panel itself under pnl.m_DragSlot[ name ]. Is reset every time this function is called and does not appear to be used or exposed anywhere else.
     **/
     
-    public function Droppable(name:String):AnyTable;
+    function Droppable(name:String):AnyTable;
     
     
     /**
@@ -3302,7 +3302,7 @@ extern class Panel {
 		`path` | The path to load the controls from.
     **/
     @:deprecated("INTERNAL")
-    public function LoadControlsFromFile(path:String):Void;
+    function LoadControlsFromFile(path:String):Void;
     
     
     /**
@@ -3318,7 +3318,7 @@ extern class Panel {
 		`callback` | The function to be called once the animation finishes. Arguments are: table animData - The AnimationData structure that was used. Panel pnl - The panel object that was resized.
     **/
     
-    public function SizeTo(?sizeW:Float, ?sizeH:Float, time:Float, ?delay:Float, ?ease:Float, callback:AnimationData):Void;
+    function SizeTo(?sizeW:Float, ?sizeH:Float, time:Float, ?delay:Float, ?ease:Float, callback:AnimationData):Void;
     
     
     /**
@@ -3362,7 +3362,7 @@ extern class Panel {
 		```
     **/
     
-    public function OpenURL(URL:String):Void;
+    function OpenURL(URL:String):Void;
     
     
     /**
@@ -3371,7 +3371,7 @@ extern class Panel {
 		`**Returns:** hasHierarchicalFocus
     **/
     
-    public function HasHierarchicalFocus():Bool;
+    function HasHierarchicalFocus():Bool;
     
     
     /**
@@ -3380,7 +3380,7 @@ extern class Panel {
 		`**Returns:** Whether or not the (D)HTML object is loading.
     **/
     
-    public function IsLoading():Bool;
+    function IsLoading():Bool;
     
     
     /**
@@ -3391,7 +3391,7 @@ extern class Panel {
 		`fraction` | The center fraction.
     **/
     
-    public function CenterVertical(?fraction:Float):Void;
+    function CenterVertical(?fraction:Float):Void;
     
     
     /**
@@ -3408,7 +3408,7 @@ extern class Panel {
 		`**Returns:** The number value of the stored cookie, or the default value should the cookie not exist.
     **/
     
-    public function GetCookieNumber(cookieName:String, _default:Float):Float;
+    function GetCookieNumber(cookieName:String, _default:Float):Float;
     
     
     /**
@@ -3423,7 +3423,7 @@ extern class Panel {
 		`addVal` | The number of extra pixels to add to the height.
     **/
     
-    public function SizeToContentsY(?addVal:Float):Void;
+    function SizeToContentsY(?addVal:Float):Void;
     
     
     /**
@@ -3462,7 +3462,7 @@ extern class Panel {
 		```
     **/
     
-    public function MoveTo(posX:Float, posY:Float, time:Float, ?delay:Float, ?ease:Float, callback:AnimationData):Void;
+    function MoveTo(posX:Float, posY:Float, time:Float, ?delay:Float, ?ease:Float, callback:AnimationData):Void;
     
     
     /**
@@ -3473,7 +3473,7 @@ extern class Panel {
 		`height` | Desired height to set
     **/
     
-    public function SetTall(height:Float):Void;
+    function SetTall(height:Float):Void;
     
     
     /**
@@ -3484,7 +3484,7 @@ extern class Panel {
 		`enable` | Whether keyboard input should be enabled for this panel.
     **/
     
-    public function SetKeyboardInputEnabled(enable:Bool):Void;
+    function SetKeyboardInputEnabled(enable:Bool):Void;
     
     
     /**
@@ -3493,7 +3493,7 @@ extern class Panel {
 		`**Returns:** The system time value when all animations will end for this panel.
     **/
     
-    public function AnimTail():Float;
+    function AnimTail():Float;
     
     
     /**
@@ -3541,7 +3541,7 @@ extern class Panel {
 		```
     **/
     
-    public function GotoTextStart():Void;
+    function GotoTextStart():Void;
     
     
     /**
@@ -3554,7 +3554,7 @@ extern class Panel {
 		`maxValue` | The maximum value the element is to permit.
     **/
     @:deprecated("INTERNAL")
-    public function GWEN_SetMax(maxValue:Float):Void;
+    function GWEN_SetMax(maxValue:Float):Void;
     
     
     /**
@@ -3577,7 +3577,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetHTML(code:String):Void;
+    function SetHTML(code:String):Void;
     
     
     /**
@@ -3618,14 +3618,14 @@ extern class Panel {
 		```
     **/
     
-    public function MoveToFront():Void;
+    function MoveToFront():Void;
     
     
     /**
         Marks all of the panel's children for deletion.
     **/
     
-    public function Clear():Void;
+    function Clear():Void;
     
     
     /**
@@ -3636,7 +3636,7 @@ extern class Panel {
 		`parent` | The new parent of the panel.
     **/
     
-    public function SetParent(parent:Panel):Void;
+    function SetParent(parent:Panel):Void;
     
     
     /**
@@ -3695,7 +3695,7 @@ extern class Panel {
 		```
     **/
     
-    public function InsertClickableTextEnd():Void;
+    function InsertClickableTextEnd():Void;
     
     
     /**
@@ -3706,7 +3706,7 @@ extern class Panel {
 		`recursive` | If true, the method will recursively invalidate the layout of all children. Otherwise, only immediate children are affected.
     **/
     
-    public function InvalidateChildren(?recursive:Bool):Void;
+    function InvalidateChildren(?recursive:Bool):Void;
     
     
     /**
@@ -3717,7 +3717,7 @@ extern class Panel {
 		`paintBackground` | Whenever to draw the background or not.
     **/
     
-    public function SetPaintBackgroundEnabled(paintBackground:Bool):Void;
+    function SetPaintBackgroundEnabled(paintBackground:Bool):Void;
     
     
     /**
@@ -3730,7 +3730,7 @@ extern class Panel {
 		`keyboardInput` | Whether to enable or disable keyboard input.
     **/
     @:deprecated("Alias of Panel: SetKeyboardInputEnabled")
-    public function SetKeyBoardInputEnabled(keyboardInput:Bool):Void;
+    function SetKeyBoardInputEnabled(keyboardInput:Bool):Void;
     
     
     /**
@@ -3741,7 +3741,7 @@ extern class Panel {
 		`id` | Achievement number ID
     **/
     
-    public function SetAchievement(id:Float):Void;
+    function SetAchievement(id:Float):Void;
     
     
     /**
@@ -3752,7 +3752,7 @@ extern class Panel {
 		`base` | Panel to copy the height from.
     **/
     
-    public function CopyHeight(base:Panel):Void;
+    function CopyHeight(base:Panel):Void;
     
     
     /**
@@ -3791,14 +3791,14 @@ extern class Panel {
 		```
     **/
     
-    public function DockMargin(marginLeft:Float, marginTop:Float, marginRight:Float, marginBottom:Float):Void;
+    function DockMargin(marginLeft:Float, marginTop:Float, marginRight:Float, marginBottom:Float):Void;
     
     
     /**
         Performs the "CONTROL + C" key combination effect ( Copy selection to clipboard ) on selected text.
     **/
     
-    public function CopySelected():Void;
+    function CopySelected():Void;
     
     
     /**
@@ -3811,7 +3811,7 @@ extern class Panel {
 		`delay` | Delay in seconds after which the panel should be removed.
     **/
     
-    public function SetTerm(delay:Float):Void;
+    function SetTerm(delay:Float):Void;
     
     
     /**
@@ -3822,7 +3822,7 @@ extern class Panel {
 		`str` | JSON string containing information about controls to create.
     **/
     
-    public function LoadGWENString(str:String):Void;
+    function LoadGWENString(str:String):Void;
     
     
     /**
@@ -3836,7 +3836,7 @@ extern class Panel {
 		`**Returns:** Whether or not one of this panel object's children is being hovered over.
     **/
     
-    public function IsChildHovered(?immediate:Bool):Bool;
+    function IsChildHovered(?immediate:Bool):Bool;
     
     
     /**
@@ -3850,7 +3850,7 @@ extern class Panel {
 		`d` | Bottom padding.
     **/
     
-    public function GetDockPadding():PanelGetDockPaddingReturn;
+    function GetDockPadding():PanelGetDockPaddingReturn;
     
     
     /**
@@ -3864,7 +3864,7 @@ extern class Panel {
 		`callback` | Function to execute when finished
     **/
     
-    public function ColorTo(color:AnyTable, length:Float, delay:Float, callback:Function):Void;
+    function ColorTo(color:AnyTable, length:Float, delay:Float, callback:Function):Void;
     
     
     /**
@@ -3880,14 +3880,14 @@ extern class Panel {
 		`posY` | The y coordinate of the position.
     **/
     
-    public function SetPos(posX:Float, posY:Float):Void;
+    function SetPos(posX:Float, posY:Float):Void;
     
     
     /**
         Draws a textured rectangle to fill the panel object this method is called on. The texture is set using surface.SetTexture or surface.SetMaterial. This should only be called within the object's PANEL:Paint or PANEL:PaintOver hooks, as a shortcut for surface.DrawTexturedRect.
     **/
     
-    public function DrawTexturedRect():Void;
+    function DrawTexturedRect():Void;
     
     
     /**
@@ -3896,7 +3896,7 @@ extern class Panel {
 		`**Returns:** Whether this panel is currently being dragged or not.
     **/
     
-    public function IsDragging():Bool;
+    function IsDragging():Bool;
     
     
     /**
@@ -3993,7 +3993,7 @@ extern class Panel {
 		```
     **/
     
-    public function Command(command:String):Void;
+    function Command(command:String):Void;
     
     
     /**
@@ -4002,14 +4002,14 @@ extern class Panel {
 		`**Returns:** If the panel allows world clicking.
     **/
     
-    public function IsWorldClicker():Bool;
+    function IsWorldClicker():Bool;
     
     
     /**
         Selects all items within a panel or object. For text-based objects, selects all text.
     **/
     
-    public function SelectAll():Void;
+    function SelectAll():Void;
     
     
     /**
@@ -4022,7 +4022,7 @@ extern class Panel {
 		`HoverTime` | If this time is greater than 0.1, PANEL: DragHoverClick is called, passing it as an argument.
     **/
     @:deprecated("INTERNAL")
-    public function DragHover(HoverTime:Float):Void;
+    function DragHover(HoverTime:Float):Void;
     
     
     /**
@@ -4036,7 +4036,7 @@ extern class Panel {
 		`easeOut` | This causes the panel object to 'jump' at the target, slowing as it approaches. This affects the speed value significantly, see above.
     **/
     
-    public function LerpPositions(speed:Float, easeOut:Bool):Void;
+    function LerpPositions(speed:Float, easeOut:Bool):Void;
     
     
     /**
@@ -4045,7 +4045,7 @@ extern class Panel {
 		`**Returns:** The number of child objects that are currently selected. This does not include the parent object you are calling the method from.
     **/
     
-    public function NumSelectedChildren():Float;
+    function NumSelectedChildren():Float;
     
     
     /**
@@ -4056,7 +4056,7 @@ extern class Panel {
 		`**Returns:** Whether the panel is enabled or disabled.
     **/
     
-    public function IsEnabled():Bool;
+    function IsEnabled():Bool;
     
     
     /**
@@ -4103,7 +4103,7 @@ extern class Panel {
 		`**Returns:** true if the panel is hovered
     **/
     
-    public function IsHovered():Bool;
+    function IsHovered():Bool;
     
     
     /**
@@ -4142,7 +4142,7 @@ extern class Panel {
 		```
     **/
     
-    public function DockPadding(paddingLeft:Float, paddingTop:Float, paddingRight:Float, paddingBottom:Float):Void;
+    function DockPadding(paddingLeft:Float, paddingTop:Float, paddingRight:Float, paddingBottom:Float):Void;
     
     
     /**
@@ -4158,7 +4158,7 @@ extern class Panel {
 		`callback` | The function to be called once the animation is complete. Arguments are: table animData - The AnimationData structure that was used. Panel pnl - The panel object that was moved.
     **/
     
-    public function MoveBy(moveX:Float, moveY:Float, time:Float, ?delay:Float, ?ease:Float, ?callback:AnimationData):Void;
+    function MoveBy(moveX:Float, moveY:Float, time:Float, ?delay:Float, ?ease:Float, ?callback:AnimationData):Void;
     
     
     /**
@@ -4170,7 +4170,7 @@ extern class Panel {
 		`offset` | The align offset.
     **/
     
-    public function MoveRightOf(panel:Panel, ?offset:Float):Void;
+    function MoveRightOf(panel:Panel, ?offset:Float):Void;
     
     
     /**
@@ -4183,7 +4183,7 @@ extern class Panel {
 		`GWENTable` | The GWEN controls table to apply to the panel.
     **/
     
-    public function ApplyGWEN(GWENTable:AnyTable):Void;
+    function ApplyGWEN(GWENTable:AnyTable):Void;
     
     
     /**
@@ -4196,14 +4196,14 @@ extern class Panel {
 		`func` | Function to call when the Button is clicked or the Slider value is changed. Arguments given are: Panel self - The panel itself string action - "Command" on button press, "SliderMoved" on slider move. number val - The new value of the Slider. Will always equal 0 for buttons. number zed - Always equals 0.
     **/
     @:deprecated("Does nothing at all.")
-    public function SetActionFunction(func:Function):Void;
+    function SetActionFunction(func:Function):Void;
     
     
     /**
         Moves the panel object behind all other panels on screen. If the panel has been made a pop-up with Panel:MakePopup, it will still draw in front of any panels that haven't.
     **/
     
-    public function MoveToBack():Void;
+    function MoveToBack():Void;
     
     
     /**
@@ -4237,7 +4237,7 @@ extern class Panel {
 		The panel will be drawn facing the player located on the player's crosshair. (click for higher resolution)
     **/
     
-    public function PaintManual():Void;
+    function PaintManual():Void;
     
     
     /**
@@ -4269,7 +4269,7 @@ extern class Panel {
 		A checkbox which adapts to the value of the sv_cheats convar value.
     **/
     
-    public function SetConVar(convar:String):Void;
+    function SetConVar(convar:String):Void;
     
     
     /**
@@ -4280,7 +4280,7 @@ extern class Panel {
 		`Length` | Time to complete the animation.
     **/
     
-    public function SlideUp(Length:Float):Void;
+    function SlideUp(Length:Float):Void;
     
     
     /**
@@ -4294,7 +4294,7 @@ extern class Panel {
 		`**Returns:** true if an object was being dragged, otherwise false.
     **/
     
-    public function DragMouseRelease(mouseCode:MOUSE):Bool;
+    function DragMouseRelease(mouseCode:MOUSE):Bool;
     
     
     /**
@@ -4310,7 +4310,7 @@ extern class Panel {
 		`b` | Y coordinate of the cursor, relative to the top left of the panel.
     **/
     
-    public function CursorPos():PanelCursorPosReturn;
+    function CursorPos():PanelCursorPosReturn;
     
     
     /**
@@ -4323,7 +4323,7 @@ extern class Panel {
 		`name` | The new name to apply to the panel.
     **/
     @:deprecated("INTERNAL")
-    public function GWEN_SetControlName(name:String):Void;
+    function GWEN_SetControlName(name:String):Void;
     
     
     /**
@@ -4345,7 +4345,7 @@ extern class Panel {
 		`b` | Relativeposition Y
     **/
     
-    public function ScreenToLocal(screenX:Float, screenY:Float):PanelScreenToLocalReturn;
+    function ScreenToLocal(screenX:Float, screenY:Float):PanelScreenToLocalReturn;
     
     
     /**
@@ -4354,7 +4354,7 @@ extern class Panel {
 		`**Returns:** The dock enum for the panel. See DOCK_ Enums.
     **/
     
-    public function GetDock():DOCK;
+    function GetDock():DOCK;
     
     
     /**
@@ -4393,7 +4393,7 @@ extern class Panel {
 		```
     **/
     
-    public function DrawTextEntryText(textCol:AnyTable, highlightCol:AnyTable, cursorCol:AnyTable):Void;
+    function DrawTextEntryText(textCol:AnyTable, highlightCol:AnyTable, cursorCol:AnyTable):Void;
     
     
     /**
@@ -4404,7 +4404,7 @@ extern class Panel {
 		`**Returns:** Whether the panel is valid or not, true being it is, false being it isn't.
     **/
     @:deprecated("Use Panel: IsValid instead.")
-    public function Valid():Bool;
+    function Valid():Bool;
     
     
     /**
@@ -4420,7 +4420,7 @@ extern class Panel {
 		`d` | The height of the panel.
     **/
     
-    public function GetBounds():PanelGetBoundsReturn;
+    function GetBounds():PanelGetBoundsReturn;
     
     
     /**
@@ -4485,7 +4485,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetDragParent(parent:Panel):Void;
+    function SetDragParent(parent:Panel):Void;
     
     
     /**
@@ -4496,7 +4496,7 @@ extern class Panel {
 		`selected` | Whether the object should be selected or deselected. Panel: IsSelected can be used to determine the selected state of the object.
     **/
     
-    public function SetSelected(?selected:Bool):Void;
+    function SetSelected(?selected:Bool):Void;
     
     
     /**
@@ -4558,7 +4558,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetCommand():Void;
+    function SetCommand():Void;
     
     
     /**
@@ -4583,7 +4583,7 @@ extern class Panel {
 		"Hello world!"
     **/
     
-    public function GetValue():Dynamic;
+    function GetValue():Dynamic;
     
     
     /**
@@ -4597,7 +4597,7 @@ extern class Panel {
 		`path` | The path used to look up the file. "GAME" Structured like base folder (garrysmod/), searches all the mounted content (main folder, addons, mounted games etc) "LUA" or "lsv" - All Lua folders (lua/) including gamesmodes and addons "DATA" Data folder (garrysmod/data) "MOD" Strictly the game folder (garrysmod/), ignores mounting.
     **/
     
-    public function LoadGWENFile(filename:String, ?path:String):Void;
+    function LoadGWENFile(filename:String, ?path:String):Void;
     
     
     /**
@@ -4608,7 +4608,7 @@ extern class Panel {
 		`srcPanel` | The panel to copy the boundary and dock settings from.
     **/
     
-    public function CopyBase(srcPanel:Panel):Void;
+    function CopyBase(srcPanel:Panel):Void;
     
     
     /**
@@ -4617,7 +4617,7 @@ extern class Panel {
 		`**Returns:** The value (if any) set by Panel: SetSelectionCanvas.
     **/
     
-    public function IsSelectionCanvas():Dynamic;
+    function IsSelectionCanvas():Dynamic;
     
     
     /**
@@ -4630,7 +4630,7 @@ extern class Panel {
 		`txt` | The text to be applied to the DCheckBoxLabel.
     **/
     @:deprecated("INTERNAL")
-    public function GWEN_SetCheckboxText(txt:String):Void;
+    function GWEN_SetCheckboxText(txt:String):Void;
     
     
     /**
@@ -4643,7 +4643,7 @@ extern class Panel {
 		`visible` | true to make it visible, false to hide it.
     **/
     
-    public function SetDrawLanguageID(visible:Bool):Void;
+    function SetDrawLanguageID(visible:Bool):Void;
     
     
     /**
@@ -4655,7 +4655,7 @@ extern class Panel {
 		`offset` | The align offset.
     **/
     
-    public function MoveLeftOf(panel:Panel, ?offset:Float):Void;
+    function MoveLeftOf(panel:Panel, ?offset:Float):Void;
     
     
     /**
@@ -4666,7 +4666,7 @@ extern class Panel {
 		`fraction` | The center fraction.
     **/
     
-    public function CenterHorizontal(?fraction:Float):Void;
+    function CenterHorizontal(?fraction:Float):Void;
     
     
     /**
@@ -4675,7 +4675,7 @@ extern class Panel {
 		`**Returns:** className
     **/
     
-    public function GetClassName():String;
+    function GetClassName():String;
     
     
     /**
@@ -4684,14 +4684,14 @@ extern class Panel {
 		`**Returns:** Whether this panel is draggable ( if user is able to drag it ) or not.
     **/
     
-    public function IsDraggable():Bool;
+    function IsDraggable():Bool;
     
     
     /**
         Draws a coloured rectangle to fill the panel object this method is called on. The colour is set using surface.SetDrawColor. This should only be called within the object's PANEL:Paint or PANEL:PaintOver hooks, as a shortcut for surface.DrawRect.
     **/
     
-    public function DrawFilledRect():Void;
+    function DrawFilledRect():Void;
     
     
     /**
@@ -4747,7 +4747,7 @@ extern class Panel {
 		```
     **/
     
-    public function SetFGColor(color:Color, g:Float, b:Float, a:Float):Void;
+    function SetFGColor(color:Color, g:Float, b:Float, a:Float):Void;
     
     
     /**
@@ -4756,7 +4756,7 @@ extern class Panel {
 		`**Returns:** True if the object is valid.
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     
     /**
@@ -4771,7 +4771,7 @@ extern class Panel {
 		`value` | The value to post.
     **/
     @:deprecated("Only used in deprecated Derma controls.")
-    public function PostMessage(messageName:String, valueType:String, value:String):Void;
+    function PostMessage(messageName:String, valueType:String, value:String):Void;
     
     
     /**
@@ -4780,7 +4780,7 @@ extern class Panel {
 		`**Returns:** Whether the panel is selectable or not.
     **/
     
-    public function IsSelectable():Bool;
+    function IsSelectable():Bool;
     
     
     /**
@@ -4791,14 +4791,14 @@ extern class Panel {
 		`icon` | A path to the .png material, for example one of the Silkicons shipped with the game.
     **/
     
-    public function SetSpawnIcon(icon:String):Void;
+    function SetSpawnIcon(icon:String):Void;
     
     
     /**
         ***Deprecated:** Alias of Panel: SetTooltipPanel.
     **/
     @:deprecated("Alias of Panel: SetTooltipPanel.")
-    public function SetToolTipPanel():Void;
+    function SetToolTipPanel():Void;
     
     
     /**
@@ -4807,7 +4807,7 @@ extern class Panel {
 		This function does nothing.
     **/
     @:deprecated("Does nothing")
-    public function AddText():Void;
+    function AddText():Void;
     
     
     /**
@@ -4825,7 +4825,7 @@ extern class Panel {
 		`**Returns:** The distance from the top of the parent panel to the bottom of the tallest object (the y position plus the height of the label or passed panel, depending on which is tallest).
     **/
     
-    public function PositionLabel(lblWidth:Float, x:Float, y:Float, lbl:Panel, panelObj:Panel):Float;
+    function PositionLabel(lblWidth:Float, x:Float, y:Float, lbl:Panel, panelObj:Panel):Float;
     
     
     /**
@@ -4838,7 +4838,7 @@ extern class Panel {
 		`objectName` | 
     **/
     @:deprecated("INTERNAL")
-    public function NewObject(objectName:String):Void;
+    function NewObject(objectName:String):Void;
     
     
     /**
@@ -4851,7 +4851,7 @@ extern class Panel {
 		`left` | true = left, false = right
     **/
     
-    public function SetDrawLanguageIDAtLeft(left:Bool):Void;
+    function SetDrawLanguageIDAtLeft(left:Bool):Void;
     
     
     /**
@@ -4864,21 +4864,21 @@ extern class Panel {
 		`margins` | A four-membered table containing the margins as numbers: number left - The left margin. number top - The top margin. number right - The right margin. number bottom - The bottom margin.
     **/
     @:deprecated("INTERNAL")
-    public function GWEN_SetMargin(margins:AnyTable):Void;
+    function GWEN_SetMargin(margins:AnyTable):Void;
     
     
     /**
         Stops all panel animations by clearing its animation list. This also clears all delayed animations.
     **/
     
-    public function Stop():Void;
+    function Stop():Void;
     
     
     /**
         Causes a RichText element to scroll to the bottom of its text.
     **/
     
-    public function GotoTextEnd():Void;
+    function GotoTextEnd():Void;
 	
 
     
@@ -4891,7 +4891,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function PreAutoRefresh():Void;
+    function PreAutoRefresh():Void;
     
     
     /**
@@ -4907,7 +4907,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnCursorMoved(cursorX:Float, cursorY:Float):Bool;
+    function OnCursorMoved(cursorX:Float, cursorY:Float):Bool;
     
     
     /**
@@ -4915,7 +4915,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function ApplySchemeSettings():Void;
+    function ApplySchemeSettings():Void;
     
     
     /**
@@ -4929,7 +4929,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnChildViewCreated(sourceURL:String, targetURL:String, isPopup:Bool):Void;
+    function OnChildViewCreated(sourceURL:String, targetURL:String, isPopup:Bool):Void;
     
     
     /**
@@ -4945,7 +4945,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function PaintOver(width:Float, height:Float):Bool;
+    function PaintOver(width:Float, height:Float):Bool;
     
     
     /**
@@ -4955,7 +4955,7 @@ extern class Panel {
     **/
     @:deprecated("INTERNAL")
     @:hook
-    public function OnStartDragging():Void;
+    function OnStartDragging():Void;
     
     
     /**
@@ -4969,7 +4969,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnFocusChanged(gained:Bool):Void;
+    function OnFocusChanged(gained:Bool):Void;
     
     
     /**
@@ -4981,7 +4981,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnDocumentReady(url:String):Void;
+    function OnDocumentReady(url:String):Void;
     
     
     /**
@@ -4993,7 +4993,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnChangeTitle(newTitle:String):Void;
+    function OnChangeTitle(newTitle:String):Void;
     
     
     /**
@@ -5001,7 +5001,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnCursorExited():Void;
+    function OnCursorExited():Void;
     
     
     /**
@@ -5018,7 +5018,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnKeyCodePressed(keyCode:KEY):Bool;
+    function OnKeyCodePressed(keyCode:KEY):Bool;
     
     
     /**
@@ -5033,7 +5033,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function PerformLayout(width:Float, height:Float):Void;
+    function PerformLayout(width:Float, height:Float):Void;
     
     
     /**
@@ -5043,7 +5043,7 @@ extern class Panel {
     **/
     @:deprecated("INTERNAL")
     @:hook
-    public function OnStopDragging():Void;
+    function OnStopDragging():Void;
     
     
     /**
@@ -5060,7 +5060,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnSizeChanged(newWidth:Float, newHeight:Float):Void;
+    function OnSizeChanged(newWidth:Float, newHeight:Float):Void;
     
     
     /**
@@ -5097,7 +5097,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function Paint(width:Float, height:Float):Bool;
+    function Paint(width:Float, height:Float):Bool;
     
     
     /**
@@ -5109,7 +5109,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnChangeTargetURL(targetURL:String):Void;
+    function OnChangeTargetURL(targetURL:String):Void;
     
     
     /**
@@ -5124,7 +5124,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnMousePressed(keyCode:MOUSE):Bool;
+    function OnMousePressed(keyCode:MOUSE):Bool;
     
     
     /**
@@ -5138,7 +5138,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function DragHoverClick(hoverTime:Float):Void;
+    function DragHoverClick(hoverTime:Float):Void;
     
     
     /**
@@ -5146,7 +5146,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnRemove():Void;
+    function OnRemove():Void;
     
     
     /**
@@ -5161,7 +5161,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnScreenSizeChanged(oldWidth:Float, oldHeight:Float):Void;
+    function OnScreenSizeChanged(oldWidth:Float, oldHeight:Float):Void;
     
     
     /**
@@ -5175,7 +5175,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function DroppedOn(pnl:Panel):Void;
+    function DroppedOn(pnl:Panel):Void;
     
     
     /**
@@ -5213,7 +5213,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function GenerateExample(_class:String, dpropertysheet:Panel, width:Float, height:Float):Void;
+    function GenerateExample(_class:String, dpropertysheet:Panel, width:Float, height:Float):Void;
     
     
     /**
@@ -5237,7 +5237,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function LoadCookies():Void;
+    function LoadCookies():Void;
     
     
     /**
@@ -5254,7 +5254,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnKeyCodeReleased(keyCode:KEY):Bool;
+    function OnKeyCodeReleased(keyCode:KEY):Bool;
     
     
     /**
@@ -5266,7 +5266,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function PostAutoRefresh():Void;
+    function PostAutoRefresh():Void;
     
     
     /**
@@ -5276,7 +5276,7 @@ extern class Panel {
     **/
     @:deprecated("INTERNAL")
     @:hook
-    public function OnActivate():Void;
+    function OnActivate():Void;
     
     
     /**
@@ -5284,7 +5284,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function Think():Void;
+    function Think():Void;
     
     
     /**
@@ -5319,7 +5319,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function Init():Void;
+    function Init():Void;
     
     
     /**
@@ -5334,7 +5334,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnMouseReleased(keyCode:MOUSE):Bool;
+    function OnMouseReleased(keyCode:MOUSE):Bool;
     
     
     /**
@@ -5349,7 +5349,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnMouseWheeled(scrollDelta:Float):Bool;
+    function OnMouseWheeled(scrollDelta:Float):Bool;
     
     
     /**
@@ -5359,7 +5359,7 @@ extern class Panel {
     **/
     @:deprecated("INTERNAL")
     @:hook
-    public function OnDeactivate():Void;
+    function OnDeactivate():Void;
     
     
     /**
@@ -5371,7 +5371,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnChildRemoved(child:Panel):Void;
+    function OnChildRemoved(child:Panel):Void;
     
     
     /**
@@ -5383,7 +5383,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnDrop():Panel;
+    function OnDrop():Panel;
     
     
     /**
@@ -5391,7 +5391,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnCursorEntered():Void;
+    function OnCursorEntered():Void;
     
     
     /**
@@ -5406,7 +5406,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function ActionSignal(signalName:String, signalValue:String):Void;
+    function ActionSignal(signalName:String, signalValue:String):Void;
     
     
     /**
@@ -5420,7 +5420,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function OnChildAdded(child:Panel):Void;
+    function OnChildAdded(child:Panel):Void;
     
     
     /**
@@ -5432,7 +5432,7 @@ extern class Panel {
     **/
     
     @:hook
-    public function AnimationThink():Void;
+    function AnimationThink():Void;
     
     
 }

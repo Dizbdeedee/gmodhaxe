@@ -17,7 +17,7 @@ package gmod.libs;
 		`value` | Value to store in the cookie.
     **/
     
-    public static function Set(key:String, value:String):Void;
+    static function Set(key:String, value:String):Void;
     
     
     /**
@@ -32,7 +32,7 @@ package gmod.libs;
 		`**Returns:** The cookie value
     **/
     
-    public static function GetString(name:String, ?_default:Dynamic):String;
+    static function GetString(name:String, ?_default:Dynamic):String;
     
     
     /**
@@ -43,7 +43,7 @@ package gmod.libs;
 		`name` | The name of the cookie that you want to delete.
     **/
     
-    public static function Delete(name:String):Void;
+    static function Delete(name:String):Void;
     
     
     /**
@@ -58,7 +58,7 @@ package gmod.libs;
 		`**Returns:** The cookie value
     **/
     
-    public static function GetNumber(name:String, ?_default:Dynamic):Float;
+    static function GetNumber(name:String, ?_default:Dynamic):Float;
     
     
 

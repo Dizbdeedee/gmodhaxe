@@ -26,7 +26,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Add(_class:String, texture:String, color:AnyTable):Void;
+    static function Add(_class:String, texture:String, color:AnyTable):Void;
     
     
     /**
@@ -50,7 +50,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddFont(_class:String, font:String, symbol:String, color:AnyTable):Void;
+    static function AddFont(_class:String, font:String, symbol:String, color:AnyTable):Void;
     
     
     /**
@@ -67,7 +67,7 @@ package gmod.libs;
 		`b` | Height of the kill icon
     **/
     
-    public static function GetSize(name:String):KilliconLibGetSizeReturn;
+    static function GetSize(name:String):KilliconLibGetSizeReturn;
     
     
     /**
@@ -89,7 +89,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddAlias(new_class:String, existing_class:String):Void;
+    static function AddAlias(new_class:String, existing_class:String):Void;
     
     
     /**
@@ -103,7 +103,7 @@ package gmod.libs;
 		`alpha` | Alpha/transparency value ( 0 - 255 ) of the icon
     **/
     
-    public static function Draw(x:Float, y:Float, name:String, alpha:Float):Void;
+    static function Draw(x:Float, y:Float, name:String, alpha:Float):Void;
     
     
     /**
@@ -117,7 +117,7 @@ package gmod.libs;
 		`**Returns:** Returns true if kill icon exists
     **/
     
-    public static function Exists(_class:String):Bool;
+    static function Exists(_class:String):Bool;
     
     
 

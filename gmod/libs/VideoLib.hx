@@ -56,7 +56,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Record(config:VideoData):VideoLibRecordReturn;
+    static function Record(config:VideoData):VideoLibRecordReturn;
     
     
 

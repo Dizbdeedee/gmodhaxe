@@ -33,7 +33,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function TraceEntity(tracedata:Trace, ent:Entity):TraceResult;
+    static function TraceEntity(tracedata:Trace, ent:Entity):TraceResult;
     
     
     /**
@@ -47,7 +47,7 @@ package gmod.libs;
 		`**Returns:** Formatted float
     **/
     
-    public static function NiceFloat(float:Float):String;
+    static function NiceFloat(float:Float):String;
     
     
     /**
@@ -61,7 +61,7 @@ package gmod.libs;
 		`**Returns:** Returns true if the specified prop is valid; otherwise false.
     **/
     
-    public static function IsValidProp(modelName:String):Bool;
+    static function IsValidProp(modelName:String):Bool;
     
     
     /**
@@ -76,7 +76,7 @@ package gmod.libs;
 		`**Returns:** true is valid, false otherwise
     **/
     
-    public static function IsValidPhysicsObject(ent:Entity, physobj:Float):Bool;
+    static function IsValidPhysicsObject(ent:Entity, physobj:Float):Bool;
     
     
     /**
@@ -90,7 +90,7 @@ package gmod.libs;
 		`doWhiz` | Play the hit miss(whiz) sound.
     **/
     
-    public static function ParticleTracer(name:String, startPos:Vector, endPos:Vector, doWhiz:Bool):Void;
+    static function ParticleTracer(name:String, startPos:Vector, endPos:Vector, doWhiz:Bool):Void;
     
     
     /**
@@ -99,7 +99,7 @@ package gmod.libs;
 		`**Returns:** Time since this function has been last called in ms
     **/
     
-    public static function TimerCycle():Float;
+    static function TimerCycle():Float;
     
     
     /**
@@ -113,7 +113,7 @@ package gmod.libs;
 		`filter` | If set, the decal will not be able to be placed on given entity. Can also be a table of entities.
     **/
     
-    public static function Decal(name:String, start:Vector, end:Vector, ?filter:Entity):Void;
+    static function Decal(name:String, start:Vector, end:Vector, ?filter:Entity):Void;
     
     #if client
     /**
@@ -122,7 +122,7 @@ package gmod.libs;
 		`**Returns:** The sun info. See SunInfo structure
     **/
     
-    public static function GetSunInfo():SunInfo;
+    static function GetSunInfo():SunInfo;
     #end
     
     /**
@@ -136,7 +136,7 @@ package gmod.libs;
 		`**Returns:** The networked string, or nil if it wasn't found.
     **/
     
-    public static function NetworkIDToString(stringTableID:Float):String;
+    static function NetworkIDToString(stringTableID:Float):String;
     
     #if server
     /**
@@ -149,7 +149,7 @@ package gmod.libs;
 		`damageRadius` | The radius in which entities will be damaged.
     **/
     
-    public static function BlastDamageInfo(dmg:CTakeDamageInfo, damageOrigin:Vector, damageRadius:Float):Void;
+    static function BlastDamageInfo(dmg:CTakeDamageInfo, damageOrigin:Vector, damageRadius:Float):Void;
     #end
     #if server
     /**
@@ -160,7 +160,7 @@ package gmod.libs;
 		`**Returns:** The table of users. The table consists of SteamID-Table pairs, where the table has 2 fields: string name - Players name string group - The players user group
     **/
     
-    public static function GetUserGroups():AnyTable;
+    static function GetUserGroups():AnyTable;
     #end
     #if client
     /**
@@ -169,7 +169,7 @@ package gmod.libs;
 		`**Returns:** PixVis
     **/
     
-    public static function GetPixelVisibleHandle():Pixelvis;
+    static function GetPixelVisibleHandle():Pixelvis;
     #end
     
     /**
@@ -183,7 +183,7 @@ package gmod.libs;
 		`**Returns:** KeyValueString
     **/
     
-    public static function TableToKeyValues(table:AnyTable):String;
+    static function TableToKeyValues(table:AnyTable):String;
     
     
     /**
@@ -203,7 +203,7 @@ package gmod.libs;
 		`c` | Distance along line from start.
     **/
     
-    public static function DistanceToLine(lineStart:Vector, lineEnd:Vector, pointPos:Vector):UtilLibDistanceToLineReturn;
+    static function DistanceToLine(lineStart:Vector, lineEnd:Vector, pointPos:Vector):UtilLibDistanceToLineReturn;
     
     #if client
     /**
@@ -222,7 +222,7 @@ package gmod.libs;
 		`h` | The height scale of the decal.
     **/
     
-    public static function DecalEx(material:IMaterial, ent:Entity, position:Vector, normal:Vector, color:Color, w:Float, h:Float):Void;
+    static function DecalEx(material:IMaterial, ent:Entity, position:Vector, normal:Vector, color:Color, w:Float, h:Float):Void;
     #end
     
     /**
@@ -250,7 +250,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function KeyValuesToTable(keyValues:String, ?usesEscapeSequences:Bool, ?preserveKeyCase:Bool):AnyTable;
+    static function KeyValuesToTable(keyValues:String, ?usesEscapeSequences:Bool, ?preserveKeyCase:Bool):AnyTable;
     
     
     /**
@@ -279,7 +279,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ScreenShake(pos:Vector, amplitude:Float, frequency:Float, duration:Float, radius:Float):Void;
+    static function ScreenShake(pos:Vector, amplitude:Float, frequency:Float, duration:Float, radius:Float):Void;
     
     
     /**
@@ -295,7 +295,7 @@ package gmod.libs;
 		`**Returns:** wpos
     **/
     
-    public static function LocalToWorld(ent:Entity, lpos:Vector, bonenum:Float):Vector;
+    static function LocalToWorld(ent:Entity, lpos:Vector, bonenum:Float):Vector;
     
     
     /**
@@ -313,7 +313,7 @@ package gmod.libs;
 		`**Returns:** The table containing converted information. Returns nothing on failure.
     **/
     
-    public static function JSONToTable(json:String):AnyTable;
+    static function JSONToTable(json:String):AnyTable;
     
     
     /**
@@ -340,7 +340,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetModelInfo(mdl:String):AnyTable;
+    static function GetModelInfo(mdl:String):AnyTable;
     
     
     /**
@@ -355,7 +355,7 @@ package gmod.libs;
 		`**Returns:** The original, decompressed string or an empty string on failure or invalid input.
     **/
     
-    public static function Decompress(compressedString:String, ?maxSize:Float):String;
+    static function Decompress(compressedString:String, ?maxSize:Float):String;
     
     
     /**
@@ -364,7 +364,7 @@ package gmod.libs;
 		`**Returns:** A brand new stack object
     **/
     
-    public static function Stack():Stack;
+    static function Stack():Stack;
     
     #if client
     /**
@@ -429,7 +429,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetModelMeshes(model:String, ?lod:Float, ?bodygroupMask:Float):MeshVertex;
+    static function GetModelMeshes(model:String, ?lod:Float, ?bodygroupMask:Float):MeshVertex;
     #end
     
     /**
@@ -458,7 +458,7 @@ package gmod.libs;
 		A vector with components (5, 6, 75)
     **/
     
-    public static function StringToType(str:String, typename:String):Dynamic;
+    static function StringToType(str:String, typename:String):Dynamic;
     
     
     /**
@@ -471,7 +471,7 @@ package gmod.libs;
 		`soundName` | The sound to precache.
     **/
     
-    public static function PrecacheSound(soundName:String):Void;
+    static function PrecacheSound(soundName:String):Void;
     
     
     /**
@@ -510,7 +510,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function TableToJSON(table:AnyTable, ?prettyPrint:Bool):String;
+    static function TableToJSON(table:AnyTable, ?prettyPrint:Bool):String;
     
     
     /**
@@ -524,7 +524,7 @@ package gmod.libs;
 		`**Returns:** A timer object. It has next methods: Reset() - Resets the timer to nothing Start( time ) - Starts the timer, call with end time Started() - Returns true if the timer has been started Elapsed() - Returns true if the time has elapsed
     **/
     
-    public static function Timer(?startdelay:Float):AnyTable;
+    static function Timer(?startdelay:Float):AnyTable;
     
     
     /**
@@ -540,7 +540,7 @@ package gmod.libs;
 		`**Returns:** False if the input is equal to the string or boolean "false", if the input is equal to the string or number "0", or if the input is nil. Returns true otherwise.
     **/
     @:deprecated("You should use tobool instead.")
-    public static function tobool(input:Dynamic):Bool;
+    static function tobool(input:Dynamic):Bool;
     
     
     /**
@@ -566,7 +566,7 @@ package gmod.libs;
 		3904355907
     **/
     
-    public static function CRC(stringToHash:String):String;
+    static function CRC(stringToHash:String):String;
     
     
     /**
@@ -584,7 +584,7 @@ package gmod.libs;
 		`**Returns:** The stored value
     **/
     
-    public static function GetPData(steamID:String, name:String, _default:String):String;
+    static function GetPData(steamID:String, name:String, _default:String):String;
     
     
     /**
@@ -598,7 +598,7 @@ package gmod.libs;
 		`name` | Variable name to remove
     **/
     
-    public static function RemovePData(steamID:String, name:String):Void;
+    static function RemovePData(steamID:String, name:String):Void;
     
     
     /**
@@ -612,7 +612,7 @@ package gmod.libs;
 		`**Returns:** The networked ID of the string, or 0 if it hasn't been networked with util. AddNetworkString.
     **/
     
-    public static function NetworkStringToID(networkString:String):Float;
+    static function NetworkStringToID(networkString:String):Float;
     
     #if server
     /**
@@ -646,7 +646,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SpriteTrail(ent:Entity, attachmentID:Float, color:AnyTable, additive:Bool, startWidth:Float, endWidth:Float, lifetime:Float, textureRes:Float, texture:String):Entity;
+    static function SpriteTrail(ent:Entity, attachmentID:Float, color:AnyTable, additive:Bool, startWidth:Float, endWidth:Float, lifetime:Float, textureRes:Float, texture:String):Entity;
     #end
     
     /**
@@ -670,7 +670,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PointContents(position:Vector):CONTENTS;
+    static function PointContents(position:Vector):CONTENTS;
     
     
     /**
@@ -684,7 +684,7 @@ package gmod.libs;
 		`**Returns:** 64bit Steam ID
     **/
     
-    public static function SteamIDTo64(id:String):String;
+    static function SteamIDTo64(id:String):String;
     
     
     /**
@@ -700,7 +700,7 @@ package gmod.libs;
 		`**Returns:** The name or an empty string if there is no valid surface property at given index.
     **/
     
-    public static function GetSurfacePropName(id:TraceResult):String;
+    static function GetSurfacePropName(id:TraceResult):String;
     
     
     /**
@@ -721,7 +721,7 @@ package gmod.libs;
 		`**Returns:** Calculated aim vector
     **/
     
-    public static function AimVector(ViewAngles:Angle, ViewFOV:Float, x:Float, y:Float, scrWidth:Float, scrHeight:Float):Vector;
+    static function AimVector(ViewAngles:Angle, ViewFOV:Float, x:Float, y:Float, scrWidth:Float, scrHeight:Float):Vector;
     
     
     /**
@@ -738,7 +738,7 @@ package gmod.libs;
 		`**Returns:** Trace result. See TraceResult structure
     **/
     @:deprecated("This function is broken and returns the same values all the time")
-    public static function TraceEntityHull(ent1:Entity, ent2:Entity):TraceResult;
+    static function TraceEntityHull(ent1:Entity, ent2:Entity):TraceResult;
     
     
     /**
@@ -754,7 +754,7 @@ package gmod.libs;
 		`attachmentIndex` | Attachment index to be used as origin.
     **/
     
-    public static function ParticleTracerEx(name:String, startPos:Vector, endPos:Vector, doWhiz:Bool, entityIndex:Float, attachmentIndex:Float):Void;
+    static function ParticleTracerEx(name:String, startPos:Vector, endPos:Vector, doWhiz:Bool, entityIndex:Float, attachmentIndex:Float):Void;
     
     
     /**
@@ -845,7 +845,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function TraceHull(TraceData:HullTrace):TraceResult;
+    static function TraceHull(TraceData:HullTrace):TraceResult;
     
     
     /**
@@ -862,7 +862,7 @@ package gmod.libs;
 		`**Returns:** The position of intersection, nil if not hit.
     **/
     
-    public static function IntersectRayWithPlane(rayOrigin:Vector, rayDirection:Vector, planePosition:Vector, planeNormal:Vector):Vector;
+    static function IntersectRayWithPlane(rayOrigin:Vector, rayDirection:Vector, planePosition:Vector, planeNormal:Vector):Vector;
     
     
     /**
@@ -876,7 +876,7 @@ package gmod.libs;
 		`**Returns:** Converted string
     **/
     
-    public static function TypeToString(input:Dynamic):String;
+    static function TypeToString(input:Dynamic):String;
     
     
     /**
@@ -885,7 +885,7 @@ package gmod.libs;
 		`**Returns:** date
     **/
     
-    public static function DateStamp():String;
+    static function DateStamp():String;
     
     #if server
     /**
@@ -913,7 +913,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function IsInWorld(position:Vector):Bool;
+    static function IsInWorld(position:Vector):Bool;
     #end
     
     /**
@@ -927,7 +927,7 @@ package gmod.libs;
 		`**Returns:** STEAM_0 style Steam ID
     **/
     
-    public static function SteamIDFrom64(id:String):String;
+    static function SteamIDFrom64(id:String):String;
     
     
     /**
@@ -950,7 +950,7 @@ package gmod.libs;
 		`c` | Fraction of trace used, nil if not hit.
     **/
     
-    public static function IntersectRayWithOBB(rayStart:Vector, rayDelta:Vector, boxOrigin:Vector, boxAngles:Angle, boxMins:Vector, boxMaxs:Vector):UtilLibIntersectRayWithOBBReturn;
+    static function IntersectRayWithOBB(rayStart:Vector, rayDelta:Vector, boxOrigin:Vector, boxAngles:Angle, boxMins:Vector, boxMaxs:Vector):UtilLibIntersectRayWithOBBReturn;
     
     #if server
     /**
@@ -965,7 +965,7 @@ package gmod.libs;
 		`damage` | The amount of damage to be applied.
     **/
     
-    public static function BlastDamage(inflictor:Entity, attacker:Entity, damageOrigin:Vector, damageRadius:Float, damage:Float):Void;
+    static function BlastDamage(inflictor:Entity, attacker:Entity, damageOrigin:Vector, damageRadius:Float, damage:Float):Void;
     #end
     
     /**
@@ -978,7 +978,7 @@ package gmod.libs;
 		`modelName` | The model to precache.
     **/
     
-    public static function PrecacheModel(modelName:String):Void;
+    static function PrecacheModel(modelName:String):Void;
     
     
     /**
@@ -992,7 +992,7 @@ package gmod.libs;
 		`**Returns:** Returns true if the model is loaded in the game; otherwise false.
     **/
     
-    public static function IsModelLoaded(modelName:String):Bool;
+    static function IsModelLoaded(modelName:String):Bool;
     
     #if client
     /**
@@ -1008,7 +1008,7 @@ package gmod.libs;
 		`**Returns:** Whether the skybox is visible from the position.
     **/
     
-    public static function IsSkyboxVisibleFromPoint(position:Vector):Bool;
+    static function IsSkyboxVisibleFromPoint(position:Vector):Bool;
     #end
     
     /**
@@ -1047,7 +1047,7 @@ package gmod.libs;
 		78.480193614252
     **/
     
-    public static function SharedRandom(uniqueName:String, min:Float, max:Float, ?additionalSeed:Float):Float;
+    static function SharedRandom(uniqueName:String, min:Float, max:Float, ?additionalSeed:Float):Float;
     
     
     /**
@@ -1063,7 +1063,7 @@ package gmod.libs;
 		`**Returns:** The surface property index, or -1 if name doesn't correspond to a valid surface property.
     **/
     
-    public static function GetSurfaceIndex(surfaceName:String):Float;
+    static function GetSurfaceIndex(surfaceName:String):Float;
     
     
     /**
@@ -1077,7 +1077,7 @@ package gmod.libs;
 		`**Returns:** The data or no value if there is no valid surface property at given index. See SurfacePropertyData structure
     **/
     
-    public static function GetSurfaceData(id:TraceResult):SurfacePropertyData;
+    static function GetSurfaceData(id:TraceResult):SurfacePropertyData;
     
     #if client
     /**
@@ -1117,7 +1117,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PixelVisible(position:Vector, radius:Float, PixVis:Pixelvis):Float;
+    static function PixelVisible(position:Vector, radius:Float, PixVis:Pixelvis):Float;
     #end
     
     /**
@@ -1133,7 +1133,7 @@ package gmod.libs;
 		`**Returns:** Whether the model is valid or not. Returns false clientside if the model is not precached by the server.
     **/
     
-    public static function IsValidModel(modelName:String):Bool;
+    static function IsValidModel(modelName:String):Bool;
     
     
     /**
@@ -1161,7 +1161,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetPlayerTrace(ply:Player, ?dir:Vector):Trace;
+    static function GetPlayerTrace(ply:Player, ?dir:Vector):Trace;
     
     
     /**
@@ -1175,7 +1175,7 @@ package gmod.libs;
 		`**Returns:** Base 64 encoded string.
     **/
     
-    public static function Base64Encode(str:String):String;
+    static function Base64Encode(str:String):String;
     
     #if server
     /**
@@ -1195,7 +1195,7 @@ package gmod.libs;
 		`**Returns:** The id of the string that was added to the string table. Same as calling util. NetworkStringToID.
     **/
     
-    public static function AddNetworkString(str:String):Float;
+    static function AddNetworkString(str:String):Float;
     #end
     
     /**
@@ -1211,7 +1211,7 @@ package gmod.libs;
 		`**Returns:** The compressed string, or nil if the input string was zero length ("").
     **/
     
-    public static function Compress(str:String):String;
+    static function Compress(str:String):String;
     
     
     /**
@@ -1237,7 +1237,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function KeyValuesToTablePreserveOrder(keyvals:String, ?usesEscapeSequences:Bool, ?preserveKeyCase:Bool):AnyTable;
+    static function KeyValuesToTablePreserveOrder(keyvals:String, ?usesEscapeSequences:Bool, ?preserveKeyCase:Bool):AnyTable;
     
     
     /**
@@ -1252,7 +1252,7 @@ package gmod.libs;
 		`value` | The value to store
     **/
     
-    public static function SetPData(steamID:String, name:String, value:Dynamic):Void;
+    static function SetPData(steamID:String, name:String, value:Dynamic):Void;
     
     
     /**
@@ -1266,7 +1266,7 @@ package gmod.libs;
 		`**Returns:** absolutePath
     **/
     
-    public static function RelativePathToFull(file:String):String;
+    static function RelativePathToFull(file:String):String;
     
     
     /**
@@ -1280,7 +1280,7 @@ package gmod.libs;
 		`**Returns:** Material path of the decal.
     **/
     
-    public static function DecalMaterial(decalName:String):String;
+    static function DecalMaterial(decalName:String):String;
     
     
     /**
@@ -1313,7 +1313,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Effect(effectName:String, effectData:CEffectData, ?allowOverride:Bool, ?ignorePredictionOrRecipientFilter:Dynamic):Void;
+    static function Effect(effectName:String, effectData:CEffectData, ?allowOverride:Bool, ?ignorePredictionOrRecipientFilter:Dynamic):Void;
     
     
     /**
@@ -1347,7 +1347,7 @@ package gmod.libs;
 		The trace will only hit prop_physics or world.
     **/
     
-    public static function TraceLine(TraceData:Trace):TraceResult;
+    static function TraceLine(TraceData:Trace):TraceResult;
     
     
     /**
@@ -1361,7 +1361,7 @@ package gmod.libs;
 		`**Returns:** Returns true if the specified model name points to a valid ragdoll; otherwise false.
     **/
     
-    public static function IsValidRagdoll(ragdollName:String):Bool;
+    static function IsValidRagdoll(ragdollName:String):Bool;
     
     
     /**
@@ -1377,7 +1377,7 @@ package gmod.libs;
 		`**Returns:** Trace result. See TraceResult structure.
     **/
     
-    public static function QuickTrace(origin:Vector, endpos:Vector, ?filter:Trace):TraceResult;
+    static function QuickTrace(origin:Vector, endpos:Vector, ?filter:Trace):TraceResult;
     
     
 

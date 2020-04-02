@@ -12,7 +12,7 @@ extern class CEffectData {
 		`**Returns:** The origin position of the effect.
     **/
     
-    public function GetOrigin():Vector;
+    function GetOrigin():Vector;
     
     
     /**
@@ -21,7 +21,7 @@ extern class CEffectData {
 		`**Returns:** The entity assigned to the effect
     **/
     
-    public function GetEntity():Entity;
+    function GetEntity():Entity;
     
     
     /**
@@ -34,7 +34,7 @@ extern class CEffectData {
 		`radius` | Radius of the effect.
     **/
     
-    public function SetRadius(radius:Float):Void;
+    function SetRadius(radius:Float):Void;
     
     
     /**
@@ -43,7 +43,7 @@ extern class CEffectData {
 		`**Returns:** The angles of the effect
     **/
     
-    public function GetAngles():Angle;
+    function GetAngles():Angle;
     
     #if server
     /**
@@ -52,7 +52,7 @@ extern class CEffectData {
 		`**Returns:** The entity index of the entity set for the effect.
     **/
     
-    public function GetEntIndex():Float;
+    function GetEntIndex():Float;
     #end
     
     /**
@@ -63,7 +63,7 @@ extern class CEffectData {
 		`surfaceProperties` | The surface property index of the effect.
     **/
     
-    public function SetSurfaceProp(surfaceProperties:Float):Void;
+    function SetSurfaceProp(surfaceProperties:Float):Void;
     
     
     /**
@@ -72,7 +72,7 @@ extern class CEffectData {
 		`**Returns:** The scale of the effect
     **/
     
-    public function GetScale():Float;
+    function GetScale():Float;
     
     
     /**
@@ -81,7 +81,7 @@ extern class CEffectData {
 		`**Returns:** The material ID of the effect.
     **/
     
-    public function GetMaterialIndex():Float;
+    function GetMaterialIndex():Float;
     
     
     /**
@@ -94,7 +94,7 @@ extern class CEffectData {
 		`hitBoxIndex` | The hit box index of the effect.
     **/
     
-    public function SetHitBox(hitBoxIndex:Float):Void;
+    function SetHitBox(hitBoxIndex:Float):Void;
     
     
     /**
@@ -107,7 +107,7 @@ extern class CEffectData {
 		`flags` | The flags of the effect. Each effect has their own flags.
     **/
     
-    public function SetFlags(flags:Float):Void;
+    function SetFlags(flags:Float):Void;
     
     
     /**
@@ -118,7 +118,7 @@ extern class CEffectData {
 		`origin` | Origin of the effect.
     **/
     
-    public function SetOrigin(origin:Vector):Void;
+    function SetOrigin(origin:Vector):Void;
     
     
     /**
@@ -129,7 +129,7 @@ extern class CEffectData {
 		`damageType` | Damage type, see DMG_ Enums.
     **/
     
-    public function SetDamageType(damageType:DMG):Void;
+    function SetDamageType(damageType:DMG):Void;
     
     
     /**
@@ -142,7 +142,7 @@ extern class CEffectData {
 		`attachment` | New attachment ID of the effect.
     **/
     
-    public function SetAttachment(attachment:Float):Void;
+    function SetAttachment(attachment:Float):Void;
     
     
     /**
@@ -153,7 +153,7 @@ extern class CEffectData {
 		`normal` | The normalized direction vector of the effect.
     **/
     
-    public function SetNormal(normal:Vector):Void;
+    function SetNormal(normal:Vector):Void;
     
     
     /**
@@ -164,7 +164,7 @@ extern class CEffectData {
 		`entity` | Entity of the effect, mostly used for parenting.
     **/
     
-    public function SetEntity(entity:Entity):Void;
+    function SetEntity(entity:Entity):Void;
     
     
     /**
@@ -173,7 +173,7 @@ extern class CEffectData {
 		`**Returns:** The normalized direction vector of the effect.
     **/
     
-    public function GetNormal():Vector;
+    function GetNormal():Vector;
     
     #if server
     /**
@@ -184,7 +184,7 @@ extern class CEffectData {
 		`entIndex` | The entity index to be set.
     **/
     
-    public function SetEntIndex(entIndex:Float):Void;
+    function SetEntIndex(entIndex:Float):Void;
     #end
     
     /**
@@ -193,7 +193,7 @@ extern class CEffectData {
 		`**Returns:** The hit box ID of the effect.
     **/
     
-    public function GetHitBox():Float;
+    function GetHitBox():Float;
     
     
     /**
@@ -204,7 +204,7 @@ extern class CEffectData {
 		`ang` | The new angles to be set.
     **/
     
-    public function SetAngles(ang:Angle):Void;
+    function SetAngles(ang:Angle):Void;
     
     
     /**
@@ -213,7 +213,7 @@ extern class CEffectData {
 		`**Returns:** The attachment ID of the effect.
     **/
     
-    public function GetAttachment():Float;
+    function GetAttachment():Float;
     
     
     /**
@@ -226,7 +226,7 @@ extern class CEffectData {
 		`materialIndex` | The material index of the effect.
     **/
     
-    public function SetMaterialIndex(materialIndex:Float):Void;
+    function SetMaterialIndex(materialIndex:Float):Void;
     
     
     /**
@@ -237,7 +237,7 @@ extern class CEffectData {
 		`scale` | Scale of the effect.
     **/
     
-    public function SetScale(scale:Float):Void;
+    function SetScale(scale:Float):Void;
     
     
     /**
@@ -246,7 +246,7 @@ extern class CEffectData {
 		`**Returns:** The radius of the effect.
     **/
     
-    public function GetRadius():Float;
+    function GetRadius():Float;
     
     
     /**
@@ -255,7 +255,7 @@ extern class CEffectData {
 		`**Returns:** Damage type of the effect, see DMG_ Enums
     **/
     
-    public function GetDamageType():DMG;
+    function GetDamageType():DMG;
     
     
     /**
@@ -264,7 +264,7 @@ extern class CEffectData {
 		`**Returns:** The magnitude of the effect.
     **/
     
-    public function GetMagnitude():Float;
+    function GetMagnitude():Float;
     
     
     /**
@@ -275,7 +275,7 @@ extern class CEffectData {
 		`start` | Start of the effect.
     **/
     
-    public function SetStart(start:Vector):Void;
+    function SetStart(start:Vector):Void;
     
     
     /**
@@ -284,7 +284,7 @@ extern class CEffectData {
 		`**Returns:** The color of the effect
     **/
     
-    public function GetColor():Float;
+    function GetColor():Float;
     
     
     /**
@@ -293,7 +293,7 @@ extern class CEffectData {
 		`**Returns:** The flags of the effect.
     **/
     
-    public function GetFlags():Float;
+    function GetFlags():Float;
     
     
     /**
@@ -302,7 +302,7 @@ extern class CEffectData {
 		`**Returns:** The start position of the effect
     **/
     
-    public function GetStart():Vector;
+    function GetStart():Vector;
     
     
     /**
@@ -313,7 +313,7 @@ extern class CEffectData {
 		`magnitude` | The magnitude of the effect.
     **/
     
-    public function SetMagnitude(magnitude:Float):Void;
+    function SetMagnitude(magnitude:Float):Void;
     
     
     /**
@@ -324,7 +324,7 @@ extern class CEffectData {
 		`color` | Color represented by a byte.
     **/
     
-    public function SetColor(color:Float):Void;
+    function SetColor(color:Float):Void;
     
     
     /**
@@ -333,7 +333,7 @@ extern class CEffectData {
 		`**Returns:** The surface property index of the effect
     **/
     
-    public function GetSurfaceProp():Float;
+    function GetSurfaceProp():Float;
     
     
 }

@@ -14,7 +14,7 @@ package gmod.libs;
 		`**Returns:** Amount of frames needed to render?
     **/
     @:deprecated("INTERNAL")
-    public static function RenderableFrames():Float;
+    static function RenderableFrames():Float;
     
     
     /**
@@ -23,7 +23,7 @@ package gmod.libs;
 		Renders the frame onto internal render target.
     **/
     @:deprecated("INTERNAL")
-    public static function CompleteFrame():Void;
+    static function CompleteFrame():Void;
     
     
     /**
@@ -32,7 +32,7 @@ package gmod.libs;
 		Actually draws the frame blend effect.
     **/
     @:deprecated("INTERNAL")
-    public static function DrawPreview():Void;
+    static function DrawPreview():Void;
     
     
     /**
@@ -41,7 +41,7 @@ package gmod.libs;
 		Adds a frame to the blend. Calls frame_blend.CompleteFrame once enough frames have passed since last frame_blend.CompleteFrame call.
     **/
     @:deprecated("INTERNAL")
-    public static function AddFrame():Void;
+    static function AddFrame():Void;
     
     
     /**
@@ -50,7 +50,7 @@ package gmod.libs;
 		`**Returns:** Should the frame be skipped or not
     **/
     
-    public static function ShouldSkipFrame():Bool;
+    static function ShouldSkipFrame():Bool;
     
     
     /**
@@ -59,7 +59,7 @@ package gmod.libs;
 		Blends the frame(s).
     **/
     @:deprecated("INTERNAL")
-    public static function BlendFrame():Void;
+    static function BlendFrame():Void;
     
     
     /**
@@ -68,7 +68,7 @@ package gmod.libs;
 		`**Returns:** Is frame blend enabled or not
     **/
     
-    public static function IsActive():Bool;
+    static function IsActive():Bool;
     
     
     /**
@@ -79,7 +79,7 @@ package gmod.libs;
 		`**Returns:** Whether the current frame is the last frame?
     **/
     @:deprecated("INTERNAL")
-    public static function IsLastFrame():Bool;
+    static function IsLastFrame():Bool;
     
     
 

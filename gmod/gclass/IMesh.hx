@@ -12,7 +12,7 @@ extern class IMesh {
         Deletes the mesh and frees the memory used by it.
     **/
     
-    public function Destroy():Void;
+    function Destroy():Void;
     
     
     /**
@@ -25,7 +25,7 @@ extern class IMesh {
 		`vertexes` | A table consisting of MeshVertex structures.
     **/
     
-    public function BuildFromTriangles(vertexes:MeshVertex):Void;
+    function BuildFromTriangles(vertexes:MeshVertex):Void;
     
     
     /**
@@ -41,7 +41,7 @@ extern class IMesh {
 		```
     **/
     
-    public function Draw():Void;
+    function Draw():Void;
     
     
 }

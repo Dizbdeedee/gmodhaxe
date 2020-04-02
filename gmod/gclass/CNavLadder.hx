@@ -10,7 +10,7 @@ extern class CNavLadder {
         Removes the given nav ladder.
     **/
     
-    public function Remove():Void;
+    function Remove():Void;
     
     
     /**
@@ -24,7 +24,7 @@ extern class CNavLadder {
 		`**Returns:** The closest point on the ladder to that height.
     **/
     
-    public function GetPosAtHeight(height:Float):Vector;
+    function GetPosAtHeight(height:Float):Vector;
     
     
     /**
@@ -33,7 +33,7 @@ extern class CNavLadder {
 		`**Returns:** 
     **/
     
-    public function GetBottomArea():CNavArea;
+    function GetBottomArea():CNavArea;
     
     
     /**
@@ -42,7 +42,7 @@ extern class CNavLadder {
 		`**Returns:** The bottom most position of the ladder.
     **/
     
-    public function GetBottom():Vector;
+    function GetBottom():Vector;
     
     
     /**
@@ -53,7 +53,7 @@ extern class CNavLadder {
 		`area` | The CNavArea this to disconnect from.
     **/
     
-    public function Disconnect(area:CNavArea):Void;
+    function Disconnect(area:CNavArea):Void;
     
     
     /**
@@ -62,7 +62,7 @@ extern class CNavLadder {
 		`**Returns:** The top right CNavArea of the CNavLadder.
     **/
     
-    public function GetTopRightArea():CNavArea;
+    function GetTopRightArea():CNavArea;
     
     
     /**
@@ -77,7 +77,7 @@ extern class CNavLadder {
 		`**Returns:** Whether this CNavLadder has an outgoing ( one or two way ) connection to given CNavArea in given direction.
     **/
     
-    public function IsConnectedAtSide(navArea:CNavArea, navDirType:NavDir):Bool;
+    function IsConnectedAtSide(navArea:CNavArea, navDirType:NavDir):Bool;
     
     
     /**
@@ -90,7 +90,7 @@ extern class CNavLadder {
 		`area` | The area this ladder leads to.
     **/
     
-    public function ConnectTo(area:CNavArea):Void;
+    function ConnectTo(area:CNavArea):Void;
     
     
     /**
@@ -101,7 +101,7 @@ extern class CNavLadder {
 		`area` | 
     **/
     
-    public function SetTopForwardArea(area:CNavArea):Void;
+    function SetTopForwardArea(area:CNavArea):Void;
     
     
     /**
@@ -110,7 +110,7 @@ extern class CNavLadder {
 		`**Returns:** The direction of this CNavLadder.
     **/
     
-    public function GetNormal():Vector;
+    function GetNormal():Vector;
     
     
     /**
@@ -119,7 +119,7 @@ extern class CNavLadder {
 		`**Returns:** The top forward CNavArea of the CNavLadder.
     **/
     
-    public function GetTopForwardArea():CNavArea;
+    function GetTopForwardArea():CNavArea;
     
     
     /**
@@ -128,7 +128,7 @@ extern class CNavLadder {
 		`**Returns:** The top behind CNavArea of the CNavLadder.
     **/
     
-    public function GetTopBehindArea():CNavArea;
+    function GetTopBehindArea():CNavArea;
     
     
     /**
@@ -139,7 +139,7 @@ extern class CNavLadder {
 		`area` | 
     **/
     
-    public function SetTopRightArea(area:CNavArea):Void;
+    function SetTopRightArea(area:CNavArea):Void;
     
     
     /**
@@ -148,7 +148,7 @@ extern class CNavLadder {
 		`**Returns:** The length of the ladder.
     **/
     
-    public function GetLength():Float;
+    function GetLength():Float;
     
     
     /**
@@ -159,7 +159,7 @@ extern class CNavLadder {
 		`area` | 
     **/
     
-    public function SetBottomArea(area:CNavArea):Void;
+    function SetBottomArea(area:CNavArea):Void;
     
     
     /**
@@ -170,7 +170,7 @@ extern class CNavLadder {
 		`area` | 
     **/
     
-    public function SetTopBehindArea(area:CNavArea):Void;
+    function SetTopBehindArea(area:CNavArea):Void;
     
     
     /**
@@ -179,7 +179,7 @@ extern class CNavLadder {
 		`**Returns:** The width of the ladder in Hammer Units.
     **/
     
-    public function GetWidth():Float;
+    function GetWidth():Float;
     
     
     /**
@@ -188,7 +188,7 @@ extern class CNavLadder {
 		`**Returns:** The top left CNavArea of the CNavLadder.
     **/
     
-    public function GetTopLeftArea():CNavArea;
+    function GetTopLeftArea():CNavArea;
     
     
     /**
@@ -197,7 +197,7 @@ extern class CNavLadder {
 		`**Returns:** The unique ID.
     **/
     
-    public function GetID():Float;
+    function GetID():Float;
     
     
     /**
@@ -208,7 +208,7 @@ extern class CNavLadder {
 		`area` | 
     **/
     
-    public function SetTopLeftArea(area:CNavArea):Void;
+    function SetTopLeftArea(area:CNavArea):Void;
     
     
     /**
@@ -217,7 +217,7 @@ extern class CNavLadder {
 		`**Returns:** The topmost position of the ladder.
     **/
     
-    public function GetTop():Vector;
+    function GetTop():Vector;
     
     
     /**
@@ -226,7 +226,7 @@ extern class CNavLadder {
 		`**Returns:** Whether this CNavLadder is valid or not.
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     
 }

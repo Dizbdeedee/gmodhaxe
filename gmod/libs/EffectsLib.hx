@@ -19,7 +19,7 @@ package gmod.libs;
 		`**Returns:** Effect table.
     **/
     @:deprecated("INTERNAL: You are looking for util. Effect.")
-    public static function Create(name:String):AnyTable;
+    static function Create(name:String):AnyTable;
     
     
     /**
@@ -33,7 +33,7 @@ package gmod.libs;
 		`name` | Effect name.
     **/
     @:deprecated("INTERNAL")
-    public static function Register(effect_table:AnyTable, name:String):Void;
+    static function Register(effect_table:AnyTable, name:String):Void;
     
     
 

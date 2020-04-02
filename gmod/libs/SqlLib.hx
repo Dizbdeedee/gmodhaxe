@@ -20,7 +20,7 @@ package gmod.libs;
 		`**Returns:** The returned row.
     **/
     
-    public static function QueryRow(query:String, ?row:Float):AnyTable;
+    static function QueryRow(query:String, ?row:Float):AnyTable;
     
     
     /**
@@ -53,7 +53,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Query(query:String):AnyTable;
+    static function Query(query:String):AnyTable;
     
     
     /**
@@ -67,7 +67,7 @@ package gmod.libs;
 		`**Returns:** exists
     **/
     
-    public static function TableExists(tableName:String):Bool;
+    static function TableExists(tableName:String):Bool;
     
     
     /**
@@ -76,7 +76,7 @@ package gmod.libs;
 		This is equivalent to
     **/
     
-    public static function Commit():Void;
+    static function Commit():Void;
     
     
     /**
@@ -85,7 +85,7 @@ package gmod.libs;
 		This is equivalent to
     **/
     
-    public static function Begin():Void;
+    static function Begin():Void;
     
     
     /**
@@ -94,7 +94,7 @@ package gmod.libs;
 		`**Returns:** error
     **/
     
-    public static function LastError():String;
+    static function LastError():String;
     
     
     /**
@@ -111,7 +111,7 @@ package gmod.libs;
 		`**Returns:** The escaped input.
     **/
     
-    public static function SQLStr(string:String, ?bNoQuotes:Bool):String;
+    static function SQLStr(string:String, ?bNoQuotes:Bool):String;
     
     
     /**
@@ -125,7 +125,7 @@ package gmod.libs;
 		`**Returns:** The returned value; the engine automatically converts numerical output to Lua numbers.
     **/
     
-    public static function QueryValue(query:String):Dynamic;
+    static function QueryValue(query:String):Dynamic;
     
     
 

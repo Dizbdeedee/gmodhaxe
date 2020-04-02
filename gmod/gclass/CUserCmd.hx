@@ -18,7 +18,7 @@ extern class CUserCmd {
 		`speed` | Angular vertical move delta.
     **/
     
-    public function SetMouseY(speed:Float):Void;
+    function SetMouseY(speed:Float):Void;
     
     
     /**
@@ -32,7 +32,7 @@ extern class CUserCmd {
 		`**Returns:** Is key down or not
     **/
     
-    public function KeyDown(key:IN):Bool;
+    function KeyDown(key:IN):Bool;
     
     
     /**
@@ -45,7 +45,7 @@ extern class CUserCmd {
 		`**Returns:** The amount of ticks passed since joining the server.
     **/
     
-    public function TickCount():Float;
+    function TickCount():Float;
     
     
     /**
@@ -54,7 +54,7 @@ extern class CUserCmd {
 		`**Returns:** xDelta
     **/
     
-    public function GetMouseX():Float;
+    function GetMouseX():Float;
     
     
     /**
@@ -65,7 +65,7 @@ extern class CUserCmd {
 		`**Returns:** isForced
     **/
     
-    public function IsForced():Bool;
+    function IsForced():Bool;
     
     
     /**
@@ -78,7 +78,7 @@ extern class CUserCmd {
 		`speed` | The new speed to request.
     **/
     
-    public function SetUpMove(speed:Float):Void;
+    function SetUpMove(speed:Float):Void;
     
     
     /**
@@ -87,7 +87,7 @@ extern class CUserCmd {
 		`**Returns:** The desired speed
     **/
     
-    public function GetForwardMove():Float;
+    function GetForwardMove():Float;
     
     
     /**
@@ -100,7 +100,7 @@ extern class CUserCmd {
 		`buttons` | Bitflag representing which buttons are "down", see IN_ Enums.
     **/
     
-    public function SetButtons(buttons:IN):Void;
+    function SetButtons(buttons:IN):Void;
     
     
     /**
@@ -113,7 +113,7 @@ extern class CUserCmd {
 		`speed` | The new speed to request. The client will not be able to move faster than their set walk/sprint speed.
     **/
     
-    public function SetForwardMove(speed:Float):Void;
+    function SetForwardMove(speed:Float):Void;
     
     
     /**
@@ -122,7 +122,7 @@ extern class CUserCmd {
 		`**Returns:** The impulse
     **/
     
-    public function GetImpulse():Float;
+    function GetImpulse():Float;
     
     
     /**
@@ -133,7 +133,7 @@ extern class CUserCmd {
 		`button` | Bitflag to be removed from the key bitflag, see IN_ Enums.
     **/
     
-    public function RemoveKey(button:IN):Void;
+    function RemoveKey(button:IN):Void;
     
     
     /**
@@ -142,7 +142,7 @@ extern class CUserCmd {
 		**Note:** If you are looking to affect player movement, you may need to use CUserCmd:ClearMovement instead of clearing the buttons.
     **/
     
-    public function ClearButtons():Void;
+    function ClearButtons():Void;
     
     
     /**
@@ -151,7 +151,7 @@ extern class CUserCmd {
 		See also CUserCmd:SetForwardMove, CUserCmd:SetSideMove and CUserCmd:SetUpMove.
     **/
     
-    public function ClearMovement():Void;
+    function ClearMovement():Void;
     
     
     /**
@@ -160,7 +160,7 @@ extern class CUserCmd {
 		`**Returns:** Pressed buttons, see IN_ Enums
     **/
     
-    public function GetButtons():IN;
+    function GetButtons():IN;
     
     
     /**
@@ -188,7 +188,7 @@ extern class CUserCmd {
 		```
     **/
     
-    public function SetViewAngles(viewAngle:Angle):Void;
+    function SetViewAngles(viewAngle:Angle):Void;
     
     
     /**
@@ -197,7 +197,7 @@ extern class CUserCmd {
 		`**Returns:** The command number
     **/
     
-    public function CommandNumber():Float;
+    function CommandNumber():Float;
     
     
     /**
@@ -210,7 +210,7 @@ extern class CUserCmd {
 		`speed` | Angular horizontal move delta.
     **/
     
-    public function SetMouseX(speed:Float):Void;
+    function SetMouseX(speed:Float):Void;
     
     
     /**
@@ -219,7 +219,7 @@ extern class CUserCmd {
 		`**Returns:** requestSpeed
     **/
     
-    public function GetSideMove():Float;
+    function GetSideMove():Float;
     
     
     /**
@@ -232,7 +232,7 @@ extern class CUserCmd {
 		`speed` | The new speed to request.
     **/
     
-    public function SetSideMove(speed:Float):Void;
+    function SetSideMove(speed:Float):Void;
     
     
     /**
@@ -241,7 +241,7 @@ extern class CUserCmd {
 		`**Returns:** requestSpeed
     **/
     
-    public function GetUpMove():Float;
+    function GetUpMove():Float;
     
     
     /**
@@ -250,7 +250,7 @@ extern class CUserCmd {
 		`**Returns:** yDelta
     **/
     
-    public function GetMouseY():Float;
+    function GetMouseY():Float;
     
     
     /**
@@ -263,7 +263,7 @@ extern class CUserCmd {
 		`speed` | The impulse to send.
     **/
     
-    public function SetImpulse(speed:Float):Void;
+    function SetImpulse(speed:Float):Void;
     
     
     /**
@@ -272,7 +272,7 @@ extern class CUserCmd {
 		`**Returns:** Scroll delta
     **/
     
-    public function GetMouseWheel():Float;
+    function GetMouseWheel():Float;
     
     
     /**
@@ -281,7 +281,7 @@ extern class CUserCmd {
 		`**Returns:** requestDir
     **/
     
-    public function GetViewAngles():Angle;
+    function GetViewAngles():Angle;
     
     
     /**
@@ -296,7 +296,7 @@ extern class CUserCmd {
 		`weapon` | The weapon entity to select.
     **/
     
-    public function SelectWeapon(weapon:Weapon):Void;
+    function SelectWeapon(weapon:Weapon):Void;
     
     
     /**
@@ -307,7 +307,7 @@ extern class CUserCmd {
 		`speed` | The scroll delta.
     **/
     
-    public function SetMouseWheel(speed:Float):Void;
+    function SetMouseWheel(speed:Float):Void;
     
     
 }

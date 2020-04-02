@@ -14,7 +14,7 @@ package gmod.libs;
 		`module` | The module table to be given a metatable
     **/
     
-    public static function seeall(module:AnyTable):Void;
+    static function seeall(module:AnyTable):Void;
     
     
 

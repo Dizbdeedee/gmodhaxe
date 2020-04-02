@@ -12,7 +12,7 @@ extern class CLuaParticle {
 		`**Returns:** The current velocity of the particle.
     **/
     
-    public function GetVelocity():Vector;
+    function GetVelocity():Vector;
     
     
     /**
@@ -23,7 +23,7 @@ extern class CLuaParticle {
 		`endAlpha` | The new alpha value of the particle that it will reach when it dies.
     **/
     
-    public function SetEndAlpha(endAlpha:Float):Void;
+    function SetEndAlpha(endAlpha:Float):Void;
     
     
     /**
@@ -34,7 +34,7 @@ extern class CLuaParticle {
 		`bounce` | New 'bounciness' of the particle 2 means it will gain 100% of its previous velocity, 1 means it will not lose velocity, 0.5 means it will lose half of its velocity with each bounce.
     **/
     
-    public function SetBounce(bounce:Float):Void;
+    function SetBounce(bounce:Float):Void;
     
     
     /**
@@ -59,7 +59,7 @@ extern class CLuaParticle {
 		```
     **/
     
-    public function SetThinkFunction(thinkFunc:Function):Void;
+    function SetThinkFunction(thinkFunc:Function):Void;
     
     
     /**
@@ -68,7 +68,7 @@ extern class CLuaParticle {
 		`**Returns:** The size which the particle has when it's created.
     **/
     
-    public function GetStartSize():Float;
+    function GetStartSize():Float;
     
     
     /**
@@ -79,7 +79,7 @@ extern class CLuaParticle {
 		`vel` | The new velocity of the particle.
     **/
     
-    public function SetVelocity(vel:Vector):Void;
+    function SetVelocity(vel:Vector):Void;
     
     
     /**
@@ -88,7 +88,7 @@ extern class CLuaParticle {
 		`**Returns:** The length the particle will reach
     **/
     
-    public function GetEndLength():Float;
+    function GetEndLength():Float;
     
     
     /**
@@ -97,7 +97,7 @@ extern class CLuaParticle {
 		`**Returns:** The air resistance of the particle
     **/
     
-    public function GetAirResistance():Float;
+    function GetAirResistance():Float;
     
     
     /**
@@ -106,7 +106,7 @@ extern class CLuaParticle {
 		`**Returns:** The angles of the particle
     **/
     
-    public function GetAngles():Angle;
+    function GetAngles():Angle;
     
     
     /**
@@ -115,7 +115,7 @@ extern class CLuaParticle {
 		`**Returns:** The length which the particle has when it's created.
     **/
     
-    public function GetStartLength():Float;
+    function GetStartLength():Float;
     
     
     /**
@@ -126,7 +126,7 @@ extern class CLuaParticle {
 		`shouldCollide` | Whether the particle should collide with the world or not
     **/
     
-    public function SetCollide(shouldCollide:Bool):Void;
+    function SetCollide(shouldCollide:Bool):Void;
     
     
     /**
@@ -135,7 +135,7 @@ extern class CLuaParticle {
 		`**Returns:** The amount of time in seconds after which the particle will be destroyed
     **/
     
-    public function GetDieTime():Float;
+    function GetDieTime():Float;
     
     
     /**
@@ -144,7 +144,7 @@ extern class CLuaParticle {
 		`**Returns:** The alpha value the particle will fade to
     **/
     
-    public function GetEndAlpha():Float;
+    function GetEndAlpha():Float;
     
     
     /**
@@ -153,7 +153,7 @@ extern class CLuaParticle {
 		`**Returns:** The current rotation speed of the particle in radians
     **/
     
-    public function GetRollDelta():Float;
+    function GetRollDelta():Float;
     
     
     /**
@@ -166,7 +166,7 @@ extern class CLuaParticle {
 		`**Returns:** How long the particle existed, in seconds.
     **/
     
-    public function GetLifeTime():Float;
+    function GetLifeTime():Float;
     
     
     /**
@@ -175,7 +175,7 @@ extern class CLuaParticle {
 		`**Returns:** The absolute position of the particle.
     **/
     
-    public function GetPos():Vector;
+    function GetPos():Vector;
     
     
     /**
@@ -186,7 +186,7 @@ extern class CLuaParticle {
 		`endSize` | The new size of the particle that it will reach when it dies.
     **/
     
-    public function SetEndSize(endSize:Float):Void;
+    function SetEndSize(endSize:Float):Void;
     
     
     /**
@@ -199,7 +199,7 @@ extern class CLuaParticle {
 		`lifeTime` | The new life time of the particle.
     **/
     
-    public function SetLifeTime(lifeTime:Float):Void;
+    function SetLifeTime(lifeTime:Float):Void;
     
     
     /**
@@ -210,7 +210,7 @@ extern class CLuaParticle {
 		`doScale` | Use velocity scaling.
     **/
     
-    public function SetVelocityScale(?doScale:Bool):Void;
+    function SetVelocityScale(?doScale:Bool):Void;
     
     
     /**
@@ -235,7 +235,7 @@ extern class CLuaParticle {
 		```
     **/
     
-    public function SetCollideCallback(collideFunc:Function):Void;
+    function SetCollideCallback(collideFunc:Function):Void;
     
     
     /**
@@ -246,7 +246,7 @@ extern class CLuaParticle {
 		`useLighting` | Whether the particle should be lighted.
     **/
     
-    public function SetLighting(useLighting:Bool):Void;
+    function SetLighting(useLighting:Bool):Void;
     
     
     /**
@@ -257,7 +257,7 @@ extern class CLuaParticle {
 		`rollDelta` | The new rotation speed of the particle in radians.
     **/
     
-    public function SetRollDelta(rollDelta:Float):Void;
+    function SetRollDelta(rollDelta:Float):Void;
     
     
     /**
@@ -266,7 +266,7 @@ extern class CLuaParticle {
 		`**Returns:** The size the particle will reach
     **/
     
-    public function GetEndSize():Float;
+    function GetEndSize():Float;
     
     
     /**
@@ -277,7 +277,7 @@ extern class CLuaParticle {
 		`startSize` | Initial size.
     **/
     
-    public function SetStartSize(startSize:Float):Void;
+    function SetStartSize(startSize:Float):Void;
     
     
     /**
@@ -286,7 +286,7 @@ extern class CLuaParticle {
 		`**Returns:** The current rotation of the particle in radians
     **/
     
-    public function GetRoll():Float;
+    function GetRoll():Float;
     
     
     /**
@@ -297,7 +297,7 @@ extern class CLuaParticle {
 		`endLength` | The new length of the particle that it will reach when it dies.
     **/
     
-    public function SetEndLength(endLength:Float):Void;
+    function SetEndLength(endLength:Float):Void;
     
     
     /**
@@ -308,7 +308,7 @@ extern class CLuaParticle {
 		`dieTime` | The new die time.
     **/
     
-    public function SetDieTime(dieTime:Float):Void;
+    function SetDieTime(dieTime:Float):Void;
     
     
     /**
@@ -319,7 +319,7 @@ extern class CLuaParticle {
 		`roll` | The new rotation of the particle in radians.
     **/
     
-    public function SetRoll(roll:Float):Void;
+    function SetRoll(roll:Float):Void;
     
     
     /**
@@ -330,7 +330,7 @@ extern class CLuaParticle {
 		`airResistance` | New air resistance.
     **/
     
-    public function SetAirResistance(airResistance:Float):Void;
+    function SetAirResistance(airResistance:Float):Void;
     
     
     /**
@@ -341,7 +341,7 @@ extern class CLuaParticle {
 		`ang` | New angle.
     **/
     
-    public function SetAngles(ang:Angle):Void;
+    function SetAngles(ang:Angle):Void;
     
     
     /**
@@ -350,7 +350,7 @@ extern class CLuaParticle {
 		`**Returns:** The angular velocity of the particle
     **/
     
-    public function GetAngleVelocity():Angle;
+    function GetAngleVelocity():Angle;
     
     
     /**
@@ -361,7 +361,7 @@ extern class CLuaParticle {
 		`gravity` | The directional gravity.
     **/
     
-    public function SetGravity(gravity:Vector):Void;
+    function SetGravity(gravity:Vector):Void;
     
     
     /**
@@ -370,7 +370,7 @@ extern class CLuaParticle {
 		`**Returns:** The gravity of the particle.
     **/
     
-    public function GetGravity():Vector;
+    function GetGravity():Vector;
     
     
     /**
@@ -381,7 +381,7 @@ extern class CLuaParticle {
 		`nextThink` | Next think time.
     **/
     
-    public function SetNextThink(nextThink:Float):Void;
+    function SetNextThink(nextThink:Float):Void;
     
     
     /**
@@ -392,7 +392,7 @@ extern class CLuaParticle {
 		`pos` | The new particle position.
     **/
     
-    public function SetPos(pos:Vector):Void;
+    function SetPos(pos:Vector):Void;
     
     
     /**
@@ -403,7 +403,7 @@ extern class CLuaParticle {
 		`angVel` | New angular velocity.
     **/
     
-    public function SetAngleVelocity(angVel:Angle):Void;
+    function SetAngleVelocity(angVel:Angle):Void;
     
     
     /**
@@ -414,7 +414,7 @@ extern class CLuaParticle {
 		`startAlpha` | Initial alpha.
     **/
     
-    public function SetStartAlpha(startAlpha:Float):Void;
+    function SetStartAlpha(startAlpha:Float):Void;
     
     
     /**
@@ -425,7 +425,7 @@ extern class CLuaParticle {
 		`startLength` | Initial length.
     **/
     
-    public function SetStartLength(startLength:Float):Void;
+    function SetStartLength(startLength:Float):Void;
     
     
     /**
@@ -438,7 +438,7 @@ extern class CLuaParticle {
 		`c` | Blue part of the color
     **/
     
-    public function GetColor():CLuaParticleGetColorReturn;
+    function GetColor():CLuaParticleGetColorReturn;
     
     
     /**
@@ -447,7 +447,7 @@ extern class CLuaParticle {
 		`**Returns:** The alpha value which the particle has when it's created.
     **/
     
-    public function GetStartAlpha():Float;
+    function GetStartAlpha():Float;
     
     
     /**
@@ -456,7 +456,7 @@ extern class CLuaParticle {
 		`**Returns:** The 'bounciness' of the particle 2 means it will gain 100% of its previous velocity, 1 means it will not lose velocity, 0.5 means it will lose half of its velocity with each bounce.
     **/
     
-    public function GetBounce():Float;
+    function GetBounce():Float;
     
     
     /**
@@ -469,7 +469,7 @@ extern class CLuaParticle {
 		`b` | The blue component.
     **/
     
-    public function SetColor(r:Float, g:Float, b:Float):Void;
+    function SetColor(r:Float, g:Float, b:Float):Void;
     
     
 }

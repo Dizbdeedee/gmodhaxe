@@ -12,7 +12,7 @@ extern class Schedule {
 		`**Returns:** The number of tasks in this schedule.
     **/
     
-    public function NumTasks():Float;
+    function NumTasks():Float;
     
     
     /**
@@ -58,7 +58,7 @@ extern class Schedule {
 		Prints "HELLO" in the console, then prints "HELLO again" on every NPC think until 5 seconds have passed.
     **/
     
-    public function AddTask(taskname:String, taskdata:Dynamic):Void;
+    function AddTask(taskname:String, taskdata:Dynamic):Void;
     
     
     /**
@@ -73,7 +73,7 @@ extern class Schedule {
 		`data` | Task data to be passed into the NPC's functions
     **/
     
-    public function AddTaskEx(start:String, run:String, data:Float):Void;
+    function AddTaskEx(start:String, run:String, data:Float):Void;
     
     
     /**
@@ -86,7 +86,7 @@ extern class Schedule {
 		`debugName` | The name passed from ai_schedule. New.
     **/
     @:deprecated("INTERNAL")
-    public function Init(debugName:String):Void;
+    function Init(debugName:String):Void;
     
     
     /**
@@ -98,7 +98,7 @@ extern class Schedule {
 		`taskdata` | Task data, can be a float.
     **/
     
-    public function EngTask(taskname:String, taskdata:Float):Void;
+    function EngTask(taskname:String, taskdata:Float):Void;
     
     
     /**
@@ -109,7 +109,7 @@ extern class Schedule {
 		`num` | Task index.
     **/
     
-    public function GetTask(num:Float):Void;
+    function GetTask(num:Float):Void;
     
     
 }

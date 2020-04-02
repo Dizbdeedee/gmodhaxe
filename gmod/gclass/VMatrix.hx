@@ -14,7 +14,7 @@ extern class VMatrix {
 		 To invert a matrix that contains other modifications, see VMatrix:Invert.
     **/
     
-    public function InvertTR():Void;
+    function InvertTR():Void;
     
     
     /**
@@ -27,7 +27,7 @@ extern class VMatrix {
 		`translation` | Vector to translate the matrix by.
     **/
     
-    public function Translate(translation:Vector):Void;
+    function Translate(translation:Vector):Void;
     
     
     /**
@@ -36,7 +36,7 @@ extern class VMatrix {
 		`**Returns:** Absolute rotation of the matrix
     **/
     
-    public function GetAngles():Angle;
+    function GetAngles():Angle;
     
     
     /**
@@ -45,7 +45,7 @@ extern class VMatrix {
 		`**Returns:** Absolute scale of the matrix
     **/
     
-    public function GetScale():Vector;
+    function GetScale():Vector;
     
     
     /**
@@ -56,7 +56,7 @@ extern class VMatrix {
 		`**Returns:** The right direction of the matrix.
     **/
     
-    public function GetRight():Vector;
+    function GetRight():Vector;
     
     
     /**
@@ -69,7 +69,7 @@ extern class VMatrix {
 		`**Returns:** The inverted matrix if possible, nil otherwise
     **/
     
-    public function GetInverse():VMatrix;
+    function GetInverse():VMatrix;
     
     
     /**
@@ -84,7 +84,7 @@ extern class VMatrix {
 		`**Returns:** The value of the specified field
     **/
     
-    public function GetField(row:Float, column:Float):Float;
+    function GetField(row:Float, column:Float):Float;
     
     
     /**
@@ -110,7 +110,7 @@ extern class VMatrix {
 		`e44` | 
     **/
     
-    public function SetUnpacked(e11:Float, e12:Float, e13:Float, e14:Float, e21:Float, e22:Float, e23:Float, e24:Float, e31:Float, e32:Float, e33:Float, e34:Float, e41:Float, e42:Float, e43:Float, e44:Float):Void;
+    function SetUnpacked(e11:Float, e12:Float, e13:Float, e14:Float, e21:Float, e22:Float, e23:Float, e24:Float, e31:Float, e32:Float, e33:Float, e34:Float, e41:Float, e42:Float, e43:Float, e44:Float):Void;
     
     
     /**
@@ -121,7 +121,7 @@ extern class VMatrix {
 		`src` | The matrix to copy values from.
     **/
     
-    public function Set(src:VMatrix):Void;
+    function Set(src:VMatrix):Void;
     
     
     /**
@@ -130,7 +130,7 @@ extern class VMatrix {
 		`**Returns:** If the matrix is a null matrix.
     **/
     
-    public function IsZero():Bool;
+    function IsZero():Bool;
     
     
     /**
@@ -141,7 +141,7 @@ extern class VMatrix {
 		`translation` | New translation.
     **/
     
-    public function SetTranslation(translation:Vector):Void;
+    function SetTranslation(translation:Vector):Void;
     
     
     /**
@@ -152,14 +152,14 @@ extern class VMatrix {
 		`scale` | Value to scale the translation with.
     **/
     
-    public function ScaleTranslation(scale:Float):Void;
+    function ScaleTranslation(scale:Float):Void;
     
     
     /**
         Initializes the matrix as Identity matrix.
     **/
     
-    public function Identity():Void;
+    function Identity():Void;
     
     
     /**
@@ -172,7 +172,7 @@ extern class VMatrix {
 		`forward` | The up direction of the matrix.
     **/
     
-    public function SetUp(forward:Vector):Void;
+    function SetUp(forward:Vector):Void;
     
     
     /**
@@ -183,7 +183,7 @@ extern class VMatrix {
 		`**Returns:** The forward direction of the matrix.
     **/
     
-    public function GetForward():Vector;
+    function GetForward():Vector;
     
     
     /**
@@ -194,7 +194,7 @@ extern class VMatrix {
 		`**Returns:** Is the matrix a rotation matrix or not
     **/
     
-    public function IsRotationMatrix():Bool;
+    function IsRotationMatrix():Bool;
     
     
     /**
@@ -207,7 +207,7 @@ extern class VMatrix {
 		`forward` | The forward direction of the matrix.
     **/
     
-    public function SetForward(forward:Vector):Void;
+    function SetForward(forward:Vector):Void;
     
     
     /**
@@ -220,7 +220,7 @@ extern class VMatrix {
 		`value` | The value to set in that field
     **/
     
-    public function SetField(row:Float, column:Float, value:Float):Void;
+    function SetField(row:Float, column:Float, value:Float):Void;
     
     
     /**
@@ -233,7 +233,7 @@ extern class VMatrix {
 		`rotation` | Rotation.
     **/
     
-    public function Rotate(rotation:Angle):Void;
+    function Rotate(rotation:Angle):Void;
     
     
     /**
@@ -242,7 +242,7 @@ extern class VMatrix {
 		`**Returns:** Absolute translation of the matrix
     **/
     
-    public function GetTranslation():Vector;
+    function GetTranslation():Vector;
     
     
     /**
@@ -253,7 +253,7 @@ extern class VMatrix {
 		`angle` | New angles.
     **/
     
-    public function SetAngles(angle:Angle):Void;
+    function SetAngles(angle:Angle):Void;
     
     
     /**
@@ -266,7 +266,7 @@ extern class VMatrix {
 		`forward` | The right direction of the matrix.
     **/
     
-    public function SetRight(forward:Vector):Void;
+    function SetRight(forward:Vector):Void;
     
     
     /**
@@ -279,14 +279,14 @@ extern class VMatrix {
 		`scale` | Vector to scale with matrix with.
     **/
     
-    public function Scale(scale:Vector):Void;
+    function Scale(scale:Vector):Void;
     
     
     /**
         Sets all components of the matrix to 0. This function is more efficient than setting each element manually.
     **/
     
-    public function Zero():Void;
+    function Zero():Void;
     
     
     /**
@@ -295,7 +295,7 @@ extern class VMatrix {
 		`**Returns:** The 4x4 table.
     **/
     
-    public function ToTable():AnyTable;
+    function ToTable():AnyTable;
     
     
     /**
@@ -306,7 +306,7 @@ extern class VMatrix {
 		`scale` | The scale to set.
     **/
     
-    public function SetScale(scale:Vector):Void;
+    function SetScale(scale:Vector):Void;
     
     
     /**
@@ -332,7 +332,7 @@ extern class VMatrix {
 		`p` | VMatrix: GetField(4, 4)
     **/
     
-    public function Unpack():VMatrixUnpackReturn;
+    function Unpack():VMatrixUnpackReturn;
     
     
     /**
@@ -341,7 +341,7 @@ extern class VMatrix {
 		`**Returns:** Is the matrix an Identity matrix or not
     **/
     
-    public function IsIdentity():Bool;
+    function IsIdentity():Bool;
     
     
     /**
@@ -354,7 +354,7 @@ extern class VMatrix {
 		`**Returns:** The inverted matrix.
     **/
     
-    public function GetInverseTR():VMatrix;
+    function GetInverseTR():VMatrix;
     
     
     /**
@@ -369,7 +369,7 @@ extern class VMatrix {
 		`**Returns:** Whether the matrix was inverted or not
     **/
     
-    public function Invert():Bool;
+    function Invert():Bool;
     
     
     /**
@@ -380,7 +380,7 @@ extern class VMatrix {
 		`**Returns:** The up direction of the matrix.
     **/
     
-    public function GetUp():Vector;
+    function GetUp():Vector;
     
     
 }

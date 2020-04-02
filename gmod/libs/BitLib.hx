@@ -17,7 +17,7 @@ package gmod.libs;
 		`**Returns:** bitwiseNot
     **/
     
-    public static function bnot(value:Int):Int;
+    static function bnot(value:Int):Int;
     
     
     /**
@@ -31,7 +31,7 @@ package gmod.libs;
 		`**Returns:** swapped
     **/
     
-    public static function bswap(value:Int):Int;
+    static function bswap(value:Int):Int;
     
     
     /**
@@ -46,7 +46,7 @@ package gmod.libs;
 		`**Returns:** bitwiseXOr
     **/
     
-    public static function bxor(value:Int, ?otherValues:Int):Int;
+    static function bxor(value:Int, ?otherValues:Int):Int;
     
     
     /**
@@ -61,7 +61,7 @@ package gmod.libs;
 		`**Returns:** shiftedValue
     **/
     
-    public static function rshift(value:Int, shiftCount:Int):Int;
+    static function rshift(value:Int, shiftCount:Int):Int;
     
     
     /**
@@ -75,7 +75,7 @@ package gmod.libs;
 		`**Returns:** swapped
     **/
     
-    public static function tobit(value:Int):Int;
+    static function tobit(value:Int):Int;
     
     
     /**
@@ -90,7 +90,7 @@ package gmod.libs;
 		`**Returns:** shiftedValue
     **/
     
-    public static function arshift(value:Int, shiftCount:Int):Int;
+    static function arshift(value:Int, shiftCount:Int):Int;
     
     
     /**
@@ -105,7 +105,7 @@ package gmod.libs;
 		`**Returns:** shiftedValue
     **/
     
-    public static function lshift(value:Int, shiftCount:Int):Int;
+    static function lshift(value:Int, shiftCount:Int):Int;
     
     
     /**
@@ -120,7 +120,7 @@ package gmod.libs;
 		`**Returns:** shiftedValue
     **/
     
-    public static function rol(value:Int, shiftCount:Int):Int;
+    static function rol(value:Int, shiftCount:Int):Int;
     
     
     /**
@@ -135,7 +135,7 @@ package gmod.libs;
 		`**Returns:** hexString
     **/
     
-    public static function tohex(value:Int, ?digits:Int):String;
+    static function tohex(value:Int, ?digits:Int):String;
     
     
     /**
@@ -150,7 +150,7 @@ package gmod.libs;
 		`**Returns:** shiftedValue
     **/
     
-    public static function ror(value:Int, shiftCount:Int):Int;
+    static function ror(value:Int, shiftCount:Int):Int;
     
     
     /**
@@ -179,7 +179,7 @@ package gmod.libs;
 		130 (10000010 in binary form)
     **/
     
-    public static function band(value:Int, ?otherValues:Int):Int;
+    static function band(value:Int, ?otherValues:Int):Int;
     
     
     /**
@@ -217,7 +217,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function bor(value1:Int, vargs:Rest<Dynamic>):Int;
+    static function bor(value1:Int, vargs:Rest<Dynamic>):Int;
     
     
 

@@ -58,7 +58,7 @@ extern class DLabel extends Label {
     **/
     
     @:hook 
-    function DoDoubleClick():Void;
+    private function DoDoubleClick():Void;
     /**
         Returns the "override" text color, set by DLabel:SetTextColor.
 		
@@ -134,7 +134,7 @@ extern class DLabel extends Label {
     **/
     
     @:hook 
-    function OnReleased():Void;
+    private function OnReleased():Void;
     /**
         Returns whether the DLabel should set its text color to the current skin's bright text color. 
 		
@@ -301,7 +301,7 @@ extern class DLabel extends Label {
     **/
     
     @:hook 
-    function DoClick():Void;
+    private function DoClick():Void;
     /**
         ***Deprecated:** Use Panel: IsEnabled instead.
 		
@@ -329,7 +329,7 @@ extern class DLabel extends Label {
     **/
     
     @:hook 
-    function DoMiddleClick():Void;
+    private function DoMiddleClick():Void;
     /**
         Sets the text color of the DLabel. This will take precedence over DLabel:SetTextStyleColor.
 		
@@ -455,7 +455,7 @@ extern class DLabel extends Label {
     **/
     
     @:hook 
-    function OnDepressed():Void;
+    private function OnDepressed():Void;
     /**
         Automatically adjusts the height of the label dependent of the height of the text inside of it.
 		
@@ -583,7 +583,7 @@ extern class DLabel extends Label {
     **/
     
     @:hook 
-    function OnToggled(toggleState:Bool):Void;
+    private function OnToggled(toggleState:Bool):Void;
     /**
         ***INTERNAL** 
 		

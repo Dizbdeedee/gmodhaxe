@@ -50,7 +50,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Paste(Player:Player, EntityList:AnyTable, ConstraintList:AnyTable):DuplicatorLibPasteReturn;
+    static function Paste(Player:Player, EntityList:AnyTable, ConstraintList:AnyTable):DuplicatorLibPasteReturn;
     #end
     #if server
     /**
@@ -63,7 +63,7 @@ package gmod.libs;
 		`data` | Modifier data
     **/
     
-    public static function StoreEntityModifier(entity:Entity, name:String, data:AnyTable):Void;
+    static function StoreEntityModifier(entity:Entity, name:String, data:AnyTable):Void;
     #end
     #if server
     /**
@@ -80,7 +80,7 @@ package gmod.libs;
 		`**Returns:** The newly created constraint entity
     **/
     @:deprecated("INTERNAL")
-    public static function CreateConstraintFromTable(constraint:AnyTable, entityList:AnyTable):Entity;
+    static function CreateConstraintFromTable(constraint:AnyTable, entityList:AnyTable):Entity;
     #end
     #if server
     /**
@@ -95,7 +95,7 @@ package gmod.libs;
 		`**Returns:** The newly created entity
     **/
     
-    public static function GenericDuplicatorFunction(ply:Player, data:AnyTable):Entity;
+    static function GenericDuplicatorFunction(ply:Player, data:AnyTable):Entity;
     #end
     
     /**
@@ -118,7 +118,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function RegisterConstraint(name:String, callback:Function, vargs:Dynamic):Void;
+    static function RegisterConstraint(name:String, callback:Function, vargs:Dynamic):Void;
     
     #if server
     /**
@@ -132,7 +132,7 @@ package gmod.libs;
 		`**Returns:** See EntityCopyData structure
     **/
     
-    public static function CopyEntTable(ent:Entity):EntityCopyData;
+    static function CopyEntTable(ent:Entity):EntityCopyData;
     #end
     #if server
     /**
@@ -144,7 +144,7 @@ package gmod.libs;
 		`data` | The data to be applied onto the entity
     **/
     
-    public static function DoGeneric(ent:Entity, data:AnyTable):Void;
+    static function DoGeneric(ent:Entity, data:AnyTable):Void;
     #end
     #if server
     /**
@@ -165,7 +165,7 @@ package gmod.libs;
 		`b` | constraintStorageTable
     **/
     @:deprecated("INTERNAL")
-    public static function GetAllConstrainedEntitiesAndConstraints(ent:Entity, entStorageTable:AnyTable, constraintStorageTable:AnyTable):DuplicatorLibGetAllConstrainedEntitiesAndConstraintsReturn;
+    static function GetAllConstrainedEntitiesAndConstraints(ent:Entity, entStorageTable:AnyTable, constraintStorageTable:AnyTable):DuplicatorLibGetAllConstrainedEntitiesAndConstraintsReturn;
     #end
     #if server
     /**
@@ -180,14 +180,14 @@ package gmod.libs;
 		`**Returns:** The newly created entity
     **/
     
-    public static function CreateEntityFromTable(ply:Player, entTable:EntityCopyData):Entity;
+    static function CreateEntityFromTable(ply:Player, entTable:EntityCopyData):Entity;
     #end
     #if server
     /**
         Help to remove certain map created entities before creating the saved entities This is obviously so we don't get duplicate props everywhere. It should be called before calling Paste.
     **/
     
-    public static function RemoveMapCreatedEntities():Void;
+    static function RemoveMapCreatedEntities():Void;
     #end
     #if server
     /**
@@ -199,7 +199,7 @@ package gmod.libs;
 		`ent` | The entity in question
     **/
     
-    public static function ApplyBoneModifiers(ply:Player, ent:Entity):Void;
+    static function ApplyBoneModifiers(ply:Player, ent:Entity):Void;
     #end
     #if server
     /**
@@ -210,7 +210,7 @@ package gmod.libs;
 		`Ents` | A table of entity duplication datums.
     **/
     
-    public static function WorkoutSize(Ents:AnyTable):Void;
+    static function WorkoutSize(Ents:AnyTable):Void;
     #end
     
     /**
@@ -224,7 +224,7 @@ package gmod.libs;
 		`**Returns:** Is compromised of the following members: function Func - The function that creates the entity table Args - Arguments to pass to the function
     **/
     
-    public static function FindEntityClass(name:String):AnyTable;
+    static function FindEntityClass(name:String):AnyTable;
     
     
     /**
@@ -238,7 +238,7 @@ package gmod.libs;
 		`**Returns:** Returns true if the entity can be duplicated (nil otherwise)
     **/
     
-    public static function IsAllowed(classname:String):Bool;
+    static function IsAllowed(classname:String):Bool;
     
     #if server
     /**
@@ -251,7 +251,7 @@ package gmod.libs;
 		`scale` | The flex scale to apply. (Flex scale is unchanged if omitted)
     **/
     
-    public static function DoFlex(ent:Entity, flex:AnyTable, ?scale:Float):Void;
+    static function DoFlex(ent:Entity, flex:AnyTable, ?scale:Float):Void;
     #end
     
     /**
@@ -262,7 +262,7 @@ package gmod.libs;
 		`v` | The angle to offset all pastes from
     **/
     
-    public static function SetLocalAng(v:Angle):Void;
+    static function SetLocalAng(v:Angle):Void;
     
     
     /**
@@ -307,7 +307,7 @@ package gmod.libs;
 		Angle = 0.057 134.318 -0.031
     **/
     
-    public static function RegisterEntityClass(name:String, _function:Function, args:EntityCopyData):Void;
+    static function RegisterEntityClass(name:String, _function:Function, args:EntityCopyData):Void;
     
     
     /**
@@ -318,7 +318,7 @@ package gmod.libs;
 		`classname` | An entity's classname
     **/
     
-    public static function Allow(classname:String):Void;
+    static function Allow(classname:String):Void;
     
     #if server
     /**
@@ -332,7 +332,7 @@ package gmod.libs;
 		`data` | The bone modification data that is passed to the bone modification function
     **/
     
-    public static function StoreBoneModifier(ent:Entity, boneID:Float, key:Dynamic, data:AnyTable):Void;
+    static function StoreBoneModifier(ent:Entity, boneID:Float, key:Dynamic, data:AnyTable):Void;
     #end
     
     /**
@@ -348,7 +348,7 @@ package gmod.libs;
 		`func` | The function to be called for your modification. It should have the arguments (Player, Entity, Data), where data is what you pass to duplicator. StoreEntityModifier.
     **/
     
-    public static function RegisterEntityModifier(name:String, func:Function):Void;
+    static function RegisterEntityModifier(name:String, func:Function):Void;
     
     #if server
     /**
@@ -360,7 +360,7 @@ package gmod.libs;
 		`ent` | The entity in question
     **/
     
-    public static function ApplyEntityModifiers(ply:Player, ent:Entity):Void;
+    static function ApplyEntityModifiers(ply:Player, ent:Entity):Void;
     #end
     #if server
     /**
@@ -372,7 +372,7 @@ package gmod.libs;
 		`bones` | Table with a BoneManipulationData structure for every bone (that has manipulations applied) using the bone ID as the table index.
     **/
     
-    public static function DoBoneManipulator(ent:Entity, bones:BoneManipulationData):Void;
+    static function DoBoneManipulator(ent:Entity, bones:BoneManipulationData):Void;
     #end
     #if server
     /**
@@ -387,7 +387,7 @@ package gmod.libs;
 		`**Returns:** A table containing duplication info which includes the following members: table Entities table Constraints Vector Mins Vector Maxs The values of Mins & Maxs from the table are returned from duplicator. WorkoutSize
     **/
     
-    public static function Copy(ent:Entity, ?tableToAdd:AnyTable):AnyTable;
+    static function Copy(ent:Entity, ?tableToAdd:AnyTable):AnyTable;
     #end
     
     /**
@@ -401,7 +401,7 @@ package gmod.libs;
 		`boneModifier` | Function called on each bone that an ent has. Called during duplicator.ApplyBoneModifiers. Function parameters are: Player ply Entity ent number boneID PhysObj bone table data The data table that is passed to boneModifier is set with duplicator. StoreBoneModifier
     **/
     
-    public static function RegisterBoneModifier(key:Dynamic, boneModifier:Function):Void;
+    static function RegisterBoneModifier(key:Dynamic, boneModifier:Function):Void;
     
     #if server
     /**
@@ -415,7 +415,7 @@ package gmod.libs;
 		`**Returns:** A table containing duplication info which includes the following members: table Entities table Constraints Vector Mins Vector Maxs
     **/
     
-    public static function CopyEnts(ents:AnyTable):AnyTable;
+    static function CopyEnts(ents:AnyTable):AnyTable;
     #end
     #if server
     /**
@@ -427,7 +427,7 @@ package gmod.libs;
 		`key` | The key of the stored entity modifier
     **/
     
-    public static function ClearEntityModifier(ent:Entity, key:Dynamic):Void;
+    static function ClearEntityModifier(ent:Entity, key:Dynamic):Void;
     #end
     
     /**
@@ -438,7 +438,7 @@ package gmod.libs;
 		`v` | The position to offset all pastes from
     **/
     
-    public static function SetLocalPos(v:Vector):Void;
+    static function SetLocalPos(v:Vector):Void;
     
     #if server
     /**
@@ -451,7 +451,7 @@ package gmod.libs;
 		`data` | The data to be applied onto the entity
     **/
     
-    public static function DoGenericPhysics(ent:Entity, ?ply:Player, data:AnyTable):Void;
+    static function DoGenericPhysics(ent:Entity, ?ply:Player, data:AnyTable):Void;
     #end
     
 

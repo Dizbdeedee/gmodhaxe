@@ -18,7 +18,7 @@ extern class MarkupObject {
 		`alphaoverride` | Sets the alpha of all drawn objects to this.
     **/
     
-    public function Draw(xOffset:Float, yOffset:Float, xAlign:TEXT_ALIGN, yAlign:TEXT_ALIGN, ?alphaoverride:Float):Void;
+    function Draw(xOffset:Float, yOffset:Float, xAlign:TEXT_ALIGN, yAlign:TEXT_ALIGN, ?alphaoverride:Float):Void;
     
     
     /**
@@ -27,7 +27,7 @@ extern class MarkupObject {
 		`**Returns:** The computed width.
     **/
     
-    public function GetWidth():Float;
+    function GetWidth():Float;
     
     
     /**
@@ -36,7 +36,7 @@ extern class MarkupObject {
 		`**Returns:** The computed height.
     **/
     
-    public function GetHeight():Float;
+    function GetHeight():Float;
     
     
     /**
@@ -48,7 +48,7 @@ extern class MarkupObject {
 		`b` | The computed height.
     **/
     
-    public function Size():MarkupObjectSizeReturn;
+    function Size():MarkupObjectSizeReturn;
     
     
 }

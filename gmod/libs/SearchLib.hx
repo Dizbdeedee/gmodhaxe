@@ -15,7 +15,7 @@ package gmod.libs;
 		`id` | If provided, ensures that only one provider exists with the given ID at a time.
     **/
     
-    public static function AddProvider(provider:Function, ?id:String):Void;
+    static function AddProvider(provider:Function, ?id:String):Void;
     
     
     /**
@@ -29,7 +29,7 @@ package gmod.libs;
 		`**Returns:** A table of results ( Maximum 1024 items )
     **/
     
-    public static function GetResults(query:String):AnyTable;
+    static function GetResults(query:String):AnyTable;
     
     
 

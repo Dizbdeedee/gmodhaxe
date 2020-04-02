@@ -249,13 +249,13 @@ extern class DTree_Node extends DPanel {
     **/
     
     @:hook 
-    function DoClick():Bool;
+    private function DoClick():Bool;
     /**
         Called when sub-nodes of this DTree_Node were changed, such as being rearranged if that functionality is enabled.
     **/
     
     @:hook 
-    function OnModified():Void;
+    private function OnModified():Void;
     /**
         ***INTERNAL** 
 		
@@ -545,7 +545,7 @@ extern class DTree_Node extends DPanel {
     **/
     
     @:hook 
-    function DoRightClick():Bool;
+    private function DoRightClick():Bool;
     /**
         Sets the text value of a panel object containing text, such as a Label, TextEntry or RichText and their derivatives, such as DLabel, DTextEntry or DButton.
 		

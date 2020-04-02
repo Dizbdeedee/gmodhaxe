@@ -12,7 +12,7 @@ package gmod.libs;
 		`**Returns:** Table of all existing Entitys.
     **/
     
-    public static function GetAll():Table<Int,Entity>;
+    static function GetAll():Table<Int,Entity>;
     
     
     /**
@@ -29,7 +29,7 @@ package gmod.libs;
 		`**Returns:** A table of all found Entitys. Has a limit of 1024 entities.
     **/
     
-    public static function FindInSphere(origin:Vector, radius:Float):Table<Int,Entity>;
+    static function FindInSphere(origin:Vector, radius:Float):Table<Int,Entity>;
     
     #if server
     /**
@@ -44,7 +44,7 @@ package gmod.libs;
 		`value` | This value is passed to ENTITY: Use, but isn't used by any default entities in the engine.
     **/
     
-    public static function FireTargets(target:String, activator:Entity, caller:Entity, usetype:USE, value:Float):Void;
+    static function FireTargets(target:String, activator:Entity, caller:Entity, usetype:USE, value:Float):Void;
     #end
     #if server
     /**
@@ -53,7 +53,7 @@ package gmod.libs;
 		`**Returns:** Number of networked entities
     **/
     
-    public static function GetEdictCount():Int;
+    static function GetEdictCount():Int;
     #end
     #if client
     /**
@@ -88,7 +88,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function CreateClientProp(?model:String):CSEnt;
+    static function CreateClientProp(?model:String):CSEnt;
     #end
     
     /**
@@ -104,7 +104,7 @@ package gmod.libs;
 		`**Returns:** A table of all found entities
     **/
     
-    public static function FindByName(name:String):Table<Int,Entity>;
+    static function FindByName(name:String):Table<Int,Entity>;
     
     
     /**
@@ -145,7 +145,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function FindInBox(boxMins:Vector, boxMaxs:Vector):Table<Int,Entity>;
+    static function FindInBox(boxMins:Vector, boxMaxs:Vector):Table<Int,Entity>;
     
     #if server
     /**
@@ -162,7 +162,7 @@ package gmod.libs;
     **/
     
 	@:overload(function (viewPoint:Vector):Table<Int,Entity> {})
-    public static function FindInPVS(viewPoint:Entity):Table<Int,Entity>;
+    static function FindInPVS(viewPoint:Entity):Table<Int,Entity>;
     #end
     
     /**
@@ -217,7 +217,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function FindInCone(origin:Vector, normal:Vector, range:Float, angle_cos:Float):Table<Int,Entity>;
+    static function FindInCone(origin:Vector, normal:Vector, range:Float, angle_cos:Float):Table<Int,Entity>;
     
     
     /**
@@ -231,7 +231,7 @@ package gmod.libs;
 		`**Returns:** The entity if it exists.
     **/
     
-    public static function GetByIndex(entIdx:Int):Entity;
+    static function GetByIndex(entIdx:Int):Entity;
     
     
     /**
@@ -245,7 +245,7 @@ package gmod.libs;
 		`**Returns:** Number of entities
     **/
     
-    public static function GetCount(?IncludeKillMe:Bool):Int;
+    static function GetCount(?IncludeKillMe:Bool):Int;
     
     
     /**
@@ -261,7 +261,7 @@ package gmod.libs;
 		`**Returns:** A table of all found entities.
     **/
     
-    public static function FindByModel(model:String):Table<Int,Entity>;
+    static function FindByModel(model:String):Table<Int,Entity>;
     
     #if server
     /**
@@ -289,7 +289,7 @@ package gmod.libs;
 		button:Spawn()
 		```
     **/
-    public static function Create<T:Entity>(_class:EntityClass<T>):T;
+    static function Create<T:Entity>(_class:EntityClass<T>):T;
     #end
     
     /**
@@ -319,7 +319,7 @@ package gmod.libs;
 		The location of each prop on the map. In gm_construct, the output might be as follows: -2936.288818 -1376.545532 -73.852913 -2943.928467 -1375.800171 -84.964996 -2932.637695 -1288.051636 -76.791924 -2064.000000 -183.000000 -179.216003 -2384.000000 -183.000000 -179.216003 -2704.000000 -183.000000 -179.216003 -1744.000000 -183.000000 -179.216003 -1424.000000 -183.000000 -179.216003 -3019.895020 -1095.824829 -78.900757
 	**/
 	
-	public static function FindByClass<T:Entity>(_class:EntityClass<T>):Table<Int,T>;
+	static function FindByClass<T:Entity>(_class:EntityClass<T>):Table<Int,T>;
     
     
     /**
@@ -336,7 +336,7 @@ package gmod.libs;
 		`**Returns:** Table of the found entities.
     **/
     
-    public static function FindAlongRay(start:Vector, end:Vector, ?mins:Vector, ?maxs:Vector):Table<Int,Entity>;
+    static function FindAlongRay(start:Vector, end:Vector, ?mins:Vector, ?maxs:Vector):Table<Int,Entity>;
     
     #if server
     /**
@@ -350,7 +350,7 @@ package gmod.libs;
 		`**Returns:** Found entity
     **/
     
-    public static function GetMapCreatedEntity(id:Float):Entity;
+    static function GetMapCreatedEntity(id:Float):Entity;
     #end
     
     /**
@@ -366,7 +366,7 @@ package gmod.libs;
 	**/
 	
   
-    public static function FindByClassAndParent<T:Entity>(_class:EntityClass<T>, parent:Entity):Table<Int,T>;
+    static function FindByClassAndParent<T:Entity>(_class:EntityClass<T>, parent:Entity):Table<Int,T>;
     
     #if client
     /**
@@ -380,7 +380,7 @@ package gmod.libs;
 		`**Returns:** Created entity.
     **/
   
-    public static function CreateClientside<T:Entity>(_class:EntityClass<T>):T;
+    static function CreateClientside<T:Entity>(_class:EntityClass<T>):T;
     #end
     
 

@@ -127,7 +127,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Listen(eventName:String):Void;
+    static function Listen(eventName:String):Void;
     
     
 

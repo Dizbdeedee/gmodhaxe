@@ -12,7 +12,7 @@ extern class File {
         Dumps the file changes to disk and closes the file handle which makes the handle useless.
     **/
     
-    public function Close():Void;
+    function Close():Void;
     
     
     /**
@@ -21,7 +21,7 @@ extern class File {
 		`**Returns:** value
     **/
     
-    public function ReadDouble():Float;
+    function ReadDouble():Float;
     
     
     /**
@@ -32,7 +32,7 @@ extern class File {
 		`float` | The float to be written to the file.
     **/
     
-    public function WriteFloat(float:Float):Void;
+    function WriteFloat(float:Float):Void;
     
     
     /**
@@ -41,7 +41,7 @@ extern class File {
 		`**Returns:** The unsigned 8-bit integer from the file.
     **/
     
-    public function ReadByte():Float;
+    function ReadByte():Float;
     
     
     /**
@@ -52,7 +52,7 @@ extern class File {
 		`int16` | The 16-bit signed integer to be written to the file.
     **/
     
-    public function WriteShort(int16:Float):Void;
+    function WriteShort(int16:Float):Void;
     
     
     /**
@@ -63,7 +63,7 @@ extern class File {
 		`uint16` | The unsigned 16-bit integer to the file.
     **/
     
-    public function WriteUShort(uint16:Float):Void;
+    function WriteUShort(uint16:Float):Void;
     
     
     /**
@@ -72,14 +72,14 @@ extern class File {
 		`**Returns:** A signed 32-bit integer
     **/
     
-    public function ReadLong():Float;
+    function ReadLong():Float;
     
     
     /**
         Dumps the file changes to disk and saves the file.
     **/
     
-    public function Flush():Void;
+    function Flush():Void;
     
     
     /**
@@ -93,7 +93,7 @@ extern class File {
 		`**Returns:** amount
     **/
     
-    public function Skip(amount:Float):Float;
+    function Skip(amount:Float):Float;
     
     
     /**
@@ -104,7 +104,7 @@ extern class File {
 		`uint32` | The unsigned 32-bit integer to be written to the file.
     **/
     
-    public function WriteULong(uint32:Float):Void;
+    function WriteULong(uint32:Float):Void;
     
     
     /**
@@ -113,7 +113,7 @@ extern class File {
 		`**Returns:** pos
     **/
     
-    public function Tell():Float;
+    function Tell():Float;
     
     
     /**
@@ -124,7 +124,7 @@ extern class File {
 		`uint8` | The 8-bit unsigned integer to be written to the file.
     **/
     
-    public function WriteByte(uint8:Float):Void;
+    function WriteByte(uint8:Float):Void;
     
     
     /**
@@ -135,7 +135,7 @@ extern class File {
 		`int32` | The 32-bit signed integer to be written to the file.
     **/
     
-    public function WriteLong(int32:Float):Void;
+    function WriteLong(int32:Float):Void;
     
     
     /**
@@ -146,7 +146,7 @@ extern class File {
 		`bool` | The bool to be written to the file.
     **/
     
-    public function WriteBool(bool:Bool):Void;
+    function WriteBool(bool:Bool):Void;
     
     
     /**
@@ -155,7 +155,7 @@ extern class File {
 		`**Returns:** An unsigned 32-bit integer
     **/
     
-    public function ReadULong():Float;
+    function ReadULong():Float;
     
     
     /**
@@ -164,7 +164,7 @@ extern class File {
 		`**Returns:** The read value
     **/
     
-    public function ReadFloat():Float;
+    function ReadFloat():Float;
     
     
     /**
@@ -173,7 +173,7 @@ extern class File {
 		`**Returns:** The 16-bit integer
     **/
     
-    public function ReadUShort():Float;
+    function ReadUShort():Float;
     
     
     /**
@@ -182,7 +182,7 @@ extern class File {
 		`**Returns:** val
     **/
     
-    public function ReadBool():Bool;
+    function ReadBool():Bool;
     
     
     /**
@@ -191,7 +191,7 @@ extern class File {
 		`**Returns:** int16
     **/
     
-    public function ReadShort():Float;
+    function ReadShort():Float;
     
     
     /**
@@ -202,7 +202,7 @@ extern class File {
 		`data` | Binary data to write to the file.
     **/
     
-    public function Write(data:String):Void;
+    function Write(data:String):Void;
     
     
     /**
@@ -213,7 +213,7 @@ extern class File {
 		`double` | The double to be written to the file.
     **/
     
-    public function WriteDouble(double:Float):Void;
+    function WriteDouble(double:Float):Void;
     
     
     /**
@@ -224,7 +224,7 @@ extern class File {
 		`pos` | Pointer position.
     **/
     
-    public function Seek(pos:Float):Void;
+    function Seek(pos:Float):Void;
     
     
     /**
@@ -250,7 +250,7 @@ extern class File {
 		```
     **/
     
-    public function ReadLine():String;
+    function ReadLine():String;
     
     
     /**
@@ -259,7 +259,7 @@ extern class File {
 		`**Returns:** size
     **/
     
-    public function Size():Float;
+    function Size():Float;
     
     
     /**
@@ -291,7 +291,7 @@ extern class File {
 		```
     **/
     
-    public function Read(length:Float):String;
+    function Read(length:Float):String;
     
     
 }

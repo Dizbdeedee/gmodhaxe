@@ -37,7 +37,7 @@ package gmod.libs;
 		123,456,789
     **/
     
-    public static function Comma(InputNumber:Float):String;
+    static function Comma(InputNumber:Float):String;
     
     
     /**
@@ -63,7 +63,7 @@ package gmod.libs;
 		fedcba
     **/
     
-    public static function reverse(str:String):String;
+    static function reverse(str:String):String;
     
     
     /**
@@ -91,7 +91,7 @@ package gmod.libs;
 		garry
     **/
     
-    public static function Left(str:String, num:Float):String;
+    static function Left(str:String, num:Float):String;
     
     
     /**
@@ -127,7 +127,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function match(string:String, pattern:String, ?startPosition:Float):Rest<Dynamic>;
+    static function match(string:String, pattern:String, ?startPosition:Float):Rest<Dynamic>;
     
     
     /**
@@ -155,7 +155,7 @@ package gmod.libs;
 		72 101 108 108
     **/
     
-    public static function byte(string:String, ?startPos:Float, ?endPos:Float):Rest<Dynamic>;
+    static function byte(string:String, ?startPos:Float, ?endPos:Float):Rest<Dynamic>;
     
     
     /**
@@ -184,7 +184,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function JavascriptSafe(str:String):String;
+    static function JavascriptSafe(str:String):String;
     
     
     /**
@@ -214,7 +214,7 @@ package gmod.libs;
 		B
     **/
     @:deprecated("Use either string.sub(str, index, index) or str[index].")
-    public static function GetChar(str:String, index:Float):String;
+    static function GetChar(str:String, index:Float):String;
     
     
     /**
@@ -231,7 +231,7 @@ package gmod.libs;
 		`**Returns:** Bytecode
     **/
     
-    public static function dump(func:Function, ?stripDebugInfo:Bool):String;
+    static function dump(func:Function, ?stripDebugInfo:Bool):String;
     
     
     /**
@@ -256,7 +256,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Split(Inputstring:String, Separator:String):AnyTable;
+    static function Split(Inputstring:String, Separator:String):AnyTable;
     
     
     /**
@@ -282,7 +282,7 @@ package gmod.libs;
 		"garrysmod/lua/modules/"
     **/
     
-    public static function GetPathFromFilename(Inputstring:String):String;
+    static function GetPathFromFilename(Inputstring:String):String;
     
     
     /**
@@ -308,7 +308,7 @@ package gmod.libs;
 		01:01:13
     **/
     
-    public static function ToMinutesSecondsMilliseconds(time:Float):String;
+    static function ToMinutesSecondsMilliseconds(time:Float):String;
     
     
     /**
@@ -345,7 +345,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function find(haystack:String, needle:String, ?startPos:Float, ?noPatterns:Bool):StringLibFindReturn;
+    static function find(haystack:String, needle:String, ?startPos:Float, ?noPatterns:Bool):StringLibFindReturn;
     
     
     /**
@@ -378,7 +378,7 @@ package gmod.libs;
 		hi there!
     **/
     
-    public static function gsub(string:String, pattern:String, replacement:String, ?maxReplaces:Float):StringLibGsubReturn;
+    static function gsub(string:String, pattern:String, replacement:String, ?maxReplaces:Float):StringLibGsubReturn;
     
     
     /**
@@ -405,7 +405,7 @@ package gmod.libs;
 		"hi whatsup"
     **/
     
-    public static function Trim(Inputstring:String, ?Char:String):String;
+    static function Trim(Inputstring:String, ?Char:String):String;
     
     
     /**
@@ -434,7 +434,7 @@ package gmod.libs;
 		Some
     **/
     
-    public static function sub(string:String, StartPos:Float, ?EndPos:Float):String;
+    static function sub(string:String, StartPos:Float, ?EndPos:Float):String;
     
     
     /**
@@ -460,7 +460,7 @@ package gmod.libs;
 		"garrysmod/lua/modules/string"
     **/
     
-    public static function StripExtension(Inputstring:String):String;
+    static function StripExtension(Inputstring:String):String;
     
     
     /**
@@ -483,7 +483,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ToColor(Inputstring:String):Color;
+    static function ToColor(Inputstring:String):Color;
     
     
     /**
@@ -511,7 +511,7 @@ package gmod.libs;
 		mod
     **/
     
-    public static function Right(str:String, num:Float):String;
+    static function Right(str:String, num:Float):String;
     
     
     /**
@@ -537,7 +537,7 @@ package gmod.libs;
 		lua
     **/
     
-    public static function GetExtensionFromFilename(file:String):String;
+    static function GetExtensionFromFilename(file:String):String;
     
     
     /**
@@ -566,7 +566,7 @@ package gmod.libs;
 		Hers Mod
     **/
     
-    public static function Replace(str:String, find:String, replace:String):String;
+    static function Replace(str:String, find:String, replace:String):String;
     
     
     /**
@@ -581,7 +581,7 @@ package gmod.libs;
 		`**Returns:** Trimmed string
     **/
     
-    public static function TrimLeft(str:String, ?char:String):String;
+    static function TrimLeft(str:String, ?char:String):String;
     
     
     /**
@@ -607,7 +607,7 @@ package gmod.libs;
 		01:01
     **/
     
-    public static function ToMinutesSeconds(time:Float):String;
+    static function ToMinutesSeconds(time:Float):String;
     
     
     /**
@@ -640,7 +640,7 @@ package gmod.libs;
 		one two three
     **/
     @:deprecated("You really should just use table. concat.")
-    public static function Implode(?separator:String, pieces:AnyTable):String;
+    static function Implode(?separator:String, pieces:AnyTable):String;
     
     
     /**
@@ -693,7 +693,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function lower(str:String):String;
+    static function lower(str:String):String;
     
     
     /**
@@ -719,7 +719,7 @@ package gmod.libs;
 		string.lua
     **/
     
-    public static function GetFileFromFilename(pathString:String):String;
+    static function GetFileFromFilename(pathString:String):String;
     
     
     /**
@@ -754,7 +754,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ToTable(str:String):AnyTable;
+    static function ToTable(str:String):AnyTable;
     
     
     /**
@@ -769,7 +769,7 @@ package gmod.libs;
 		`**Returns:** Trimmed string
     **/
     
-    public static function TrimRight(str:String, ?char:String):String;
+    static function TrimRight(str:String, ?char:String):String;
     
     
     /**
@@ -799,7 +799,7 @@ package gmod.libs;
 		You scored 0%!
     **/
     
-    public static function PatternSafe(str:String):String;
+    static function PatternSafe(str:String):String;
     
     
     /**
@@ -828,7 +828,7 @@ package gmod.libs;
 		2 10 0 true
     **/
     
-    public static function len(str:String):Float;
+    static function len(str:String):Float;
     
     
     /**
@@ -873,7 +873,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function format(format:String, formatParameters:Rest<Dynamic>):String;
+    static function format(format:String, formatParameters:Rest<Dynamic>):String;
     
     
     /**
@@ -902,7 +902,7 @@ package gmod.libs;
 		ABCDEFG ABCDEFG ABCDEFG 1234567890
     **/
     
-    public static function upper(str:String):String;
+    static function upper(str:String):String;
     
     
     /**
@@ -929,7 +929,7 @@ package gmod.libs;
 		true
     **/
     
-    public static function StartWith(inputStr:String, start:String):Bool;
+    static function StartWith(inputStr:String, start:String):Bool;
     
     
     /**
@@ -959,7 +959,7 @@ package gmod.libs;
 		Marry Poppins
     **/
     
-    public static function EndsWith(str:String, end:String):Bool;
+    static function EndsWith(str:String, end:String):Bool;
     
     
     /**
@@ -991,7 +991,7 @@ package gmod.libs;
 		In your console: myawesomestuff
     **/
     @:deprecated("This function is removed in Lua versions later than what GMod is currently using. Use string. gmatch instead.")
-    public static function gfind(data:String, pattern:String):Function;
+    static function gfind(data:String, pattern:String):Function;
     
     
     /**
@@ -1039,7 +1039,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function char(bytes:Rest<Dynamic>):String;
+    static function char(bytes:Rest<Dynamic>):String;
     
     
     /**
@@ -1078,7 +1078,7 @@ package gmod.libs;
 		ms = 0 m = 1 s = 30 h = 0
     **/
     
-    public static function FormattedTime(float:Float, ?format:String):String;
+    static function FormattedTime(float:Float, ?format:String):String;
     
     
     /**
@@ -1105,7 +1105,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function gmatch(data:String, pattern:String):Function;
+    static function gmatch(data:String, pattern:String):Function;
     
     
     /**
@@ -1131,7 +1131,7 @@ package gmod.libs;
 		63 KB
     **/
     
-    public static function NiceSize(bytes:Float):String;
+    static function NiceSize(bytes:Float):String;
     
     
     /**
@@ -1182,7 +1182,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Explode(separator:String, str:String, use_patterns:Bool):AnyTable;
+    static function Explode(separator:String, str:String, use_patterns:Bool):AnyTable;
     
     
     /**
@@ -1209,7 +1209,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function NiceTime(num:Float):String;
+    static function NiceTime(num:Float):String;
     
     
     /**
@@ -1238,7 +1238,7 @@ package gmod.libs;
 		"Apgles"
     **/
     
-    public static function SetChar(InputString:String, Index:Float, ReplacementChar:String):String;
+    static function SetChar(InputString:String, Index:Float, ReplacementChar:String):String;
     
     
     /**
@@ -1264,7 +1264,7 @@ package gmod.libs;
 		"255 0 255 125"
     **/
     
-    public static function FromColor(color:AnyTable):String;
+    static function FromColor(color:AnyTable):String;
     
     
     /**
@@ -1302,7 +1302,7 @@ package gmod.libs;
 		hello world hello world hello world
     **/
     
-    public static function rep(str:String, repetitions:Float, ?separator:String):String;
+    static function rep(str:String, repetitions:Float, ?separator:String):String;
     
     
 

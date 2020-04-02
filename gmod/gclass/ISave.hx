@@ -16,7 +16,7 @@ extern class ISave {
 		`float` | The floating point number to write.
     **/
     
-    public function WriteFloat(float:Float):Void;
+    function WriteFloat(float:Float):Void;
     
     
     /**
@@ -27,7 +27,7 @@ extern class ISave {
 		`str` | The string to write. Maximum length is 1024.
     **/
     
-    public function WriteString(str:String):Void;
+    function WriteString(str:String):Void;
     
     
     /**
@@ -38,7 +38,7 @@ extern class ISave {
 		`ang` | The angle to write.
     **/
     
-    public function WriteAngle(ang:Angle):Void;
+    function WriteAngle(ang:Angle):Void;
     
     
     /**
@@ -49,7 +49,7 @@ extern class ISave {
 		`bool` | The boolean to write.
     **/
     
-    public function WriteBool(bool:Bool):Void;
+    function WriteBool(bool:Bool):Void;
     
     
     /**
@@ -60,7 +60,7 @@ extern class ISave {
 		`vec` | The vector to write.
     **/
     
-    public function WriteVector(vec:Vector):Void;
+    function WriteVector(vec:Vector):Void;
     
     
     /**
@@ -71,7 +71,7 @@ extern class ISave {
 		`int` | The integer number to write.
     **/
     
-    public function WriteInt(int:Float):Void;
+    function WriteInt(int:Float):Void;
     
     
     /**
@@ -80,7 +80,7 @@ extern class ISave {
 		To avoid all sorts of errors, you must end all blocks you start.
     **/
     
-    public function EndBlock():Void;
+    function EndBlock():Void;
     
     
     /**
@@ -91,7 +91,7 @@ extern class ISave {
 		`ent` | The entity to write.
     **/
     
-    public function WriteEntity(ent:Entity):Void;
+    function WriteEntity(ent:Entity):Void;
     
     
     /**
@@ -116,7 +116,7 @@ extern class ISave {
 		```
     **/
     
-    public function StartBlock(name:String):Void;
+    function StartBlock(name:String):Void;
     
     
 }

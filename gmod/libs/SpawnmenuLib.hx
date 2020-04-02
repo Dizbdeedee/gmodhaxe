@@ -30,7 +30,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddToolTab(name:String, ?label:String, ?icon:String):Void;
+    static function AddToolTab(name:String, ?label:String, ?icon:String):Void;
     
     
     /**
@@ -68,7 +68,7 @@ package gmod.libs;
 		A new tab named "Dupes" will be placed in the creation menu.
     **/
     
-    public static function AddCreationTab(name:String, _function:Function, ?material:String, ?order:Float, ?tooltip:String):Void;
+    static function AddCreationTab(name:String, _function:Function, ?material:String, ?order:Float, ?tooltip:String):Void;
     
     
     /**
@@ -100,7 +100,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddToolCategory(tab:String, RealName:String, PrintName:String):Void;
+    static function AddToolCategory(tab:String, RealName:String, PrintName:String):Void;
     
     
     /**
@@ -226,7 +226,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddPropCategory(classname:String, name:String, contents:AnyTable, icon:String, ?id:Float, ?parentID:Float, ?needsApp:String):Void;
+    static function AddPropCategory(classname:String, name:String, contents:AnyTable, icon:String, ?id:Float, ?parentID:Float, ?needsApp:String):Void;
     
     
     /**
@@ -242,7 +242,7 @@ package gmod.libs;
 		`**Returns:** The created content icon, if it was returned by spawnmenu. AddContentType
     **/
     
-    public static function CreateContentIcon(type:String, parent:Panel, data:AnyTable):Panel;
+    static function CreateContentIcon(type:String, parent:Panel, data:AnyTable):Panel;
     
     
     /**
@@ -278,7 +278,7 @@ package gmod.libs;
 		```
     **/
     @:deprecated("")
-    public static function AddToolMenuOption(tab:String, category:String, _class:String, name:String, cmd:String, config:String, cpanel:Function, ?table:AnyTable):Void;
+    static function AddToolMenuOption(tab:String, category:String, _class:String, name:String, cmd:String, config:String, cpanel:Function, ?table:AnyTable):Void;
     
     
     /**
@@ -296,7 +296,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetTools():AnyTable;
+    static function GetTools():AnyTable;
     
     
     /**
@@ -309,7 +309,7 @@ package gmod.libs;
 		`id` | The tab ID to open
     **/
     @:deprecated("")
-    public static function SwitchToolTab(id:Float):Void;
+    static function SwitchToolTab(id:Float):Void;
     
     
     /**
@@ -323,7 +323,7 @@ package gmod.libs;
 		`**Returns:** The panel creation function
     **/
     
-    public static function GetContentType(contentType:String):Function;
+    static function GetContentType(contentType:String):Function;
     
     
     /**
@@ -334,7 +334,7 @@ package gmod.libs;
 		`tool` | Tool class/file name
     **/
     
-    public static function ActivateTool(tool:String):Void;
+    static function ActivateTool(tool:String):Void;
     
     
     /**
@@ -354,7 +354,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ClearToolMenus():Void;
+    static function ClearToolMenus():Void;
     
     
     /**
@@ -379,7 +379,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetToolMenu(name:String, ?label:String, ?icon:String):AnyTable;
+    static function GetToolMenu(name:String, ?label:String, ?icon:String):AnyTable;
     
     
     /**
@@ -391,7 +391,7 @@ package gmod.libs;
 		`cp` | The control panel to open
     **/
     
-    public static function ActivateToolPanel(tab:Float, cp:Panel):Void;
+    static function ActivateToolPanel(tab:Float, cp:Panel):Void;
     
     
     /**
@@ -422,7 +422,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddContentType(name:String, constructor:Function):Void;
+    static function AddContentType(name:String, constructor:Function):Void;
     
     
     /**
@@ -433,7 +433,7 @@ package gmod.libs;
 		`pnl` | The panel to set.
     **/
     
-    public static function SetActiveControlPanel(pnl:Panel):Void;
+    static function SetActiveControlPanel(pnl:Panel):Void;
     
     
     /**
@@ -446,7 +446,7 @@ package gmod.libs;
 		`spawnlists` | A table containing spawnlists.
     **/
     @:deprecated("INTERNAL")
-    public static function DoSaveToTextFiles(spawnlists:AnyTable):Void;
+    static function DoSaveToTextFiles(spawnlists:AnyTable):Void;
     
     
     /**
@@ -455,7 +455,7 @@ package gmod.libs;
 		`**Returns:** The currently opened control panel, if any.
     **/
     
-    public static function ActiveControlPanel():Panel;
+    static function ActiveControlPanel():Panel;
     
     
     /**
@@ -466,7 +466,7 @@ package gmod.libs;
 		`**Returns:** See spawnmenu. GetPropTable for table format.
     **/
     
-    public static function GetCustomPropTable():AnyTable;
+    static function GetCustomPropTable():AnyTable;
     
     
     /**
@@ -475,7 +475,7 @@ package gmod.libs;
 		Calls spawnmenu.PopulateFromTextFiles.
     **/
     @:deprecated("INTERNAL")
-    public static function PopulateFromEngineTextFiles():Void;
+    static function PopulateFromEngineTextFiles():Void;
     
     
     /**
@@ -484,7 +484,7 @@ package gmod.libs;
 		`**Returns:** The CreationMenus table. See the CreationMenus structure.
     **/
     
-    public static function GetCreationTabs():CreationMenus;
+    static function GetCreationTabs():CreationMenus;
     
     
     /**
@@ -497,7 +497,7 @@ package gmod.libs;
 		`spawnlists` | A table containing spawnlists.
     **/
     @:deprecated("INTERNAL")
-    public static function SaveToTextFiles(spawnlists:AnyTable):Void;
+    static function SaveToTextFiles(spawnlists:AnyTable):Void;
     
     
     /**
@@ -526,7 +526,7 @@ package gmod.libs;
 		}
     **/
     
-    public static function GetPropTable():AnyTable;
+    static function GetPropTable():AnyTable;
     
     
     /**
@@ -537,7 +537,7 @@ package gmod.libs;
 		`callback` | The function to call. Arguments are ( strFilename, strName, tabContents, icon, id, parentid, needsapp )
     **/
     
-    public static function PopulateFromTextFiles(callback:Function):Void;
+    static function PopulateFromTextFiles(callback:Function):Void;
     
     
 

@@ -69,7 +69,7 @@ extern class DCheckBox extends DButton {
     **/
     
     @:hook 
-    function OnChange(bVal:Bool):Void;
+    private function OnChange(bVal:Bool):Void;
     /**
         Toggles the checked state of the checkbox, and calls the checkbox's DCheckBox:OnChange and Panel:ConVarChanged methods. This is called by DCheckBox:DoClick.
     **/

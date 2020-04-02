@@ -19,7 +19,7 @@ package gmod.libs;
 		`**Returns:** The texture ID
     **/
     
-    public static function GetTextureID(path:String):Float;
+    static function GetTextureID(path:String):Float;
     
     
     /**
@@ -30,7 +30,7 @@ package gmod.libs;
 		`**Returns:** The color that text drawing operations will use as a Color structure.
     **/
     
-    public static function GetTextColor():Color;
+    static function GetTextColor():Color;
     
     
     /**
@@ -60,7 +60,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawText(text:String):Void;
+    static function DrawText(text:String):Void;
     
     
     /**
@@ -110,7 +110,7 @@ package gmod.libs;
 		24
     **/
     
-    public static function GetTextSize(text:String):SurfaceLibGetTextSizeReturn;
+    static function GetTextSize(text:String):SurfaceLibGetTextSizeReturn;
     
     
     /**
@@ -123,7 +123,7 @@ package gmod.libs;
 		`disable` | True to disable, false to enable the clipping
     **/
     
-    public static function DisableClipping(disable:Bool):Void;
+    static function DisableClipping(disable:Bool):Void;
     
     
     /**
@@ -132,7 +132,7 @@ package gmod.libs;
 		`**Returns:** The multiplier ranging from 0 to 1.
     **/
     
-    public static function GetAlphaMultiplier():Float;
+    static function GetAlphaMultiplier():Float;
     
     
     /**
@@ -149,7 +149,7 @@ package gmod.libs;
 		`material` | The material to be used.
     **/
     
-    public static function SetMaterial(material:IMaterial):Void;
+    static function SetMaterial(material:IMaterial):Void;
     
     
     /**
@@ -160,7 +160,7 @@ package gmod.libs;
 		`**Returns:** The color that drawing operations will use as a Color structure.
     **/
     
-    public static function GetDrawColor():Color;
+    static function GetDrawColor():Color;
     
     
     /**
@@ -181,7 +181,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PlaySound(soundfile:String):Void;
+    static function PlaySound(soundfile:String):Void;
     
     
     /**
@@ -254,7 +254,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawTexturedRectUV(x:Float, y:Float, width:Float, height:Float, startU:Float, startV:Float, endU:Float, endV:Float):Void;
+    static function DrawTexturedRectUV(x:Float, y:Float, width:Float, height:Float, startU:Float, startV:Float, endU:Float, endV:Float):Void;
     
     
     /**
@@ -285,7 +285,7 @@ package gmod.libs;
     **/
 	
 	@:overload(function(r:Color):Void {})
-    public static function SetDrawColor(r:Int, g:Int, b:Int, ?a:Int):Void;
+    static function SetDrawColor(r:Int, g:Int, b:Int, ?a:Int):Void;
     
     
     /**
@@ -329,7 +329,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawOutlinedRect(x:Float, y:Float, w:Float, h:Float):Void;
+    static function DrawOutlinedRect(x:Float, y:Float, w:Float, h:Float):Void;
     
     
     /**
@@ -359,7 +359,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetTextPos(x:Float, y:Float):Void;
+    static function SetTextPos(x:Float, y:Float):Void;
     
     
     /**
@@ -382,7 +382,7 @@ package gmod.libs;
 		Screen height: 1080
     **/
     @:deprecated("You should use ScrH instead.")
-    public static function ScreenHeight():Float;
+    static function ScreenHeight():Float;
     
     
     /**
@@ -430,7 +430,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function CreateFont(fontName:String, fontData:FontData):Void;
+    static function CreateFont(fontName:String, fontData:FontData):Void;
     
     
     /**
@@ -462,7 +462,7 @@ package gmod.libs;
 		```
     **/
     @:overload(function(col:Color):Void {})
-    public static function SetTextColor(r:Float, g:Float, b:Float, ?a:Float):Void;
+    static function SetTextColor(r:Float, g:Float, b:Float, ?a:Float):Void;
     
     
     /**
@@ -514,7 +514,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawTexturedRectRotated(x:Float, y:Float, width:Float, height:Float, rotation:Float):Void;
+    static function DrawTexturedRectRotated(x:Float, y:Float, width:Float, height:Float, rotation:Float):Void;
     
     
     /**
@@ -584,7 +584,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawPoly(vertices:PolygonVertex):Void;
+    static function DrawPoly(vertices:PolygonVertex):Void;
     
     
     /**
@@ -598,7 +598,7 @@ package gmod.libs;
 		`**Returns:** text
     **/
     
-    public static function GetHUDTexture(name:String):ITexture;
+    static function GetHUDTexture(name:String):ITexture;
     
     
     /**
@@ -631,7 +631,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawCircle(originX:Float, originY:Float, radius:Float, r:Color, g:Color, b:Color, ?a:Color):Void;
+    static function DrawCircle(originX:Float, originY:Float, radius:Float, r:Color, g:Color, b:Color, ?a:Color):Void;
     
     
     /**
@@ -662,7 +662,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetFont(fontName:String):Void;
+    static function SetFont(fontName:String):Void;
     
     
     /**
@@ -697,7 +697,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawLine(startX:Float, startY:Float, endX:Float, endY:Float):Void;
+    static function DrawLine(startX:Float, startY:Float, endX:Float, endY:Float):Void;
     
     
     /**
@@ -726,7 +726,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawRect(x:Float, y:Float, width:Float, height:Float):Void;
+    static function DrawRect(x:Float, y:Float, width:Float, height:Float):Void;
     
     
     /**
@@ -739,7 +739,7 @@ package gmod.libs;
 		`textureID` | The ID of the texture to draw with returned by surface. GetTextureID.
     **/
     
-    public static function SetTexture(textureID:Float):Void;
+    static function SetTexture(textureID:Float):Void;
     
     
     /**
@@ -750,7 +750,7 @@ package gmod.libs;
 		`multiplier` | The multiplier ranging from 0 to 1.
     **/
     
-    public static function SetAlphaMultiplier(multiplier:Float):Void;
+    static function SetAlphaMultiplier(multiplier:Float):Void;
     
     
     /**
@@ -784,7 +784,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawTexturedRect(x:Float, y:Float, width:Float, height:Float):Void;
+    static function DrawTexturedRect(x:Float, y:Float, width:Float, height:Float):Void;
     
     
     /**
@@ -801,7 +801,7 @@ package gmod.libs;
 		`b` | The texture height.
     **/
     
-    public static function GetTextureSize(textureID:Float):SurfaceLibGetTextureSizeReturn;
+    static function GetTextureSize(textureID:Float):SurfaceLibGetTextureSizeReturn;
     
     
     /**
@@ -824,7 +824,7 @@ package gmod.libs;
 		Screen width: 1920
     **/
     @:deprecated("You should use ScrW instead.")
-    public static function ScreenWidth():Float;
+    static function ScreenWidth():Float;
     
     
 

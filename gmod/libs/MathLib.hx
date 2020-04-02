@@ -17,7 +17,7 @@ package gmod.libs;
 		`**Returns:** The hyperbolic sine of the given angle.
     **/
     
-    public static function sinh(number:Float):Float;
+    static function sinh(number:Float):Float;
     
     
     /**
@@ -76,7 +76,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Approach(current:Float, target:Float, change:Float):Float;
+    static function Approach(current:Float, target:Float, change:Float):Float;
     
     
     /**
@@ -90,7 +90,7 @@ package gmod.libs;
 		`**Returns:** degrees
     **/
     
-    public static function deg(radians:Float):Float;
+    static function deg(radians:Float):Float;
     
     
     /**
@@ -121,7 +121,7 @@ package gmod.libs;
 		5.6568542494924
     **/
     @:deprecated("You should use math. Distance instead")
-    public static function Dist(x1:Float, y1:Float, x2:Float, y2:Float):Float;
+    static function Dist(x1:Float, y1:Float, x2:Float, y2:Float):Float;
     
     
     /**
@@ -151,7 +151,7 @@ package gmod.libs;
 		127.5
     **/
     
-    public static function Remap(value:Float, inMin:Float, inMax:Float, outMin:Float, outMax:Float):Float;
+    static function Remap(value:Float, inMin:Float, inMax:Float, outMin:Float, outMax:Float):Float;
     
     
     /**
@@ -168,7 +168,7 @@ package gmod.libs;
 		`**Returns:** The calculated modulus
     **/
     @:deprecated("This is removed in Lua versions later than what GMod is currently using. You should use the % operator or math. fmod instead.")
-    public static function mod(base:Float, modulator:Float):Float;
+    static function mod(base:Float, modulator:Float):Float;
     
     
     /**
@@ -206,7 +206,7 @@ package gmod.libs;
 		4 3
     **/
     
-    public static function floor(number:Float):Float;
+    static function floor(number:Float):Float;
     
     
     /**
@@ -221,7 +221,7 @@ package gmod.libs;
 		`**Returns:** result
     **/
     
-    public static function ldexp(normalizedFraction:Float, exponent:Float):Float;
+    static function ldexp(normalizedFraction:Float, exponent:Float):Float;
     
     
     /**
@@ -235,7 +235,7 @@ package gmod.libs;
 		`**Returns:** e to the specified power
     **/
     
-    public static function exp(exponent:Float):Float;
+    static function exp(exponent:Float):Float;
     
     
     /**
@@ -261,7 +261,7 @@ package gmod.libs;
 		-3
     **/
     
-    public static function min(numbers:Rest<Dynamic>):Float;
+    static function min(numbers:Rest<Dynamic>):Float;
     
     
     /**
@@ -296,7 +296,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function BSplinePoint(tDiff:Float, tPoints:AnyTable, tMax:Float):Vector;
+    static function BSplinePoint(tDiff:Float, tPoints:AnyTable, tMax:Float):Vector;
     
     
     /**
@@ -326,7 +326,7 @@ package gmod.libs;
 		5   0.6
     **/
     
-    public static function modf(base:Float):MathLibModfReturn;
+    static function modf(base:Float):MathLibModfReturn;
     
     
     /**
@@ -343,7 +343,7 @@ package gmod.libs;
 		`**Returns:** Random float between min and max.
     **/
     
-    public static function Rand(min:Float, max:Float):Float;
+    static function Rand(min:Float, max:Float):Float;
     
     
     /**
@@ -369,7 +369,7 @@ package gmod.libs;
 		100
     **/
     
-    public static function IntToBin(int:Int):String;
+    static function IntToBin(int:Int):String;
     
     
     /**
@@ -383,7 +383,7 @@ package gmod.libs;
 		`**Returns:** squareRoot
     **/
     
-    public static function sqrt(value:Float):Float;
+    static function sqrt(value:Float):Float;
     
     
     /**
@@ -397,7 +397,7 @@ package gmod.libs;
 		`**Returns:** The hyperbolic cosine of the given angle.
     **/
     
-    public static function cosh(number:Float):Float;
+    static function cosh(number:Float):Float;
     
     
     /**
@@ -415,7 +415,7 @@ package gmod.libs;
 		`**Returns:** Modified angle
     **/
     
-    public static function ApproachAngle(currentAngle:Float, targetAngle:Float, rate:Float):Float;
+    static function ApproachAngle(currentAngle:Float, targetAngle:Float, rate:Float):Float;
     
     
     /**
@@ -436,7 +436,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     @:deprecated("INTERNAL: Use math. BSplinePoint instead.")
-    public static function calcBSplineN(i:Float, k:Float, t:Float, tinc:Float):Float;
+    static function calcBSplineN(i:Float, k:Float, t:Float, tinc:Float):Float;
     
     
     /**
@@ -465,7 +465,7 @@ package gmod.libs;
 		Angle difference between 159 and 240 is -81 Angle difference between 240 and 159 is 81 Angle difference between 58 and 145 is -87
     **/
     
-    public static function AngleDifference(a:Float, b:Float):Float;
+    static function AngleDifference(a:Float, b:Float):Float;
     
     
     /**
@@ -494,7 +494,7 @@ package gmod.libs;
 		5.6568542494924
     **/
     
-    public static function Distance(x1:Float, y1:Float, x2:Float, y2:Float):Float;
+    static function Distance(x1:Float, y1:Float, x2:Float, y2:Float):Float;
     
     
     /**
@@ -519,7 +519,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Truncate(num:Float, ?digits:Float):Void;
+    static function Truncate(num:Float, ?digits:Float):Void;
     
     
     /**
@@ -556,7 +556,7 @@ package gmod.libs;
 		104.63
     **/
     
-    public static function Round(value:Float, ?decimals:Float):Float;
+    static function Round(value:Float, ?decimals:Float):Float;
     
     
     /**
@@ -582,7 +582,7 @@ package gmod.libs;
 		-1
     **/
     
-    public static function cos(number:Float):Float;
+    static function cos(number:Float):Float;
     
     
     /**
@@ -611,7 +611,7 @@ package gmod.libs;
 		Degrees: 360, Radians: 6.2831853071796 Degrees: 180, Radians: 3.1415926535898 Degrees: 90, Radians: 1.5707963267949 Degrees: 1, Radians: 0.017453292519943
     **/
     
-    public static function rad(degrees:Float):Float;
+    static function rad(degrees:Float):Float;
     
     
     /**
@@ -628,7 +628,7 @@ package gmod.libs;
 		`**Returns:** Logarithm of x to the given base
     **/
     
-    public static function log(x:Float, ?base:Float):Float;
+    static function log(x:Float, ?base:Float):Float;
     
     
     /**
@@ -658,7 +658,7 @@ package gmod.libs;
 		0.055555... 0.166666... 0.277777...
     **/
     
-    public static function EaseInOut(progress:Float, easeIn:Float, easeOut:Float):Float;
+    static function EaseInOut(progress:Float, easeIn:Float, easeOut:Float):Float;
     
     
     /**
@@ -672,7 +672,7 @@ package gmod.libs;
 		`**Returns:** The hyperbolic tangent of the given angle.
     **/
     
-    public static function tanh(number:Float):Float;
+    static function tanh(number:Float):Float;
     
     
     /**
@@ -698,7 +698,7 @@ package gmod.libs;
 		341
     **/
     
-    public static function BinToInt(string:String):Float;
+    static function BinToInt(string:String):Float;
     
     
     /**
@@ -717,7 +717,7 @@ package gmod.libs;
 		`b` | e, exponent - always an integer
     **/
     
-    public static function frexp(x:Float):MathLibFrexpReturn;
+    static function frexp(x:Float):MathLibFrexpReturn;
     
     
     /**
@@ -759,7 +759,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function max(numbers:Rest<Dynamic>):Float;
+    static function max(numbers:Rest<Dynamic>):Float;
     
     
     /**
@@ -773,7 +773,7 @@ package gmod.libs;
 		`**Returns:** An angle in radians, in the range -pi/2 to pi/2, which has the given sine value. nan if the argument is out of range.
     **/
     
-    public static function asin(normal:Float):Float;
+    static function asin(normal:Float):Float;
     
     
     /**
@@ -788,7 +788,7 @@ package gmod.libs;
 		`seed` | The new seed
     **/
     
-    public static function randomseed(seed:Float):Void;
+    static function randomseed(seed:Float):Void;
     
     
     /**
@@ -819,7 +819,7 @@ package gmod.libs;
 		0.7853981633974483 0.7853981633974483 -2.356194490192345
     **/
     
-    public static function atan2(y:Float, x:Float):Float;
+    static function atan2(y:Float, x:Float):Float;
     
     
     /**
@@ -833,7 +833,7 @@ package gmod.libs;
 		`**Returns:** An angle in radians, between 0 and pi, which has the given cos value. nan if the argument is out of range.
     **/
     
-    public static function acos(cos:Float):Float;
+    static function acos(cos:Float):Float;
     
     
     /**
@@ -844,7 +844,7 @@ package gmod.libs;
 		`x` | The value to get the base from exponent from.
     **/
     
-    public static function log10(x:Float):Void;
+    static function log10(x:Float):Void;
     
     
     /**
@@ -858,7 +858,7 @@ package gmod.libs;
 		`**Returns:** The tangent of the given angle.
     **/
     
-    public static function tan(value:Float):Float;
+    static function tan(value:Float):Float;
     
     
     /**
@@ -895,7 +895,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Clamp(input:Float, min:Float, max:Float):Float;
+    static function Clamp(input:Float, min:Float, max:Float):Float;
     
     
     /**
@@ -922,7 +922,7 @@ package gmod.libs;
 		15 15
     **/
     
-    public static function abs(x:Float):Float;
+    static function abs(x:Float):Float;
     
     
     /**
@@ -939,7 +939,7 @@ package gmod.libs;
 		`**Returns:** The calculated modulus.
     **/
     
-    public static function fmod(base:Float, modulator:Float):Float;
+    static function fmod(base:Float, modulator:Float):Float;
     
     
     /**
@@ -953,7 +953,7 @@ package gmod.libs;
 		`**Returns:** The normalized angle, in the range of -180 to 180 degrees.
     **/
     
-    public static function NormalizeAngle(angle:Float):Float;
+    static function NormalizeAngle(angle:Float):Float;
     
     
     /**
@@ -968,7 +968,7 @@ package gmod.libs;
 		`**Returns:** y power of x
     **/
     
-    public static function pow(x:Float, y:Float):Float;
+    static function pow(x:Float, y:Float):Float;
     
     
     /**
@@ -994,7 +994,7 @@ package gmod.libs;
 		4
     **/
     
-    public static function ceil(number:Float):Float;
+    static function ceil(number:Float):Float;
     
     
     /**
@@ -1008,7 +1008,7 @@ package gmod.libs;
 		`**Returns:** Sine for given angle
     **/
     
-    public static function sin(number:Float):Float;
+    static function sin(number:Float):Float;
     
     
     /**
@@ -1072,7 +1072,7 @@ package gmod.libs;
 	**/
 	@:overload(function ():Float {})
     @:overload(function (upperLimit:Int):Int {})
-    public static function random(m:Int, n:Int):Int;
+    static function random(m:Int, n:Int):Int;
     
     
     /**
@@ -1100,7 +1100,7 @@ package gmod.libs;
 		0.5
     **/
     
-    public static function TimeFraction(start:Float, end:Float, current:Float):Float;
+    static function TimeFraction(start:Float, end:Float, current:Float):Float;
     
     
 

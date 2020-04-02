@@ -12,7 +12,7 @@ package gmod.libs;
 		`**Returns:** The new task object.
     **/
     
-    public static function New():Task;
+    static function New():Task;
     
     
 

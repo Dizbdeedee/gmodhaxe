@@ -16,21 +16,21 @@ extern class Task {
 		`target` | The NPC to start the task on.
     **/
     @:deprecated("INTERNAL")
-    public function Start_FName(target:NPC):Void;
+    function Start_FName(target:NPC):Void;
     
     
     /**
         Determines if the task is an engine task (TYPE_ENGINE, 1).
     **/
     
-    public function IsEngineType():Void;
+    function IsEngineType():Void;
     
     
     /**
         Determines if the task is an NPC method-based task (TYPE_FNAME, 2).
     **/
     
-    public function IsFNameType():Void;
+    function IsFNameType():Void;
     
     
     /**
@@ -43,7 +43,7 @@ extern class Task {
 		`taskdata` | 
     **/
     
-    public function InitFunctionName(startname:String, runname:String, taskdata:Float):Void;
+    function InitFunctionName(startname:String, runname:String, taskdata:Float):Void;
     
     
     /**
@@ -54,7 +54,7 @@ extern class Task {
 		`target` | The NPC to start the task on.
     **/
     
-    public function Start(target:NPC):Void;
+    function Start(target:NPC):Void;
     
     
     /**
@@ -63,7 +63,7 @@ extern class Task {
 		Initialises the AI task. Called by [ai_task](https://wiki.garrysmod.com/page/Category:ai_task).[New](https://wiki.garrysmod.com/page/ai_task/New).
     **/
     @:deprecated("INTERNAL")
-    public function Init():Void;
+    function Init():Void;
     
     
     /**
@@ -74,7 +74,7 @@ extern class Task {
 		`target` | The NPC to run the task on.
     **/
     
-    public function Run(target:NPC):Void;
+    function Run(target:NPC):Void;
     
     
     /**
@@ -87,7 +87,7 @@ extern class Task {
 		`target` | The NPC to run the task on.
     **/
     @:deprecated("INTERNAL")
-    public function Run_FName(target:NPC):Void;
+    function Run_FName(target:NPC):Void;
     
     
     /**
@@ -99,7 +99,7 @@ extern class Task {
 		`taskdata` | 
     **/
     
-    public function InitEngine(taskname:String, taskdata:Float):Void;
+    function InitEngine(taskname:String, taskdata:Float):Void;
     
     
 }

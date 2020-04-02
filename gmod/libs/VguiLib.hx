@@ -12,7 +12,7 @@ package gmod.libs;
 		`**Returns:** isHoveringWorld
     **/
     
-    public static function IsHoveringWorld():Bool;
+    static function IsHoveringWorld():Bool;
     
     
     /**
@@ -26,7 +26,7 @@ package gmod.libs;
 		`**Returns:** Whether or not the focused panel is a child of the passed one.
     **/
     
-    public static function FocusedHasParent(parent:Panel):Bool;
+    static function FocusedHasParent(parent:Panel):Bool;
     
     
     /**
@@ -37,7 +37,7 @@ package gmod.libs;
 		`**Returns:** The panel that the user is currently hovering over with their cursor.
     **/
     
-    public static function GetHoveredPanel():Panel;
+    static function GetHoveredPanel():Panel;
     
     
     /**
@@ -46,7 +46,7 @@ package gmod.libs;
 		`**Returns:** isCursorVisible
     **/
     
-    public static function CursorVisible():Bool;
+    static function CursorVisible():Bool;
     
     
     /**
@@ -60,7 +60,7 @@ package gmod.libs;
 		`**Returns:** A table containing info about the panel. Can be supplied to vgui. CreateFromTable
     **/
     
-    public static function RegisterFile(file:String):AnyTable;
+    static function RegisterFile(file:String):AnyTable;
     
     
     /**
@@ -75,7 +75,7 @@ package gmod.libs;
 		
 		`**Returns:** panel
     **/
-    public static function Create<T:Panel>(classname:PanelClass<T>, ?parent:Panel, ?name:String):T;
+    static function Create<T:Panel>(classname:PanelClass<T>, ?parent:Panel, ?name:String):T;
     
     
     /**
@@ -90,7 +90,7 @@ package gmod.libs;
 		`**Returns:** The PANEL table
     **/
     
-    public static function RegisterTable(panel:AnyTable, ?base:String):AnyTable;
+    static function RegisterTable(panel:AnyTable, ?base:String):AnyTable;
     
     
     /**
@@ -99,7 +99,7 @@ package gmod.libs;
 		`**Returns:** The panel with keyboard focus
     **/
     
-    public static function GetKeyboardFocus():Panel;
+    static function GetKeyboardFocus():Panel;
     
     
     /**
@@ -115,7 +115,7 @@ package gmod.libs;
 		`**Returns:** Created panel
     **/
     
-    public static function CreateFromTable(metatable:AnyTable, ?parent:Panel, ?name:String):Panel;
+    static function CreateFromTable(metatable:AnyTable, ?parent:Panel, ?name:String):Panel;
     
     
     /**
@@ -131,7 +131,7 @@ package gmod.libs;
 		`**Returns:** panel
     **/
     
-    public static function Register(classname:String, panelTable:AnyTable, baseName:String):Panel;
+    static function Register(classname:String, panelTable:AnyTable, baseName:String):Panel;
     
     
     /**
@@ -142,7 +142,7 @@ package gmod.libs;
 		`**Returns:** The world panel
     **/
     
-    public static function GetWorldPanel():Panel;
+    static function GetWorldPanel():Panel;
     
     
     /**
@@ -156,7 +156,7 @@ package gmod.libs;
 		`**Returns:** methods
     **/
     
-    public static function GetControlTable(Panelname:String):AnyTable;
+    static function GetControlTable(Panelname:String):AnyTable;
     
     
     /**
@@ -174,7 +174,7 @@ package gmod.libs;
 		`**Returns:** Created panel
     **/
     @:deprecated("INTERNAL")
-    public static function CreateX(_class:String, ?parent:Panel, ?name:String):Panel;
+    static function CreateX(_class:String, ?parent:Panel, ?name:String):Panel;
     
     
 

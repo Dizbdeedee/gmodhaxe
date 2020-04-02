@@ -49,7 +49,7 @@ extern class DColorPalette extends DIconLayout {
     **/
     
     @:hook 
-    function OnValueChanged(newcol:AnyTable):Void;
+    private function OnValueChanged(newcol:AnyTable):Void;
     /**
         Saves the color of given button across sessions. 
 		
@@ -86,7 +86,7 @@ extern class DColorPalette extends DIconLayout {
     **/
     
     @:hook 
-    function OnRightClickButton(pnl:Panel):Void;
+    private function OnRightClickButton(pnl:Panel):Void;
     /**
         Returns the ConVar name for the alpha channel of the color. 
 		

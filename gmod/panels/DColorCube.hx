@@ -227,7 +227,7 @@ extern class DColorCube extends DSlider {
     **/
     
     @:hook 
-    function OnUserChanged(color:Color):Void;
+    private function OnUserChanged(color:Color):Void;
     /**
         ***INTERNAL** 
 		

@@ -15,7 +15,7 @@ extern class CNewParticleEffect {
 		`value` | The value to set for given control point.
     **/
     
-    public function SetControlPoint(cpID:Float, value:Vector):Void;
+    function SetControlPoint(cpID:Float, value:Vector):Void;
     
     
     /**
@@ -24,7 +24,7 @@ extern class CNewParticleEffect {
 		`**Returns:** The owner of the particle system.
     **/
     
-    public function GetOwner():Entity;
+    function GetOwner():Entity;
     
     
     /**
@@ -35,7 +35,7 @@ extern class CNewParticleEffect {
 		`infiniteOnly` | 
     **/
     
-    public function StartEmission(?infiniteOnly:Bool):Void;
+    function StartEmission(?infiniteOnly:Bool):Void;
     
     
     /**
@@ -44,7 +44,7 @@ extern class CNewParticleEffect {
 		`**Returns:** The name of the particle effect.
     **/
     
-    public function GetEffectName():String;
+    function GetEffectName():String;
     
     
     /**
@@ -56,7 +56,7 @@ extern class CNewParticleEffect {
 		`parent` | The parent control point ID, 0 to 63.
     **/
     
-    public function SetControlPointParent(child:Float, parent:Float):Void;
+    function SetControlPointParent(child:Float, parent:Float):Void;
     
     
     /**
@@ -70,7 +70,7 @@ extern class CNewParticleEffect {
 		`up` | The up direction for given control point
     **/
     
-    public function SetControlPointOrientation(cpID:Float, forward:Vector, right:Vector, up:Vector):Void;
+    function SetControlPointOrientation(cpID:Float, forward:Vector, right:Vector, up:Vector):Void;
     
     
     /**
@@ -81,7 +81,7 @@ extern class CNewParticleEffect {
 		`isViewModel` | 
     **/
     
-    public function SetIsViewModelEffect(isViewModel:Bool):Void;
+    function SetIsViewModelEffect(isViewModel:Bool):Void;
     
     
     /**
@@ -93,7 +93,7 @@ extern class CNewParticleEffect {
 		`forward` | The forward direction for given control point
     **/
     
-    public function SetControlPointForwardVector(cpID:Float, forward:Vector):Void;
+    function SetControlPointForwardVector(cpID:Float, forward:Vector):Void;
     
     
     /**
@@ -102,7 +102,7 @@ extern class CNewParticleEffect {
 		`**Returns:** The highest control point number for given particle system, 0 to 63.
     **/
     
-    public function GetHighestControlPoint():Bool;
+    function GetHighestControlPoint():Bool;
     
     
     /**
@@ -114,7 +114,7 @@ extern class CNewParticleEffect {
 		`parent` | The parent entity to follow.
     **/
     
-    public function SetControlPointEntity(child:Float, parent:Entity):Void;
+    function SetControlPointEntity(child:Float, parent:Entity):Void;
     
     
     /**
@@ -123,7 +123,7 @@ extern class CNewParticleEffect {
 		`**Returns:** 
     **/
     
-    public function IsViewModelEffect():Bool;
+    function IsViewModelEffect():Bool;
     
     
     /**
@@ -135,7 +135,7 @@ extern class CNewParticleEffect {
 		`right` | The right direction for given control point.
     **/
     
-    public function SetControlPointRightVector(cpID:Float, right:Vector):Void;
+    function SetControlPointRightVector(cpID:Float, right:Vector):Void;
     
     
     /**
@@ -144,7 +144,7 @@ extern class CNewParticleEffect {
 		`**Returns:** 
     **/
     
-    public function GetAutoUpdateBBox():Bool;
+    function GetAutoUpdateBBox():Bool;
     
     
     /**
@@ -153,7 +153,7 @@ extern class CNewParticleEffect {
 		`**Returns:** Whether the particle system has finished emitting particles or not.
     **/
     
-    public function IsFinished():Bool;
+    function IsFinished():Bool;
     
     
     /**
@@ -166,7 +166,7 @@ extern class CNewParticleEffect {
 		`wakeOnStop` | 
     **/
     
-    public function StopEmission(?infiniteOnly:Bool, ?removeAllParticles:Bool, ?wakeOnStop:Bool):Void;
+    function StopEmission(?infiniteOnly:Bool, ?removeAllParticles:Bool, ?wakeOnStop:Bool):Void;
     
     
     /**
@@ -175,7 +175,7 @@ extern class CNewParticleEffect {
 		**Note:** This function will work identically to CNewParticleEffect:StopEmission( false, true ) if CNewParticleEffect:GetOwner entity is not valid.
     **/
     
-    public function StopEmissionAndDestroyImmediately():Void;
+    function StopEmissionAndDestroyImmediately():Void;
     
     
     /**
@@ -186,7 +186,7 @@ extern class CNewParticleEffect {
 		`origin` | The new sort origin.
     **/
     
-    public function SetSortOrigin(origin:Vector):Void;
+    function SetSortOrigin(origin:Vector):Void;
     
     
     /**
@@ -197,7 +197,7 @@ extern class CNewParticleEffect {
 		 Used in conjunction with CNewParticleEffect:SetShouldDraw.
     **/
     
-    public function Render():Void;
+    function Render():Void;
     
     
     /**
@@ -214,7 +214,7 @@ extern class CNewParticleEffect {
 		`offset` | The offset from the Entity: GetPos of the entity we are attaching this CP to.
     **/
     
-    public function AddControlPoint(cpID:Float, ent:Entity, partAttachment:PATTACH, ?entAttachment:Float, ?offset:Vector):Void;
+    function AddControlPoint(cpID:Float, ent:Entity, partAttachment:PATTACH, ?entAttachment:Float, ?offset:Vector):Void;
     
     
     /**
@@ -226,14 +226,14 @@ extern class CNewParticleEffect {
 		`upward` | The upward direction for given control point
     **/
     
-    public function SetControlPointUpVector(cpID:Float, upward:Vector):Void;
+    function SetControlPointUpVector(cpID:Float, upward:Vector):Void;
     
     
     /**
         Forces the particle system to restart emitting particles.
     **/
     
-    public function Restart():Void;
+    function Restart():Void;
     
     
     /**
@@ -246,7 +246,7 @@ extern class CNewParticleEffect {
 		`should` | Whether to automatically draw the particle effect or not.
     **/
     
-    public function SetShouldDraw(should:Bool):Void;
+    function SetShouldDraw(should:Bool):Void;
     
     
     /**
@@ -255,7 +255,7 @@ extern class CNewParticleEffect {
 		`**Returns:** Whether the particle system is valid or not.
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     
 }

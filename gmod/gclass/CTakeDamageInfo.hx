@@ -14,7 +14,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** position
     **/
     
-    public function GetReportedPosition():Vector;
+    function GetReportedPosition():Vector;
     
     
     /**
@@ -25,7 +25,7 @@ extern class CTakeDamageInfo {
 		`DamageType` | Any integer - can be based on your own custom enums.
     **/
     
-    public function SetDamageCustom(DamageType:Float):Void;
+    function SetDamageCustom(DamageType:Float):Void;
     
     
     /**
@@ -34,7 +34,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** isBulletDmg
     **/
     
-    public function IsBulletDamage():Bool;
+    function IsBulletDamage():Bool;
     
     
     /**
@@ -47,7 +47,7 @@ extern class CTakeDamageInfo {
 		`inflictor` | The new inflictor.
     **/
     
-    public function SetInflictor(inflictor:Entity):Void;
+    function SetInflictor(inflictor:Entity):Void;
     
     
     /**
@@ -58,7 +58,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** The inflictor
     **/
     
-    public function GetInflictor():Entity;
+    function GetInflictor():Entity;
     
     
     /**
@@ -69,7 +69,7 @@ extern class CTakeDamageInfo {
 		`ent` | The entity to be set as the attacker.
     **/
     
-    public function SetAttacker(ent:Entity):Void;
+    function SetAttacker(ent:Entity):Void;
     
     
     /**
@@ -78,7 +78,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** The custom damage type
     **/
     
-    public function GetDamageCustom():Float;
+    function GetDamageCustom():Float;
     
     
     /**
@@ -87,7 +87,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** The attacker
     **/
     
-    public function GetAttacker():Entity;
+    function GetAttacker():Entity;
     
     
     /**
@@ -96,7 +96,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** baseDamage
     **/
     
-    public function GetBaseDamage():Float;
+    function GetBaseDamage():Float;
     
     
     /**
@@ -107,7 +107,7 @@ extern class CTakeDamageInfo {
 		`damage` | The extra damage to be added.
     **/
     
-    public function SetDamageBonus(damage:Float):Void;
+    function SetDamageBonus(damage:Float):Void;
     
     
     /**
@@ -118,7 +118,7 @@ extern class CTakeDamageInfo {
 		`type` | The damage type, see DMG_ Enums.
     **/
     
-    public function SetDamageType(type:DMG):Void;
+    function SetDamageType(type:DMG):Void;
     
     
     /**
@@ -132,7 +132,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** Whether this damage contains specified damage type or not
     **/
     
-    public function IsDamageType(dmgType:DMG):Bool;
+    function IsDamageType(dmgType:DMG):Bool;
     
     
     /**
@@ -143,7 +143,7 @@ extern class CTakeDamageInfo {
 		`pos` | The position where the damage will be applied.
     **/
     
-    public function SetDamagePosition(pos:Vector):Void;
+    function SetDamagePosition(pos:Vector):Void;
     
     
     /**
@@ -166,7 +166,7 @@ extern class CTakeDamageInfo {
 		```
     **/
     
-    public function SetAmmoType(ammoType:Float):Void;
+    function SetAmmoType(ammoType:Float):Void;
     
     
     /**
@@ -177,7 +177,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** The damage position
     **/
     
-    public function GetDamagePosition():Vector;
+    function GetDamagePosition():Vector;
     
     
     /**
@@ -186,7 +186,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** Ammo type ID
     **/
     
-    public function GetAmmoType():Float;
+    function GetAmmoType():Float;
     
     
     /**
@@ -197,7 +197,7 @@ extern class CTakeDamageInfo {
 		`force` | The vector to set the force to.
     **/
     
-    public function SetDamageForce(force:Vector):Void;
+    function SetDamageForce(force:Vector):Void;
     
     
     /**
@@ -206,7 +206,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** isExplDamage
     **/
     
-    public function IsExplosionDamage():Bool;
+    function IsExplosionDamage():Bool;
     
     
     /**
@@ -217,7 +217,7 @@ extern class CTakeDamageInfo {
 		`scale` | Value to scale the damage with.
     **/
     
-    public function ScaleDamage(scale:Float):Void;
+    function ScaleDamage(scale:Float):Void;
     
     
     /**
@@ -228,7 +228,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** Damage type(s), a combination of DMG_ Enums
     **/
     
-    public function GetDamageType():DMG;
+    function GetDamageType():DMG;
     
     
     /**
@@ -239,7 +239,7 @@ extern class CTakeDamageInfo {
 		`damageIncrease` | The damage to add.
     **/
     
-    public function AddDamage(damageIncrease:Float):Void;
+    function AddDamage(damageIncrease:Float):Void;
     
     
     /**
@@ -248,7 +248,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** Bonus damage
     **/
     
-    public function GetDamageBonus():Float;
+    function GetDamageBonus():Float;
     
     
     /**
@@ -257,7 +257,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** maxDmg
     **/
     
-    public function GetMaxDamage():Float;
+    function GetMaxDamage():Float;
     
     
     /**
@@ -268,7 +268,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** The damage force
     **/
     
-    public function GetDamageForce():Vector;
+    function GetDamageForce():Vector;
     
     
     /**
@@ -279,7 +279,7 @@ extern class CTakeDamageInfo {
 		`maxDamage` | Maximum damage value.
     **/
     
-    public function SetMaxDamage(maxDamage:Float):Void;
+    function SetMaxDamage(maxDamage:Float):Void;
     
     
     /**
@@ -290,7 +290,7 @@ extern class CTakeDamageInfo {
 		`damage` | Value to subtract.
     **/
     
-    public function SubtractDamage(damage:Float):Void;
+    function SubtractDamage(damage:Float):Void;
     
     
     /**
@@ -301,7 +301,7 @@ extern class CTakeDamageInfo {
 		`damage` | The value to set the absolute damage to.
     **/
     
-    public function SetDamage(damage:Float):Void;
+    function SetDamage(damage:Float):Void;
     
     
     /**
@@ -312,7 +312,7 @@ extern class CTakeDamageInfo {
 		`pos` | The location of where the damage is originating
     **/
     
-    public function SetReportedPosition(pos:Vector):Void;
+    function SetReportedPosition(pos:Vector):Void;
     
     
     /**
@@ -321,7 +321,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** damage
     **/
     
-    public function GetDamage():Float;
+    function GetDamage():Float;
     
     
     /**
@@ -330,7 +330,7 @@ extern class CTakeDamageInfo {
 		`**Returns:** isFallDmg
     **/
     
-    public function IsFallDamage():Bool;
+    function IsFallDamage():Bool;
     
     
 }

@@ -30,7 +30,7 @@ package gmod.libs;
 		true
     **/
     
-    public static function IsBasedOn(name:String, base:String):Bool;
+    static function IsBasedOn(name:String, base:String):Bool;
     
     
     /**
@@ -39,7 +39,7 @@ package gmod.libs;
 		`**Returns:** A table of ENT structures
     **/
     
-    public static function GetSpawnable():ENT;
+    static function GetSpawnable():ENT;
     
     
     /**
@@ -62,7 +62,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Get(classname:String):AnyTable;
+    static function Get(classname:String):AnyTable;
     
     
     /**
@@ -76,7 +76,7 @@ package gmod.libs;
 		`**Returns:** type
     **/
     
-    public static function GetType(classname:String):String;
+    static function GetType(classname:String):String;
     
     
     /**
@@ -91,7 +91,7 @@ package gmod.libs;
 		`**Returns:** The member or nil if failed
     **/
     
-    public static function GetMember(_class:String, name:String):Dynamic;
+    static function GetMember(_class:String, name:String):Dynamic;
     
     
     /**
@@ -104,7 +104,7 @@ package gmod.libs;
 		**Note:** This is not called after an ENT auto refresh, and thus the inherited baseclass functions retrieved with baseclass.Get will not be updated
     **/
     @:deprecated("INTERNAL")
-    public static function OnLoaded():Void;
+    static function OnLoaded():Void;
     
     
     /**
@@ -116,7 +116,7 @@ package gmod.libs;
 		`classname` | The classname the alias should refer to
     **/
     
-    public static function Alias(alias:String, classname:String):Void;
+    static function Alias(alias:String, classname:String):Void;
     
     
     /**
@@ -125,7 +125,7 @@ package gmod.libs;
 		`**Returns:** A table of all entities in the following format: (table keys are the classnames) table t - The ENT structure associated with the entity boolean isBaseType - Always true string Base - The entity base (note capital B in the key name) string type - The entity type
     **/
     
-    public static function GetList():ENT;
+    static function GetList():ENT;
     
     
     /**
@@ -155,7 +155,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Register(ENT:AnyTable, classname:String):Void;
+    static function Register(ENT:AnyTable, classname:String):Void;
     
     
     /**
@@ -183,7 +183,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetStored(classname:String):AnyTable;
+    static function GetStored(classname:String):AnyTable;
     
     
 

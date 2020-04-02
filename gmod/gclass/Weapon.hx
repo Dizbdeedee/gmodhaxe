@@ -14,7 +14,7 @@ extern class Weapon extends Entity {
 		`ammo` | The amount of bullets the clip should contain
     **/
     
-    public function SetClip1(ammo:Float):Void;
+    function SetClip1(ammo:Float):Void;
     
     
     /**
@@ -25,7 +25,7 @@ extern class Weapon extends Entity {
 		`time` | Time when player should be able to use secondary fire again
     **/
     
-    public function SetNextSecondaryFire(time:Float):Void;
+    function SetNextSecondaryFire(time:Float):Void;
     
     
     /**
@@ -41,7 +41,7 @@ extern class Weapon extends Entity {
 		`arguments` | Arguments for the function, separated by spaces. NOTE Only the second argument is passed as argument and must be a string
     **/
     
-    public function CallOnClient(functionName:String, ?arguments:String):Void;
+    function CallOnClient(functionName:String, ?arguments:String):Void;
     
     
     /**
@@ -50,7 +50,7 @@ extern class Weapon extends Entity {
 		`**Returns:** Maximum primary clip size
     **/
     
-    public function GetMaxClip1():Float;
+    function GetMaxClip1():Float;
     
     
     /**
@@ -59,7 +59,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The hold type of the weapon. You can find a list of default hold types here.
     **/
     
-    public function GetHoldType():String;
+    function GetHoldType():String;
     
     
     /**
@@ -72,7 +72,7 @@ extern class Weapon extends Entity {
 		`time` | Time when player should be able to use primary fire again
     **/
     
-    public function SetNextPrimaryFire(time:Float):Void;
+    function SetNextPrimaryFire(time:Float):Void;
     
     
     /**
@@ -81,7 +81,7 @@ extern class Weapon extends Entity {
 		`**Returns:** Whether the weapon allows to being switched to.
     **/
     
-    public function AllowsAutoSwitchTo():Bool;
+    function AllowsAutoSwitchTo():Bool;
     
     
     /**
@@ -92,7 +92,7 @@ extern class Weapon extends Entity {
 		`act` | Activity to play. See the ACT_ Enums (specifically ACT_VM_).
     **/
     
-    public function SendWeaponAnim(act:ACT):Void;
+    function SendWeaponAnim(act:ACT):Void;
     
     
     /**
@@ -113,7 +113,7 @@ extern class Weapon extends Entity {
 		Will print -1 for all HL2 weapons.
     **/
     
-    public function Clip2():Float;
+    function Clip2():Float;
     
     
     /**
@@ -134,7 +134,7 @@ extern class Weapon extends Entity {
 		Will print 45 for fully loaded SMG1.
     **/
     
-    public function Clip1():Float;
+    function Clip1():Float;
     
     
     /**
@@ -143,7 +143,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The view model of the weapon.
     **/
     
-    public function GetWeaponViewModel():String;
+    function GetWeaponViewModel():String;
     
     
     /**
@@ -152,7 +152,7 @@ extern class Weapon extends Entity {
 		`**Returns:** Is visible or not
     **/
     
-    public function IsWeaponVisible():Bool;
+    function IsWeaponVisible():Bool;
     
     
     /**
@@ -163,7 +163,7 @@ extern class Weapon extends Entity {
 		`ammo` | The amount of bullets the clip should contain
     **/
     
-    public function SetClip2(ammo:Float):Void;
+    function SetClip2(ammo:Float):Void;
     
     
     /**
@@ -172,7 +172,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The weapon "weight".
     **/
     
-    public function GetWeight():Float;
+    function GetWeight():Float;
     
     
     /**
@@ -181,7 +181,7 @@ extern class Weapon extends Entity {
 		`**Returns:** Maximum secondary clip size
     **/
     
-    public function GetMaxClip2():Float;
+    function GetMaxClip2():Float;
     
     #if client
     /**
@@ -190,7 +190,7 @@ extern class Weapon extends Entity {
 		`**Returns:** Is the weapon is carried by the local player or not
     **/
     
-    public function IsCarriedByLocalPlayer():Bool;
+    function IsCarriedByLocalPlayer():Bool;
     #end
     
     /**
@@ -201,7 +201,7 @@ extern class Weapon extends Entity {
 		`time` | The time in seconds when the last time the weapon was fired.
     **/
     
-    public function SetLastShootTime(?time:Float):Void;
+    function SetLastShootTime(?time:Float):Void;
     
     
     /**
@@ -210,7 +210,7 @@ extern class Weapon extends Entity {
 		`**Returns:** Returns true if weapon is scripted ( SWEP ), false if not ( A built-in HL2 weapon )
     **/
     
-    public function IsScripted():Bool;
+    function IsScripted():Bool;
     
     
     /**
@@ -221,7 +221,7 @@ extern class Weapon extends Entity {
 		`**Returns:** Whether the weapon has ammo or not.
     **/
     
-    public function HasAmmo():Bool;
+    function HasAmmo():Bool;
     
     
     /**
@@ -251,7 +251,7 @@ extern class Weapon extends Entity {
 		```
     **/
     
-    public function GetSlot():Float;
+    function GetSlot():Float;
     
     
     /**
@@ -260,7 +260,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The secondary ammo type ID, or -1 if not found.
     **/
     
-    public function GetSecondaryAmmoType():Float;
+    function GetSecondaryAmmoType():Float;
     
     
     /**
@@ -269,7 +269,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The time in seconds when the last bullet was fired.
     **/
     
-    public function LastShootTime():Float;
+    function LastShootTime():Float;
     
     
     /**
@@ -282,7 +282,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The "nice" name of the weapon.
     **/
     
-    public function GetPrintName():String;
+    function GetPrintName():String;
     
     
     /**
@@ -291,7 +291,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The slot position of the weapon
     **/
     
-    public function GetSlotPos():Float;
+    function GetSlotPos():Float;
     
     
     /**
@@ -300,7 +300,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The time, relative to CurTime
     **/
     
-    public function GetNextPrimaryFire():Float;
+    function GetNextPrimaryFire():Float;
     
     
     /**
@@ -326,7 +326,7 @@ extern class Weapon extends Entity {
 		```
     **/
     
-    public function GetActivity():ACT;
+    function GetActivity():ACT;
     
     
     /**
@@ -335,7 +335,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The time, relative to CurTime
     **/
     
-    public function GetNextSecondaryFire():Float;
+    function GetNextSecondaryFire():Float;
     
     
     /**
@@ -344,7 +344,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The ammo type ID, or -1 if not found.
     **/
     
-    public function GetPrimaryAmmoType():Float;
+    function GetPrimaryAmmoType():Float;
     
     
     /**
@@ -353,7 +353,7 @@ extern class Weapon extends Entity {
 		`**Returns:** Whether the weapon allows to being switched from.
     **/
     
-    public function AllowsAutoSwitchFrom():Bool;
+    function AllowsAutoSwitchFrom():Bool;
     
     
     /**
@@ -380,7 +380,7 @@ extern class Weapon extends Entity {
 		```
     **/
     
-    public function SetHoldType(name:String):Void;
+    function SetHoldType(name:String):Void;
     
     
     /**
@@ -394,7 +394,7 @@ extern class Weapon extends Entity {
 		`**Returns:** Did reloading actually take place
     **/
     
-    public function DefaultReload(act:ACT):Bool;
+    function DefaultReload(act:ACT):Bool;
     
     
     /**
@@ -403,7 +403,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The world model of the weapon.
     **/
     
-    public function GetWeaponWorldModel():String;
+    function GetWeaponWorldModel():String;
     
     
 }

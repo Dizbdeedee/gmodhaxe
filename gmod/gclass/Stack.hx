@@ -16,7 +16,7 @@ extern class Stack {
 		`**Returns:** The item at the top of the stack
     **/
     
-    public function Top():Dynamic;
+    function Top():Dynamic;
     
     
     /**
@@ -27,7 +27,7 @@ extern class Stack {
 		`amount` | Amount of items you want to pop.
     **/
     
-    public function Pop(?amount:Float):Void;
+    function Pop(?amount:Float):Void;
     
     
     /**
@@ -38,7 +38,7 @@ extern class Stack {
 		`object` | The item you want to push
     **/
     
-    public function Push(object:Dynamic):Void;
+    function Push(object:Dynamic):Void;
     
     
     /**
@@ -47,7 +47,7 @@ extern class Stack {
 		`**Returns:** The size of the stack
     **/
     
-    public function Size():Float;
+    function Size():Float;
     
     
 }

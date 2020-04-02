@@ -51,7 +51,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Add(name:String, propertyData:PropertyAdd):Void;
+    static function Add(name:String, propertyData:PropertyAdd):Void;
     
     #if client
     /**
@@ -66,7 +66,7 @@ package gmod.libs;
 		`**Returns:** The hovered entity
     **/
     
-    public static function GetHovered(pos:Vector, aimVec:Vector):Entity;
+    static function GetHovered(pos:Vector, aimVec:Vector):Entity;
     #end
     
     /**
@@ -78,7 +78,7 @@ package gmod.libs;
 		`eyevec` | The aim vector of a player
     **/
     
-    public static function OnScreenClick(eyepos:Vector, eyevec:Vector):Void;
+    static function OnScreenClick(eyepos:Vector, eyevec:Vector):Void;
     
     
     /**
@@ -90,7 +90,7 @@ package gmod.libs;
 		`tr` | The trace that is passed as second argument to Action callback of a property
     **/
     
-    public static function OpenEntityMenu(ent:Entity, tr:AnyTable):Void;
+    static function OpenEntityMenu(ent:Entity, tr:AnyTable):Void;
     
     
     /**
@@ -107,7 +107,7 @@ package gmod.libs;
 		`**Returns:** True if entity can be targeted, false otherwise
     **/
     
-    public static function CanBeTargeted(ent:Entity, ply:Player):Bool;
+    static function CanBeTargeted(ent:Entity, ply:Player):Bool;
     
     
 

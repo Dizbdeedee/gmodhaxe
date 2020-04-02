@@ -12,7 +12,7 @@ package gmod.libs;
 		Called by the engine just before saverestore.LoadGlobal is.
     **/
     @:deprecated("INTERNAL")
-    public static function PreRestore():Void;
+    static function PreRestore():Void;
     
     
     /**
@@ -28,7 +28,7 @@ package gmod.libs;
 		`**Returns:** The variable that was read, if any.
     **/
     
-    public static function ReadVar(save:IRestore):Dynamic;
+    static function ReadVar(save:IRestore):Dynamic;
     
     
     /**
@@ -37,7 +37,7 @@ package gmod.libs;
 		Called by the engine just before saverestore.SaveGlobal is.
     **/
     @:deprecated("INTERNAL")
-    public static function PreSave():Void;
+    static function PreSave():Void;
     
     
     /**
@@ -49,7 +49,7 @@ package gmod.libs;
 		`save` | The save object to write the table to.
     **/
     
-    public static function WriteTable(table:AnyTable, save:ISave):Void;
+    static function WriteTable(table:AnyTable, save:ISave):Void;
     
     
     /**
@@ -63,7 +63,7 @@ package gmod.libs;
 		`**Returns:** The table that has been read, if any
     **/
     
-    public static function ReadTable(save:IRestore):AnyTable;
+    static function ReadTable(save:IRestore):AnyTable;
     
     
     /**
@@ -75,7 +75,7 @@ package gmod.libs;
 		`save` | The save object to write the variable to.
     **/
     
-    public static function WriteVar(value:Dynamic, save:ISave):Void;
+    static function WriteVar(value:Dynamic, save:ISave):Void;
     
     
     /**
@@ -87,7 +87,7 @@ package gmod.libs;
 		`save` | The restore object to read the Entity: GetTable from.
     **/
     
-    public static function LoadEntity(ent:Entity, save:IRestore):Void;
+    static function LoadEntity(ent:Entity, save:IRestore):Void;
     
     
     /**
@@ -99,7 +99,7 @@ package gmod.libs;
 		`save` | The save object to save Entity: GetTable to.
     **/
     
-    public static function SaveEntity(ent:Entity, save:ISave):Void;
+    static function SaveEntity(ent:Entity, save:ISave):Void;
     
     
     /**
@@ -126,7 +126,7 @@ package gmod.libs;
 		If you used example from saverestore. AddSaveHook 1 = Test
     **/
     
-    public static function AddRestoreHook(identifier:String, callback:Function):Void;
+    static function AddRestoreHook(identifier:String, callback:Function):Void;
     
     
     /**
@@ -141,7 +141,7 @@ package gmod.libs;
 		`save` | The save object to write data into the save file.
     **/
     @:deprecated("INTERNAL")
-    public static function SaveGlobal(save:ISave):Void;
+    static function SaveGlobal(save:ISave):Void;
     
     
     /**
@@ -165,7 +165,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddSaveHook(identifier:String, callback:Function):Void;
+    static function AddSaveHook(identifier:String, callback:Function):Void;
     
     
     /**
@@ -179,7 +179,7 @@ package gmod.libs;
 		`**Returns:** The number of keys that can be written with saverestore. WriteTable.
     **/
     
-    public static function WritableKeysInTable(table:AnyTable):Float;
+    static function WritableKeysInTable(table:AnyTable):Float;
     
     
     /**
@@ -194,7 +194,7 @@ package gmod.libs;
 		`save` | The restore object to read data from the save file with.
     **/
     @:deprecated("INTERNAL")
-    public static function LoadGlobal(save:IRestore):Void;
+    static function LoadGlobal(save:IRestore):Void;
     
     
 

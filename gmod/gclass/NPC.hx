@@ -14,14 +14,14 @@ extern class NPC extends Entity {
 		`hullType` | Hull type. See HULL_ Enums
     **/
     
-    public function SetHullType(hullType:HULL):Void;
+    function SetHullType(hullType:HULL):Void;
     #end
     #if server
     /**
         Resets the NPC's movement animation and velocity. Does not actually stop the NPC from moving.
     **/
     
-    public function StopMoving():Void;
+    function StopMoving():Void;
     #end
     #if server
     /**
@@ -56,7 +56,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function SetCondition(condition:COND):Void;
+    function SetCondition(condition:COND):Void;
     #end
     #if server
     /**
@@ -72,7 +72,7 @@ extern class NPC extends Entity {
 		`**Returns:** Returns the sentence index, -1 if the sentence couldn't be played.
     **/
     
-    public function PlaySentence(sentence:String, delay:Float, volume:Float):Float;
+    function PlaySentence(sentence:String, delay:Float, volume:Float):Float;
     #end
     #if server
     /**
@@ -81,7 +81,7 @@ extern class NPC extends Entity {
 		`**Returns:** Hull type, see HULL_ Enums
     **/
     
-    public function GetHullType():HULL;
+    function GetHullType():HULL;
     #end
     #if server
     /**
@@ -109,14 +109,14 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function SetSchedule(schedule:SCHED):Void;
+    function SetSchedule(schedule:SCHED):Void;
     #end
     #if server
     /**
         Clears the current NPC goal or target.
     **/
     
-    public function ClearGoal():Void;
+    function ClearGoal():Void;
     #end
     #if server
     /**
@@ -125,7 +125,7 @@ extern class NPC extends Entity {
 		`**Returns:** If we succeeded setting the behavior.
     **/
     
-    public function UseFollowBehavior():Bool;
+    function UseFollowBehavior():Bool;
     #end
     #if server
     /**
@@ -139,7 +139,7 @@ extern class NPC extends Entity {
 		`**Returns:** If the entity is reachable or not.
     **/
     
-    public function IsUnreachable(testEntity:Entity):Bool;
+    function IsUnreachable(testEntity:Entity):Bool;
     #end
     #if server
     /**
@@ -151,7 +151,7 @@ extern class NPC extends Entity {
 		`taskData` | The task data as a float, not all tasks make use of it.
     **/
     
-    public function StartEngineTask(task:Float, taskData:Float):Void;
+    function StartEngineTask(task:Float, taskData:Float):Void;
     #end
     #if server
     /**
@@ -172,7 +172,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function CapabilitiesRemove(capabilities:CAP):Void;
+    function CapabilitiesRemove(capabilities:CAP):Void;
     #end
     #if server
     /**
@@ -181,14 +181,14 @@ extern class NPC extends Entity {
 		Equivalent to
     **/
     
-    public function SentenceStop():Void;
+    function SentenceStop():Void;
     #end
     #if server
     /**
         Causes the NPC to temporarily forget the current enemy and switch on to a better one.
     **/
     
-    public function MarkEnemyAsEluded():Void;
+    function MarkEnemyAsEluded():Void;
     #end
     #if server
     /**
@@ -209,7 +209,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function CapabilitiesAdd(capabilities:CAP):Void;
+    function CapabilitiesAdd(capabilities:CAP):Void;
     #end
     #if server
     /**
@@ -218,14 +218,14 @@ extern class NPC extends Entity {
 		`**Returns:** The amount of time to get to the target goal.
     **/
     
-    public function GetPathTimeToGoal():Float;
+    function GetPathTimeToGoal():Float;
     #end
     #if server
     /**
         
     **/
     
-    public function SetArrivalSequence():Void;
+    function SetArrivalSequence():Void;
     #end
     #if server
     /**
@@ -258,7 +258,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function SetExpression(expression:String):Float;
+    function SetExpression(expression:String):Float;
     #end
     #if server
     /**
@@ -292,7 +292,7 @@ extern class NPC extends Entity {
 		(To server console) Ent #111: npc_citizen is idle. Ent #120: npc_citizen is idle. Ent #122: npc_citizen is idle. Ent #124: npc_citizen is idle.
     **/
     
-    public function GetNPCState():NPC_STATE;
+    function GetNPCState():NPC_STATE;
     #end
     #if server
     /**
@@ -301,7 +301,7 @@ extern class NPC extends Entity {
 		`**Returns:** Returns true if running an ai_goal, otherwise returns false.
     **/
     
-    public function IsRunningBehavior():Bool;
+    function IsRunningBehavior():Bool;
     #end
     
     /**
@@ -310,7 +310,7 @@ extern class NPC extends Entity {
 		`**Returns:** The NPCs current weapon
     **/
     
-    public function GetActiveWeapon():Entity;
+    function GetActiveWeapon():Entity;
     
     #if server
     /**
@@ -319,7 +319,7 @@ extern class NPC extends Entity {
 		`**Returns:** The NPCs schedule, see SCHED_ Enums or -1 if we failed for some reason
     **/
     
-    public function GetCurrentSchedule():SCHED;
+    function GetCurrentSchedule():SCHED;
     #end
     #if server
     /**
@@ -348,14 +348,14 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function MoveOrder(position:Vector):Void;
+    function MoveOrder(position:Vector):Void;
     #end
     #if server
     /**
         Force an NPC to play its FoundEnemy sound.
     **/
     
-    public function FoundEnemySound():Void;
+    function FoundEnemySound():Void;
     #end
     #if server
     /**
@@ -396,14 +396,14 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function AddEntityRelationship(target:Entity, disposition:D, priority:Float):Void;
+    function AddEntityRelationship(target:Entity, disposition:D, priority:Float):Void;
     #end
     #if server
     /**
         Force an NPC to play his Idle sound.
     **/
     
-    public function IdleSound():Void;
+    function IdleSound():Void;
     #end
     #if server
     /**
@@ -414,7 +414,7 @@ extern class NPC extends Entity {
 		Use NPC:ClearEnemyMemory instead.
     **/
     @:deprecated("")
-    public function RemoveMemory():Void;
+    function RemoveMemory():Void;
     #end
     #if server
     /**
@@ -423,7 +423,7 @@ extern class NPC extends Entity {
 		`**Returns:** 
     **/
     
-    public function GetArrivalSequence():Float;
+    function GetArrivalSequence():Float;
     #end
     #if server
     /**
@@ -437,14 +437,14 @@ extern class NPC extends Entity {
 		`taskData` | The task data.
     **/
     
-    public function RunEngineTask(taskID:Float, taskData:Float):Void;
+    function RunEngineTask(taskID:Float, taskData:Float):Void;
     #end
     #if server
     /**
         Makes an NPC exit a scripted sequence, if one is playing.
     **/
     
-    public function ExitScriptedSequence():Void;
+    function ExitScriptedSequence():Void;
     #end
     #if server
     /**
@@ -453,7 +453,7 @@ extern class NPC extends Entity {
 		`**Returns:** 
     **/
     
-    public function UseLeadBehavior():Bool;
+    function UseLeadBehavior():Bool;
     #end
     #if server
     /**
@@ -462,7 +462,7 @@ extern class NPC extends Entity {
 		`**Returns:** If we succeeded setting the behavior.
     **/
     
-    public function UseActBusyBehavior():Bool;
+    function UseActBusyBehavior():Bool;
     #end
     #if server
     /**
@@ -494,7 +494,7 @@ extern class NPC extends Entity {
 		Prints "A ____ attacked ____!" to everyones chat.
     **/
     
-    public function Disposition(ent:Entity):D;
+    function Disposition(ent:Entity):D;
     #end
     #if server
     /**
@@ -503,7 +503,7 @@ extern class NPC extends Entity {
 		`**Returns:** Current NPC movement activity, see ACT_ Enums.
     **/
     
-    public function GetMovementActivity():ACT;
+    function GetMovementActivity():ACT;
     #end
     #if server
     /**
@@ -512,7 +512,7 @@ extern class NPC extends Entity {
 		`**Returns:** See CLASS_ Enums
     **/
     
-    public function Classify():CLASS;
+    function Classify():CLASS;
     #end
     #if server
     /**
@@ -521,7 +521,7 @@ extern class NPC extends Entity {
 		`**Returns:** The file path of the expression.
     **/
     
-    public function GetExpression():String;
+    function GetExpression():String;
     #end
     #if server
     /**
@@ -546,7 +546,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function NavSetWanderGoal(xoffset:Float, yoffset:Float):Void;
+    function NavSetWanderGoal(xoffset:Float, yoffset:Float):Void;
     #end
     #if server
     /**
@@ -555,14 +555,14 @@ extern class NPC extends Entity {
 		`**Returns:** 
     **/
     
-    public function GetArrivalActivity():Float;
+    function GetArrivalActivity():Float;
     #end
     #if server
     /**
         Clears the NPC's current expression which can be set with NPC:SetExpression.
     **/
     
-    public function ClearExpression():Void;
+    function ClearExpression():Void;
     #end
     #if server
     /**
@@ -591,7 +591,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function TargetOrder(target:Entity):Void;
+    function TargetOrder(target:Entity):Void;
     #end
     #if server
     /**
@@ -607,7 +607,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function CapabilitiesClear():Void;
+    function CapabilitiesClear():Void;
     #end
     #if server
     /**
@@ -649,7 +649,7 @@ extern class NPC extends Entity {
 		(To server console): npc_antlion (120) has conditions: COND_IN_PVS COND_NO_WEAPON COND_HAVE_ENEMY_LOS COND_TOO_FAR_TO_ATTACK COND_NO_HEAR_DANGER COND_FLOATING_OFF_GROUND
     **/
     
-    public function HasCondition(condition:COND):Bool;
+    function HasCondition(condition:COND):Bool;
     #end
     #if server
     /**
@@ -658,7 +658,7 @@ extern class NPC extends Entity {
 		`**Returns:** The movement sequence index
     **/
     
-    public function GetMovementSequence():Float;
+    function GetMovementSequence():Float;
     #end
     #if server
     /**
@@ -670,21 +670,21 @@ extern class NPC extends Entity {
 		`pos` | The last known position of the enemy.
     **/
     
-    public function UpdateEnemyMemory(enemy:Entity, pos:Vector):Void;
+    function UpdateEnemyMemory(enemy:Entity, pos:Vector):Void;
     #end
     #if server
     /**
         
     **/
     
-    public function SetArrivalSpeed():Void;
+    function SetArrivalSpeed():Void;
     #end
     #if server
     /**
         Force an NPC to play his LostEnemy sound.
     **/
     
-    public function LostEnemySound():Void;
+    function LostEnemySound():Void;
     #end
     #if server
     /**
@@ -693,7 +693,7 @@ extern class NPC extends Entity {
 		`**Returns:** 
     **/
     
-    public function UseAssaultBehavior():Bool;
+    function UseAssaultBehavior():Bool;
     #end
     #if server
     /**
@@ -702,14 +702,14 @@ extern class NPC extends Entity {
 		`**Returns:** The aim direction of the NPC.
     **/
     
-    public function GetAimVector():Vector;
+    function GetAimVector():Vector;
     #end
     #if server
     /**
         Tries to achieve our ideal animation state, playing any transition sequences that we need to play to get there.
     **/
     
-    public function MaintainActivity():Void;
+    function MaintainActivity():Void;
     #end
     #if server
     /**
@@ -718,7 +718,7 @@ extern class NPC extends Entity {
 		`**Returns:** The capabilities as a bitflag. See CAP_ Enums
     **/
     
-    public function CapabilitiesGet():CAP;
+    function CapabilitiesGet():CAP;
     #end
     #if server
     /**
@@ -729,7 +729,7 @@ extern class NPC extends Entity {
 		`condition` | The COND_ Enums to clear out.
     **/
     
-    public function ClearCondition(condition:COND):Void;
+    function ClearCondition(condition:COND):Void;
     #end
     #if server
     /**
@@ -758,7 +758,7 @@ extern class NPC extends Entity {
 		The NPC will chase the player.
     **/
     
-    public function SetLastPosition(Position:Vector):Void;
+    function SetLastPosition(Position:Vector):Void;
     #end
     #if server
     /**
@@ -789,7 +789,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function DropWeapon(?weapon:Weapon, ?target:Vector, ?velocity:Vector):Void;
+    function DropWeapon(?weapon:Weapon, ?target:Vector, ?velocity:Vector):Void;
     #end
     #if server
     /**
@@ -798,7 +798,7 @@ extern class NPC extends Entity {
 		`**Returns:** NPC's proficiency for current weapon. See WEAPON_PROFICIENCY_ Enums.
     **/
     
-    public function GetCurrentWeaponProficiency():WEAPON_PROFICIENCY;
+    function GetCurrentWeaponProficiency():WEAPON_PROFICIENCY;
     #end
     #if server
     /**
@@ -821,7 +821,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function SetCurrentWeaponProficiency(proficiency:WEAPON_PROFICIENCY):Void;
+    function SetCurrentWeaponProficiency(proficiency:WEAPON_PROFICIENCY):Void;
     #end
     #if server
     /**
@@ -835,7 +835,7 @@ extern class NPC extends Entity {
 		`**Returns:** The weapon entity given to the NPC.
     **/
     
-    public function Give(weapon:String):Weapon;
+    function Give(weapon:String):Weapon;
     #end
     #if server
     /**
@@ -844,7 +844,7 @@ extern class NPC extends Entity {
 		`**Returns:** 
     **/
     
-    public function UseFuncTankBehavior():Bool;
+    function UseFuncTankBehavior():Bool;
     #end
     #if server
     /**
@@ -855,7 +855,7 @@ extern class NPC extends Entity {
 		`act` | 
     **/
     
-    public function SetArrivalActivity(act:Float):Void;
+    function SetArrivalActivity(act:Float):Void;
     #end
     #if server
     /**
@@ -866,7 +866,7 @@ extern class NPC extends Entity {
 		`dist` | The distance to goal that is close enough for the NPC
     **/
     
-    public function SetArrivalDistance(dist:Float):Void;
+    function SetArrivalDistance(dist:Float):Void;
     #end
     #if server
     /**
@@ -875,7 +875,7 @@ extern class NPC extends Entity {
 		Only usable on "ai" base entities.
     **/
     
-    public function UseNoBehavior():Void;
+    function UseNoBehavior():Void;
     #end
     #if server
     /**
@@ -886,7 +886,7 @@ extern class NPC extends Entity {
 		`time` | How long to try rebuilding path before failing task
     **/
     
-    public function SetMaxRouteRebuildTime(time:Float):Void;
+    function SetMaxRouteRebuildTime(time:Float):Void;
     #end
     #if server
     /**
@@ -895,7 +895,7 @@ extern class NPC extends Entity {
 		`**Returns:** Whether the NPC is moving or not.
     **/
     
-    public function IsMoving():Bool;
+    function IsMoving():Bool;
     #end
     #if server
     /**
@@ -962,14 +962,14 @@ extern class NPC extends Entity {
 		All NPCs on the SERVER will get their memory updated if they don't already have an enemy, and start moving to the last know position of the enemy and try to attack. This enemy will be a random Player. They will also try and shoot enemy cover.
     **/
     
-    public function GetEnemy():NPC;
+    function GetEnemy():NPC;
     #end
     #if server
     /**
         Clears the Enemy from the NPC's memory, effectively forgetting it until met again with either the NPC vision or with NPC:UpdateEnemyMemory.
     **/
     
-    public function ClearEnemyMemory():Void;
+    function ClearEnemyMemory():Void;
     #end
     #if server
     /**
@@ -978,7 +978,7 @@ extern class NPC extends Entity {
 		`**Returns:** Blocking entity
     **/
     
-    public function GetBlockingEntity():Entity;
+    function GetBlockingEntity():Entity;
     #end
     #if server
     /**
@@ -1011,7 +1011,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function IsCurrentSchedule(schedule:SCHED):Bool;
+    function IsCurrentSchedule(schedule:SCHED):Bool;
     #end
     #if server
     /**
@@ -1023,7 +1023,7 @@ extern class NPC extends Entity {
 		`dir` | Unit vector pointing in the direction of the target random node
     **/
     
-    public function NavSetRandomGoal(minPathLength:Float, dir:Vector):Void;
+    function NavSetRandomGoal(minPathLength:Float, dir:Vector):Void;
     #end
     #if server
     /**
@@ -1034,7 +1034,7 @@ extern class NPC extends Entity {
 		`**Returns:** Target entity
     **/
     
-    public function GetTarget():Entity;
+    function GetTarget():Entity;
     #end
     #if server
     /**
@@ -1043,7 +1043,7 @@ extern class NPC extends Entity {
 		`**Returns:** Current activity, see ACT_ Enums.
     **/
     
-    public function GetActivity():ACT;
+    function GetActivity():ACT;
     #end
     #if server
     /**
@@ -1057,7 +1057,7 @@ extern class NPC extends Entity {
 		`**Returns:** A human understandable string equivalent of that condition.
     **/
     
-    public function ConditionName(cond:COND):String;
+    function ConditionName(cond:COND):String;
     #end
     #if server
     /**
@@ -1068,7 +1068,7 @@ extern class NPC extends Entity {
 		`**Returns:** The NPC's shooting position.
     **/
     
-    public function GetShootPos():Vector;
+    function GetShootPos():Vector;
     #end
     #if server
     /**
@@ -1081,7 +1081,7 @@ extern class NPC extends Entity {
 		`task` | A string most likely defined as a Source Task, for more information on Tasks go to https://developer.valvesoftware.com/wiki/Task
     **/
     
-    public function TaskFail(task:String):Void;
+    function TaskFail(task:String):Void;
     #end
     #if server
     /**
@@ -1159,14 +1159,14 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function SetEnemy(enemy:Entity, ?newenemy:Bool):Void;
+    function SetEnemy(enemy:Entity, ?newenemy:Bool):Void;
     #end
     #if server
     /**
         Force an NPC to play his Fear sound.
     **/
     
-    public function FearSound():Void;
+    function FearSound():Void;
     #end
     #if server
     /**
@@ -1175,7 +1175,7 @@ extern class NPC extends Entity {
 		`**Returns:** The number of hammer units the NPC is away from the Goal.
     **/
     
-    public function GetPathDistanceToGoal():Float;
+    function GetPathDistanceToGoal():Float;
     #end
     #if server
     /**
@@ -1187,7 +1187,7 @@ extern class NPC extends Entity {
 		`offset` | The offset to apply to the targeted entity's position.
     **/
     
-    public function NavSetGoalTarget(target:Entity, offset:Vector):Void;
+    function NavSetGoalTarget(target:Entity, offset:Vector):Void;
     #end
     #if server
     /**
@@ -1198,14 +1198,14 @@ extern class NPC extends Entity {
 		`sequenceId` | The movement sequence index
     **/
     
-    public function SetMovementSequence(sequenceId:Float):Void;
+    function SetMovementSequence(sequenceId:Float):Void;
     #end
     #if server
     /**
         Stops the current schedule that the NPC is doing.
     **/
     
-    public function ClearSchedule():Void;
+    function ClearSchedule():Void;
     #end
     #if server
     /**
@@ -1228,7 +1228,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function AddRelationship(relationstring:D):Void;
+    function AddRelationship(relationstring:D):Void;
     #end
     #if server
     /**
@@ -1239,14 +1239,14 @@ extern class NPC extends Entity {
 		`state` | New NPC state, see NPC_STATE_ Enums
     **/
     
-    public function SetNPCState(state:NPC_STATE):Void;
+    function SetNPCState(state:NPC_STATE):Void;
     #end
     #if server
     /**
         Force an NPC to play his Alert sound.
     **/
     
-    public function AlertSound():Void;
+    function AlertSound():Void;
     #end
     #if server
     /**
@@ -1257,14 +1257,14 @@ extern class NPC extends Entity {
 		`position` | The position to set as the goal
     **/
     
-    public function NavSetGoal(position:Vector):Void;
+    function NavSetGoal(position:Vector):Void;
     #end
     #if server
     /**
         Updates the NPC's hull and physics hull in order to match its model scale. Entity:SetModelScale seems to take care of this regardless.
     **/
     
-    public function SetHullSizeNormal():Void;
+    function SetHullSizeNormal():Void;
     #end
     #if server
     /**
@@ -1295,7 +1295,7 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function SetMovementActivity(activity:ACT):Void;
+    function SetMovementActivity(activity:ACT):Void;
     #end
     #if server
     /**
@@ -1304,7 +1304,7 @@ extern class NPC extends Entity {
 		This is meant to be used alongside NPC:TaskFail to complete or fail custom Lua defined tasks. (Schedule:AddTask)
     **/
     
-    public function TaskComplete():Void;
+    function TaskComplete():Void;
     #end
     #if server
     /**
@@ -1325,14 +1325,14 @@ extern class NPC extends Entity {
 		```
     **/
     
-    public function SetTarget(entity:Entity):Void;
+    function SetTarget(entity:Entity):Void;
     #end
     #if server
     /**
         
     **/
     
-    public function SetArrivalDirection():Void;
+    function SetArrivalDirection():Void;
     #end
     
 }

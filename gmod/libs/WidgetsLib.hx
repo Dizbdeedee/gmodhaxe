@@ -29,7 +29,7 @@ package gmod.libs;
 		```
     **/
     @:deprecated("INTERNAL")
-    public static function PlayerTick(ply:Player, mv:CMoveData):Void;
+    static function PlayerTick(ply:Player, mv:CMoveData):Void;
     
     #if client
     /**
@@ -54,7 +54,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function RenderMe(ent:Entity):Void;
+    static function RenderMe(ent:Entity):Void;
     #end
     
 

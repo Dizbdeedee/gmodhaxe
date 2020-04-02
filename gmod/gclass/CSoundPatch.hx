@@ -16,7 +16,7 @@ extern class CSoundPatch {
 		`seconds` | Fade time.
     **/
     
-    public function FadeOut(seconds:Float):Void;
+    function FadeOut(seconds:Float):Void;
     
     
     /**
@@ -33,7 +33,7 @@ extern class CSoundPatch {
 		```
     **/
     
-    public function Play():Void;
+    function Play():Void;
     
     
     /**
@@ -42,7 +42,7 @@ extern class CSoundPatch {
 		`**Returns:** The DSP effects of the sound List of DSP's are Pick from the here.
     **/
     
-    public function GetDSP():Float;
+    function GetDSP():Float;
     
     
     /**
@@ -54,7 +54,7 @@ extern class CSoundPatch {
 		`deltaTime` | Time to fade the volume from previous to new value from.
     **/
     
-    public function ChangeVolume(volume:Float, ?deltaTime:Float):Void;
+    function ChangeVolume(volume:Float, ?deltaTime:Float):Void;
     
     
     /**
@@ -63,7 +63,7 @@ extern class CSoundPatch {
 		`**Returns:** The current pitch, can range from 0-255.
     **/
     
-    public function GetPitch():Float;
+    function GetPitch():Float;
     
     
     /**
@@ -77,7 +77,7 @@ extern class CSoundPatch {
 		`deltaTime` | The time to fade from previous to the new pitch.
     **/
     
-    public function ChangePitch(pitch:Float, ?deltaTime:Float):Void;
+    function ChangePitch(pitch:Float, ?deltaTime:Float):Void;
     
     
     /**
@@ -86,7 +86,7 @@ extern class CSoundPatch {
 		`**Returns:** The current sound level, see SNDLVL_ Enums.
     **/
     
-    public function GetSoundLevel():SNDLVL;
+    function GetSoundLevel():SNDLVL;
     
     
     /**
@@ -98,7 +98,7 @@ extern class CSoundPatch {
 		`pitch` | The pitch can range from 0-255.
     **/
     
-    public function PlayEx(volume:Float, pitch:Float):Void;
+    function PlayEx(volume:Float, pitch:Float):Void;
     
     
     /**
@@ -107,7 +107,7 @@ extern class CSoundPatch {
 		`**Returns:** Is playing or not
     **/
     
-    public function IsPlaying():Bool;
+    function IsPlaying():Bool;
     
     
     /**
@@ -116,7 +116,7 @@ extern class CSoundPatch {
 		`**Returns:** The current volume, ranging from 0 to 1.
     **/
     
-    public function GetVolume():Float;
+    function GetVolume():Float;
     
     
     /**
@@ -127,7 +127,7 @@ extern class CSoundPatch {
 		`level` | The sound level in decibel. See SNDLVL_ Enums
     **/
     
-    public function SetSoundLevel(level:SNDLVL):Void;
+    function SetSoundLevel(level:SNDLVL):Void;
     
     
     /**
@@ -138,7 +138,7 @@ extern class CSoundPatch {
 		`dsp` | The DSP effect to set. Pick from the list of DSP's
     **/
     
-    public function SetDSP(dsp:Float):Void;
+    function SetDSP(dsp:Float):Void;
     
     
     /**
@@ -147,7 +147,7 @@ extern class CSoundPatch {
 		**Bug:** BUG This will not work if the entity attached to this sound patch (specified by CreateSound) is invalid. Issue Tracker: #3260
     **/
     
-    public function Stop():Void;
+    function Stop():Void;
     
     
 }

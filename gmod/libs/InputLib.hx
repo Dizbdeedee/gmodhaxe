@@ -12,7 +12,7 @@ package gmod.libs;
 		`**Returns:** Whether key trapping active or not
     **/
     
-    public static function IsKeyTrapping():Bool;
+    static function IsKeyTrapping():Bool;
     
     
     /**
@@ -26,7 +26,7 @@ package gmod.libs;
 		`**Returns:** The button code, see BUTTON_CODE_ Enums.
     **/
     
-    public static function GetKeyCode(button:String):BUTTON_CODE;
+    static function GetKeyCode(button:String):BUTTON_CODE;
     
     
     /**
@@ -35,14 +35,14 @@ package gmod.libs;
 		`**Returns:** isDown
     **/
     
-    public static function IsShiftDown():Bool;
+    static function IsShiftDown():Bool;
     
     
     /**
         Begins waiting for a key to be pressed so we can save it for input.CheckKeyTrapping. Used by the DBinder.
     **/
     
-    public static function StartKeyTrapping():Void;
+    static function StartKeyTrapping():Void;
     
     
     /**
@@ -54,7 +54,7 @@ package gmod.libs;
 		`b` | The cursors position on the Y axis
     **/
     
-    public static function GetCursorPos():InputLibGetCursorPosReturn;
+    static function GetCursorPos():InputLibGetCursorPosReturn;
     
     
     /**
@@ -70,7 +70,7 @@ package gmod.libs;
 		`**Returns:** True if the mouse key was released the same frame that this function was called, false otherwise.
     **/
     
-    public static function WasMouseReleased(key:MOUSE):Bool;
+    static function WasMouseReleased(key:MOUSE):Bool;
     
     
     /**
@@ -97,7 +97,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function WasMousePressed(key:MOUSE):Bool;
+    static function WasMousePressed(key:MOUSE):Bool;
     
     
     /**
@@ -113,7 +113,7 @@ package gmod.libs;
 		`**Returns:** True if the key was released the same frame that this function was called, false otherwise.
     **/
     
-    public static function WasKeyReleased(key:KEY):Bool;
+    static function WasKeyReleased(key:KEY):Bool;
     
     
     /**
@@ -137,7 +137,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetCursorPos(mouseX:Float, mouseY:Float):Void;
+    static function SetCursorPos(mouseX:Float, mouseY:Float):Void;
     
     
     /**
@@ -151,7 +151,7 @@ package gmod.libs;
 		`**Returns:** Is the key down
     **/
     
-    public static function IsMouseDown(mouseKey:MOUSE):Bool;
+    static function IsMouseDown(mouseKey:MOUSE):Bool;
     
     
     /**
@@ -177,7 +177,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function IsKeyDown(key:KEY):Bool;
+    static function IsKeyDown(key:KEY):Bool;
     
     
     /**
@@ -186,7 +186,7 @@ package gmod.libs;
 		`**Returns:** Is Ctrl key down or not
     **/
     
-    public static function IsControlDown():Bool;
+    static function IsControlDown():Bool;
     
     
     /**
@@ -200,7 +200,7 @@ package gmod.libs;
 		`**Returns:** The bind string of the given key.
     **/
     
-    public static function LookupKeyBinding(key:BUTTON_CODE):String;
+    static function LookupKeyBinding(key:BUTTON_CODE):String;
     
     
     /**
@@ -216,7 +216,7 @@ package gmod.libs;
 		`**Returns:** Is the button down
     **/
     
-    public static function IsButtonDown(button:BUTTON_CODE):Bool;
+    static function IsButtonDown(button:BUTTON_CODE):Bool;
     
     
     /**
@@ -232,7 +232,7 @@ package gmod.libs;
 		`**Returns:** Button name.
     **/
     
-    public static function GetKeyName(button:BUTTON_CODE):String;
+    static function GetKeyName(button:BUTTON_CODE):String;
     
     
     /**
@@ -248,7 +248,7 @@ package gmod.libs;
 		`**Returns:** Whether the key is being held down or not.
     **/
     
-    public static function WasKeyTyped(key:KEY):Bool;
+    static function WasKeyTyped(key:KEY):Bool;
     
     
     /**
@@ -264,7 +264,7 @@ package gmod.libs;
 		`**Returns:** Whether the mouse key was double pressed or not.
     **/
     
-    public static function WasMouseDoublePressed(button:MOUSE):Bool;
+    static function WasMouseDoublePressed(button:MOUSE):Bool;
     
     
     /**
@@ -291,7 +291,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function LookupBinding(binding:String, ?exact:Bool):String;
+    static function LookupBinding(binding:String, ?exact:Bool):String;
     
     
     /**
@@ -300,7 +300,7 @@ package gmod.libs;
 		`**Returns:** The key, see KEY_ Enums
     **/
     
-    public static function CheckKeyTrapping():KEY;
+    static function CheckKeyTrapping():KEY;
     
     
     /**
@@ -311,7 +311,7 @@ package gmod.libs;
 		`weapon` | The weapon entity to switch to.
     **/
     
-    public static function SelectWeapon(weapon:Weapon):Void;
+    static function SelectWeapon(weapon:Weapon):Void;
     
     
     /**
@@ -327,7 +327,7 @@ package gmod.libs;
 		`**Returns:** True if the key was initially pressed the same frame that this function was called, false otherwise.
     **/
     
-    public static function WasKeyPressed(key:KEY):Bool;
+    static function WasKeyPressed(key:KEY):Bool;
     
     
 

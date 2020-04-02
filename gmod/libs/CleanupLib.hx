@@ -16,7 +16,7 @@ package gmod.libs;
 		`ent` | The entity to add to the player's cleanup list.
     **/
     
-    public static function Add(pl:Player, type:String, ent:Entity):Void;
+    static function Add(pl:Player, type:String, ent:Entity):Void;
     #end
     
     /**
@@ -25,7 +25,7 @@ package gmod.libs;
 		`**Returns:** cleanup_types
     **/
     
-    public static function GetTable():AnyTable;
+    static function GetTable():AnyTable;
     
     #if server
     /**
@@ -40,7 +40,7 @@ package gmod.libs;
 		`**Returns:** Whether any action was taken.
     **/
     
-    public static function ReplaceEntity(from:Entity, to:Entity):Bool;
+    static function ReplaceEntity(from:Entity, to:Entity):Bool;
     #end
     #if server
     /**
@@ -55,7 +55,7 @@ package gmod.libs;
 		`args` | First and only arg is the cleanup type.
     **/
     @:deprecated("INTERNAL")
-    public static function CC_Cleanup(pl:Player, command:String, args:AnyTable):Void;
+    static function CC_Cleanup(pl:Player, command:String, args:AnyTable):Void;
     #end
     #if server
     /**
@@ -70,21 +70,21 @@ package gmod.libs;
 		`args` | First and only arg is the cleanup type.
     **/
     @:deprecated("INTERNAL")
-    public static function CC_AdminCleanup(pl:Player, command:String, args:AnyTable):Void;
+    static function CC_AdminCleanup(pl:Player, command:String, args:AnyTable):Void;
     #end
     #if client
     /**
         Repopulates the clients cleanup menu
     **/
     
-    public static function UpdateUI():Void;
+    static function UpdateUI():Void;
     #end
     #if server
     /**
         Gets the cleanup list.
     **/
     
-    public static function GetList():Void;
+    static function GetList():Void;
     #end
     
     /**
@@ -95,7 +95,7 @@ package gmod.libs;
 		`type` | Name of type.
     **/
     
-    public static function Register(type:String):Void;
+    static function Register(type:String):Void;
     
     
 

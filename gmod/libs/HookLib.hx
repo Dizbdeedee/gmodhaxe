@@ -41,7 +41,7 @@ import gmod.Hook;
 		After the hook gets removed, the dark overlay doesn't appear anymore.
     **/
     
-    public static function Remove<T:Function>(eventName:Hook<T>, identifier:Dynamic):Void;
+    static function Remove<T:Function>(eventName:Hook<T>, identifier:Dynamic):Void;
     
     
     /**
@@ -104,7 +104,7 @@ import gmod.Hook;
 		
 		"CustomHook table: 0x00000000 Player [1][PotatoMan]"
     **/
-    public static function Add<T:Function>(eventName:Hook<T>, identifier:Any, func:T):Void;
+    static function Add<T:Function>(eventName:Hook<T>, identifier:Any, func:T):Void;
     
     
     /**
@@ -190,7 +190,7 @@ import gmod.Hook;
 		Hello Hey
     **/
     
-    public static function Call<T:Function>(eventName:Hook<T>, gamemodeTable:AnyTable, args:Rest<Dynamic>):Rest<Dynamic>;
+    static function Call<T:Function>(eventName:Hook<T>, gamemodeTable:AnyTable, args:Rest<Dynamic>):Rest<Dynamic>;
     
     
     /**
@@ -208,7 +208,7 @@ import gmod.Hook;
 		```
     **/
     
-    public static function GetTable():AnyTable;
+    static function GetTable():AnyTable;
     
     
     /**
@@ -228,7 +228,7 @@ import gmod.Hook;
 		
 		`**Returns:** Returned data from called hooks
     **/
-    public static function Run<T:Function>(eventName:Hook<T>, args:Rest<Dynamic>):Dynamic;
+    static function Run<T:Function>(eventName:Hook<T>, args:Rest<Dynamic>):Dynamic;
     
     
 

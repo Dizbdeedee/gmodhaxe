@@ -28,14 +28,14 @@ extern class PhysCollide {
 		`c` | Fraction of the trace. This is calculated from the distance between startPos, hitPos, and endPos.
     **/
     
-    public function TraceBox(origin:Vector, angles:Angle, rayStart:Vector, rayEnd:Vector, rayMins:Vector, rayMaxs:Vector):PhysCollideTraceBoxReturn;
+    function TraceBox(origin:Vector, angles:Angle, rayStart:Vector, rayEnd:Vector, rayMins:Vector, rayMaxs:Vector):PhysCollideTraceBoxReturn;
     
     
     /**
         Destroys the PhysCollide object.
     **/
     
-    public function Destroy():Void;
+    function Destroy():Void;
     
     
     /**
@@ -46,7 +46,7 @@ extern class PhysCollide {
 		`**Returns:** Is valid or not.
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     
 }

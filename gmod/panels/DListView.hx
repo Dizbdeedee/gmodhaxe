@@ -46,7 +46,7 @@ extern class DListView extends DPanel {
     **/
     @:deprecated("INTERNAL: Use DListView: OnRowSelected instead!")
     @:hook 
-    function OnClickLine(line:Panel, isSelected:Bool):Void;
+    private function OnClickLine(line:Panel, isSelected:Bool):Void;
     /**
         Gets all of the lines added to the DListView.
 		
@@ -172,7 +172,7 @@ extern class DListView extends DPanel {
     **/
     
     @:hook 
-    function OnRowRightClick(lineID:Float, line:Panel):Void;
+    private function OnRowRightClick(lineID:Float, line:Panel):Void;
     /**
         Clears the current selection in the DListView.
     **/
@@ -381,7 +381,7 @@ extern class DListView extends DPanel {
     **/
     
     @:hook 
-    function OnRowSelected(rowIndex:Float, row:Panel):Void;
+    private function OnRowSelected(rowIndex:Float, row:Panel):Void;
     /**
         Sorts the items in the specified column.
 		

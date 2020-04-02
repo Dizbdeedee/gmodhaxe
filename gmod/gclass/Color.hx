@@ -17,7 +17,7 @@ extern class Color {
 		`a` | 
     **/
     
-    public function SetUnpacked(r:Float, g:Float, b:Float, a:Float):Void;
+    function SetUnpacked(r:Float, g:Float, b:Float, a:Float):Void;
     
     
     /**
@@ -26,7 +26,7 @@ extern class Color {
 		`**Returns:** The table with elements 1 = r, 2 = g, 3 = b, 4 = a.
     **/
     
-    public function ToTable():AnyTable;
+    function ToTable():AnyTable;
     
     
     /**
@@ -39,7 +39,7 @@ extern class Color {
 		`c` | b
     **/
     
-    public function Unpack():ColorUnpackReturn;
+    function Unpack():ColorUnpackReturn;
     
     
     /**
@@ -64,7 +64,7 @@ extern class Color {
 		Sets the player color for Player1 (only works if they are using a colorable player model)
     **/
     
-    public function ToVector():Vector;
+    function ToVector():Vector;
     
     
 }

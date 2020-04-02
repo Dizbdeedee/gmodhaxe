@@ -48,7 +48,7 @@ extern class DIconLayout extends DDragBase {
     **/
     
     @:hook 
-    function OnModified():Void;
+    private function OnModified():Void;
     /**
         ***INTERNAL** 
 		

@@ -42,6 +42,6 @@ class ENT_POINT extends gmod.sent.ENT {
     **/
     
     @:hook
-    private function UpdateTransmitState():Float {return null;}
+    function UpdateTransmitState():Float {return null;}
 }
 #end

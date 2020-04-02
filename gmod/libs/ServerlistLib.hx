@@ -12,7 +12,7 @@ package gmod.libs;
 		Adds current server the player is on to their favorites.
     **/
     @:deprecated("INTERNAL")
-    public static function AddCurrentServerToFavorites():Void;
+    static function AddCurrentServerToFavorites():Void;
     
     
     /**
@@ -24,7 +24,7 @@ package gmod.libs;
 		`callback` | The function to be called if and when the request finishes. Function has one argument, a table containing tables with player info. Each table with player info has next fields: number time - The amount of time the player is playing on the server, in seconds string name - The player name number score - The players score
     **/
     
-    public static function PlayerList(ip:String, callback:Function):Void;
+    static function PlayerList(ip:String, callback:Function):Void;
     
     
     /**
@@ -35,7 +35,7 @@ package gmod.libs;
 		`data` | The information about what kind of servers we want. See ServerQueryData structure.
     **/
     
-    public static function Query(data:ServerQueryData):Void;
+    static function Query(data:ServerQueryData):Void;
     
     
 

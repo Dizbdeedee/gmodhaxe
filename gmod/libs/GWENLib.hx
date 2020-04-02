@@ -35,7 +35,7 @@ package gmod.libs;
 		If using default skin, it will be 32x32 transparent blue box centered inside the 100x100 box.
     **/
     
-    public static function CreateTextureCentered(x:Float, y:Float, w:Float, h:Float):(x:Float,y:Float,w:Float,h:Float,?clr:Color) -> Void;
+    static function CreateTextureCentered(x:Float, y:Float, w:Float, h:Float):(x:Float,y:Float,w:Float,h:Float,?clr:Color) -> Void;
     
     
     /**
@@ -67,7 +67,7 @@ package gmod.libs;
 		If using default skin, it will be a 100x100px checked checkbox in top left corner of the screen.
     **/
     
-    public static function CreateTextureNormal(x:Float, y:Float, w:Float, h:Float):(x:Float,y:Float,w:Float,h:Float,?clr:Color) -> Void;
+    static function CreateTextureNormal(x:Float, y:Float, w:Float, h:Float):(x:Float,y:Float,w:Float,h:Float,?clr:Color) -> Void;
     
     
     /**
@@ -82,7 +82,7 @@ package gmod.libs;
 		`**Returns:** The color of the point on the skin as a Color structure.
     **/
     
-    public static function TextureColor(x:Float, y:Float):Color;
+    static function TextureColor(x:Float, y:Float):Color;
     
     
     /**
@@ -119,7 +119,7 @@ package gmod.libs;
 		If using default skin, it will be a 100x100px transparent blue box in top left corner with solid blue borders.
     **/
     
-    public static function CreateTextureBorder(x:Float, y:Float, w:Float, h:Float, left:Float, top:Float, right:Float, bottom:Float, ?source:IMaterial):(x:Float,y:Float,w:Float,h:Float,?clr:Color) -> Void;
+    static function CreateTextureBorder(x:Float, y:Float, w:Float, h:Float, left:Float, top:Float, right:Float, bottom:Float, ?source:IMaterial):(x:Float,y:Float,w:Float,h:Float,?clr:Color) -> Void;
     
     
 

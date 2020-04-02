@@ -28,7 +28,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Remove(name:String):Void;
+    static function Remove(name:String):Void;
     
     
     /**
@@ -69,7 +69,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Add(name:String, callback:Function, ?autoComplete:Function, ?helpText:String, ?flags:FCVAR):Void;
+    static function Add(name:String, callback:Function, ?autoComplete:Function, ?helpText:String, ?flags:FCVAR):Void;
     
     
     /**
@@ -86,7 +86,7 @@ package gmod.libs;
 		`**Returns:** Possibilities for auto-completion. This is the return value of the auto-complete callback.
     **/
     @:deprecated("INTERNAL")
-    public static function AutoComplete(command:String, arguments:String):AnyTable;
+    static function AutoComplete(command:String, arguments:String):AnyTable;
     
     
     /**
@@ -98,7 +98,7 @@ package gmod.libs;
 		`b` | Table of command autocomplete functions.
     **/
     
-    public static function GetTable():ConcommandLibGetTableReturn;
+    static function GetTable():ConcommandLibGetTableReturn;
     
     
     /**
@@ -119,7 +119,7 @@ package gmod.libs;
 		`**Returns:** true if the console command with the given name exists, and false if it doesn't.
     **/
     @:deprecated("INTERNAL: You might be looking for RunConsoleCommand or Player: ConCommand.")
-    public static function Run(ply:Player, cmd:String, args:Dynamic, argumentString:String):Bool;
+    static function Run(ply:Player, cmd:String, args:Dynamic, argumentString:String):Bool;
     
     
 

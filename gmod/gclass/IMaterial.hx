@@ -23,7 +23,7 @@ extern class IMaterial {
 		`**Returns:** The linear color vector
     **/
     
-    public function GetVectorLinear(materialVector:String):Vector;
+    function GetVectorLinear(materialVector:String):Vector;
     
     
     /**
@@ -32,7 +32,7 @@ extern class IMaterial {
 		`**Returns:** width
     **/
     
-    public function Width():Float;
+    function Width():Float;
     
     
     /**
@@ -41,7 +41,7 @@ extern class IMaterial {
 		`**Returns:** Material name/path
     **/
     
-    public function GetName():String;
+    function GetName():String;
     
     
     /**
@@ -55,7 +55,7 @@ extern class IMaterial {
 		`**Returns:** float
     **/
     
-    public function GetFloat(materialFloat:String):Float;
+    function GetFloat(materialFloat:String):Float;
     
     
     /**
@@ -64,7 +64,7 @@ extern class IMaterial {
 		Be careful though - this function is slow - so try to call it only when needed!
     **/
     
-    public function Recompute():Void;
+    function Recompute():Void;
     
     
     /**
@@ -75,7 +75,7 @@ extern class IMaterial {
 		`materialValueName` | The name of the material value to be unset.
     **/
     
-    public function SetUndefined(materialValueName:String):Void;
+    function SetUndefined(materialValueName:String):Void;
     
     
     /**
@@ -87,7 +87,7 @@ extern class IMaterial {
 		`vec` | The new vector.
     **/
     
-    public function SetVector(MaterialVector:String, vec:Vector):Void;
+    function SetVector(MaterialVector:String, vec:Vector):Void;
     
     
     /**
@@ -96,7 +96,7 @@ extern class IMaterial {
 		`**Returns:** height
     **/
     
-    public function Height():Float;
+    function Height():Float;
     
     
     /**
@@ -110,7 +110,7 @@ extern class IMaterial {
 		`**Returns:** int
     **/
     
-    public function GetInt(materialInt:String):Float;
+    function GetInt(materialInt:String):Float;
     
     
     /**
@@ -124,7 +124,7 @@ extern class IMaterial {
 		`**Returns:** matrix
     **/
     
-    public function GetMatrix(materialMatrix:String):VMatrix;
+    function GetMatrix(materialMatrix:String):VMatrix;
     
     
     /**
@@ -135,7 +135,7 @@ extern class IMaterial {
 		`**Returns:** shaderName
     **/
     
-    public function GetShader():String;
+    function GetShader():String;
     
     
     /**
@@ -144,7 +144,7 @@ extern class IMaterial {
 		`**Returns:** Is this material the error material? (___error)
     **/
     
-    public function IsError():Bool;
+    function IsError():Bool;
     
     
     /**
@@ -156,7 +156,7 @@ extern class IMaterial {
 		`float` | The new float value.
     **/
     
-    public function SetFloat(materialFloat:String, float:Float):Void;
+    function SetFloat(materialFloat:String, float:Float):Void;
     
     
     /**
@@ -170,7 +170,7 @@ extern class IMaterial {
 		`**Returns:** The value as a string
     **/
     
-    public function GetString(materialString:String):String;
+    function GetString(materialString:String):String;
     
     
     /**
@@ -186,7 +186,7 @@ extern class IMaterial {
 		`**Returns:** The color vector
     **/
     
-    public function GetVector(materialVector:String):Vector;
+    function GetVector(materialVector:String):Vector;
     
     
     /**
@@ -200,7 +200,7 @@ extern class IMaterial {
 		`**Returns:** The value of the shader parameter. Returns nothing if the param doesn't exist.
     **/
     
-    public function GetTexture(param:String):ITexture;
+    function GetTexture(param:String):ITexture;
     
     
     /**
@@ -212,7 +212,7 @@ extern class IMaterial {
 		`matrix` | The new matrix.
     **/
     
-    public function SetMatrix(materialMatrix:String, matrix:VMatrix):Void;
+    function SetMatrix(materialMatrix:String, matrix:VMatrix):Void;
     
     
     /**
@@ -245,7 +245,7 @@ extern class IMaterial {
 		```
     **/
     
-    public function SetTexture(materialTexture:String, texture:ITexture):Void;
+    function SetTexture(materialTexture:String, texture:ITexture):Void;
     
     
     /**
@@ -280,7 +280,7 @@ extern class IMaterial {
 		Both printouts will return identical color, which at the time of testing is RGBA - 255, 244, 242, 255.
     **/
     
-    public function GetColor(x:Float, y:Float):Color;
+    function GetColor(x:Float, y:Float):Color;
     
     
     /**
@@ -301,7 +301,7 @@ extern class IMaterial {
 		$alpha=1 $alphatestreference=0 $basetexture=userdata: 0x2e13fc18 $basetexturetransform=[1.00000,0.00000,0.00000,0.00000] [0.00000,1.00000,0.00000,0.00000] [0.00000,0.00000,1.00000,0.00000] [0.00000,0.00000,0.00000,1.00000] $color=1.000000 1.000000 1.000000 $color2=1.000000 1.000000 1.000000 $depthblend=0 $depthblendscale=50 $detailblendfactor=1 $detailblendmode=0 $detailframe=0 $detailscale=4 $detailtexturetransform=[1.00000,0.00000,0.00000,0.00000] [0.00000,1.00000,0.00000,0.00000] [0.00000,0.00000,1.00000,0.00000] [0.00000,0.00000,0.00000,1.00000] $distancealpha=0 $distancealphafromdetail=0 $edgesoftnessend=0.5 $edgesoftnessstart=0.5 $envmapcontrast=0 $envmapframe=0 $envmapmaskframe=0 $envmapmasktransform=[1.00000,0.00000,0.00000,0.00000] [0.00000,1.00000,0.00000,0.00000] [0.00000,0.00000,1.00000,0.00000] [0.00000,0.00000,0.00000,1.00000] $envmapsaturation=1 $envmaptint=1.000000 1.000000 1.000000 $flags=32896 $flags2=262144 $flags_defined=32896 $flags_defined2=0 $flashlighttexture=userdata: 0x2e13fe68 $flashlighttextureframe=0 $frame=0 $gammacolorread=0 $glow=0 $glowalpha=1 $glowcolor=1.000000 1.000000 1.000000 $glowend=0 $glowstart=0 $glowx=0 $glowy=0 $hdrcolorscale=1 $linearwrite=0 $outline=0 $outlinealpha=1 $outlinecolor=1.000000 1.000000 1.000000 $outlineend0=0 $outlineend1=0 $outlinestart0=0 $outlinestart1=0 $phong=0 $phongalbedotint=0 $phongboost=0 $phongexponent=0 $phongfresnelranges=0.000000 0.000000 0.000000 $phongtint=0.000000 0.000000 0.000000 $receiveflashlight=0 $scaleedgesoftnessbasedonscreenres=0 $scaleoutlinesoftnessbasedonscreenres=0 $separatedetailuvs=0 $softedges=0 $srgbtint=1.000000 1.000000 1.000000 $vertexalphatest=0
     **/
     
-    public function GetKeyValues():AnyTable;
+    function GetKeyValues():AnyTable;
     
     
     /**
@@ -313,7 +313,7 @@ extern class IMaterial {
 		`int` | The new int value.
     **/
     
-    public function SetInt(materialInt:String, int:Float):Void;
+    function SetInt(materialInt:String, int:Float):Void;
     
     
     /**
@@ -325,7 +325,7 @@ extern class IMaterial {
 		`string` | The new string.
     **/
     
-    public function SetString(materialString:String, string:String):Void;
+    function SetString(materialString:String, string:String):Void;
     
     
     /**
@@ -338,7 +338,7 @@ extern class IMaterial {
 		`shaderName` | Name of the shader
     **/
     @:deprecated("This function does nothing")
-    public function SetShader(shaderName:String):Void;
+    function SetShader(shaderName:String):Void;
     
     
 }

@@ -17,7 +17,7 @@ extern class CLuaEmitter {
 		`maxs` | The maximum position of the box
     **/
     
-    public function SetBBox(mins:Vector, maxs:Vector):Void;
+    function SetBBox(mins:Vector, maxs:Vector):Void;
     
     
     /**
@@ -32,7 +32,7 @@ extern class CLuaEmitter {
 		`**Returns:** The created particle, if any.
     **/
     
-    public function Add(material:String, position:Vector):CLuaParticle;
+    function Add(material:String, position:Vector):CLuaParticle;
     
     
     /**
@@ -41,7 +41,7 @@ extern class CLuaEmitter {
 		`**Returns:** Position of this particle emitter.
     **/
     
-    public function GetPos():Vector;
+    function GetPos():Vector;
     
     
     /**
@@ -50,7 +50,7 @@ extern class CLuaEmitter {
 		`**Returns:** Whether this emitter is 3D or not.
     **/
     
-    public function Is3D():Bool;
+    function Is3D():Bool;
     
     
     /**
@@ -62,7 +62,7 @@ extern class CLuaEmitter {
 		`distanceMax` | Max distance where the alpha starts fading.
     **/
     
-    public function SetNearClip(distanceMin:Float, distanceMax:Float):Void;
+    function SetNearClip(distanceMin:Float, distanceMax:Float):Void;
     
     
     /**
@@ -73,14 +73,14 @@ extern class CLuaEmitter {
 		`noDraw` | Whether we should draw the particles ( false ) or not ( true )
     **/
     
-    public function SetNoDraw(noDraw:Bool):Void;
+    function SetNoDraw(noDraw:Bool):Void;
     
     
     /**
         Manually renders all particles the emitter has created.
     **/
     
-    public function Draw():Void;
+    function Draw():Void;
     
     
     /**
@@ -91,14 +91,14 @@ extern class CLuaEmitter {
 		`radius` | Particle radius.
     **/
     
-    public function SetParticleCullRadius(radius:Float):Void;
+    function SetParticleCullRadius(radius:Float):Void;
     
     
     /**
         Removes the emitter and all its particles.
     **/
     
-    public function Finish():Void;
+    function Finish():Void;
     
     
     /**
@@ -109,7 +109,7 @@ extern class CLuaEmitter {
 		`position` | New position.
     **/
     
-    public function SetPos(position:Vector):Void;
+    function SetPos(position:Vector):Void;
     
     
     /**
@@ -118,7 +118,7 @@ extern class CLuaEmitter {
 		`**Returns:** The amount of active particles of this emitter
     **/
     
-    public function GetNumActiveParticles():Float;
+    function GetNumActiveParticles():Float;
     
     
     /**
@@ -127,7 +127,7 @@ extern class CLuaEmitter {
 		`**Returns:** Whether this CLuaEmitter is valid or not.
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     
 }

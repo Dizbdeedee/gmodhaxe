@@ -12,7 +12,7 @@ package gmod.libs;
 		`**Returns:** The video recording settings, see VideoData structure.
     **/
     
-    public static function VideoSettings():VideoData;
+    static function VideoSettings():VideoData;
     #end
     
     /**
@@ -21,7 +21,7 @@ package gmod.libs;
 		`**Returns:** Number of ticks since the game server started.
     **/
     
-    public static function TickCount():Float;
+    static function TickCount():Float;
     
     #if client
     /**
@@ -32,7 +32,7 @@ package gmod.libs;
 		`**Returns:** Total amount of ticks of currently loaded demo.
     **/
     
-    public static function GetDemoPlaybackTotalTicks():Float;
+    static function GetDemoPlaybackTotalTicks():Float;
     #end
     #if server
     /**
@@ -41,7 +41,7 @@ package gmod.libs;
 		This is only functional when running in server test mode (launch option -systemtest). Server test mode is used internally at Facepunch as part of the build process to make sure that the dedicated servers aren't crashing on startup.
     **/
     
-    public static function CloseServer():Void;
+    static function CloseServer():Void;
     #end
     
     /**
@@ -53,7 +53,7 @@ package gmod.libs;
 		`doMount` | The mount state, true to mount, false to unmount
     **/
     
-    public static function SetMounted(depotID:String, doMount:Bool):Void;
+    static function SetMounted(depotID:String, doMount:Bool):Void;
     
     #if client
     /**
@@ -64,7 +64,7 @@ package gmod.libs;
 		`**Returns:** The time scale of demo playback, value of demo_timescale console variable.
     **/
     
-    public static function GetDemoPlaybackTimeScale():Float;
+    static function GetDemoPlaybackTimeScale():Float;
     #end
     #if client
     /**
@@ -73,7 +73,7 @@ package gmod.libs;
 		`**Returns:** Whether the game is currently recording a demo or not.
     **/
     
-    public static function IsRecordingDemo():Bool;
+    static function IsRecordingDemo():Bool;
     #end
     #if client
     /**
@@ -87,7 +87,7 @@ package gmod.libs;
 		`**Returns:** Compressed dupeData. Use util.JSONToTable to make it into a format useable by the duplicator tool.
     **/
     
-    public static function OpenDupe(dupeName:String):String;
+    static function OpenDupe(dupeName:String):String;
     #end
     #if client
     /**
@@ -98,7 +98,7 @@ package gmod.libs;
 		`**Returns:** Whether the game is currently playing a demo or not.
     **/
     
-    public static function IsPlayingDemo():Bool;
+    static function IsPlayingDemo():Bool;
     #end
     
     /**
@@ -109,7 +109,7 @@ package gmod.libs;
 		`**Returns:** Returns a table with 6 keys (title, type, tags, wsid, timeadded)
     **/
     @:deprecated("Used internally for in-game menus, may be merged in the future into engine. GetAddons.")
-    public static function GetUserContent():AnyTable;
+    static function GetUserContent():AnyTable;
     
     
     /**
@@ -136,7 +136,7 @@ package gmod.libs;
 				wsid		=	123456789
     **/
     
-    public static function GetAddons():AnyTable;
+    static function GetAddons():AnyTable;
     
     #if server
     /**
@@ -150,7 +150,7 @@ package gmod.libs;
 		`pattern` | The pattern to change the lightstyle to. "a" is the darkest, "z" is the brightest. You can use stuff like "abcxyz" to make flashing patterns. The normal brightness for a map is "m". Values over "z" are allowed, "~" for instance.
     **/
     
-    public static function LightStyle(lightstyle:Float, pattern:String):Void;
+    static function LightStyle(lightstyle:Float, pattern:String):Void;
     #end
     
     /**
@@ -170,7 +170,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ActiveGamemode():String;
+    static function ActiveGamemode():String;
     
     
     /**
@@ -202,7 +202,7 @@ package gmod.libs;
 		 name = sandbox
     **/
     
-    public static function GetGamemodes():AnyTable;
+    static function GetGamemodes():AnyTable;
     
     #if client
     /**
@@ -216,7 +216,7 @@ package gmod.libs;
 		`map` | The map the save is used for.
     **/
     
-    public static function WriteSave(saveData:String, name:String, time:Float, map:String):Void;
+    static function WriteSave(saveData:String, name:String, time:Float, map:String):Void;
     #end
     
     /**
@@ -237,7 +237,7 @@ package gmod.libs;
 		66.666668156783 (servertick is 66)
     **/
     
-    public static function TickInterval():Float;
+    static function TickInterval():Float;
     
     #if client
     /**
@@ -246,7 +246,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetDemoPlaybackStartTick():Float;
+    static function GetDemoPlaybackStartTick():Float;
     #end
     #if client
     /**
@@ -257,7 +257,7 @@ package gmod.libs;
 		`**Returns:** The amount of ticks of currently loaded demo.
     **/
     
-    public static function GetDemoPlaybackTick():Float;
+    static function GetDemoPlaybackTick():Float;
     #end
     
     /**
@@ -305,7 +305,7 @@ package gmod.libs;
 		 installed = true
     **/
     
-    public static function GetGames():AnyTable;
+    static function GetGames():AnyTable;
     
     #if client
     /**
@@ -317,7 +317,7 @@ package gmod.libs;
 		`jpeg` | The dupe icon, created by render. Capture
     **/
     
-    public static function WriteDupe(dupe:String, jpeg:String):Void;
+    static function WriteDupe(dupe:String, jpeg:String):Void;
     #end
     #if client
     /**
@@ -342,7 +342,7 @@ package gmod.libs;
 		Server Tick: 66.666668156783
     **/
     
-    public static function ServerFrameTime():EngineLibServerFrameTimeReturn;
+    static function ServerFrameTime():EngineLibServerFrameTimeReturn;
     #end
     
 

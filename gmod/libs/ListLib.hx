@@ -20,7 +20,7 @@ package gmod.libs;
 		`**Returns:** Returns true if the list contains the value, false otherwise
     **/
     
-    public static function Contains(list:String, value:Dynamic):Bool;
+    static function Contains(list:String, value:Dynamic):Bool;
     
     
     /**
@@ -34,7 +34,7 @@ package gmod.libs;
 		`**Returns:** The actual list
     **/
     
-    public static function GetForEdit(identifier:String):AnyTable;
+    static function GetForEdit(identifier:String):AnyTable;
     
     
     /**
@@ -57,7 +57,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Get(identifier:String):AnyTable;
+    static function Get(identifier:String):AnyTable;
     
     
     /**
@@ -81,7 +81,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Add(identifier:String, item:Dynamic):Void;
+    static function Add(identifier:String, item:Dynamic):Void;
     
     
     /**
@@ -123,7 +123,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Set(identifier:String, key:Dynamic, item:Dynamic):Void;
+    static function Set(identifier:String, key:Dynamic, item:Dynamic):Void;
     
     
     /**
@@ -140,7 +140,7 @@ package gmod.libs;
 		`**Returns:** Returns true if the list contains the key, false otherwise
     **/
     
-    public static function HasEntry(list:String, key:Dynamic):Bool;
+    static function HasEntry(list:String, key:Dynamic):Bool;
     
     
 

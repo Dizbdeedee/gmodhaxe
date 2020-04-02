@@ -12,14 +12,14 @@ package gmod.libs;
 		`**Returns:** mouseX
     **/
     
-    public static function MouseX():Float;
+    static function MouseX():Float;
     
     
     /**
         Opens the game menu overlay.
     **/
     
-    public static function ActivateGameUI():Void;
+    static function ActivateGameUI():Void;
     
     
     /**
@@ -46,7 +46,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function InternalKeyTyped(code:Float):Void;
+    static function InternalKeyTyped(code:Float):Void;
     
     
     /**
@@ -58,7 +58,7 @@ package gmod.libs;
 		`deltaY` | The movement delta on the y axis.
     **/
     
-    public static function InternalCursorMoved(deltaX:Float, deltaY:Float):Void;
+    static function InternalCursorMoved(deltaX:Float, deltaY:Float):Void;
     
     
     /**
@@ -98,7 +98,7 @@ package gmod.libs;
 		The player's current aimvector will be printed
     **/
     
-    public static function ScreenToVector(x:Float, y:Float):Vector;
+    static function ScreenToVector(x:Float, y:Float):Vector;
     
     
     /**
@@ -109,7 +109,7 @@ package gmod.libs;
 		`delta` | The amount of scrolling to simulate.
     **/
     
-    public static function InternalMouseWheeled(delta:Float):Void;
+    static function InternalMouseWheeled(delta:Float):Void;
     
     
     /**
@@ -118,7 +118,7 @@ package gmod.libs;
 		`**Returns:** Whether the console is visible or not.
     **/
     
-    public static function IsConsoleVisible():Bool;
+    static function IsConsoleVisible():Bool;
     
     
     /**
@@ -129,7 +129,7 @@ package gmod.libs;
 		`key` | The key, see MOUSE_ Enums.
     **/
     
-    public static function InternalMouseReleased(key:MOUSE):Void;
+    static function InternalMouseReleased(key:MOUSE):Void;
     
     
     /**
@@ -140,7 +140,7 @@ package gmod.libs;
 		`key` | The key, see MOUSE_ Enums.
     **/
     
-    public static function InternalMousePressed(key:MOUSE):Void;
+    static function InternalMousePressed(key:MOUSE):Void;
     
     
     /**
@@ -154,7 +154,7 @@ package gmod.libs;
 		`mouseY` | The Y coordinate to move the cursor to.
     **/
     @:deprecated("Use input. SetCursorPos instead.")
-    public static function SetMousePos(mouseX:Float, mouseY:Float):Void;
+    static function SetMousePos(mouseX:Float, mouseY:Float):Void;
     
     
     /**
@@ -165,7 +165,7 @@ package gmod.libs;
 		`key` | The key, see KEY_ Enums.
     **/
     
-    public static function InternalKeyCodeReleased(key:KEY):Void;
+    static function InternalKeyCodeReleased(key:KEY):Void;
     
     
     /**
@@ -174,14 +174,14 @@ package gmod.libs;
 		`**Returns:** mouseY
     **/
     
-    public static function MouseY():Float;
+    static function MouseY():Float;
     
     
     /**
         Hides the game menu overlay.
     **/
     
-    public static function HideGameUI():Void;
+    static function HideGameUI():Void;
     
     
     /**
@@ -192,7 +192,7 @@ package gmod.libs;
 		`key` | The key, see KEY_ Enums.
     **/
     
-    public static function InternalKeyCodePressed(key:KEY):Void;
+    static function InternalKeyCodePressed(key:KEY):Void;
     
     
     /**
@@ -203,7 +203,7 @@ package gmod.libs;
 		`key` | The key, see MOUSE_ Enums.
     **/
     
-    public static function InternalMouseDoublePressed(key:MOUSE):Void;
+    static function InternalMouseDoublePressed(key:MOUSE):Void;
     
     
     /**
@@ -234,7 +234,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function OpenURL(url:String):Void;
+    static function OpenURL(url:String):Void;
     
     
     /**
@@ -243,7 +243,7 @@ package gmod.libs;
 		`**Returns:** Whenever the game menu overlay ( main menu ) is open or not
     **/
     
-    public static function IsGameUIVisible():Bool;
+    static function IsGameUIVisible():Bool;
     
     
     /**
@@ -257,7 +257,7 @@ package gmod.libs;
 		`b` | mouseY
     **/
     @:deprecated("Use input. GetCursorPos instead.")
-    public static function MousePos():GuiLibMousePosReturn;
+    static function MousePos():GuiLibMousePosReturn;
     
     
     /**
@@ -268,7 +268,7 @@ package gmod.libs;
 		`key` | The key, see KEY_ Enums.
     **/
     
-    public static function InternalKeyCodeTyped(key:KEY):Void;
+    static function InternalKeyCodeTyped(key:KEY):Void;
     
     
     /**
@@ -281,7 +281,7 @@ package gmod.libs;
 		`enabled` | Whether the cursor should be enabled or not. (true = enable, false = disable)
     **/
     
-    public static function EnableScreenClicker(enabled:Bool):Void;
+    static function EnableScreenClicker(enabled:Bool):Void;
     
     
     /**
@@ -328,7 +328,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ShowConsole():Void;
+    static function ShowConsole():Void;
     
     
 

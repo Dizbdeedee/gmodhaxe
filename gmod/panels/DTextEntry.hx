@@ -41,7 +41,7 @@ extern class DTextEntry extends TextEntry {
     **/
     
     @:hook 
-    function OnEnter():Void;
+    private function OnEnter():Void;
     /**
         Returns the text color of a DTextEntry.
 		
@@ -107,7 +107,7 @@ extern class DTextEntry extends TextEntry {
     **/
     
     @:hook 
-    function GetAutoComplete(inputText:String):AnyTable;
+    private function GetAutoComplete(inputText:String):AnyTable;
     /**
         Returns the contents of the DTextEntry as a number.
 		
@@ -196,7 +196,7 @@ extern class DTextEntry extends TextEntry {
     **/
     
     @:hook 
-    function OnGetFocus():Void;
+    private function OnGetFocus():Void;
     /**
         Sets the cursor's color in DTextEntry (the blinking line).
 		
@@ -463,7 +463,7 @@ extern class DTextEntry extends TextEntry {
     **/
     
     @:hook 
-    function OnChange():Void;
+    private function OnChange():Void;
     /**
         Returns the cursor color of a DTextEntry.
 		
@@ -510,7 +510,7 @@ extern class DTextEntry extends TextEntry {
     **/
     
     @:hook 
-    function OnKeyCodeTyped(keyCode:KEY):Bool;
+    private function OnKeyCodeTyped(keyCode:KEY):Bool;
     
 }
 

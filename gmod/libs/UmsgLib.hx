@@ -20,7 +20,7 @@ package gmod.libs;
 		`entity` | The entity to be sent.
     **/
     @:deprecated("You should be using the net library instead")
-    public static function Entity(entity:Entity):Void;
+    static function Entity(entity:Entity):Void;
     
     
     /**
@@ -33,7 +33,7 @@ package gmod.libs;
 		`normal` | The vector normal to be sent.
     **/
     @:deprecated("You should be using the net library instead")
-    public static function VectorNormal(normal:Vector):Void;
+    static function VectorNormal(normal:Vector):Void;
     
     
     /**
@@ -46,7 +46,7 @@ package gmod.libs;
 		`vector` | The vector to be sent.
     **/
     @:deprecated("You should be using the net library instead")
-    public static function Vector(vector:Vector):Void;
+    static function Vector(vector:Vector):Void;
     
     
     /**
@@ -59,7 +59,7 @@ package gmod.libs;
 		`bool` | The bool to be sent.
     **/
     @:deprecated("You should be using the net library instead")
-    public static function Bool(bool:Bool):Void;
+    static function Bool(bool:Bool):Void;
     
     
     /**
@@ -72,7 +72,7 @@ package gmod.libs;
 		`char` | The char to be sent.
     **/
     @:deprecated("You should be using the net library instead")
-    public static function Char(char:Float):Void;
+    static function Char(char:Float):Void;
     
     
     /**
@@ -88,7 +88,7 @@ package gmod.libs;
 		`filter` | If passed a player object, it will only be sent to the player, if passed a CRecipientFilter of players, it will be sent to all specified players, if passed nil (or another invalid value), the message will be sent to all players.
     **/
     @:deprecated("You should be using net library instead")
-    public static function Start(name:String, filter:Player):Void;
+    static function Start(name:String, filter:Player):Void;
     
     
     /**
@@ -101,7 +101,7 @@ package gmod.libs;
 		`string` | The string to be pooled.
     **/
     @:deprecated("Inferior version of util. AddNetworkString")
-    public static function PoolString(string:String):Void;
+    static function PoolString(string:String):Void;
     
     
     /**
@@ -114,7 +114,7 @@ package gmod.libs;
 		`int` | The int to be sent.
     **/
     @:deprecated("You should be using the net library instead")
-    public static function Long(int:Float):Void;
+    static function Long(int:Float):Void;
     
     
     /**
@@ -123,7 +123,7 @@ package gmod.libs;
 		Dispatches the usermessage to the client(s).
     **/
     @:deprecated("You should be using the net library instead")
-    public static function End():Void;
+    static function End():Void;
     
     
     /**
@@ -136,7 +136,7 @@ package gmod.libs;
 		`float` | The float to be sent.
     **/
     @:deprecated("You should be using the net library instead")
-    public static function Float(float:Float):Void;
+    static function Float(float:Float):Void;
     
     
     /**
@@ -149,7 +149,7 @@ package gmod.libs;
 		`angle` | The angle to be sent.
     **/
     @:deprecated("You should be using the net library instead")
-    public static function Angle(angle:Angle):Void;
+    static function Angle(angle:Angle):Void;
     
     
     /**
@@ -162,7 +162,7 @@ package gmod.libs;
 		`short` | The short to be sent.
     **/
     @:deprecated("You should be using the net library instead")
-    public static function Short(short:Float):Void;
+    static function Short(short:Float):Void;
     
     
     /**
@@ -187,7 +187,7 @@ package gmod.libs;
 		```
     **/
     @:deprecated("You should be using the net library instead")
-    public static function String(string:String):Void;
+    static function String(string:String):Void;
     
     
 

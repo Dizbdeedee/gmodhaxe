@@ -45,7 +45,7 @@ package gmod.libs;
 		banana
     **/
     
-    public static function GetWinningKey(inputTable:AnyTable):Dynamic;
+    static function GetWinningKey(inputTable:AnyTable):Dynamic;
     
     
     /**
@@ -60,7 +60,7 @@ package gmod.libs;
 		`**Returns:** The supplied or created table
     **/
     
-    public static function ForceInsert(?tab:AnyTable, value:Dynamic):AnyTable;
+    static function ForceInsert(?tab:AnyTable, value:Dynamic):AnyTable;
     
     
     /**
@@ -74,7 +74,7 @@ package gmod.libs;
 		`**Returns:** De-sanitised table
     **/
     
-    public static function DeSanitise(tbl:AnyTable):AnyTable;
+    static function DeSanitise(tbl:AnyTable):AnyTable;
     
     
     /**
@@ -90,7 +90,7 @@ package gmod.libs;
 		`**Returns:** Value
     **/
     @:deprecated("Instead, index the table with a key of 1. Non-numerically indexed tables are not ordered and do not have a first key.")
-    public static function GetFirstValue(tab:AnyTable):Dynamic;
+    static function GetFirstValue(tab:AnyTable):Dynamic;
     
     
     /**
@@ -104,7 +104,7 @@ package gmod.libs;
 		`**Returns:** sorted
     **/
     
-    public static function SortDesc(tbl:AnyTable):AnyTable;
+    static function SortDesc(tbl:AnyTable):AnyTable;
     
     
     /**
@@ -118,7 +118,7 @@ package gmod.libs;
 		`**Returns:** New table
     **/
     
-    public static function LowerKeyNames(tbl:AnyTable):AnyTable;
+    static function LowerKeyNames(tbl:AnyTable):AnyTable;
     
     
     /**
@@ -150,7 +150,7 @@ package gmod.libs;
 		One Two Three Four Four Five Six
     **/
     
-    public static function Add(target:AnyTable, source:AnyTable):AnyTable;
+    static function Add(target:AnyTable, source:AnyTable):AnyTable;
     
     
     /**
@@ -193,7 +193,7 @@ package gmod.libs;
 		nil true
     **/
     
-    public static function HasValue(tbl:AnyTable, value:Dynamic):Bool;
+    static function HasValue(tbl:AnyTable, value:Dynamic):Bool;
     
     
     /**
@@ -239,7 +239,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Count(tbl:AnyTable):Float;
+    static function Count(tbl:AnyTable):Float;
     
     
     /**
@@ -274,7 +274,7 @@ package gmod.libs;
 		Jill Bill Phil
     **/
     
-    public static function SortByMember(tab:AnyTable, memberKey:Dynamic, ?ascending:Bool):Void;
+    static function SortByMember(tab:AnyTable, memberKey:Dynamic, ?ascending:Bool):Void;
     
     
     /**
@@ -311,7 +311,7 @@ package gmod.libs;
 		 Whereas the length operator ( #) returns the highest sequential index, this returns the value of the highest numeric index.
     **/
     
-    public static function maxn(tbl:AnyTable):Float;
+    static function maxn(tbl:AnyTable):Float;
     
     
     /**
@@ -327,7 +327,7 @@ package gmod.libs;
 		`**Returns:** Key
     **/
     @:deprecated("Instead, use the result of the length (#) operator, ensuring it is not zero. Non-numerically indexed tables are not ordered and do not have a last key.")
-    public static function GetLastKey(tab:AnyTable):Dynamic;
+    static function GetLastKey(tab:AnyTable):Dynamic;
     
     
     /**
@@ -358,7 +358,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Inherit(target:AnyTable, base:AnyTable):AnyTable;
+    static function Inherit(target:AnyTable, base:AnyTable):AnyTable;
     
     
     /**
@@ -389,7 +389,7 @@ package gmod.libs;
 		2	=	two
     **/
     
-    public static function GetKeys(tabl:AnyTable):AnyTable;
+    static function GetKeys(tabl:AnyTable):AnyTable;
     
     
     /**
@@ -414,7 +414,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Sanitise(tab:AnyTable):AnyTable;
+    static function Sanitise(tab:AnyTable):AnyTable;
     
     
     /**
@@ -452,7 +452,7 @@ package gmod.libs;
 		3	=	One
     **/
     
-    public static function Reverse(tbl:AnyTable):AnyTable;
+    static function Reverse(tbl:AnyTable):AnyTable;
     
     
     /**
@@ -498,7 +498,7 @@ package gmod.libs;
 		I think the best website ever is google.com.
     **/
     
-    public static function Random(haystack:AnyTable):TableLibRandomReturn;
+    static function Random(haystack:AnyTable):TableLibRandomReturn;
     
     
     /**
@@ -529,7 +529,7 @@ package gmod.libs;
 		a in console
     **/
     @:deprecated("Instead, iterate your table with ipairs, storing the previous value and checking for the target. Non-numerically indexed tables are not ordered.")
-    public static function FindPrev(tbl:AnyTable, value:Dynamic):Dynamic;
+    static function FindPrev(tbl:AnyTable, value:Dynamic):Dynamic;
     
     
     /**
@@ -568,7 +568,7 @@ package gmod.libs;
 		3 = a
     **/
     
-    public static function SortByKey(tab:AnyTable, ?descending:Bool):AnyTable;
+    static function SortByKey(tab:AnyTable, ?descending:Bool):AnyTable;
     
     
     /**
@@ -602,7 +602,7 @@ package gmod.libs;
 		}
     **/
     
-    public static function CollapseKeyValue(input:AnyTable):AnyTable;
+    static function CollapseKeyValue(input:AnyTable):AnyTable;
     
     
     /**
@@ -636,7 +636,7 @@ package gmod.libs;
 		table.concat test
     **/
     
-    public static function concat(tbl:AnyTable, ?concatenator:String, ?startPos:Float, ?endPos:Float):String;
+    static function concat(tbl:AnyTable, ?concatenator:String, ?startPos:Float, ?endPos:Float):String;
     
     
     /**
@@ -650,7 +650,7 @@ package gmod.libs;
 		`**Returns:** Is sequential
     **/
     
-    public static function IsSequential(tab:AnyTable):Bool;
+    static function IsSequential(tab:AnyTable):Bool;
     
     
     /**
@@ -681,7 +681,7 @@ package gmod.libs;
 		c in console
     **/
     @:deprecated("Instead, iterate the table using ipairs or increment from the previous index using next. Non-numerically indexed tables are not ordered.")
-    public static function FindNext(tbl:AnyTable, value:Dynamic):Dynamic;
+    static function FindNext(tbl:AnyTable, value:Dynamic):Dynamic;
     
     
     /**
@@ -695,7 +695,7 @@ package gmod.libs;
 		`callback` | Function to call for every key-value pair. Arguments passed are: any key any value
     **/
     @:deprecated("You should use pairs() instead.")
-    public static function ForEach(tab:AnyTable, callback:Function):Void;
+    static function ForEach(tab:AnyTable, callback:Function):Void;
     
     
     /**
@@ -710,7 +710,7 @@ package gmod.libs;
 		`**Returns:** The key at which the value was found, or false if the value was not found.
     **/
     
-    public static function RemoveByValue(tbl:AnyTable, val:Dynamic):Dynamic;
+    static function RemoveByValue(tbl:AnyTable, val:Dynamic):Dynamic;
     
     
     /**
@@ -736,7 +736,7 @@ package gmod.libs;
 		0
     **/
     
-    public static function Empty(tbl:AnyTable):Void;
+    static function Empty(tbl:AnyTable):Void;
     
     
     /**
@@ -750,7 +750,7 @@ package gmod.libs;
 		`func` | The function to run for each index.
     **/
     @:deprecated("This was deprecated in Lua 5.1 and removed in 5.2. You should use ipairs() instead.")
-    public static function foreachi(table:AnyTable, func:Function):Void;
+    static function foreachi(table:AnyTable, func:Function):Void;
     
     
     /**
@@ -766,7 +766,7 @@ package gmod.libs;
 		`**Returns:** Key
     **/
     @:deprecated("Instead, expect the first key to be 1. Non-numerically indexed tables are not ordered and do not have a first key.")
-    public static function GetFirstKey(tab:AnyTable):Dynamic;
+    static function GetFirstKey(tab:AnyTable):Dynamic;
     
     
     /**
@@ -781,7 +781,7 @@ package gmod.libs;
 		`**Returns:** Key
     **/
     
-    public static function KeyFromValue(tab:AnyTable, value:Dynamic):Dynamic;
+    static function KeyFromValue(tab:AnyTable, value:Dynamic):Dynamic;
     
     
     /**
@@ -808,7 +808,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function remove(tbl:AnyTable, ?index:Float):Dynamic;
+    static function remove(tbl:AnyTable, ?index:Float):Dynamic;
     
     
     /**
@@ -824,7 +824,7 @@ package gmod.libs;
 		`**Returns:** Value
     **/
     @:deprecated("Instead, index the table with the result of the length (#) operator, ensuring it is not zero. Non-numerically indexed tables are not ordered and do not have a last key.")
-    public static function GetLastValue(tab:AnyTable):Dynamic;
+    static function GetLastValue(tab:AnyTable):Dynamic;
     
     
     /**
@@ -853,7 +853,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Merge(destination:AnyTable, source:AnyTable):AnyTable;
+    static function Merge(destination:AnyTable, source:AnyTable):AnyTable;
     
     
     /**
@@ -881,7 +881,7 @@ package gmod.libs;
 		1 = Numeric keys 2 = Table 2
     **/
     
-    public static function CopyFromTo(source:AnyTable, target:AnyTable):Void;
+    static function CopyFromTo(source:AnyTable, target:AnyTable):Void;
     
     
     /**
@@ -920,7 +920,7 @@ package gmod.libs;
 		8	=	lol
     **/
     
-    public static function insert(tbl:AnyTable, position:Float, value:Dynamic):Float;
+    static function insert(tbl:AnyTable, position:Float, value:Dynamic):Float;
     
     
     /**
@@ -936,7 +936,7 @@ package gmod.libs;
 		`**Returns:** Is empty
     **/
     
-    public static function IsEmpty(tab:AnyTable):Bool;
+    static function IsEmpty(tab:AnyTable):Bool;
     
     
     /**
@@ -1006,7 +1006,7 @@ package gmod.libs;
 				__key	=	SecondMember
     **/
     
-    public static function ClearKeys(table:AnyTable, ?saveKeys:Bool):AnyTable;
+    static function ClearKeys(table:AnyTable, ?saveKeys:Bool):AnyTable;
     
     
     /**
@@ -1031,7 +1031,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Copy(originalTable:AnyTable):AnyTable;
+    static function Copy(originalTable:AnyTable):AnyTable;
     
     
     /**
@@ -1079,7 +1079,7 @@ package gmod.libs;
 		2    Two
     **/
     @:deprecated("This was deprecated in Lua 5.1 and removed in 5.2. You should use pairs() instead.")
-    public static function foreach(tbl:AnyTable, callback:Function):Void;
+    static function foreach(tbl:AnyTable, callback:Function):Void;
     
     
     /**
@@ -1094,7 +1094,7 @@ package gmod.libs;
 		`**Returns:** Keys
     **/
     
-    public static function KeysFromValue(tab:AnyTable, value:Dynamic):AnyTable;
+    static function KeysFromValue(tab:AnyTable, value:Dynamic):AnyTable;
     
     
     /**
@@ -1110,7 +1110,7 @@ package gmod.libs;
 		`**Returns:** Sequential length.
     **/
     @:deprecated("This function was deprecated in Lua 5.1 and is removed in 5.2. Use the length (#) operator instead.")
-    public static function getn(tbl:AnyTable):Float;
+    static function getn(tbl:AnyTable):Float;
     
     
     /**
@@ -1154,7 +1154,7 @@ package gmod.libs;
 		Player table sorted by score going from highest to lowest
     **/
     
-    public static function sort(tbl:AnyTable, sorter:Function):Void;
+    static function sort(tbl:AnyTable, sorter:Function):Void;
     
     
     /**
@@ -1188,7 +1188,7 @@ package gmod.libs;
 		}
     **/
     
-    public static function ToString(tbl:AnyTable, displayName:String, niceFormatting:Bool):String;
+    static function ToString(tbl:AnyTable, displayName:String, niceFormatting:Bool):String;
     
     
 

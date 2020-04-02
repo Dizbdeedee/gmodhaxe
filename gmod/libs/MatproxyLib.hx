@@ -55,7 +55,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Add(MatProxyData:MatProxyData):Void;
+    static function Add(MatProxyData:MatProxyData):Void;
     
     
     /**
@@ -68,7 +68,7 @@ package gmod.libs;
 		`ent` | 
     **/
     
-    public static function Call(uname:String, mat:IMaterial, ent:Entity):Void;
+    static function Call(uname:String, mat:IMaterial, ent:Entity):Void;
     
     
     /**
@@ -82,7 +82,7 @@ package gmod.libs;
 		`**Returns:** Are we overriding it?
     **/
     
-    public static function ShouldOverrideProxy(name:String):Bool;
+    static function ShouldOverrideProxy(name:String):Bool;
     
     
     /**
@@ -96,7 +96,7 @@ package gmod.libs;
 		`values` | 
     **/
     
-    public static function Init(name:String, uname:String, mat:IMaterial, values:AnyTable):Void;
+    static function Init(name:String, uname:String, mat:IMaterial, values:AnyTable):Void;
     
     
 

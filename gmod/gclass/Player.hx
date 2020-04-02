@@ -23,7 +23,7 @@ extern class Player extends Entity {
 		0.3 in console (tested)
     **/
     
-    public function GetDuckSpeed():Float;
+    function GetDuckSpeed():Float;
     
     #if server
     /**
@@ -45,7 +45,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function Kill():Void;
+    function Kill():Void;
     #end
     
     /**
@@ -71,7 +71,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function DrawViewModel(draw:Bool, ?vm:Float):Void;
+    function DrawViewModel(draw:Bool, ?vm:Float):Void;
     
     #if server
     /**
@@ -98,7 +98,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function Freeze(?frozen:Bool):Void;
+    function Freeze(?frozen:Bool):Void;
     #end
     
     /**
@@ -107,7 +107,7 @@ extern class Player extends Entity {
 		`**Returns:** Allowed
     **/
     
-    public function GetAllowFullRotation():Bool;
+    function GetAllowFullRotation():Bool;
     
     
     /**
@@ -121,7 +121,7 @@ extern class Player extends Entity {
 		`**Returns:** Translated ACT_ Enums
     **/
     
-    public function TranslateWeaponActivity(act:ACT):ACT;
+    function TranslateWeaponActivity(act:ACT):ACT;
     
     
     /**
@@ -135,7 +135,7 @@ extern class Player extends Entity {
 		`**Returns:** Position of the bone.
     **/
     
-    public function MotionSensorPos(bone:Float):Vector;
+    function MotionSensorPos(bone:Float):Vector;
     
     
     /**
@@ -146,7 +146,7 @@ extern class Player extends Entity {
 		`UnDuckSpeed` | How quickly the player will un-duck
     **/
     
-    public function SetUnDuckSpeed(UnDuckSpeed:Float):Void;
+    function SetUnDuckSpeed(UnDuckSpeed:Float):Void;
     
     
     /**
@@ -159,7 +159,7 @@ extern class Player extends Entity {
 		`**Returns:** Last user commands
     **/
     
-    public function GetCurrentCommand():CUserCmd;
+    function GetCurrentCommand():CUserCmd;
     
     
     /**
@@ -181,7 +181,7 @@ extern class Player extends Entity {
 		```
     **/
     @:deprecated("This appears to be a direct binding to internal functionality that is overridden by the engine every frame so calling these functions may not have any or expected effect.")
-    public function StopSprinting():Void;
+    function StopSprinting():Void;
     
     #if server
     /**
@@ -190,7 +190,7 @@ extern class Player extends Entity {
 		`**Returns:** Hitgroup, see HITGROUP_ Enums
     **/
     
-    public function LastHitGroup():HITGROUP;
+    function LastHitGroup():HITGROUP;
     #end
     
     /**
@@ -217,7 +217,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function KeyDown(key:IN):Bool;
+    function KeyDown(key:IN):Bool;
     
     
     /**
@@ -229,7 +229,7 @@ extern class Player extends Entity {
 		`weight` | The weight this slot should be set to. Value must be ranging from 0 to 1.
     **/
     
-    public function AnimSetGestureWeight(slot:GESTURE_SLOT, weight:Float):Void;
+    function AnimSetGestureWeight(slot:GESTURE_SLOT, weight:Float):Void;
     
     
     /**
@@ -250,7 +250,7 @@ extern class Player extends Entity {
 		0.3 in console
     **/
     
-    public function GetUnDuckSpeed():Float;
+    function GetUnDuckSpeed():Float;
     
     #if server
     /**
@@ -263,7 +263,7 @@ extern class Player extends Entity {
 		 You can retrieve the entity this creates with Player:GetRagdollEntity.
     **/
     
-    public function CreateRagdoll():Void;
+    function CreateRagdoll():Void;
     #end
     
     /**
@@ -277,7 +277,7 @@ extern class Player extends Entity {
 		`autokill` | If the animation should not loop. true = stops the animation, false = the animation keeps playing.
     **/
     
-    public function AddVCDSequenceToGestureSlot(slot:GESTURE_SLOT, sequenceId:Float, cycle:Float, ?autokill:Bool):Void;
+    function AddVCDSequenceToGestureSlot(slot:GESTURE_SLOT, sequenceId:Float, cycle:Float, ?autokill:Bool):Void;
     
     #if client
     /**
@@ -300,7 +300,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SetMuted(mute:Bool):Void;
+    function SetMuted(mute:Bool):Void;
     #end
     
     /**
@@ -309,7 +309,7 @@ extern class Player extends Entity {
 		`**Returns:** Whether the player's flashlight is on.
     **/
     
-    public function FlashlightIsOn():Bool;
+    function FlashlightIsOn():Bool;
     
     #if client
     /**
@@ -355,7 +355,7 @@ extern class Player extends Entity {
 		userid	=	3
     **/
     
-    public function GetPlayerInfo():AnyTable;
+    function GetPlayerInfo():AnyTable;
     #end
     
     /**
@@ -368,7 +368,7 @@ extern class Player extends Entity {
 		`pressedWidget` | The widget the player is currently using.
     **/
     
-    public function SetPressedWidget(?pressedWidget:Entity):Void;
+    function SetPressedWidget(?pressedWidget:Entity):Void;
     
     #if server
     /**
@@ -377,7 +377,7 @@ extern class Player extends Entity {
 		If you want to switch to a specific weapon, use: Player:SetActiveWeapon
     **/
     
-    public function SwitchToDefaultWeapon():Void;
+    function SwitchToDefaultWeapon():Void;
     #end
     
     /**
@@ -386,7 +386,7 @@ extern class Player extends Entity {
 		`**Returns:** pushed
     **/
     
-    public function GetAvoidPlayers():Bool;
+    function GetAvoidPlayers():Bool;
     
     
     /**
@@ -398,7 +398,7 @@ extern class Player extends Entity {
 		`ent` | Entity
     **/
     
-    public function AddCount(str:String, ent:Entity):Void;
+    function AddCount(str:String, ent:Entity):Void;
     
     
     /**
@@ -412,7 +412,7 @@ extern class Player extends Entity {
 		`**Returns:** TOOL table, or nil if the table wasn't found or the player doesn't have a tool gun.
     **/
     
-    public function GetTool(?mode:String):AnyTable;
+    function GetTool(?mode:String):AnyTable;
     
     
     /**
@@ -423,7 +423,7 @@ extern class Player extends Entity {
 		`avoidPlayers` | Avoid or not avoid.
     **/
     
-    public function SetAvoidPlayers(avoidPlayers:Bool):Void;
+    function SetAvoidPlayers(avoidPlayers:Bool):Void;
     
     
     /**
@@ -432,7 +432,7 @@ extern class Player extends Entity {
 		`**Returns:** noCollideWithTeammates
     **/
     
-    public function GetNoCollideWithTeammates():Bool;
+    function GetNoCollideWithTeammates():Bool;
     
     #if server
     /**
@@ -445,7 +445,7 @@ extern class Player extends Entity {
 		`drop` | Whether to drop the player's current weapon or not
     **/
     
-    public function ShouldDropWeapon(drop:Bool):Void;
+    function ShouldDropWeapon(drop:Bool):Void;
     #end
     
     /**
@@ -456,7 +456,7 @@ extern class Player extends Entity {
 		`classID` | The class id the player is being set with.
     **/
     
-    public function SetClassID(classID:Float):Void;
+    function SetClassID(classID:Float):Void;
     
     
     /**
@@ -468,7 +468,7 @@ extern class Player extends Entity {
 		`sequenceID` | Sequence ID to set.
     **/
     
-    public function AnimSetGestureSequence(slot:GESTURE_SLOT, sequenceID:Float):Void;
+    function AnimSetGestureSequence(slot:GESTURE_SLOT, sequenceID:Float):Void;
     
     #if server
     /**
@@ -491,7 +491,7 @@ extern class Player extends Entity {
 		`**Returns:** The hit entity
     **/
     
-    public function TraceHullAttack(startPos:Vector, endPos:Vector, mins:Vector, maxs:Vector, damage:Float, damageFlags:DMG, damageForce:Float, damageAllNPCs:Bool):Entity;
+    function TraceHullAttack(startPos:Vector, endPos:Vector, mins:Vector, maxs:Vector, damage:Float, damageFlags:DMG, damageForce:Float, damageAllNPCs:Bool):Entity;
     #end
     
     /**
@@ -522,7 +522,7 @@ extern class Player extends Entity {
 		The player will not be able to spawn after they've died 10 times.
     **/
     
-    public function Deaths():Float;
+    function Deaths():Float;
     
     #if server
     /**
@@ -540,7 +540,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function RemoveAllAmmo():Void;
+    function RemoveAllAmmo():Void;
     #end
     #if server
     /**
@@ -551,7 +551,7 @@ extern class Player extends Entity {
 		`ent` | If the player is spectating an entity, this should be the entity the player is spectating, so we can use its hands model instead.
     **/
     
-    public function SetupHands(ent:Entity):Void;
+    function SetupHands(ent:Entity):Void;
     #end
     #if client
     /**
@@ -560,14 +560,14 @@ extern class Player extends Entity {
 		`**Returns:** isAudible
     **/
     
-    public function IsVoiceAudible():Bool;
+    function IsVoiceAudible():Bool;
     #end
     #if server
     /**
         Removes all weapons and ammo from the player.
     **/
     
-    public function RemoveAllItems():Void;
+    function RemoveAllItems():Void;
     #end
     
     /**
@@ -576,7 +576,7 @@ extern class Player extends Entity {
 		`**Returns:** The user group of the player. This will return "user" if player has no user group.
     **/
     
-    public function GetUserGroup():String;
+    function GetUserGroup():String;
     
     
     /**
@@ -607,7 +607,7 @@ extern class Player extends Entity {
 		64bit SteamID (about 20 digits)
     **/
     
-    public function SteamID64():String;
+    function SteamID64():String;
     
     
     /**
@@ -618,7 +618,7 @@ extern class Player extends Entity {
 		`**Returns:** The actual view offset.
     **/
     
-    public function GetCurrentViewOffset():Vector;
+    function GetCurrentViewOffset():Vector;
     
     
     /**
@@ -629,14 +629,14 @@ extern class Player extends Entity {
 		`**Returns:** The entity the player is currently spectating, or NULL if the player has no target.
     **/
     
-    public function GetObserverTarget():Entity;
+    function GetObserverTarget():Entity;
     
     #if server
     /**
         Detonates all tripmines belonging to the player.
     **/
     
-    public function DetonateTripmines():Void;
+    function DetonateTripmines():Void;
     #end
     #if server
     /**
@@ -657,7 +657,7 @@ extern class Player extends Entity {
 		None, but Player 1's sprint is enabled.
     **/
     
-    public function SprintEnable():Void;
+    function SprintEnable():Void;
     #end
     
     /**
@@ -678,7 +678,7 @@ extern class Player extends Entity {
 		The active weapon's class. For example, if you are holding the tool gun then this will be "gmod_tool".
     **/
     
-    public function GetActiveWeapon():Weapon;
+    function GetActiveWeapon():Weapon;
     
     
     /**
@@ -703,7 +703,7 @@ extern class Player extends Entity {
 		Ninja101
     **/
     
-    public function GetName():String;
+    function GetName():String;
     
     
     /**
@@ -712,7 +712,7 @@ extern class Player extends Entity {
 		Similar to other animation event functions, calls GM:DoAnimationEvent with PLAYERANIMEVENT_ATTACK_SECONDARY as the event and no extra data.
     **/
     
-    public function DoSecondaryAttack():Void;
+    function DoSecondaryAttack():Void;
     
     
     /**
@@ -741,7 +741,7 @@ extern class Player extends Entity {
 		10	=	6
     **/
     
-    public function GetAmmo():AnyTable;
+    function GetAmmo():AnyTable;
     
     
     /**
@@ -815,7 +815,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function AnimRestartGesture(slot:GESTURE_SLOT, activity:ACT, ?autokill:Bool):Void;
+    function AnimRestartGesture(slot:GESTURE_SLOT, activity:ACT, ?autokill:Bool):Void;
     
     #if server
     /**
@@ -833,7 +833,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function KillSilent():Void;
+    function KillSilent():Void;
     #end
     #if server
     /**
@@ -844,7 +844,7 @@ extern class Player extends Entity {
 		`volume` | Volume for the sound, in range from 0 to 1
     **/
     
-    public function PlayStepSound(volume:Float):Void;
+    function PlayStepSound(volume:Float):Void;
     #end
     #if server
     /**
@@ -859,7 +859,7 @@ extern class Player extends Entity {
 		`allow` | Show we allow player to use his weapons in a vehicle or not.
     **/
     
-    public function SetAllowWeaponsInVehicle(allow:Bool):Void;
+    function SetAllowWeaponsInVehicle(allow:Bool):Void;
     #end
     
     /**
@@ -868,7 +868,7 @@ extern class Player extends Entity {
 		`**Returns:** Number of props unfrozen.
     **/
     
-    public function PhysgunUnfreeze():Float;
+    function PhysgunUnfreeze():Float;
     
     #if server
     /**
@@ -877,7 +877,7 @@ extern class Player extends Entity {
 		`**Returns:** Timeout seconds.
     **/
     
-    public function GetTimeoutSeconds():Float;
+    function GetTimeoutSeconds():Float;
     #end
     #if server
     /**
@@ -888,7 +888,7 @@ extern class Player extends Entity {
 		`canZoom` | Whether to make the player able or unable to zoom.
     **/
     
-    public function SetCanZoom(canZoom:Bool):Void;
+    function SetCanZoom(canZoom:Bool):Void;
     #end
     
     /**
@@ -905,7 +905,7 @@ extern class Player extends Entity {
 		`walkSpeed` | The new walk speed when sv_friction is below 10. Higher sv_friction values will result in slower speed. Has to be 7 or above or the player won't be able to move.
     **/
     
-    public function SetWalkSpeed(walkSpeed:Float):Void;
+    function SetWalkSpeed(walkSpeed:Float):Void;
     
     
     /**
@@ -916,7 +916,7 @@ extern class Player extends Entity {
 		`stepHeight` | The new maximum height the player can step onto without jumping
     **/
     
-    public function SetStepSize(stepHeight:Float):Void;
+    function SetStepSize(stepHeight:Float):Void;
     
     
     /**
@@ -942,7 +942,7 @@ extern class Player extends Entity {
 		"true" in console, if player 1 has Physics Gun.
     **/
     
-    public function HasWeapon(className:String):Bool;
+    function HasWeapon(className:String):Bool;
     
     #if client
     /**
@@ -951,7 +951,7 @@ extern class Player extends Entity {
 		`**Returns:** whether or not the player is muted locally.
     **/
     
-    public function IsMuted():Bool;
+    function IsMuted():Bool;
     #end
     
     /**
@@ -960,14 +960,14 @@ extern class Player extends Entity {
 		`**Returns:** True if the player is a bot.
     **/
     
-    public function IsBot():Bool;
+    function IsBot():Bool;
     
     #if client
     /**
         Opens the player steam profile page in the steam overlay browser.
     **/
     
-    public function ShowProfile():Void;
+    function ShowProfile():Void;
     #end
     
     /**
@@ -995,7 +995,7 @@ extern class Player extends Entity {
 		"Yes, I'm awesome!" in console.
     **/
     
-    public function IsUserGroup(groupname:String):Bool;
+    function IsUserGroup(groupname:String):Bool;
     
     
     /**
@@ -1006,7 +1006,7 @@ extern class Player extends Entity {
 		`ang` | The new render angles to set
     **/
     
-    public function SetRenderAngles(ang:Angle):Void;
+    function SetRenderAngles(ang:Angle):Void;
     
     
     /**
@@ -1015,7 +1015,7 @@ extern class Player extends Entity {
 		`**Returns:** The maximum height player can get up onto without jumping, in hammer units.
     **/
     
-    public function GetStepSize():Float;
+    function GetStepSize():Float;
     
     #if client
     /**
@@ -1024,7 +1024,7 @@ extern class Player extends Entity {
 		`**Returns:** shouldDraw
     **/
     
-    public function ShouldDrawLocalPlayer():Bool;
+    function ShouldDrawLocalPlayer():Bool;
     #end
     
     /**
@@ -1045,7 +1045,7 @@ extern class Player extends Entity {
 		Player [1][ExamplePlayer]
     **/
     
-    public function GetViewEntity():Entity;
+    function GetViewEntity():Entity;
     
     
     /**
@@ -1056,7 +1056,7 @@ extern class Player extends Entity {
 		`canFlashlight` | True allows flashlight toggling
     **/
     
-    public function AllowFlashlight(canFlashlight:Bool):Void;
+    function AllowFlashlight(canFlashlight:Bool):Void;
     
     
     /**
@@ -1065,7 +1065,7 @@ extern class Player extends Entity {
 		`**Returns:** Whether the players movement is currently frozen or not.
     **/
     
-    public function IsFrozen():Bool;
+    function IsFrozen():Bool;
     
     
     /**
@@ -1078,7 +1078,7 @@ extern class Player extends Entity {
 		`data` | The data to send.
     **/
     
-    public function DoAnimationEvent(data:Float):Void;
+    function DoAnimationEvent(data:Float):Void;
     
     #if server
     /**
@@ -1104,7 +1104,7 @@ extern class Player extends Entity {
 		Sets the player armor to 100
     **/
     
-    public function SetArmor(Amount:Float):Void;
+    function SetArmor(Amount:Float):Void;
     #end
     
     /**
@@ -1116,7 +1116,7 @@ extern class Player extends Entity {
 		`time` | the time it takes to transition to the FOV expressed in a floating point.
     **/
     
-    public function SetFOV(fov:Float, time:Float):Void;
+    function SetFOV(fov:Float, time:Float):Void;
     
     
     /**
@@ -1128,7 +1128,7 @@ extern class Player extends Entity {
 		`minus` | If specified, it will reduce the counter by this value. Works only serverside.
     **/
     
-    public function GetCount(type:String, ?minus:Float):Void;
+    function GetCount(type:String, ?minus:Float):Void;
     
     
     /**
@@ -1151,7 +1151,7 @@ extern class Player extends Entity {
 		500
     **/
     
-    public function GetRunSpeed():Float;
+    function GetRunSpeed():Float;
     
     
     /**
@@ -1177,7 +1177,7 @@ extern class Player extends Entity {
 		Something like "Weapon [77]" in console.
     **/
     
-    public function GetWeapon(className:String):Weapon;
+    function GetWeapon(className:String):Weapon;
     
     
     /**
@@ -1188,7 +1188,7 @@ extern class Player extends Entity {
 		`tolerance` | Reset all ViewPunch below this threshold.
     **/
     
-    public function ViewPunchReset(?tolerance:Float):Void;
+    function ViewPunchReset(?tolerance:Float):Void;
     
     
     /**
@@ -1199,7 +1199,7 @@ extern class Player extends Entity {
 		`**Returns:** The punch angle
     **/
     @:deprecated("You should use Player: GetViewPunchAngles instead.")
-    public function GetPunchAngle():Angle;
+    function GetPunchAngle():Angle;
     
     #if server
     /**
@@ -1223,7 +1223,7 @@ extern class Player extends Entity {
 		Player1 has 2 extra deaths on the scoreboard relative to his old score.
     **/
     
-    public function AddDeaths(count:Float):Void;
+    function AddDeaths(count:Float):Void;
     #end
     
     /**
@@ -1232,7 +1232,7 @@ extern class Player extends Entity {
 		Similar to other animation event functions, calls GM:DoAnimationEvent with PLAYERANIMEVENT_ATTACK_PRIMARY as the event and no extra data.
     **/
     
-    public function DoAttackEvent():Void;
+    function DoAttackEvent():Void;
     
     
     /**
@@ -1241,7 +1241,7 @@ extern class Player extends Entity {
 		`**Returns:** Is the player sprinting or not
     **/
     
-    public function IsSprinting():Bool;
+    function IsSprinting():Bool;
     
     
     /**
@@ -1254,7 +1254,7 @@ extern class Player extends Entity {
 		`duckSpeed` | How quickly the player will duck.
     **/
     
-    public function SetDuckSpeed(duckSpeed:Float):Void;
+    function SetDuckSpeed(duckSpeed:Float):Void;
     
     
     /**
@@ -1263,7 +1263,7 @@ extern class Player extends Entity {
 		`**Returns:** Packets lost
     **/
     
-    public function PacketLoss():Float;
+    function PacketLoss():Float;
     
     
     /**
@@ -1276,7 +1276,7 @@ extern class Player extends Entity {
 		`hands` | The hands entity to set
     **/
     
-    public function SetHands(hands:Entity):Void;
+    function SetHands(hands:Entity):Void;
     
     #if server
     /**
@@ -1285,7 +1285,7 @@ extern class Player extends Entity {
 		`**Returns:** True if the player is the listen server host, false otherwise. This will always be true in single player, and false on a dedicated server.
     **/
     
-    public function IsListenServerHost():Bool;
+    function IsListenServerHost():Bool;
     #end
     
     /**
@@ -1294,7 +1294,7 @@ extern class Player extends Entity {
 		`**Returns:** The player's user ID
     **/
     
-    public function UserID():Float;
+    function UserID():Float;
     
     
     /**
@@ -1303,7 +1303,7 @@ extern class Player extends Entity {
 		`**Returns:** Whether the player is allowed to use his weapons in a vehicle or not.
     **/
     
-    public function GetAllowWeaponsInVehicle():Bool;
+    function GetAllowWeaponsInVehicle():Bool;
     
     
     /**
@@ -1312,7 +1312,7 @@ extern class Player extends Entity {
 		`**Returns:** Field of view as a float
     **/
     
-    public function GetFOV():Float;
+    function GetFOV():Float;
     
     #if server
     /**
@@ -1344,7 +1344,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SuppressHint(name:String):Void;
+    function SuppressHint(name:String):Void;
     #end
     #if client
     /**
@@ -1353,7 +1353,7 @@ extern class Player extends Entity {
 		`**Returns:** isSpeaking
     **/
     
-    public function IsSpeaking():Bool;
+    function IsSpeaking():Bool;
     #end
     
     /**
@@ -1381,7 +1381,7 @@ extern class Player extends Entity {
 		The Player1 dies.
     **/
     
-    public function ConCommand(command:String):Void;
+    function ConCommand(command:String):Void;
     
     
     /**
@@ -1392,7 +1392,7 @@ extern class Player extends Entity {
 		`**Returns:** New crouching view offset, must be local vector to players Entity: GetPos
     **/
     
-    public function GetViewOffsetDucked():Vector;
+    function GetViewOffsetDucked():Vector;
     
     #if server
     /**
@@ -1408,7 +1408,7 @@ extern class Player extends Entity {
 		`**Returns:** Carry angles or nil if the entity has no preferred carry angles.
     **/
     
-    public function GetPreferredCarryAngles(carryEnt:Entity):Angle;
+    function GetPreferredCarryAngles(carryEnt:Entity):Angle;
     #end
     #if server
     /**
@@ -1429,7 +1429,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SetFrags(fragcount:Float):Void;
+    function SetFrags(fragcount:Float):Void;
     #end
     
     /**
@@ -1466,7 +1466,7 @@ extern class Player extends Entity {
 		Something like 1592073762
     **/
     
-    public function UniqueID():Float;
+    function UniqueID():Float;
     
     
     /**
@@ -1475,7 +1475,7 @@ extern class Player extends Entity {
 		`**Returns:** The hovered widget.
     **/
     
-    public function GetHoveredWidget():Entity;
+    function GetHoveredWidget():Entity;
     
     
     /**
@@ -1504,7 +1504,7 @@ extern class Player extends Entity {
 		```
     **/
     @:deprecated("This appears to be a direct binding to internal functionality that is overridden by the engine every frame so calling these functions may not have any or expected effect.")
-    public function StartSprinting():Void;
+    function StartSprinting():Void;
     
     
     /**
@@ -1513,7 +1513,7 @@ extern class Player extends Entity {
 		`**Returns:** The player's ping.
     **/
     
-    public function Ping():Float;
+    function Ping():Float;
     
     #if server
     /**
@@ -1524,7 +1524,7 @@ extern class Player extends Entity {
 		`viewEntity` | The entity to attach the player view to.
     **/
     
-    public function SetViewEntity(viewEntity:Entity):Void;
+    function SetViewEntity(viewEntity:Entity):Void;
     #end
     
     /**
@@ -1535,7 +1535,7 @@ extern class Player extends Entity {
 		`**Returns:** The pressed widget.
     **/
     
-    public function GetPressedWidget():Entity;
+    function GetPressedWidget():Entity;
     
     
     /**
@@ -1563,7 +1563,7 @@ extern class Player extends Entity {
 		Every player 'driving' an entity will die a painful death.
     **/
     
-    public function IsDrivingEntity():Bool;
+    function IsDrivingEntity():Bool;
     
     
     /**
@@ -1586,7 +1586,7 @@ extern class Player extends Entity {
 		Ninja101
     **/
     
-    public function Nick():String;
+    function Nick():String;
     
     
     /**
@@ -1612,7 +1612,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function ScreenFade(flags:SCREENFADE, ?clr:Float, fadeTime:Float, fadeHold:Float):Void;
+    function ScreenFade(flags:SCREENFADE, ?clr:Float, fadeTime:Float, fadeHold:Float):Void;
     
     
     /**
@@ -1627,7 +1627,7 @@ extern class Player extends Entity {
 		`viewOffset` | The new desired view offset when crouching.
     **/
     
-    public function SetViewOffsetDucked(viewOffset:Vector):Void;
+    function SetViewOffsetDucked(viewOffset:Vector):Void;
     
     #if server
     /**
@@ -1648,7 +1648,7 @@ extern class Player extends Entity {
 		None, but Player 1's sprint is disabled.
     **/
     
-    public function SprintDisable():Void;
+    function SprintDisable():Void;
     #end
     
     /**
@@ -1670,7 +1670,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function Armor():Float;
+    function Armor():Float;
     
     
     /**
@@ -1681,7 +1681,7 @@ extern class Player extends Entity {
 		`**Returns:** Player's SteamID3 aka AccountID.
     **/
     
-    public function AccountID():Float;
+    function AccountID():Float;
     
     
     /**
@@ -1692,7 +1692,7 @@ extern class Player extends Entity {
 		`**Returns:** Is the suit equipped or not.
     **/
     
-    public function IsSuitEquipped():Bool;
+    function IsSuitEquipped():Bool;
     
     
     /**
@@ -1720,7 +1720,7 @@ extern class Player extends Entity {
 		The player will crouch-walk as fast as normal walking.
     **/
     
-    public function SetCrouchedWalkSpeed(speed:Float):Void;
+    function SetCrouchedWalkSpeed(speed:Float):Void;
     
     #if server
     /**
@@ -1744,7 +1744,7 @@ extern class Player extends Entity {
 		Crowbar removed from player 1
     **/
     
-    public function StripWeapon(weapon:String):Void;
+    function StripWeapon(weapon:String):Void;
     #end
     #if server
     /**
@@ -1757,7 +1757,7 @@ extern class Player extends Entity {
 		`velocity` | If set and previous argument is unset, launches the weapon with given velocity. If the velocity is higher than 400, it will be clamped to 400.
     **/
     
-    public function DropNamedWeapon(_class:String, ?target:Vector, ?velocity:Vector):Void;
+    function DropNamedWeapon(_class:String, ?target:Vector, ?velocity:Vector):Void;
     #end
     
     /**
@@ -1768,7 +1768,7 @@ extern class Player extends Entity {
 		`**Returns:** Whether the player has god mode or not.
     **/
     
-    public function HasGodMode():Bool;
+    function HasGodMode():Bool;
     
     
     /**
@@ -1781,7 +1781,7 @@ extern class Player extends Entity {
 		`viewOffset` | The new view offset.
     **/
     
-    public function SetCurrentViewOffset(viewOffset:Vector):Void;
+    function SetCurrentViewOffset(viewOffset:Vector):Void;
     
     
     /**
@@ -1803,7 +1803,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function Alive():Bool;
+    function Alive():Bool;
     
     
     /**
@@ -1812,7 +1812,7 @@ extern class Player extends Entity {
 		`**Returns:** Whether the player is in a vehicle.
     **/
     
-    public function InVehicle():Bool;
+    function InVehicle():Bool;
     
     
     /**
@@ -1842,7 +1842,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function GetPData(key:String, ?_default:Dynamic):String;
+    function GetPData(key:String, ?_default:Dynamic):String;
     
     
     /**
@@ -1869,7 +1869,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function RemovePData(key:String):Bool;
+    function RemovePData(key:String):Bool;
     
     
     /**
@@ -1878,7 +1878,7 @@ extern class Player extends Entity {
 		`**Returns:** Observe mode of that player, see OBS_MODE_ Enums.
     **/
     
-    public function GetObserverMode():OBS_MODE;
+    function GetObserverMode():OBS_MODE;
     
     #if server
     /**
@@ -1893,7 +1893,7 @@ extern class Player extends Entity {
 		`weapon` | The weapon to equip.
     **/
     
-    public function SetActiveWeapon(weapon:Weapon):Void;
+    function SetActiveWeapon(weapon:Weapon):Void;
     #end
     #if server
     /**
@@ -1909,7 +1909,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function CrosshairEnable():Void;
+    function CrosshairEnable():Void;
     #end
     
     /**
@@ -1932,7 +1932,7 @@ extern class Player extends Entity {
 		Something like "Unassigned" in console.
     **/
     
-    public function Team():TEAM;
+    function Team():TEAM;
     
     
     /**
@@ -1943,7 +1943,7 @@ extern class Player extends Entity {
 		`abletowalk` | True allows the player to walk.
     **/
     
-    public function SetCanWalk(abletowalk:Bool):Void;
+    function SetCanWalk(abletowalk:Bool):Void;
     
     
     /**
@@ -1962,7 +1962,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function GetAimVector():Vector;
+    function GetAimVector():Vector;
     
     
     /**
@@ -1973,7 +1973,7 @@ extern class Player extends Entity {
 		`**Returns:** New view offset, must be local vector to players Entity: GetPos
     **/
     
-    public function GetViewOffset():Vector;
+    function GetViewOffset():Vector;
     
     #if server
     /**
@@ -1982,7 +1982,7 @@ extern class Player extends Entity {
 		`**Returns:** Whether the player has been fully authenticated or not. This will always be true for singleplayer and the listen server host. This will always be false for bots.
     **/
     
-    public function IsFullyAuthenticated():Bool;
+    function IsFullyAuthenticated():Bool;
     #end
     
     /**
@@ -2002,7 +2002,7 @@ extern class Player extends Entity {
 		```
     **/
     @:deprecated("This appears to be a direct binding to internal functionality that is overridden by the engine every frame so calling these functions may not have any or expected effect.")
-    public function StartWalking():Void;
+    function StartWalking():Void;
     
     #if server
     /**
@@ -2016,7 +2016,7 @@ extern class Player extends Entity {
 		`teamOnly` | Whether to send this message to our own team only.
     **/
     
-    public function Say(text:String, ?teamOnly:Bool):Void;
+    function Say(text:String, ?teamOnly:Bool):Void;
     #end
     
     /**
@@ -2027,7 +2027,7 @@ extern class Player extends Entity {
 		`**Returns:** The crouched walk speed multiplier.
     **/
     
-    public function GetCrouchedWalkSpeed():Float;
+    function GetCrouchedWalkSpeed():Float;
     
     #if server
     /**
@@ -2036,7 +2036,7 @@ extern class Player extends Entity {
 		`**Returns:** connectTime
     **/
     
-    public function TimeConnected():Float;
+    function TimeConnected():Float;
     #end
     
     /**
@@ -2045,7 +2045,7 @@ extern class Player extends Entity {
 		`**Returns:** Entity in use, or NULL entity otherwise. For +use prop pickups, this will be NULL clientside.
     **/
     
-    public function GetEntityInUse():Entity;
+    function GetEntityInUse():Entity;
     
     
     /**
@@ -2056,7 +2056,7 @@ extern class Player extends Entity {
 		`widget` | The widget entity that the player is hovering.
     **/
     
-    public function SetHoveredWidget(?widget:Entity):Void;
+    function SetHoveredWidget(?widget:Entity):Void;
     
     
     /**
@@ -2068,7 +2068,7 @@ extern class Player extends Entity {
 		`ammoType` | The ammunition type. Can be either number ammo ID or string ammo name.
     **/
     
-    public function SetAmmo(ammoCount:Float, ammoType:Dynamic):Void;
+    function SetAmmo(ammoCount:Float, ammoType:Dynamic):Void;
     
     #if server
     /**
@@ -2090,7 +2090,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function Ban(minutes:Float, ?kick:Bool):Void;
+    function Ban(minutes:Float, ?kick:Bool):Void;
     #end
     
     /**
@@ -2099,7 +2099,7 @@ extern class Player extends Entity {
 		`**Returns:** canZoom
     **/
     
-    public function GetCanZoom():Bool;
+    function GetCanZoom():Bool;
     
     
     /**
@@ -2108,7 +2108,7 @@ extern class Player extends Entity {
 		`**Returns:** Whether the player is playing a taunt.
     **/
     
-    public function IsPlayingTaunt():Bool;
+    function IsPlayingTaunt():Bool;
     
     #if server
     /**
@@ -2132,7 +2132,7 @@ extern class Player extends Entity {
 		Player1 has 2 extra frags on the scoreboard relative to his old score.
     **/
     
-    public function AddFrags(count:Float):Void;
+    function AddFrags(count:Float):Void;
     #end
     
     /**
@@ -2155,7 +2155,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SetWeaponColor(Color:Vector):Void;
+    function SetWeaponColor(Color:Vector):Void;
     
     
     /**
@@ -2188,7 +2188,7 @@ extern class Player extends Entity {
 		-16.000000 -16.000000 0.000000 16.000000 16.000000 72.000000
     **/
     
-    public function GetHull():PlayerGetHullReturn;
+    function GetHull():PlayerGetHullReturn;
     
     
     /**
@@ -2211,7 +2211,7 @@ extern class Player extends Entity {
 		200 in console by default
     **/
     
-    public function GetWalkSpeed():Float;
+    function GetWalkSpeed():Float;
     
     #if server
     /**
@@ -2227,7 +2227,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function CrosshairDisable():Void;
+    function CrosshairDisable():Void;
     #end
     #if server
     /**
@@ -2269,7 +2269,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function DropWeapon(?weapon:Weapon, ?target:Vector, ?velocity:Vector):Void;
+    function DropWeapon(?weapon:Weapon, ?target:Vector, ?velocity:Vector):Void;
     #end
     
     /**
@@ -2278,7 +2278,7 @@ extern class Player extends Entity {
 		`**Returns:** AbleToWalk
     **/
     
-    public function GetCanWalk():Bool;
+    function GetCanWalk():Bool;
     
     #if server
     /**
@@ -2289,7 +2289,7 @@ extern class Player extends Entity {
 		`allow` | Allow or disallow
     **/
     
-    public function AllowImmediateDecalPainting(allow:Bool):Void;
+    function AllowImmediateDecalPainting(allow:Bool):Void;
     #end
     #if server
     /**
@@ -2306,7 +2306,7 @@ extern class Player extends Entity {
 		`timescale` | The timescale multiplier.
     **/
     
-    public function SetLaggedMovementValue(timescale:Float):Void;
+    function SetLaggedMovementValue(timescale:Float):Void;
     #end
     
     /**
@@ -2315,7 +2315,7 @@ extern class Player extends Entity {
 		`**Returns:** vehicle
     **/
     
-    public function GetVehicle():Vehicle;
+    function GetVehicle():Vehicle;
     
     #if server
     /**
@@ -2326,7 +2326,7 @@ extern class Player extends Entity {
 		`mode` | Spectate mode, see OBS_MODE_ Enums.
     **/
     
-    public function Spectate(mode:OBS_MODE):Void;
+    function Spectate(mode:OBS_MODE):Void;
     #end
     
     /**
@@ -2337,7 +2337,7 @@ extern class Player extends Entity {
 		`Allowed` | Allowed to rotate
     **/
     
-    public function SetAllowFullRotation(Allowed:Bool):Void;
+    function SetAllowFullRotation(Allowed:Bool):Void;
     
     #if server
     /**
@@ -2361,7 +2361,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SendLua(script:String):Void;
+    function SendLua(script:String):Void;
     #end
     #if server
     /**
@@ -2397,7 +2397,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function Give(weaponClassName:String, ?bNoAmmo:Bool):Weapon;
+    function Give(weaponClassName:String, ?bNoAmmo:Bool):Weapon;
     #end
     
     /**
@@ -2406,14 +2406,14 @@ extern class Player extends Entity {
 		`**Returns:** The punch angle
     **/
     
-    public function GetViewPunchAngles():Angle;
+    function GetViewPunchAngles():Angle;
     
     #if server
     /**
         Removes all ammo from the player.
     **/
     
-    public function StripAmmo():Void;
+    function StripAmmo():Void;
     #end
     
     /**
@@ -2434,7 +2434,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function ViewPunch(PunchAngle:Angle):Void;
+    function ViewPunch(PunchAngle:Angle):Void;
     
     
     /**
@@ -2463,14 +2463,14 @@ extern class Player extends Entity {
 		I'm new here.
     **/
     
-    public function PrintMessage(type:HUD, message:String):Void;
+    function PrintMessage(type:HUD, message:String):Void;
     
     
     /**
         Resets both normal and duck hulls to their default values.
     **/
     
-    public function ResetHull():Void;
+    function ResetHull():Void;
     
     #if server
     /**
@@ -2481,7 +2481,7 @@ extern class Player extends Entity {
 		**Bug:** BUG Frozen bots will still be able to look around.
     **/
     
-    public function Lock():Void;
+    function Lock():Void;
     #end
     #if server
     /**
@@ -2492,7 +2492,7 @@ extern class Player extends Entity {
 		`ent` | The entity picked up
     **/
     
-    public function SimulateGravGunPickup(ent:Entity):Void;
+    function SimulateGravGunPickup(ent:Entity):Void;
     #end
     #if server
     /**
@@ -2514,14 +2514,14 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SetUserGroup(groupName:String):Void;
+    function SetUserGroup(groupName:String):Void;
     #end
     
     /**
         Unfreezes all objects the player has frozen with their Physics Gun. Same as double pressing R while holding Physics Gun.
     **/
     
-    public function UnfreezePhysicsObjects():Void;
+    function UnfreezePhysicsObjects():Void;
     
     
     /**
@@ -2530,7 +2530,7 @@ extern class Player extends Entity {
 		`**Returns:** True if the player is a superadmin.
     **/
     
-    public function IsSuperAdmin():Bool;
+    function IsSuperAdmin():Bool;
     
     
     /**
@@ -2539,7 +2539,7 @@ extern class Player extends Entity {
 		`**Returns:** The render angles of the player. Only yaw part of the angle seems to be present.
     **/
     
-    public function GetRenderAngles():Angle;
+    function GetRenderAngles():Angle;
     
     #if server
     /**
@@ -2561,7 +2561,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SprayDecal(sprayOrigin:Vector, sprayEndPos:Vector):Void;
+    function SprayDecal(sprayOrigin:Vector, sprayEndPos:Vector):Void;
     #end
     #if server
     /**
@@ -2579,7 +2579,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function GodEnable():Void;
+    function GodEnable():Void;
     #end
     
     /**
@@ -2588,7 +2588,7 @@ extern class Player extends Entity {
 		`**Returns:** The ragdoll. Unlike normal clientside ragdolls (C_ClientRagdoll), this will be a C_HL2MPRagdoll on the client, and hl2mp_ragdoll on the server.
     **/
     
-    public function GetRagdollEntity():Entity;
+    function GetRagdollEntity():Entity;
     
     
     /**
@@ -2600,7 +2600,7 @@ extern class Player extends Entity {
 		`ammoName` | The name of the ammunition to remove from. This can also be a number ammoID.
     **/
     
-    public function RemoveAmmo(ammoCount:Float, ammoName:String):Void;
+    function RemoveAmmo(ammoCount:Float, ammoName:String):Void;
     
     
     /**
@@ -2613,7 +2613,7 @@ extern class Player extends Entity {
 		`walkSpeed` | The maximum speed.
     **/
     
-    public function SetMaxSpeed(walkSpeed:Float):Void;
+    function SetMaxSpeed(walkSpeed:Float):Void;
     
     #if server
     /**
@@ -2624,7 +2624,7 @@ extern class Player extends Entity {
 		`draw` | Should draw
     **/
     
-    public function DrawWorldModel(draw:Bool):Void;
+    function DrawWorldModel(draw:Bool):Void;
     #end
     
     /**
@@ -2638,7 +2638,7 @@ extern class Player extends Entity {
 		`**Returns:** Returns true if limit is not hit, false if it is hit
     **/
     
-    public function CheckLimit(limitType:String):Bool;
+    function CheckLimit(limitType:String):Bool;
     
     
     /**
@@ -2656,14 +2656,14 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function Frags():Float;
+    function Frags():Float;
     
     #if server
     /**
         Unlocks the player movement if locked previously. Will disable godmode for the player if locked previously.
     **/
     
-    public function UnLock():Void;
+    function UnLock():Void;
     #end
     
     /**
@@ -2684,7 +2684,7 @@ extern class Player extends Entity {
 		Vector( 1, 1, 1 )
     **/
     
-    public function GetPlayerColor():Vector;
+    function GetPlayerColor():Vector;
     
     
     /**
@@ -2699,7 +2699,7 @@ extern class Player extends Entity {
 		`viewOffset` | The new desired view offset when standing.
     **/
     
-    public function SetViewOffset(viewOffset:Vector):Void;
+    function SetViewOffset(viewOffset:Vector):Void;
     
     
     /**
@@ -2713,7 +2713,7 @@ extern class Player extends Entity {
 		`data` | The data to send alongside the event.
     **/
     
-    public function DoCustomAnimEvent(event:PLAYERANIMEVENT, data:Float):Void;
+    function DoCustomAnimEvent(event:PLAYERANIMEVENT, data:Float):Void;
     
     #if client
     /**
@@ -2722,7 +2722,7 @@ extern class Player extends Entity {
 		`**Returns:** The voice volume.
     **/
     
-    public function VoiceVolume():Float;
+    function VoiceVolume():Float;
     #end
     
     /**
@@ -2733,7 +2733,7 @@ extern class Player extends Entity {
 		`jumpPower` | The new jump velocity.
     **/
     
-    public function SetJumpPower(jumpPower:Float):Void;
+    function SetJumpPower(jumpPower:Float):Void;
     
     
     /**
@@ -2744,7 +2744,7 @@ extern class Player extends Entity {
 		`doSuppress` | Whenever to suppress the notice or not.
     **/
     
-    public function SetSuppressPickupNotices(doSuppress:Bool):Void;
+    function SetSuppressPickupNotices(doSuppress:Bool):Void;
     
     #if server
     /**
@@ -2766,14 +2766,14 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function EnterVehicle(vehicle:Vehicle):Void;
+    function EnterVehicle(vehicle:Vehicle):Void;
     #end
     #if server
     /**
         Prints the players' name and position to the console.
     **/
     
-    public function DebugInfo():Void;
+    function DebugInfo():Void;
     #end
     #if server
     /**
@@ -2795,7 +2795,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function Flashlight(isOn:Bool):Void;
+    function Flashlight(isOn:Bool):Void;
     #end
     #if server
     /**
@@ -2804,7 +2804,7 @@ extern class Player extends Entity {
 		`**Returns:** isTimingOut
     **/
     
-    public function IsTimingOut():Bool;
+    function IsTimingOut():Bool;
     #end
     #if server
     /**
@@ -2832,7 +2832,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function PickupObject(entity:Entity):Void;
+    function PickupObject(entity:Entity):Void;
     #end
     
     /**
@@ -2841,7 +2841,7 @@ extern class Player extends Entity {
 		`**Returns:** The drive mode ID or 0 if player doesn't use the drive system.
     **/
     
-    public function GetDrivingMode():Float;
+    function GetDrivingMode():Float;
     
     
     /**
@@ -2862,7 +2862,7 @@ extern class Player extends Entity {
 		200
     **/
     
-    public function GetJumpPower():Float;
+    function GetJumpPower():Float;
     
     
     /**
@@ -2886,7 +2886,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function IsAdmin():Bool;
+    function IsAdmin():Bool;
     
     #if server
     /**
@@ -2914,7 +2914,7 @@ extern class Player extends Entity {
 		Sets the player to team 1 and respawns him/her.
     **/
     
-    public function SetTeam(Team:Float):Void;
+    function SetTeam(Team:Float):Void;
     #end
     
     /**
@@ -2925,7 +2925,7 @@ extern class Player extends Entity {
 		`**Returns:** Is the player world clicking or not.
     **/
     
-    public function IsWorldClicking():Bool;
+    function IsWorldClicking():Bool;
     
     #if server
     /**
@@ -2937,14 +2937,14 @@ extern class Player extends Entity {
 		`physobj` | Physics object belonging to ent
     **/
     
-    public function AddFrozenPhysicsObject(ent:Entity, physobj:PhysObj):Void;
+    function AddFrozenPhysicsObject(ent:Entity, physobj:PhysObj):Void;
     #end
     #if server
     /**
         Stops the player from spectating another entity.
     **/
     
-    public function UnSpectate():Void;
+    function UnSpectate():Void;
     #end
     
     /**
@@ -2971,7 +2971,7 @@ extern class Player extends Entity {
 		Local player will look at 0,0,0
     **/
     
-    public function SetEyeAngles(angle:Angle):Void;
+    function SetEyeAngles(angle:Angle):Void;
     
     #if server
     /**
@@ -2982,7 +2982,7 @@ extern class Player extends Entity {
 		`ent` | Entity that was dropped.
     **/
     
-    public function SimulateGravGunDrop(ent:Entity):Void;
+    function SimulateGravGunDrop(ent:Entity):Void;
     #end
     #if server
     /**
@@ -3011,7 +3011,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function GetInfo(cVarName:String):String;
+    function GetInfo(cVarName:String):String;
     #end
     
     /**
@@ -3023,7 +3023,7 @@ extern class Player extends Entity {
 		`hullMaxs` | The max coordinates of the hull.
     **/
     
-    public function SetHullDuck(hullMins:Vector, hullMaxs:Vector):Void;
+    function SetHullDuck(hullMins:Vector, hullMaxs:Vector):Void;
     
     #if server
     /**
@@ -3032,7 +3032,7 @@ extern class Player extends Entity {
 		`**Returns:** isConnected
     **/
     
-    public function IsConnected():Bool;
+    function IsConnected():Bool;
     #end
     
     /**
@@ -3043,7 +3043,7 @@ extern class Player extends Entity {
 		`**Returns:** The maximum movement speed the player can go at.
     **/
     
-    public function GetMaxSpeed():Float;
+    function GetMaxSpeed():Float;
     
     
     /**
@@ -3061,7 +3061,7 @@ extern class Player extends Entity {
 		`**Returns:** The view model entity
     **/
     
-    public function GetViewModel(?index:Float):Entity;
+    function GetViewModel(?index:Float):Entity;
     
     
     /**
@@ -3115,7 +3115,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function LagCompensation(lagCompensation:Bool):Void;
+    function LagCompensation(lagCompensation:Bool):Void;
     
     #if server
     /**
@@ -3136,7 +3136,7 @@ extern class Player extends Entity {
 		192.168.1.101:27005
     **/
     
-    public function IPAddress():String;
+    function IPAddress():String;
     #end
     #if server
     /**
@@ -3175,7 +3175,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SpectateEntity(entity:Entity):Void;
+    function SpectateEntity(entity:Entity):Void;
     #end
     
     /**
@@ -3195,7 +3195,7 @@ extern class Player extends Entity {
 		```
     **/
     @:deprecated("This appears to be a direct binding to internal functionality that is overridden by the engine every frame so calling these functions may not have any or expected effect.")
-    public function StopWalking():Void;
+    function StopWalking():Void;
     
     
     /**
@@ -3204,7 +3204,7 @@ extern class Player extends Entity {
 		`**Returns:** The player's class id.
     **/
     
-    public function GetClassID():Float;
+    function GetClassID():Float;
     
     
     /**
@@ -3229,7 +3229,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function KeyReleased(key:IN):Bool;
+    function KeyReleased(key:IN):Bool;
     
     
     /**
@@ -3243,7 +3243,7 @@ extern class Player extends Entity {
 		`hullMaxs` | The max coordinates of the hull.
     **/
     
-    public function SetHull(hullMins:Vector, hullMaxs:Vector):Void;
+    function SetHull(hullMins:Vector, hullMaxs:Vector):Void;
     
     
     /**
@@ -3270,7 +3270,7 @@ extern class Player extends Entity {
 		A list consisting of every player's EntityID, Name & SteamID on the server.
     **/
     
-    public function SteamID():String;
+    function SteamID():String;
     
     
     /**
@@ -3279,7 +3279,7 @@ extern class Player extends Entity {
 		Similar to other animation event functions, calls GM:DoAnimationEvent with PLAYERANIMEVENT_RELOAD as the event and no extra data.
     **/
     
-    public function DoReloadEvent():Void;
+    function DoReloadEvent():Void;
     
     #if server
     /**
@@ -3298,7 +3298,7 @@ extern class Player extends Entity {
 		Player 1 has no weapons anymore
     **/
     
-    public function StripWeapons():Void;
+    function StripWeapons():Void;
     #end
     #if server
     /**
@@ -3323,7 +3323,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function Kick(?reason:String):Void;
+    function Kick(?reason:String):Void;
     #end
     #if client
     /**
@@ -3357,7 +3357,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function AddPlayerOption(name:String, timeout:Float, vote_callback:Function, draw_callback:Function):Void;
+    function AddPlayerOption(name:String, timeout:Float, vote_callback:Function, draw_callback:Function):Void;
     #end
     
     /**
@@ -3382,14 +3382,14 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function KeyDownLast(key:IN):Bool;
+    function KeyDownLast(key:IN):Bool;
     
     #if server
     /**
         Strips the player's suit item.
     **/
     
-    public function RemoveSuit():Void;
+    function RemoveSuit():Void;
     #end
     #if server
     /**
@@ -3403,7 +3403,7 @@ extern class Player extends Entity {
 		`delay` | Delay in seconds before showing the hint
     **/
     
-    public function SendHint(name:String, delay:Float):Void;
+    function SendHint(name:String, delay:Float):Void;
     #end
     
     /**
@@ -3436,7 +3436,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function GetShootPos():Vector;
+    function GetShootPos():Vector;
     
     
     /**
@@ -3445,7 +3445,7 @@ extern class Player extends Entity {
 		`**Returns:** DriveEntity
     **/
     
-    public function GetDrivingEntity():Entity;
+    function GetDrivingEntity():Entity;
     
     #if server
     /**
@@ -3469,14 +3469,14 @@ extern class Player extends Entity {
 		None
     **/
     
-    public function SetDeaths(deathcount:Float):Void;
+    function SetDeaths(deathcount:Float):Void;
     #end
     #if server
     /**
         Drops any object the player is currently holding with either gravitygun or +Use (E key)
     **/
     
-    public function DropObject():Void;
+    function DropObject():Void;
     #end
     
     /**
@@ -3501,7 +3501,7 @@ extern class Player extends Entity {
 		"Entity [0][worldspawn]" in console, if you aim at world.
     **/
     
-    public function GetEyeTrace():TraceResult;
+    function GetEyeTrace():TraceResult;
     
     
     /**
@@ -3522,7 +3522,7 @@ extern class Player extends Entity {
 		The number of weapons the player has (e.g. 5).
     **/
     
-    public function GetWeapons():AnyTable;
+    function GetWeapons():AnyTable;
     
     
     /**
@@ -3533,7 +3533,7 @@ extern class Player extends Entity {
 		`**Returns:** Whether the player can use flashlight.
     **/
     
-    public function CanUseFlashlight():Bool;
+    function CanUseFlashlight():Bool;
     
     
     /**
@@ -3544,7 +3544,7 @@ extern class Player extends Entity {
 		`slot` | Slot to reset. See the GESTURE_SLOT_ Enums.
     **/
     
-    public function AnimResetGestureSlot(slot:GESTURE_SLOT):Void;
+    function AnimResetGestureSlot(slot:GESTURE_SLOT):Void;
     
     
     /**
@@ -3567,7 +3567,7 @@ extern class Player extends Entity {
 		YourNameHere
     **/
     
-    public function Name():String;
+    function Name():String;
     
     
     /**
@@ -3578,7 +3578,7 @@ extern class Player extends Entity {
 		`mode` | Spectator mode using OBS_MODE_ Enums.
     **/
     
-    public function SetObserverMode(mode:OBS_MODE):Void;
+    function SetObserverMode(mode:OBS_MODE):Void;
     
     
     /**
@@ -3587,7 +3587,7 @@ extern class Player extends Entity {
 		`**Returns:** The hands entity if players has one
     **/
     
-    public function GetHands():Entity;
+    function GetHands():Entity;
     
     
     /**
@@ -3617,7 +3617,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SetPData(key:String, value:Dynamic):Bool;
+    function SetPData(key:String, value:Dynamic):Bool;
     
     
     /**
@@ -3644,7 +3644,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function KeyPressed(key:IN):Bool;
+    function KeyPressed(key:IN):Bool;
     
     #if server
     /**
@@ -3655,7 +3655,7 @@ extern class Player extends Entity {
 		 The player is automatically equipped with the suit on spawn, if you wish to stop that, use Player:RemoveSuit.
     **/
     
-    public function EquipSuit():Void;
+    function EquipSuit():Void;
     #end
     #if server
     /**
@@ -3668,7 +3668,7 @@ extern class Player extends Entity {
 		`shouldNotCollide` | True to disable, false to enable collision.
     **/
     
-    public function SetNoCollideWithTeammates(shouldNotCollide:Bool):Void;
+    function SetNoCollideWithTeammates(shouldNotCollide:Bool):Void;
     #end
     
     /**
@@ -3689,7 +3689,7 @@ extern class Player extends Entity {
 		Vector( 1, 1, 1 )
     **/
     
-    public function GetWeaponColor():Vector;
+    function GetWeaponColor():Vector;
     
     
     /**
@@ -3701,7 +3701,7 @@ extern class Player extends Entity {
 		`fastReset` | If set to true the sound filter will be removed faster.
     **/
     
-    public function SetDSP(soundFilter:Float, fastReset:Bool):Void;
+    function SetDSP(soundFilter:Float, fastReset:Bool):Void;
     
     #if server
     /**
@@ -3726,7 +3726,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function GiveAmmo(amount:Float, type:String, ?hidePopup:Bool):Float;
+    function GiveAmmo(amount:Float, type:String, ?hidePopup:Bool):Float;
     #end
     
     /**
@@ -3759,7 +3759,7 @@ extern class Player extends Entity {
 		-16.000000 -16.000000 0.000000 16.000000 16.000000 36.000000
     **/
     
-    public function GetHullDuck():PlayerGetHullDuckReturn;
+    function GetHullDuck():PlayerGetHullDuckReturn;
     
     
     /**
@@ -3787,7 +3787,7 @@ extern class Player extends Entity {
 		Hello World (In chatbox)
     **/
     
-    public function ChatPrint(message:String):Void;
+    function ChatPrint(message:String):Void;
     
     
     /**
@@ -3800,7 +3800,7 @@ extern class Player extends Entity {
 		`**Returns:** Trace result. See TraceResult structure
     **/
     
-    public function GetEyeTraceNoCursor():TraceResult;
+    function GetEyeTraceNoCursor():TraceResult;
     
     #if server
     /**
@@ -3813,7 +3813,7 @@ extern class Player extends Entity {
 		`visibility` | The visibility.
     **/
     
-    public function SetNoTarget(visibility:Bool):Void;
+    function SetNoTarget(visibility:Bool):Void;
     #end
     
     /**
@@ -3822,7 +3822,7 @@ extern class Player extends Entity {
 		`**Returns:** The timescale multiplier, defaults to 1.
     **/
     
-    public function GetLaggedMovementValue():Float;
+    function GetLaggedMovementValue():Float;
     
     
     /**
@@ -3833,7 +3833,7 @@ extern class Player extends Entity {
 		`**Returns:** Whether the player is typing in their chat or not.
     **/
     
-    public function IsTyping():Bool;
+    function IsTyping():Bool;
     
     
     /**
@@ -3846,7 +3846,7 @@ extern class Player extends Entity {
 		`runSpeed` | The new sprint speed when sv_friction is below 10. Higher sv_friction values will result in slower speed. Has to be 7 or above or the player won't be able to move.
     **/
     
-    public function SetRunSpeed(runSpeed:Float):Void;
+    function SetRunSpeed(runSpeed:Float):Void;
     
     #if server
     /**
@@ -3886,7 +3886,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function GetInfoNum(cVarName:String, _default:Float):Float;
+    function GetInfoNum(cVarName:String, _default:Float):Float;
     #end
     
     /**
@@ -3897,7 +3897,7 @@ extern class Player extends Entity {
 		`punchAngle` | The angle to set.
     **/
     
-    public function SetViewPunchAngles(punchAngle:Angle):Void;
+    function SetViewPunchAngles(punchAngle:Angle):Void;
     
     #if server
     /**
@@ -3932,7 +3932,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SelectWeapon(className:String):Void;
+    function SelectWeapon(className:String):Void;
     #end
     
     /**
@@ -3948,7 +3948,7 @@ extern class Player extends Entity {
 		`drivingMode` | The driving mode index.
     **/
     @:deprecated("INTERNAL")
-    public function SetDrivingEntity(?drivingEntity:Entity, drivingMode:Float):Void;
+    function SetDrivingEntity(?drivingEntity:Entity, drivingMode:Float):Void;
     
     
     /**
@@ -3957,7 +3957,7 @@ extern class Player extends Entity {
 		`**Returns:** Whether the player is crouching
     **/
     
-    public function Crouching():Bool;
+    function Crouching():Bool;
     
     
     /**
@@ -3985,7 +3985,7 @@ extern class Player extends Entity {
 		A notification pops up saying "SBoxLimit_test"
     **/
     
-    public function LimitHit(type:String):Void;
+    function LimitHit(type:String):Void;
     
     
     /**
@@ -3997,14 +3997,14 @@ extern class Player extends Entity {
 		`ent` | Entity to add
     **/
     
-    public function AddCleanup(type:String, ent:Entity):Void;
+    function AddCleanup(type:String, ent:Entity):Void;
     
     
     /**
         Restarts the main animation on the player, has the same effect as calling Entity:SetCycle( 0 ).
     **/
     
-    public function AnimRestartMainSequence():Void;
+    function AnimRestartMainSequence():Void;
     
     #if client
     /**
@@ -4025,7 +4025,7 @@ extern class Player extends Entity {
 		"friend"
     **/
     
-    public function GetFriendStatus():String;
+    function GetFriendStatus():String;
     #end
     #if server
     /**
@@ -4043,7 +4043,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function GodDisable():Void;
+    function GodDisable():Void;
     #end
     #if server
     /**
@@ -4062,7 +4062,7 @@ extern class Player extends Entity {
 		Player 1 will exit the the vehicle he's currently in.
     **/
     
-    public function ExitVehicle():Void;
+    function ExitVehicle():Void;
     #end
     
     /**
@@ -4094,7 +4094,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    public function SetPlayerColor(Color:Vector):Void;
+    function SetPlayerColor(Color:Vector):Void;
     
     #if server
     /**
@@ -4103,7 +4103,7 @@ extern class Player extends Entity {
 		Basically equivalent of entering "-zoom" into player's console.
     **/
     
-    public function StopZooming():Void;
+    function StopZooming():Void;
     #end
     
     /**
@@ -4150,7 +4150,7 @@ extern class Player extends Entity {
 		255
     **/
     
-    public function GetAmmoCount(ammotype:Dynamic):Float;
+    function GetAmmoCount(ammotype:Dynamic):Float;
     
     
     /**
@@ -4183,7 +4183,7 @@ extern class Player extends Entity {
 		"test" nil
     **/
     
-    public function UniqueIDTable(key:Dynamic):AnyTable;
+    function UniqueIDTable(key:Dynamic):AnyTable;
 }
 
 

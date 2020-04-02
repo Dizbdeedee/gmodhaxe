@@ -14,7 +14,7 @@ extern class CNavArea {
 		`**Returns:** Whether this area is in the Open List.
     **/
     
-    public function IsOpen():Bool;
+    function IsOpen():Bool;
     
     
     /**
@@ -28,14 +28,14 @@ extern class CNavArea {
 		`**Returns:** True if the vector was inside and false otherwise.
     **/
     
-    public function Contains(pos:Vector):Bool;
+    function Contains(pos:Vector):Bool;
     
     
     /**
         Removes the given nav area.
     **/
     
-    public function Remove():Void;
+    function Remove():Void;
     
     
     /**
@@ -46,7 +46,7 @@ extern class CNavArea {
 		`**Returns:** The cost so far.
     **/
     
-    public function GetCostSoFar():Float;
+    function GetCostSoFar():Float;
     
     
     /**
@@ -60,7 +60,7 @@ extern class CNavArea {
 		`**Returns:** The direction the vector is in relation to this CNavArea. See NavDir_ Enums.
     **/
     
-    public function ComputeDirection(pos:Vector):NavDir;
+    function ComputeDirection(pos:Vector):NavDir;
     
     
     /**
@@ -77,7 +77,7 @@ extern class CNavArea {
 		`b` | If we can be seen, this is returned with either the center or one of the corners of the Nav Area.
     **/
     
-    public function IsVisible(pos:Vector):CNavAreaIsVisibleReturn;
+    function IsVisible(pos:Vector):CNavAreaIsVisibleReturn;
     
     
     /**
@@ -86,7 +86,7 @@ extern class CNavArea {
 		Used in pathfinding via the A* algorithm. More information can be found on the Simple Pathfinding page.
     **/
     
-    public function RemoveFromClosedList():Void;
+    function RemoveFromClosedList():Void;
     
     
     /**
@@ -95,7 +95,7 @@ extern class CNavArea {
 		`**Returns:** If we're a square or not.
     **/
     
-    public function IsRoughlySquare():Bool;
+    function IsRoughlySquare():Bool;
     
     
     /**
@@ -104,7 +104,7 @@ extern class CNavArea {
 		Used in pathfinding via the A* algorithm. More information can be found on the Simple Pathfinding page.
     **/
     
-    public function AddToOpenList():Void;
+    function AddToOpenList():Void;
     
     
     /**
@@ -113,7 +113,7 @@ extern class CNavArea {
 		Used in pathfinding via the A* algorithm. More information can be found on the Simple Pathfinding page.
     **/
     
-    public function AddToClosedList():Void;
+    function AddToClosedList():Void;
     
     
     /**
@@ -129,7 +129,7 @@ extern class CNavArea {
 		`**Returns:** The CNavLadders that have a ( one or two way ) connection from this CNavArea in given direction.
     **/
     
-    public function GetLaddersAtSide(navDir:Float):AnyTable;
+    function GetLaddersAtSide(navDir:Float):AnyTable;
     
     
     /**
@@ -138,7 +138,7 @@ extern class CNavArea {
 		`**Returns:** 
     **/
     
-    public function GetSizeX():Float;
+    function GetSizeX():Float;
     
     
     /**
@@ -151,7 +151,7 @@ extern class CNavArea {
 		`cost` | The total cost of the path to set. Must be above or equal 0.
     **/
     
-    public function SetTotalCost(cost:Float):Void;
+    function SetTotalCost(cost:Float):Void;
     
     
     /**
@@ -160,7 +160,7 @@ extern class CNavArea {
 		`**Returns:** 
     **/
     
-    public function GetSizeY():Float;
+    function GetSizeY():Float;
     
     
     /**
@@ -178,7 +178,7 @@ extern class CNavArea {
 		`**Returns:** A table of all CNavArea that have a ( one and two way ) connection from this CNavArea in given direction. Returns an empty table if this area has no outgoing connections to any other areas in given direction.
     **/
     
-    public function GetAdjacentAreasAtSide(navDir:NavDir):AnyTable;
+    function GetAdjacentAreasAtSide(navDir:NavDir):AnyTable;
     
     
     /**
@@ -192,7 +192,7 @@ extern class CNavArea {
 		`**Returns:** The ground height change.
     **/
     
-    public function ComputeGroundHeightChange(navArea:CNavArea):Float;
+    function ComputeGroundHeightChange(navArea:CNavArea):Float;
     
     
     /**
@@ -207,7 +207,7 @@ extern class CNavArea {
 		`**Returns:** Whether the area is blocked or not
     **/
     
-    public function IsBlocked(?teamID:Float, ?ignoreNavBlockers:Bool):Bool;
+    function IsBlocked(?teamID:Float, ?ignoreNavBlockers:Bool):Bool;
     
     
     /**
@@ -221,7 +221,7 @@ extern class CNavArea {
 		`**Returns:** The closest position on this Nav Area.
     **/
     
-    public function GetClosestPointOnArea(pos:Vector):Vector;
+    function GetClosestPointOnArea(pos:Vector):Vector;
     
     
     /**
@@ -232,7 +232,7 @@ extern class CNavArea {
 		`**Returns:** The total cost
     **/
     
-    public function GetTotalCost():Float;
+    function GetTotalCost():Float;
     
     
     /**
@@ -245,7 +245,7 @@ extern class CNavArea {
 		`cost` | The cost so far
     **/
     
-    public function SetCostSoFar(cost:Float):Void;
+    function SetCostSoFar(cost:Float):Void;
     
     
     /**
@@ -259,7 +259,7 @@ extern class CNavArea {
 		`**Returns:** The height change
     **/
     
-    public function ComputeAdjacentConnectionHeightChange(navarea:CNavArea):Float;
+    function ComputeAdjacentConnectionHeightChange(navarea:CNavArea):Float;
     
     
     /**
@@ -270,7 +270,7 @@ extern class CNavArea {
 		`area` | The CNavArea or CNavLadder this to disconnect from.
     **/
     
-    public function Disconnect(area:CNavArea):Void;
+    function Disconnect(area:CNavArea):Void;
     
     
     /**
@@ -279,7 +279,7 @@ extern class CNavArea {
 		`**Returns:** The random point on the nav area.
     **/
     
-    public function GetRandomPoint():Vector;
+    function GetRandomPoint():Vector;
     
     
     /**
@@ -295,7 +295,7 @@ extern class CNavArea {
 		`**Returns:** A table of Vectors
     **/
     
-    public function GetHidingSpots(?type:Float):AnyTable;
+    function GetHidingSpots(?type:Float):AnyTable;
     
     
     /**
@@ -306,7 +306,7 @@ extern class CNavArea {
 		`attribs` | The attribute bitflag. See NAV_MESH_ Enums
     **/
     
-    public function SetAttributes(attribs:NAV_MESH):Void;
+    function SetAttributes(attribs:NAV_MESH):Void;
     
     
     /**
@@ -315,7 +315,7 @@ extern class CNavArea {
 		`**Returns:** The parent CNavArea
     **/
     
-    public function GetParent():CNavArea;
+    function GetParent():CNavArea;
     
     
     /**
@@ -329,7 +329,7 @@ extern class CNavArea {
 		`**Returns:** The random CNavArea that has an outgoing ( one or two way ) connection from this CNavArea in given direction, if any.
     **/
     
-    public function GetRandomAdjacentAreaAtSide(navDir:NavDir):CNavArea;
+    function GetRandomAdjacentAreaAtSide(navDir:NavDir):CNavArea;
     
     
     /**
@@ -346,7 +346,7 @@ extern class CNavArea {
 		`**Returns:** Whether this CNavArea has an outgoing ( one or two way ) connection to given CNavArea in given direction.
     **/
     
-    public function IsConnectedAtSide(navArea:CNavArea, navDirType:NavDir):Bool;
+    function IsConnectedAtSide(navArea:CNavArea, navDirType:NavDir):Bool;
     
     
     /**
@@ -359,14 +359,14 @@ extern class CNavArea {
 		`area` | The CNavArea or CNavLadder this area leads to.
     **/
     
-    public function ConnectTo(area:CNavArea):Void;
+    function ConnectTo(area:CNavArea):Void;
     
     
     /**
         Draws the hiding spots on debug overlay. This includes sniper/exposed spots too!
     **/
     
-    public function DrawSpots():Void;
+    function DrawSpots():Void;
     
     
     /**
@@ -379,7 +379,7 @@ extern class CNavArea {
 		`**Returns:** A table of all CNavAreas with one-way connection to this CNavArea. Returns an empty table if there are no one-way incoming connections to this CNavArea.
     **/
     
-    public function GetIncomingConnections():AnyTable;
+    function GetIncomingConnections():AnyTable;
     
     
     /**
@@ -397,7 +397,7 @@ extern class CNavArea {
 		`**Returns:** A table of all CNavAreas with one-way connection to this CNavArea from given direction. Returns an empty table if there are no one-way incoming connections to this CNavArea from given direction.
     **/
     
-    public function GetIncomingConnectionsAtSide(navDir:NavDir):AnyTable;
+    function GetIncomingConnectionsAtSide(navDir:NavDir):AnyTable;
     
     
     /**
@@ -406,7 +406,7 @@ extern class CNavArea {
 		`**Returns:** The center vector.
     **/
     
-    public function GetCenter():Vector;
+    function GetCenter():Vector;
     
     
     /**
@@ -417,7 +417,7 @@ extern class CNavArea {
 		`corner` | The corner(s) to drop, uses NavCorner_ Enums
     **/
     
-    public function PlaceOnGround(corner:NavCorner):Void;
+    function PlaceOnGround(corner:NavCorner):Void;
     
     
     /**
@@ -426,7 +426,7 @@ extern class CNavArea {
 		`**Returns:** Whether this CNavArea is mostly flat.
     **/
     
-    public function IsFlat():Bool;
+    function IsFlat():Bool;
     
     
     /**
@@ -435,7 +435,7 @@ extern class CNavArea {
 		`**Returns:** Returns a table containing the following keys: Vector hi Vector lo number SizeX number SizeY number SizeZ
     **/
     
-    public function GetExtentInfo():AnyTable;
+    function GetExtentInfo():AnyTable;
     
     
     /**
@@ -449,7 +449,7 @@ extern class CNavArea {
 		`**Returns:** True if the given CNavArea overlaps this CNavArea at any point.
     **/
     
-    public function IsOverlappingArea(navArea:CNavArea):Bool;
+    function IsOverlappingArea(navArea:CNavArea):Bool;
     
     
     /**
@@ -458,7 +458,7 @@ extern class CNavArea {
 		`**Returns:** The place of the nav area, or no value if it doesn't have a place set.
     **/
     
-    public function GetPlace():String;
+    function GetPlace():String;
     
     
     /**
@@ -469,7 +469,7 @@ extern class CNavArea {
 		`**Returns:** The amount of CNavAreas that have a connection ( one and two way ) from this CNavArea.
     **/
     
-    public function GetAdjacentCount():Float;
+    function GetAdjacentCount():Float;
     
     
     /**
@@ -485,14 +485,14 @@ extern class CNavArea {
 		`**Returns:** Returns true of operation succeeded, false otherwise.
     **/
     
-    public function SetPlace(place:String):Bool;
+    function SetPlace(place:String):Bool;
     
     
     /**
         Draws this navarea on debug overlay.
     **/
     
-    public function Draw():Void;
+    function Draw():Void;
     
     
     /**
@@ -506,7 +506,7 @@ extern class CNavArea {
 		`**Returns:** True if the CNavArea matches the given mask. False otherwise.
     **/
     
-    public function HasAttributes(attribs:NAV_MESH):Bool;
+    function HasAttributes(attribs:NAV_MESH):Bool;
     
     
     /**
@@ -522,7 +522,7 @@ extern class CNavArea {
 		`**Returns:** The amount of CNavAreas that have a connection ( one or two way ) from this CNavArea in given direction.
     **/
     
-    public function GetAdjacentCountAtSide(navDir:NavDir):Float;
+    function GetAdjacentCountAtSide(navDir:NavDir):Float;
     
     
     /**
@@ -531,7 +531,7 @@ extern class CNavArea {
 		`**Returns:** Whether we're underwater or not.
     **/
     
-    public function IsUnderwater():Bool;
+    function IsUnderwater():Bool;
     
     
     /**
@@ -545,7 +545,7 @@ extern class CNavArea {
 		`**Returns:** The corner position.
     **/
     
-    public function GetCorner(cornerid:NavCorner):Vector;
+    function GetCorner(cornerid:NavCorner):Vector;
     
     
     /**
@@ -556,7 +556,7 @@ extern class CNavArea {
 		`**Returns:** Attribute mask for this CNavArea, see NAV_MESH_ Enums for the specific flags. NOTE A navmesh that was generated with nav_quicksave set to 1 will have all CNavAreas attribute masks set to 0
     **/
     
-    public function GetAttributes():NAV_MESH;
+    function GetAttributes():NAV_MESH;
     
     
     /**
@@ -567,7 +567,7 @@ extern class CNavArea {
 		`**Returns:** A table of Vectors
     **/
     
-    public function GetExposedSpots():AnyTable;
+    function GetExposedSpots():AnyTable;
     
     
     /**
@@ -578,7 +578,7 @@ extern class CNavArea {
 		`parent` | The new parent to set
     **/
     
-    public function SetParent(parent:CNavArea):Void;
+    function SetParent(parent:CNavArea):Void;
     
     
     /**
@@ -587,7 +587,7 @@ extern class CNavArea {
 		`**Returns:** The unique ID.
     **/
     
-    public function GetID():Float;
+    function GetID():Float;
     
     
     /**
@@ -603,7 +603,7 @@ extern class CNavArea {
 		`**Returns:** Whether this CNavArea has an outgoing ( one or two way ) connection to given CNavArea.
     **/
     
-    public function IsConnected(navArea:CNavArea):Bool;
+    function IsConnected(navArea:CNavArea):Bool;
     
     
     /**
@@ -617,7 +617,7 @@ extern class CNavArea {
 		`flags` | Flags describing what kind of hiding spot this is. 0 = None (Not recommended) 1 = In Cover/basically a hiding spot, in a corner with good hard cover nearby 2 = good sniper spot, had at least one decent sniping corridor 4 = perfect sniper spot, can see either very far, or a large area, or both 8 = exposed, spot in the open, usually on a ledge or cliff Values over 255 will be clamped.
     **/
     
-    public function AddHidingSpot(pos:Vector, ?flags:Float):Void;
+    function AddHidingSpot(pos:Vector, ?flags:Float):Void;
     
     
     /**
@@ -628,7 +628,7 @@ extern class CNavArea {
 		`**Returns:** The CNavLadders that have a ( one or two way ) connection from this CNavArea.
     **/
     
-    public function GetLadders():AnyTable;
+    function GetLadders():AnyTable;
     
     
     /**
@@ -643,7 +643,7 @@ extern class CNavArea {
 		`**Returns:** Whether the given position overlaps the Nav Area or not.
     **/
     
-    public function IsOverlapping(pos:Vector, ?tolerance:Float):Bool;
+    function IsOverlapping(pos:Vector, ?tolerance:Float):Bool;
     
     
     /**
@@ -652,7 +652,7 @@ extern class CNavArea {
 		`**Returns:** See NavTraverseType_ Enums
     **/
     
-    public function GetParentHow():NavTraverseType;
+    function GetParentHow():NavTraverseType;
     
     
     /**
@@ -663,7 +663,7 @@ extern class CNavArea {
 		`**Returns:** Whether the Open List is empty or not.
     **/
     
-    public function IsOpenListEmpty():Bool;
+    function IsOpenListEmpty():Bool;
     
     
     /**
@@ -672,7 +672,7 @@ extern class CNavArea {
 		Used in pathfinding via the A* algorithm. More information can be found on the Simple Pathfinding page.
     **/
     
-    public function ClearSearchLists():Void;
+    function ClearSearchLists():Void;
     
     
     /**
@@ -683,7 +683,7 @@ extern class CNavArea {
 		`**Returns:** Whether this node is in the Closed List.
     **/
     
-    public function IsClosed():Bool;
+    function IsClosed():Bool;
     
     
     /**
@@ -697,7 +697,7 @@ extern class CNavArea {
 		`**Returns:** Whether we're coplanar or not.
     **/
     
-    public function IsCoplanar(navArea:CNavArea):Bool;
+    function IsCoplanar(navArea:CNavArea):Bool;
     
     
     /**
@@ -706,7 +706,7 @@ extern class CNavArea {
 		`**Returns:** Whether this CNavArea is valid or not.
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     
     /**
@@ -717,7 +717,7 @@ extern class CNavArea {
 		`**Returns:** The CNavArea from the Open List with the lowest cost to traverse to from the starting node.
     **/
     
-    public function PopOpenList():CNavArea;
+    function PopOpenList():CNavArea;
     
     
     /**
@@ -730,7 +730,7 @@ extern class CNavArea {
 		`**Returns:** A table of all CNavArea that have a ( one and two way ) connection from this CNavArea. Returns an empty table if this area has no outgoing connections to any other areas.
     **/
     
-    public function GetAdjacentAreas():AnyTable;
+    function GetAdjacentAreas():AnyTable;
     
     
     /**
@@ -744,7 +744,7 @@ extern class CNavArea {
 		`**Returns:** The elevation.
     **/
     
-    public function GetZ(pos:Vector):Float;
+    function GetZ(pos:Vector):Float;
     
     
     /**
@@ -756,7 +756,7 @@ extern class CNavArea {
 		`position` | The new position to set.
     **/
     
-    public function SetCorner(corner:NavCorner, position:Vector):Void;
+    function SetCorner(corner:NavCorner, position:Vector):Void;
     
     
     /**
@@ -765,7 +765,7 @@ extern class CNavArea {
 		Used in pathfinding via the A* algorithm. More information can be found on the Simple Pathfinding page.
     **/
     
-    public function UpdateOnOpenList():Void;
+    function UpdateOnOpenList():Void;
     
     
 }

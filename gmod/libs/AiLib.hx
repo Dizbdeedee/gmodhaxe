@@ -17,7 +17,7 @@ package gmod.libs;
 		`**Returns:** The schedule ID, see SCHED_ Enums. Returns -1 if the schedule name isn't valid.
     **/
     
-    public static function GetScheduleID(sched:SCHED):SCHED;
+    static function GetScheduleID(sched:SCHED):SCHED;
     
     
     /**
@@ -31,7 +31,7 @@ package gmod.libs;
 		`**Returns:** The task ID, see ai_task.h. Returns -1 if the schedule name isn't valid.
     **/
     
-    public static function GetTaskID(task:String):Float;
+    static function GetTaskID(task:String):Float;
     
     
 

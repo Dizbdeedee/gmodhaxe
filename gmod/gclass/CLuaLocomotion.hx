@@ -12,7 +12,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Current death drop height
     **/
     
-    public function GetDeathDropHeight():Float;
+    function GetDeathDropHeight():Float;
     
     
     /**
@@ -24,7 +24,7 @@ extern class CLuaLocomotion {
 		`goalweight` | If unsure then set this to 1
     **/
     
-    public function Approach(goal:Vector, goalweight:Float):Void;
+    function Approach(goal:Vector, goalweight:Float):Void;
     
     
     /**
@@ -33,7 +33,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Whether the locomotion/nextbot is on ground or not.
     **/
     
-    public function IsOnGround():Bool;
+    function IsOnGround():Bool;
     
     
     /**
@@ -42,14 +42,14 @@ extern class CLuaLocomotion {
 		`**Returns:** Current velocity
     **/
     
-    public function GetVelocity():Vector;
+    function GetVelocity():Vector;
     
     
     /**
         Makes the bot jump
     **/
     
-    public function Jump():Void;
+    function Jump():Void;
     
     
     /**
@@ -60,14 +60,14 @@ extern class CLuaLocomotion {
 		`velocity` | 
     **/
     
-    public function SetVelocity(velocity:Vector):Void;
+    function SetVelocity(velocity:Vector):Void;
     
     
     /**
         Removes the stuck status from the bot
     **/
     
-    public function ClearStuck():Void;
+    function ClearStuck():Void;
     
     
     /**
@@ -78,7 +78,7 @@ extern class CLuaLocomotion {
 		`height` | Height (default is 18)
     **/
     
-    public function SetStepHeight(height:Float):Void;
+    function SetStepHeight(height:Float):Void;
     
     
     /**
@@ -89,7 +89,7 @@ extern class CLuaLocomotion {
 		`speed` | Speed acceleration (default is 400)
     **/
     
-    public function SetAcceleration(speed:Float):Void;
+    function SetAcceleration(speed:Float):Void;
     
     
     /**
@@ -98,7 +98,7 @@ extern class CLuaLocomotion {
 		`**Returns:** A vector representing the X and Y movement
     **/
     
-    public function GetGroundMotionVector():Vector;
+    function GetGroundMotionVector():Vector;
     
     
     /**
@@ -107,7 +107,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Current deceleration speed
     **/
     
-    public function GetDeceleration():Float;
+    function GetDeceleration():Float;
     
     
     /**
@@ -116,7 +116,7 @@ extern class CLuaLocomotion {
 		`**Returns:** The nextbot
     **/
     
-    public function GetNextBot():NextBot;
+    function GetNextBot():NextBot;
     
     
     /**
@@ -127,7 +127,7 @@ extern class CLuaLocomotion {
 		`yawRate` | Desired new maximum yaw rate
     **/
     
-    public function SetMaxYawRate(yawRate:Float):Void;
+    function SetMaxYawRate(yawRate:Float):Void;
     
     
     /**
@@ -136,7 +136,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Whether we're stuck or not
     **/
     
-    public function IsStuck():Bool;
+    function IsStuck():Bool;
     
     
     /**
@@ -145,7 +145,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Current acceleration
     **/
     
-    public function GetCurrentAcceleration():Vector;
+    function GetCurrentAcceleration():Vector;
     
     
     /**
@@ -154,7 +154,7 @@ extern class CLuaLocomotion {
 		`**Returns:** If the target is on a ladder or not.
     **/
     
-    public function IsUsingLadder():Bool;
+    function IsUsingLadder():Bool;
     
     
     /**
@@ -165,7 +165,7 @@ extern class CLuaLocomotion {
 		`speed` | The new desired speed
     **/
     
-    public function SetDesiredSpeed(speed:Float):Void;
+    function SetDesiredSpeed(speed:Float):Void;
     
     
     /**
@@ -174,7 +174,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Whether we're climbing or jumping or not
     **/
     
-    public function IsClimbingOrJumping():Bool;
+    function IsClimbingOrJumping():Bool;
     
     
     /**
@@ -183,7 +183,7 @@ extern class CLuaLocomotion {
 		`**Returns:** The maximum jump height.
     **/
     
-    public function GetMaxJumpHeight():Float;
+    function GetMaxJumpHeight():Float;
     
     
     /**
@@ -192,7 +192,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Current acceleration speed
     **/
     
-    public function GetAcceleration():Float;
+    function GetAcceleration():Float;
     
     
     /**
@@ -201,7 +201,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Maximum yaw rate
     **/
     
-    public function GetMaxYawRate():Float;
+    function GetMaxYawRate():Float;
     
     
     /**
@@ -214,7 +214,7 @@ extern class CLuaLocomotion {
 		`gravity` | New gravity to set. Default is 1000.
     **/
     
-    public function SetGravity(gravity:Float):Void;
+    function SetGravity(gravity:Float):Void;
     
     
     /**
@@ -228,7 +228,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Whether this CLuaLocomotion can traverse given CNavArea.
     **/
     
-    public function IsAreaTraversable(area:CNavArea):Bool;
+    function IsAreaTraversable(area:CNavArea):Bool;
     
     
     /**
@@ -237,7 +237,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Current jump height
     **/
     
-    public function GetJumpHeight():Float;
+    function GetJumpHeight():Float;
     
     
     /**
@@ -246,7 +246,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Whether we're trying to move or not.
     **/
     
-    public function IsAttemptingToMove():Bool;
+    function IsAttemptingToMove():Bool;
     
     
     /**
@@ -255,7 +255,7 @@ extern class CLuaLocomotion {
 		`**Returns:** The gravity.
     **/
     
-    public function GetGravity():Float;
+    function GetGravity():Float;
     
     
     /**
@@ -266,7 +266,7 @@ extern class CLuaLocomotion {
 		`deceleration` | New deceleration speed (default is 400)
     **/
     
-    public function SetDeceleration(deceleration:Float):Void;
+    function SetDeceleration(deceleration:Float):Void;
     
     
     /**
@@ -277,7 +277,7 @@ extern class CLuaLocomotion {
 		`height` | Height (default is 200)
     **/
     
-    public function SetDeathDropHeight(height:Float):Void;
+    function SetDeathDropHeight(height:Float):Void;
     
     
     /**
@@ -288,7 +288,7 @@ extern class CLuaLocomotion {
 		`height` | Height (default is 58)
     **/
     
-    public function SetJumpHeight(height:Float):Void;
+    function SetJumpHeight(height:Float):Void;
     
     
     /**
@@ -300,7 +300,7 @@ extern class CLuaLocomotion {
 		`landingForward` | 
     **/
     
-    public function JumpAcrossGap(landingGoal:Vector, landingForward:Vector):Void;
+    function JumpAcrossGap(landingGoal:Vector, landingForward:Vector):Void;
     
     
     /**
@@ -309,7 +309,7 @@ extern class CLuaLocomotion {
 		`**Returns:** Current step height
     **/
     
-    public function GetStepHeight():Float;
+    function GetStepHeight():Float;
     
     
     /**
@@ -320,7 +320,7 @@ extern class CLuaLocomotion {
 		`goal` | The vector we want to face
     **/
     
-    public function FaceTowards(goal:Vector):Void;
+    function FaceTowards(goal:Vector):Void;
     
     
 }

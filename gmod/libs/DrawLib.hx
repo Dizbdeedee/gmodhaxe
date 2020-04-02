@@ -30,7 +30,7 @@ package gmod.libs;
 		`b` | The height of the text. Same value as if you were calling surface. GetTextSize.
     **/
     
-    public static function SimpleTextOutlined(Text:String, ?font:String, ?x:Float, ?y:Float, ?color:Color, ?xAlign:TEXT_ALIGN, ?yAlign:TEXT_ALIGN, outlinewidth:Float, ?outlinecolor:Color):DrawLibSimpleTextOutlinedReturn;
+    static function SimpleTextOutlined(Text:String, ?font:String, ?x:Float, ?y:Float, ?color:Color, ?xAlign:TEXT_ALIGN, ?yAlign:TEXT_ALIGN, outlinewidth:Float, ?outlinecolor:Color):DrawLibSimpleTextOutlinedReturn;
     
     
     /**
@@ -63,7 +63,7 @@ package gmod.libs;
 		Hello there!
     **/
     
-    public static function DrawText(text:String, ?font:String, ?x:Float, ?y:Float, ?color:Color, ?xAlign:TEXT_ALIGN):Void;
+    static function DrawText(text:String, ?font:String, ?x:Float, ?y:Float, ?color:Color, ?xAlign:TEXT_ALIGN):Void;
     
     
     /**
@@ -100,7 +100,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SimpleText(text:String, ?font:String, ?x:Float, ?y:Float, ?color:Color, ?xAlign:TEXT_ALIGN, ?yAlign:TEXT_ALIGN):DrawLibSimpleTextReturn;
+    static function SimpleText(text:String, ?font:String, ?x:Float, ?y:Float, ?color:Color, ?xAlign:TEXT_ALIGN, ?yAlign:TEXT_ALIGN):DrawLibSimpleTextReturn;
     
     
     /**
@@ -116,7 +116,7 @@ package gmod.libs;
 		`**Returns:** The font height
     **/
     
-    public static function GetFontHeight(font:String):Float;
+    static function GetFontHeight(font:String):Float;
     
     
     /**
@@ -141,7 +141,7 @@ package gmod.libs;
 		`b` | The height of the word box.
     **/
     
-    public static function WordBox(bordersize:Float, x:Float, y:Float, text:String, font:String, boxcolor:Color, textcolor:Color):DrawLibWordBoxReturn;
+    static function WordBox(bordersize:Float, x:Float, y:Float, text:String, font:String, boxcolor:Color, textcolor:Color):DrawLibWordBoxReturn;
     
     
     /**
@@ -150,7 +150,7 @@ package gmod.libs;
 		**Note:** This is a rendering function that requires a 2D rendering context. This means that it will only work in hooks with a 2D rendering context.
     **/
     
-    public static function NoTexture():Void;
+    static function NoTexture():Void;
     
     
     /**
@@ -170,7 +170,7 @@ package gmod.libs;
 		`color` | The color to fill the rectangle with. Uses the Color structure.
     **/
     
-    public static function RoundedBox(cornerRadius:Float, x:Float, y:Float, width:Float, height:Float, color:Color):Void;
+    static function RoundedBox(cornerRadius:Float, x:Float, y:Float, width:Float, height:Float, color:Color):Void;
     
     
     /**
@@ -192,7 +192,7 @@ package gmod.libs;
 		`roundBottomRight` | Whether the bottom right corner should be rounded.
     **/
     
-    public static function RoundedBoxEx(cornerRadius:Float, x:Float, y:Float, width:Float, height:Float, color:Color, ?roundTopLeft:Bool, ?roundTopRight:Bool, ?roundBottomLeft:Bool, ?roundBottomRight:Bool):Void;
+    static function RoundedBoxEx(cornerRadius:Float, x:Float, y:Float, width:Float, height:Float, color:Color, ?roundTopLeft:Bool, ?roundTopRight:Bool, ?roundBottomLeft:Bool, ?roundBottomRight:Bool):Void;
     
     
     /**
@@ -207,7 +207,7 @@ package gmod.libs;
 		`alpha` | How visible the shadow is (0-255).
     **/
     
-    public static function TextShadow(textdata:TextData, distance:Float, ?alpha:Float):Void;
+    static function TextShadow(textdata:TextData, distance:Float, ?alpha:Float):Void;
     
     
     /**
@@ -241,7 +241,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Text(textdata:TextData):DrawLibTextReturn;
+    static function Text(textdata:TextData):DrawLibTextReturn;
     
     
     /**
@@ -275,7 +275,7 @@ package gmod.libs;
 		Renders the texture.
     **/
     
-    public static function TexturedQuad(texturedata:TextureData):Void;
+    static function TexturedQuad(texturedata:TextureData):Void;
     
     
 

@@ -19,7 +19,7 @@ package gmod.libs;
 		`**Returns:** The ConVar object
     **/
     @:deprecated("INTERNAL")
-    public static function GetConVar_Internal(name:String):ConVar;
+    static function GetConVar_Internal(name:String):ConVar;
     
     #if client
     /**
@@ -30,7 +30,7 @@ package gmod.libs;
 		`menu` | Menu to be registered for closure
     **/
     
-    public static function RegisterDermaMenuForClose(menu:Panel):Void;
+    static function RegisterDermaMenuForClose(menu:Panel):Void;
     #end
     #if client
     /**
@@ -41,7 +41,7 @@ package gmod.libs;
 		`panel` | Panel that has been hovered over
     **/
     
-    public static function ChangeTooltip(panel:Panel):Void;
+    static function ChangeTooltip(panel:Panel):Void;
     #end
     
     /**
@@ -57,7 +57,7 @@ package gmod.libs;
 		`**Returns:** Is a friend
     **/
     
-    public static function IsFriendEntityName(className:String):Bool;
+    static function IsFriendEntityName(className:String):Bool;
     
     
     /**
@@ -88,7 +88,7 @@ package gmod.libs;
 		b d f c a e
     **/
     
-    public static function RandomPairs(table:AnyTable, descending:Bool):Function;
+    static function RandomPairs(table:AnyTable, descending:Bool):Function;
     
     
     /**
@@ -99,7 +99,7 @@ package gmod.libs;
 		`currentgm` | Apparently does nothing.
     **/
     
-    public static function ChangeBackground(currentgm:String):Void;
+    static function ChangeBackground(currentgm:String):Void;
     
     
     /**
@@ -114,7 +114,7 @@ package gmod.libs;
 		`filename` | The filename of the Lua file you want to include.
     **/
     @:deprecated("To send the target file to the client simply call AddCSLuaFile() in the target file itself.")
-    public static function IncludeCS(filename:String):Void;
+    static function IncludeCS(filename:String):Void;
     
     
     /**
@@ -143,7 +143,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PrecacheParticleSystem(particleSystemName:String):Void;
+    static function PrecacheParticleSystem(particleSystemName:String):Void;
     
     #if client
     /**
@@ -177,7 +177,7 @@ package gmod.libs;
 		A white box on the top left corner of your screen
     **/
     
-    public static function ScrH():Float;
+    static function ScrH():Float;
     #end
     
     /**
@@ -203,7 +203,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetGlobalInt(index:String, value:Float):Void;
+    static function SetGlobalInt(index:String, value:Float):Void;
     
     
     /**
@@ -230,7 +230,7 @@ package gmod.libs;
 		Hello!
     **/
     
-    public static function CompileFile(path:String):Function;
+    static function CompileFile(path:String):Function;
     
     
     /**
@@ -244,7 +244,7 @@ package gmod.libs;
 		`loaders` | Calls each function passed with the new table as an argument.
     **/
     
-    public static function module(name:String, loaders:Rest<Dynamic>):Void;
+    static function module(name:String, loaders:Rest<Dynamic>):Void;
     
     
     /**
@@ -282,7 +282,7 @@ package gmod.libs;
 		4 = true
     **/
     
-    public static function PrintTable(tableToPrint:AnyTable, ?indent:Float, ?done:AnyTable):Void;
+    static function PrintTable(tableToPrint:AnyTable, ?indent:Float, ?done:AnyTable):Void;
     
     
     /**
@@ -324,7 +324,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Either(condition:Dynamic, truevar:Dynamic, falsevar:Dynamic):Dynamic;
+    static function Either(condition:Dynamic, truevar:Dynamic, falsevar:Dynamic):Dynamic;
     
     
     /**
@@ -342,7 +342,7 @@ package gmod.libs;
 		`**Returns:** The entity if it exists, or NULL if it doesn't.
     **/
     
-    public static function Entity(entityIndex:Float):Entity;
+    static function Entity(entityIndex:Float):Entity;
     
     
     /**
@@ -357,7 +357,7 @@ package gmod.libs;
 		`**Returns:** The global value, or the default if the global value is not set.
     **/
     
-    public static function GetGlobalBool(index:String, ?_default:Bool):Bool;
+    static function GetGlobalBool(index:String, ?_default:Bool):Bool;
     
     
     /**
@@ -374,7 +374,7 @@ package gmod.libs;
 		`args` | Data to send in the usermessage
     **/
     @:deprecated("This uses the umsg library internally, which has been deprecated. Use the net library instead.")
-    public static function SendUserMessage(name:String, recipients:Dynamic, args:Rest<Dynamic>):Void;
+    static function SendUserMessage(name:String, recipients:Dynamic, args:Rest<Dynamic>):Void;
     
     
     /**
@@ -388,7 +388,7 @@ package gmod.libs;
 		`**Returns:** The environment.
     **/
     
-    public static function getfenv(?location:Function):AnyTable;
+    static function getfenv(?location:Function):AnyTable;
     
     
     /**
@@ -403,7 +403,7 @@ package gmod.libs;
 		`**Returns:** The global value, or default if the global is not set.
     **/
     
-    public static function GetGlobalAngle(index:String, ?_default:Angle):Angle;
+    static function GetGlobalAngle(index:String, ?_default:Angle):Angle;
     
     
     /**
@@ -414,7 +414,7 @@ package gmod.libs;
 		`map` | Map to toggle favorite.
     **/
     
-    public static function ToggleFavourite(map:String):Void;
+    static function ToggleFavourite(map:String):Void;
     
     #if client
     /**
@@ -437,7 +437,7 @@ package gmod.libs;
 		`**Returns:** The Panel object of the created window.
     **/
     
-    public static function Derma_Query(?text:String, ?title:String, btn1text:String, ?btn1func:Function, ?btn2text:String, ?btn2func:Function, ?btn3text:String, ?btn3func:Function, ?btn4text:String, ?btn4func:Function):Panel;
+    static function Derma_Query(?text:String, ?title:String, btn1text:String, ?btn1func:Function, ?btn2text:String, ?btn2func:Function, ?btn3text:String, ?btn3func:Function, ?btn4text:String, ?btn4func:Function):Panel;
     #end
     
     /**
@@ -446,7 +446,7 @@ package gmod.libs;
 		Alias of RunString.
     **/
     @:deprecated("Use RunString instead.")
-    public static function RunStringEx():Void;
+    static function RunStringEx():Void;
     
     
     /**
@@ -490,7 +490,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Get(name:String):AnyTable;
+    static function Get(name:String):AnyTable;
     
     
     /**
@@ -515,7 +515,7 @@ package gmod.libs;
 		36 (one greater than the current highest value of the CLASS_ Enums)
     **/
     
-    public static function Add_NPC_Class(name:String):Void;
+    static function Add_NPC_Class(name:String):Void;
     
     #if client
     /**
@@ -541,7 +541,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawTexturize(Scale:Float, BaseTexture:Float):Void;
+    static function DrawTexturize(Scale:Float, BaseTexture:Float):Void;
     #end
     
     /**
@@ -574,7 +574,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Matrix(?data:AnyTable):VMatrix;
+    static function Matrix(?data:AnyTable):VMatrix;
     
     #if client
     /**
@@ -599,7 +599,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Derma_Message(Text:String, Title:String, Button:String):Panel;
+    static function Derma_Message(Text:String, Title:String, Button:String):Panel;
     #end
     #if client
     /**
@@ -626,14 +626,14 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawMotionBlur(AddAlpha:Float, DrawAlpha:Float, Delay:Float):Void;
+    static function DrawMotionBlur(AddAlpha:Float, DrawAlpha:Float, Delay:Float):Void;
     #end
     #if client
     /**
         Cancels any existing DOF post-process effects. Begins the DOF post-process effect.
     **/
     
-    public static function DOF_Start():Void;
+    static function DOF_Start():Void;
     #end
     #if client
     /**
@@ -678,7 +678,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ProjectedTexture():ProjectedTexture;
+    static function ProjectedTexture():ProjectedTexture;
     #end
     
     /**
@@ -721,7 +721,7 @@ package gmod.libs;
 		6	sandbox
     **/
     
-    public static function GameDetails(servername:String, serverurl:String, mapname:String, maxplayers:Float, steamid:String, gamemode:String):Void;
+    static function GameDetails(servername:String, serverurl:String, mapname:String, maxplayers:Float, steamid:String, gamemode:String):Void;
     
     #if client
     /**
@@ -733,7 +733,7 @@ package gmod.libs;
 		`viewAngles` | Angles to render the effect at
     **/
     
-    public static function RenderStereoscopy(viewOrigin:Vector, viewAngles:Angle):Void;
+    static function RenderStereoscopy(viewOrigin:Vector, viewAngles:Angle):Void;
     #end
     
     /**
@@ -747,7 +747,7 @@ package gmod.libs;
 		`**Returns:** True if the variable is a boolean.
     **/
     
-    public static function isbool(variable:Dynamic):Bool;
+    static function isbool(variable:Dynamic):Bool;
     
     
     /**
@@ -761,7 +761,7 @@ package gmod.libs;
 		`**Returns:** The created Color structure.
     **/
     
-    public static function ColorRand(?a:Bool):Color;
+    static function ColorRand(?a:Bool):Color;
     
     
     /**
@@ -788,7 +788,7 @@ package gmod.libs;
 		-6.949 113.388 130.879
     **/
     
-    public static function AngleRand(?min:Float, ?max:Float):Angle;
+    static function AngleRand(?min:Float, ?max:Float):Angle;
     
     #if client
     /**
@@ -814,7 +814,7 @@ package gmod.libs;
 		252, 1050, 1680 (This will differ depending on your screen width. Here the screen width is 1680.)
     **/
     
-    public static function ScreenScale(Size:Float):Void;
+    static function ScreenScale(Size:Float):Void;
     #end
     
     /**
@@ -830,7 +830,7 @@ package gmod.libs;
 		`**Returns:** Whether the function executed successfully or not
     **/
     
-    public static function ProtectedCall(func:Function):Bool;
+    static function ProtectedCall(func:Function):Bool;
     
     #if client
     /**
@@ -861,7 +861,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawBloom(Darken:Float, Multiply:Float, SizeX:Float, SizeY:Float, Passes:Float, ColorMultiply:Float, Red:Float, Green:Float, Blue:Float):Void;
+    static function DrawBloom(Darken:Float, Multiply:Float, SizeX:Float, SizeY:Float, Passes:Float, ColorMultiply:Float, Red:Float, Green:Float, Blue:Float):Void;
     #end
     
     /**
@@ -935,7 +935,7 @@ package gmod.libs;
 		equal
     **/
     
-    public static function Color(r:Float, g:Float, b:Float, ?a:Float):Color;
+    static function Color(r:Float, g:Float, b:Float, ?a:Float):Color;
     
     
     /**
@@ -951,7 +951,7 @@ package gmod.libs;
 		`**Returns:** Is an enemy
     **/
     
-    public static function IsEnemyEntityName(className:String):Bool;
+    static function IsEnemyEntityName(className:String):Bool;
     
     #if client
     /**
@@ -960,7 +960,7 @@ package gmod.libs;
 		`**Returns:** Real frame time
     **/
     
-    public static function RealFrameTime():Float;
+    static function RealFrameTime():Float;
     #end
     
     /**
@@ -974,7 +974,7 @@ package gmod.libs;
 		`bool` | Boolean to be networked
     **/
     
-    public static function SetGlobalBool(index:Dynamic, bool:Bool):Void;
+    static function SetGlobalBool(index:Dynamic, bool:Bool):Void;
     
     #if client
     /**
@@ -983,7 +983,7 @@ package gmod.libs;
 		`**Returns:** Render Angles
     **/
     
-    public static function RenderAngles():Angle;
+    static function RenderAngles():Angle;
     #end
     #if client
     /**
@@ -1004,7 +1004,7 @@ package gmod.libs;
 		1280 (depends on your resolution)
     **/
     
-    public static function ScrW():Float;
+    static function ScrW():Float;
     #end
     #if server
     /**
@@ -1015,7 +1015,7 @@ package gmod.libs;
 		`parameter` | The value to be printed to console.
     **/
     
-    public static function ServerLog(parameter:String):Void;
+    static function ServerLog(parameter:String):Void;
     #end
     
     /**
@@ -1034,7 +1034,7 @@ package gmod.libs;
 		`**Returns:** Sine value
     **/
     
-    public static function TimedSin(frequency:Float, origin:Float, max:Float, offset:Float):Float;
+    static function TimedSin(frequency:Float, origin:Float, max:Float, offset:Float):Float;
     
     #if client
     /**
@@ -1050,7 +1050,7 @@ package gmod.libs;
 		`**Returns:** Amount of skins
     **/
     
-    public static function NumModelSkins(modelName:String):Float;
+    static function NumModelSkins(modelName:String):Float;
     #end
     #if client
     /**
@@ -1077,7 +1077,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DisableClipping(disable:Bool):Void;
+    static function DisableClipping(disable:Bool):Void;
     #end
     #if client
     /**
@@ -1094,7 +1094,7 @@ package gmod.libs;
 		`**Returns:** DShape element
     **/
     
-    public static function VGUIRect(x:Float, y:Float, w:Float, h:Float):Panel;
+    static function VGUIRect(x:Float, y:Float, w:Float, h:Float):Panel;
     #end
     #if client
     /**
@@ -1120,7 +1120,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawSharpen(Contrast:Float, Distance:Float):Void;
+    static function DrawSharpen(Contrast:Float, Distance:Float):Void;
     #end
     
     /**
@@ -1129,7 +1129,7 @@ package gmod.libs;
 		Draws the currently active main menu background image and handles transitioning between background images. This is called by default in the menu panel's Paint hook.
     **/
     @:deprecated("INTERNAL")
-    public static function DrawBackground():Void;
+    static function DrawBackground():Void;
     
     #if client
     /**
@@ -1155,7 +1155,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawMaterialOverlay(Material:String, RefractAmount:Float):Void;
+    static function DrawMaterialOverlay(Material:String, RefractAmount:Float):Void;
     #end
     
     /**
@@ -1179,7 +1179,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function collectgarbage(?action:String, arg:Float):Dynamic;
+    static function collectgarbage(?action:String, arg:Float):Dynamic;
     
     #if client
     /**
@@ -1197,7 +1197,7 @@ package gmod.libs;
 		`c` | panel that the function was called with
     **/
     
-    public static function FindTooltip(panel:Panel):GlobalLibFindTooltipReturn;
+    static function FindTooltip(panel:Panel):GlobalLibFindTooltipReturn;
     #end
     
     /**
@@ -1229,7 +1229,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function EmitSound(soundName:String, position:Vector, entity:Float, ?channel:CHAN, ?volume:Float, ?soundLevel:SNDLVL, ?soundFlags:SND, ?pitch:Float):Void;
+    static function EmitSound(soundName:String, position:Vector, entity:Float, ?channel:CHAN, ?volume:Float, ?soundLevel:SNDLVL, ?soundFlags:SND, ?pitch:Float):Void;
     
     
     /**
@@ -1249,7 +1249,7 @@ package gmod.libs;
 		`**Returns:** Whether or not the model is useless
     **/
     @:deprecated("You should use IsUselessModel instead.")
-    public static function UTIL_IsUselessModel(modelName:String):Bool;
+    static function UTIL_IsUselessModel(modelName:String):Bool;
     
     
     /**
@@ -1288,7 +1288,7 @@ package gmod.libs;
 		0.000000 0.000000 0.000000
     **/
     
-    public static function Vector(?x:Float, ?y:Float, ?z:Float):Vector;
+    static function Vector(?x:Float, ?y:Float, ?z:Float):Vector;
     
     
     /**
@@ -1335,7 +1335,7 @@ package gmod.libs;
 		"4 5" in the console
     **/
     
-    public static function select(parameter:Dynamic, vararg:Rest<Dynamic>):Dynamic;
+    static function select(parameter:Dynamic, vararg:Rest<Dynamic>):Dynamic;
     
     #if client
     /**
@@ -1358,7 +1358,7 @@ package gmod.libs;
 		`**Returns:** Created client-side model. ( C_BaseFlex )
     **/
     
-    public static function ClientsideModel(model:String, ?renderGroup:RENDERGROUP):CSEnt;
+    static function ClientsideModel(model:String, ?renderGroup:RENDERGROUP):CSEnt;
     #end
     
     /**
@@ -1409,7 +1409,7 @@ package gmod.libs;
 		e 1
     **/
     
-    public static function SortedPairs(table:AnyTable, ?desc:Bool):GlobalLibSortedPairsReturn;
+    static function SortedPairs(table:AnyTable, ?desc:Bool):GlobalLibSortedPairsReturn;
     
     
     /**
@@ -1423,7 +1423,7 @@ package gmod.libs;
 		`ent` | Entity to be networked
     **/
     
-    public static function SetGlobalEntity(index:Dynamic, ent:Entity):Void;
+    static function SetGlobalEntity(index:Dynamic, ent:Entity):Void;
     
     
     /**
@@ -1499,7 +1499,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function HSVToColor(hue:Float, saturation:Float, value:Float):Color;
+    static function HSVToColor(hue:Float, saturation:Float, value:Float):Color;
     
     
     /**
@@ -1525,7 +1525,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetGlobalInt(index:String, ?_default:Float):Float;
+    static function GetGlobalInt(index:String, ?_default:Float):Float;
     
     
     /**
@@ -1564,7 +1564,7 @@ package gmod.libs;
 		"John Doe"
     **/
     
-    public static function getmetatable(object:Dynamic):Dynamic;
+    static function getmetatable(object:Dynamic):Dynamic;
     
     #if client
     /**
@@ -1604,7 +1604,7 @@ package gmod.libs;
 		Draws a white box in the world where you point the mouse to. Requires the developer convar to be set to 1.
     **/
     
-    public static function EyePos():Vector;
+    static function EyePos():Vector;
     #end
     
     /**
@@ -1628,7 +1628,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function RunConsoleCommand(command:String, arguments:Rest<Dynamic>):Void;
+    static function RunConsoleCommand(command:String, arguments:Rest<Dynamic>):Void;
     
     
     /**
@@ -1637,7 +1637,7 @@ package gmod.libs;
 		`**Returns:** The number of downloadables
     **/
     
-    public static function NumDownloadables():Float;
+    static function NumDownloadables():Float;
     
     
     /**
@@ -1651,7 +1651,7 @@ package gmod.libs;
 		`**Returns:** True if the ConVar exists, false otherwise.
     **/
     
-    public static function ConVarExists(name:String):Bool;
+    static function ConVarExists(name:String):Bool;
     
     #if server
     /**
@@ -1675,7 +1675,7 @@ package gmod.libs;
 		Hello World!
     **/
     
-    public static function BroadcastLua(code:String):Void;
+    static function BroadcastLua(code:String):Void;
     #end
     
     /**
@@ -1687,7 +1687,7 @@ package gmod.libs;
 		`delay` | Delay for entity removal in seconds
     **/
     
-    public static function SafeRemoveEntityDelayed(entity:Entity, delay:Float):Void;
+    static function SafeRemoveEntityDelayed(entity:Entity, delay:Float):Void;
     
     
     /**
@@ -1715,7 +1715,7 @@ package gmod.libs;
 		New language: en
     **/
     
-    public static function LanguageChanged(lang:String):Void;
+    static function LanguageChanged(lang:String):Void;
     
     
     /**
@@ -1724,7 +1724,7 @@ package gmod.libs;
 		`**Returns:** Default loading url (asset://garrysmod/html/loading.html)
     **/
     
-    public static function GetDefaultLoadingHTML():String;
+    static function GetDefaultLoadingHTML():String;
     
     #if client
     /**
@@ -1740,7 +1740,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function FrameNumber():Void;
+    static function FrameNumber():Void;
     #end
     #if client
     /**
@@ -1749,14 +1749,14 @@ package gmod.libs;
 		`**Returns:** The view entity.
     **/
     
-    public static function GetViewEntity():Entity;
+    static function GetViewEntity():Entity;
     #end
     
     /**
         Aborts joining of the server you are currently joining.
     **/
     
-    public static function CancelLoading():Void;
+    static function CancelLoading():Void;
     
     #if client
     /**
@@ -1801,7 +1801,7 @@ package gmod.libs;
 		Panel naturally glides across the screen from 200 x to 800 x
     **/
     
-    public static function Derma_Anim(name:String, panel:Panel, func:Function):AnyTable;
+    static function Derma_Anim(name:String, panel:Panel, func:Function):AnyTable;
     #end
     #if client
     /**
@@ -1812,7 +1812,7 @@ package gmod.libs;
 		`htmlPanel` | Panel to add javascript function 'language.Update' to.
     **/
     
-    public static function JS_Language(htmlPanel:Panel):Void;
+    static function JS_Language(htmlPanel:Panel):Void;
     #end
     
     /**
@@ -1844,7 +1844,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function LerpAngle(ratio:Float, angleStart:Angle, angleEnd:Angle):Angle;
+    static function LerpAngle(ratio:Float, angleStart:Angle, angleEnd:Angle):Angle;
     
     #if menu
     /**
@@ -1853,7 +1853,7 @@ package gmod.libs;
 		`**Returns:** The loading screen panel
     **/
     
-    public static function GetLoadPanel():Panel;
+    static function GetLoadPanel():Panel;
     #end
     #if client
     /**
@@ -1867,7 +1867,7 @@ package gmod.libs;
 		`**Returns:** The material, returns nil if the cached file is not an image.
     **/
     
-    public static function AddonMaterial(name:String):IMaterial;
+    static function AddonMaterial(name:String):IMaterial;
     #end
     
     /**
@@ -1882,7 +1882,7 @@ package gmod.libs;
 		`**Returns:** The global value, or the default if the global value is not set.
     **/
     
-    public static function GetGlobalEntity(index:String, ?_default:Entity):Entity;
+    static function GetGlobalEntity(index:String, ?_default:Entity):Entity;
     
     
     /**
@@ -1910,7 +1910,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Sound(soundPath:String):String;
+    static function Sound(soundPath:String):String;
     
     
     /**
@@ -1991,7 +1991,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function CreatePhysCollideBox(mins:Vector, maxs:Vector):PhysCollide;
+    static function CreatePhysCollideBox(mins:Vector, maxs:Vector):PhysCollide;
     
     
     /**
@@ -2022,7 +2022,7 @@ package gmod.libs;
 		255	0	0	125
     **/
     
-    public static function ColorAlpha(color:Color, alpha:Float):Color;
+    static function ColorAlpha(color:Color, alpha:Float):Color;
     
     
     /**
@@ -2036,7 +2036,7 @@ package gmod.libs;
 		`**Returns:** True if the variable is a VMatrix.
     **/
     
-    public static function ismatrix(variable:Dynamic):Bool;
+    static function ismatrix(variable:Dynamic):Bool;
     
     
     /**
@@ -2060,7 +2060,7 @@ package gmod.libs;
 		`b` | The world angles of the supplied local angle.
     **/
     
-    public static function LocalToWorld(localPos:Vector, localAng:Angle, originPos:Vector, originAngle:Angle):GlobalLibLocalToWorldReturn;
+    static function LocalToWorld(localPos:Vector, localAng:Angle, originPos:Vector, originAngle:Angle):GlobalLibLocalToWorldReturn;
     
     
     /**
@@ -2091,7 +2091,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function CreateClientConVar(name:String, _default:String, ?shouldsave:Bool, ?userinfo:Bool, ?helptext:String, ?min:Float, ?max:Float):ConVar;
+    static function CreateClientConVar(name:String, _default:String, ?shouldsave:Bool, ?userinfo:Bool, ?helptext:String, ?min:Float, ?max:Float):ConVar;
     
     #if client
     /**
@@ -2111,7 +2111,7 @@ package gmod.libs;
 		`**Returns:** The created particle system.
     **/
     
-    public static function CreateParticleSystem(ent:Entity, effect:String, partAttachment:PATTACH, ?entAttachment:Float, ?offset:Vector):CNewParticleEffect;
+    static function CreateParticleSystem(ent:Entity, effect:String, partAttachment:PATTACH, ?entAttachment:Float, ?offset:Vector):CNewParticleEffect;
     #end
     
     /**
@@ -2124,7 +2124,7 @@ package gmod.libs;
 		`value` | The value to set for the specified key.
     **/
     
-    public static function rawset(table:AnyTable, index:Dynamic, value:Dynamic):Void;
+    static function rawset(table:AnyTable, index:Dynamic, value:Dynamic):Void;
     
     
     /**
@@ -2137,14 +2137,14 @@ package gmod.libs;
 		`name` | The name of the module to be loaded.
     **/
     
-    public static function require(name:String):Void;
+    static function require(name:String):Void;
     
     #if client
     /**
         Returns the time in seconds it took to render the VGUI.
     **/
     
-    public static function VGUIFrameTime():Void;
+    static function VGUIFrameTime():Void;
     #end
     
     /**
@@ -2153,7 +2153,7 @@ package gmod.libs;
 		`**Returns:** The current status
     **/
     
-    public static function GetLoadStatus():String;
+    static function GetLoadStatus():String;
     
     
     /**
@@ -2164,7 +2164,7 @@ package gmod.libs;
 		`**Returns:** The CEffectData object.
     **/
     
-    public static function EffectData():CEffectData;
+    static function EffectData():CEffectData;
     
     #if client
     /**
@@ -2191,7 +2191,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function EyeAngles():Angle;
+    static function EyeAngles():Angle;
     #end
     
     /**
@@ -2205,7 +2205,7 @@ package gmod.libs;
 		`**Returns:** Table of console command names.
     **/
     
-    public static function ConsoleAutoComplete(text:String):AnyTable;
+    static function ConsoleAutoComplete(text:String):AnyTable;
     
     
     /**
@@ -2233,7 +2233,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function EmitSentence(soundName:String, position:Vector, entity:Float, ?channel:CHAN, ?volume:Float, ?soundLevel:SNDLVL, ?soundFlags:SND, ?pitch:Float):Void;
+    static function EmitSentence(soundName:String, position:Vector, entity:Float, ?channel:CHAN, ?volume:Float, ?soundLevel:SNDLVL, ?soundFlags:SND, ?pitch:Float):Void;
     
     
     /**
@@ -2247,7 +2247,7 @@ package gmod.libs;
 		`**Returns:** The ConVar object
     **/
     
-    public static function GetConVar(name:String):ConVar;
+    static function GetConVar(name:String):ConVar;
     
     #if menu
     /**
@@ -2256,7 +2256,7 @@ package gmod.libs;
 		`**Returns:** The overlay panel
     **/
     
-    public static function GetOverlayPanel():Panel;
+    static function GetOverlayPanel():Panel;
     #end
     #if client
     /**
@@ -2271,7 +2271,7 @@ package gmod.libs;
 		`sunY` | $suny property for sunbeams material
     **/
     
-    public static function DrawSunbeams(darken:Float, multiplier:Float, sunSize:Float, sunX:Float, sunY:Float):Void;
+    static function DrawSunbeams(darken:Float, multiplier:Float, sunSize:Float, sunX:Float, sunY:Float):Void;
     #end
     
     /**
@@ -2284,7 +2284,7 @@ package gmod.libs;
 		`arguments` | Converts all arguments to strings and prints them with no spacing or line breaks.
     **/
     
-    public static function Error(arguments:Rest<Dynamic>):Void;
+    static function Error(arguments:Rest<Dynamic>):Void;
     
     #if client
     /**
@@ -2315,7 +2315,7 @@ package gmod.libs;
 		Background blur is drawn around the panel
     **/
     
-    public static function Derma_DrawBackgroundBlur(panel:Panel, startTime:Float):Void;
+    static function Derma_DrawBackgroundBlur(panel:Panel, startTime:Float):Void;
     #end
     
     /**
@@ -2324,7 +2324,7 @@ package gmod.libs;
 		`**Returns:** The name of the server.
     **/
     
-    public static function GetHostName():String;
+    static function GetHostName():String;
     
     #if client
     /**
@@ -2343,7 +2343,7 @@ package gmod.libs;
 		`size` | Size of the model.
     **/
     @:deprecated("INTERNAL")
-    public static function OnModelLoaded(modelName:String, numPostParams:Float, numSeq:Float, numAttachments:Float, numBoneControllers:Float, numSkins:Float, size:Float):Void;
+    static function OnModelLoaded(modelName:String, numPostParams:Float, numSeq:Float, numAttachments:Float, numBoneControllers:Float, numSkins:Float, size:Float):Void;
     #end
     
     /**
@@ -2363,7 +2363,7 @@ package gmod.libs;
 		`b` | Local angles
     **/
     
-    public static function WorldToLocal(position:Vector, angle:Angle, newSystemOrigin:Vector, newSystemAngles:Angle):GlobalLibWorldToLocalReturn;
+    static function WorldToLocal(position:Vector, angle:Angle, newSystemOrigin:Vector, newSystemAngles:Angle):GlobalLibWorldToLocalReturn;
     
     
     /**
@@ -2377,7 +2377,7 @@ package gmod.libs;
 		`**Returns:** The particle file.
     **/
     
-    public static function Particle(file:String):String;
+    static function Particle(file:String):String;
     
     
     /**
@@ -2412,7 +2412,7 @@ package gmod.libs;
 		Tick: 66.666668156783
     **/
     
-    public static function FrameTime():Float;
+    static function FrameTime():Float;
     
     
     /**
@@ -2441,7 +2441,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ErrorNoHalt(arguments:Rest<Dynamic>):Void;
+    static function ErrorNoHalt(arguments:Rest<Dynamic>):Void;
     
     
     /**
@@ -2457,7 +2457,7 @@ package gmod.libs;
 		`**Returns:** The retrieved player.
     **/
     
-    public static function Player(playerIndex:Float):Player;
+    static function Player(playerIndex:Float):Player;
     
     
     /**
@@ -2473,7 +2473,7 @@ package gmod.libs;
 		`**Returns:** true if we made a request, nil if we failed.
     **/
     
-    public static function HTTP(parameters:HTTPRequest):Bool;
+    static function HTTP(parameters:HTTPRequest):Bool;
     
     
     /**
@@ -2489,7 +2489,7 @@ package gmod.libs;
 		`attachmentID` | The id of the attachment to be used in the way specified by the attachType.
     **/
     
-    public static function ParticleEffectAttach(particleName:String, attachType:PATTACH, entity:Entity, attachmentID:Float):Void;
+    static function ParticleEffectAttach(particleName:String, attachType:PATTACH, entity:Entity, attachmentID:Float):Void;
     
     
     /**
@@ -2500,7 +2500,7 @@ package gmod.libs;
 		`args` | List of values to print.
     **/
     
-    public static function MsgAll(args:Rest<Dynamic>):Void;
+    static function MsgAll(args:Rest<Dynamic>):Void;
     
     
     /**
@@ -2511,7 +2511,7 @@ package gmod.libs;
 		`**Returns:** The CTakeDamageInfo object.
     **/
     
-    public static function DamageInfo():CTakeDamageInfo;
+    static function DamageInfo():CTakeDamageInfo;
     
     
     /**
@@ -2539,7 +2539,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function RunGameUICommand(command:String):Void;
+    static function RunGameUICommand(command:String):Void;
     
     
     /**
@@ -2589,7 +2589,7 @@ package gmod.libs;
 		ERROR: lua/wiki/xpcall_example.lua:2: attempt to call global 'aisj' (a nil value) Output: false nil
     **/
     
-    public static function xpcall(func:Function, errorCallback:Function, arguments:Rest<Dynamic>):GlobalLibXpcallReturn;
+    static function xpcall(func:Function, errorCallback:Function, arguments:Rest<Dynamic>):GlobalLibXpcallReturn;
     
     
     /**
@@ -2615,7 +2615,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Model(model:String):String;
+    static function Model(model:String):String;
     
     
     /**
@@ -2631,7 +2631,7 @@ package gmod.libs;
 		`**Returns:** Sound duration in seconds.
     **/
     
-    public static function SoundDuration(soundName:String):Float;
+    static function SoundDuration(soundName:String):Float;
     
     #if client
     /**
@@ -2663,7 +2663,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ClientsideRagdoll(model:String, ?renderGroup:RENDERGROUP):CSEnt;
+    static function ClientsideRagdoll(model:String, ?renderGroup:RENDERGROUP):CSEnt;
     #end
     
     /**
@@ -2705,7 +2705,7 @@ package gmod.libs;
 		"John Doe"
     **/
     
-    public static function setmetatable(Tab:AnyTable, Metatable:AnyTable):AnyTable;
+    static function setmetatable(Tab:AnyTable, Metatable:AnyTable):AnyTable;
     
     
     /**
@@ -2719,7 +2719,7 @@ package gmod.libs;
 		`angle` | Angle to be networked
     **/
     
-    public static function SetGlobalAngle(index:Dynamic, angle:Angle):Void;
+    static function SetGlobalAngle(index:Dynamic, angle:Angle):Void;
     
     #if client
     /**
@@ -2733,7 +2733,7 @@ package gmod.libs;
 		`**Returns:** The new DSprite element.
     **/
     
-    public static function CreateSprite(material:IMaterial):Panel;
+    static function CreateSprite(material:IMaterial):Panel;
     #end
     
     /**
@@ -2742,7 +2742,7 @@ package gmod.libs;
 		This function is used to get the last map and category to which the map belongs from the cookie saved with [SaveLastMap](https://wiki.garrysmod.com/page/Global/SaveLastMap).
     **/
     @:deprecated("INTERNAL")
-    public static function LoadLastMap():Void;
+    static function LoadLastMap():Void;
     
     
     /**
@@ -2756,7 +2756,7 @@ package gmod.libs;
 		`**Returns:** True if the variable is a Panel.
     **/
     
-    public static function ispanel(variable:Dynamic):Bool;
+    static function ispanel(variable:Dynamic):Bool;
     
     
     /**
@@ -2771,7 +2771,7 @@ package gmod.libs;
 		`**Returns:** The value.
     **/
     
-    public static function rawget(table:AnyTable, index:Dynamic):Dynamic;
+    static function rawget(table:AnyTable, index:Dynamic):Dynamic;
     
     #if client
     /**
@@ -2784,7 +2784,7 @@ package gmod.libs;
 		`panel` | The panel to validate.
     **/
     @:deprecated("You should use IsValid instead")
-    public static function ValidPanel(panel:Panel):Void;
+    static function ValidPanel(panel:Panel):Void;
     #end
     #if client
     /**
@@ -2826,7 +2826,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DynamicLight(index:Float, ?elight:Bool):DynamicLight;
+    static function DynamicLight(index:Float, ?elight:Bool):DynamicLight;
     #end
     
     /**
@@ -2846,7 +2846,7 @@ package gmod.libs;
 		`b` | The table which will be iterated over
     **/
     
-    public static function SortedPairsByValue(table:AnyTable, ?descending:Bool):GlobalLibSortedPairsByValueReturn;
+    static function SortedPairsByValue(table:AnyTable, ?descending:Bool):GlobalLibSortedPairsByValueReturn;
     
     
     /**
@@ -2881,7 +2881,7 @@ package gmod.libs;
 		boolean true: true boolean false: false string true: true string false: false numeric 0: false string 0: false string 1: true nil: false text string: true empty string: true
     **/
     
-    public static function tobool(val:Dynamic):Bool;
+    static function tobool(val:Dynamic):Bool;
     
     
     /**
@@ -2892,7 +2892,7 @@ package gmod.libs;
 		`**Returns:** The current floored dynamic memory usage of Lua, in kilobytes.
     **/
     @:deprecated("This function was deprecated in Lua 5.1 and is removed in Lua 5.2. Use collectgarbage( \"count\" ) instead.")
-    public static function gcinfo():Float;
+    static function gcinfo():Float;
     
     
     /**
@@ -2920,14 +2920,14 @@ package gmod.libs;
 		Vector( 0, 0, 150 )
     **/
     
-    public static function LerpVector(fraction:Float, from:Vector, to:Vector):Vector;
+    static function LerpVector(fraction:Float, from:Vector, to:Vector):Vector;
     
     #if client
     /**
         Saves position of your cursor on screen. You can restore it by using RestoreCursorPosition.
     **/
     
-    public static function RememberCursorPosition():Void;
+    static function RememberCursorPosition():Void;
     #end
     
     /**
@@ -2960,7 +2960,7 @@ package gmod.libs;
 		false
     **/
     
-    public static function AccessorFunc(tab:AnyTable, key:Dynamic, name:String, ?force:FORCE):Void;
+    static function AccessorFunc(tab:AnyTable, key:Dynamic, name:String, ?force:FORCE):Void;
     
     
     /**
@@ -3008,7 +3008,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SysTime():Float;
+    static function SysTime():Float;
     
     #if server
     /**
@@ -3022,7 +3022,7 @@ package gmod.libs;
 		`**Returns:** The path
     **/
     
-    public static function Path(type:String):PathFollower;
+    static function Path(type:String):PathFollower;
     #end
     
     /**
@@ -3038,14 +3038,14 @@ package gmod.libs;
 		`**Returns:** Whether the given object is a color or not
     **/
     
-    public static function IsColor(Object:Dynamic):Bool;
+    static function IsColor(Object:Dynamic):Bool;
     
     #if client
     /**
         Closes all Derma menus that have been passed to RegisterDermaMenuForClose and calls GM:CloseDermaMenus
     **/
     
-    public static function CloseDermaMenus():Void;
+    static function CloseDermaMenus():Void;
     #end
     #if client
     /**
@@ -3080,7 +3080,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Derma_StringRequest(title:String, subtitle:String, _default:String, confirm:Function, ?cancel:Function, ?confirmText:String, ?cancelText:String):Panel;
+    static function Derma_StringRequest(title:String, subtitle:String, _default:String, confirm:Function, ?cancel:Function, ?confirmText:String, ?cancelText:String):Panel;
     #end
     
     /**
@@ -3120,7 +3120,7 @@ package gmod.libs;
 		false attempt to call global 'aisj' (a nil value)
     **/
     
-    public static function pcall(func:Function, arguments:Rest<Dynamic>):GlobalLibPcallReturn;
+    static function pcall(func:Function, arguments:Rest<Dynamic>):GlobalLibPcallReturn;
     
     
     /**
@@ -3135,7 +3135,7 @@ package gmod.libs;
 		`**Returns:** The formatted string
     **/
     
-    public static function Format(format:String, formatParameters:Rest<Dynamic>):String;
+    static function Format(format:String, formatParameters:Rest<Dynamic>):String;
     
     
     /**
@@ -3149,7 +3149,7 @@ package gmod.libs;
 		`category` | The name of the category to which this map belongs.
     **/
     @:deprecated("INTERNAL")
-    public static function SaveLastMap(map:String, category:String):Void;
+    static function SaveLastMap(map:String, category:String):Void;
     
     #if client
     /**
@@ -3166,7 +3166,7 @@ package gmod.libs;
 		`**Returns:** WorkshopFileBase element
     **/
     @:deprecated("INTERNAL")
-    public static function WorkshopFileBase(namespace:String, requiredTags:AnyTable):AnyTable;
+    static function WorkshopFileBase(namespace:String, requiredTags:AnyTable):AnyTable;
     #end
     #if client
     /**
@@ -3190,7 +3190,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ClientsideScene(name:String, targetEnt:Entity):CSEnt;
+    static function ClientsideScene(name:String, targetEnt:Entity):CSEnt;
     #end
     
     /**
@@ -3204,7 +3204,7 @@ package gmod.libs;
 		`**Returns:** True if the variable is an Entity.
     **/
     
-    public static function IsEntity(variable:Dynamic):Bool;
+    static function IsEntity(variable:Dynamic):Bool;
     
     
     /**
@@ -3230,7 +3230,7 @@ package gmod.libs;
 		72nd
     **/
     
-    public static function STNDRD(number:Float):String;
+    static function STNDRD(number:Float):String;
     
     #if server
     /**
@@ -3241,7 +3241,7 @@ package gmod.libs;
 		`scene` | Path to the scene file to precache.
     **/
     
-    public static function PrecacheScene(scene:String):Void;
+    static function PrecacheScene(scene:String):Void;
     #end
     
     /**
@@ -3255,7 +3255,7 @@ package gmod.libs;
 		`**Returns:** The newly created userdata.
     **/
     
-    public static function newproxy(?addMetatable:Bool):UserData;
+    static function newproxy(?addMetatable:Bool):UserData;
     
     
     /**
@@ -3295,7 +3295,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function FindMetaTable(metaName:String):AnyTable;
+    static function FindMetaTable(metaName:String):AnyTable;
     
     
     /**
@@ -3359,9 +3359,9 @@ package gmod.libs;
 		```
     **/
     #if server
-    public static function CreateSound(targetEnt:Entity, soundName:String, ?filter:CRecipientFilter):CSoundPatch;
+    static function CreateSound(targetEnt:Entity, soundName:String, ?filter:CRecipientFilter):CSoundPatch;
 	#else
-	public static function CreateSound(targetEnt:Entity, soundName:String):CSoundPatch;
+	static function CreateSound(targetEnt:Entity, soundName:String):CSoundPatch;
 	#end
 	
     #if client
@@ -3369,7 +3369,7 @@ package gmod.libs;
         Does the removing of the tooltip panel. Called by EndTooltip.
     **/
     
-    public static function RemoveTooltip():Void;
+    static function RemoveTooltip():Void;
     #end
     
     /**
@@ -3378,7 +3378,7 @@ package gmod.libs;
 		`**Returns:** table of map names and categories
     **/
     
-    public static function GetMapList():AnyTable;
+    static function GetMapList():AnyTable;
     
     
     /**
@@ -3389,7 +3389,7 @@ package gmod.libs;
 		`constraintSystem` | Constraint system to use
     **/
     
-    public static function SetPhysConstraintSystem(constraintSystem:Entity):Void;
+    static function SetPhysConstraintSystem(constraintSystem:Entity):Void;
     
     #if client
     /**
@@ -3401,7 +3401,7 @@ package gmod.libs;
 		`default` | The default value to be returned if no translation was found.
     **/
     
-    public static function Localize(localisationToken:String, _default:String):Void;
+    static function Localize(localisationToken:String, _default:String):Void;
     #end
     #if client
     /**
@@ -3427,7 +3427,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DermaMenu(parent:Panel):Panel;
+    static function DermaMenu(parent:Panel):Panel;
     #end
     
     /**
@@ -3442,7 +3442,7 @@ package gmod.libs;
 		`**Returns:** The global value, or the default if the global value is not set.
     **/
     
-    public static function GetGlobalVector(Index:String, Default:Vector):Vector;
+    static function GetGlobalVector(Index:String, Default:Vector):Vector;
     
     
     /**
@@ -3479,7 +3479,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function next(tab:AnyTable, ?prevKey:Dynamic):GlobalLibNextReturn;
+    static function next(tab:AnyTable, ?prevKey:Dynamic):GlobalLibNextReturn;
     
     #if server
     /**
@@ -3503,7 +3503,7 @@ package gmod.libs;
 		2 1 = Player [1][Player #1] 2 = Player [2][Player #2]
     **/
     
-    public static function RecipientFilter():CRecipientFilter;
+    static function RecipientFilter():CRecipientFilter;
     #end
     
     /**
@@ -3535,7 +3535,7 @@ package gmod.libs;
 		Hello World!
     **/
     
-    public static function Msg(args:Rest<Dynamic>):Void;
+    static function Msg(args:Rest<Dynamic>):Void;
     
     
     /**
@@ -3554,7 +3554,7 @@ package gmod.libs;
 		`**Returns:** The convar created.
     **/
     
-    public static function CreateConVar(name:String, value:String, ?flags:FCVAR, ?helptext:String, ?min:Float, ?max:Float):ConVar;
+    static function CreateConVar(name:String, value:String, ?flags:FCVAR, ?helptext:String, ?min:Float, ?max:Float):ConVar;
     
     
     /**
@@ -3572,7 +3572,7 @@ package gmod.libs;
 		`**Returns:** "Lua Cache File" if the given file name is in a certain string table, nothing otherwise.
     **/
     @:deprecated("INTERNAL")
-    public static function TranslateDownloadableName(filename:String):String;
+    static function TranslateDownloadableName(filename:String):String;
     
     
     /**
@@ -3586,7 +3586,7 @@ package gmod.libs;
 		`float` | Float to be networked
     **/
     
-    public static function SetGlobalFloat(index:Dynamic, float:Float):Void;
+    static function SetGlobalFloat(index:Dynamic, float:Float):Void;
     
     #if client
     /**
@@ -3607,7 +3607,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetClipboardText(text:String):Void;
+    static function SetClipboardText(text:String):Void;
     #end
     
     /**
@@ -3638,7 +3638,7 @@ package gmod.libs;
 		60 1 1
     **/
     
-    public static function ColorToHSV(color:Color):GlobalLibColorToHSVReturn;
+    static function ColorToHSV(color:Color):GlobalLibColorToHSVReturn;
     
     
     /**
@@ -3653,7 +3653,7 @@ package gmod.libs;
 		`**Returns:** The random direction vector.
     **/
     
-    public static function VectorRand(?min:Float, ?max:Float):Vector;
+    static function VectorRand(?min:Float, ?max:Float):Vector;
     
     
     /**
@@ -3677,7 +3677,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function MsgN(args:Rest<Dynamic>):Void;
+    static function MsgN(args:Rest<Dynamic>):Void;
     
     #if client
     /**
@@ -3716,7 +3716,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Mesh(?mat:IMaterial):IMesh;
+    static function Mesh(?mat:IMaterial):IMesh;
     #end
     
     /**
@@ -3737,7 +3737,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DeriveGamemode(base:String):Void;
+    static function DeriveGamemode(base:String):Void;
     
     
     /**
@@ -3772,7 +3772,7 @@ package gmod.libs;
 		A list of players in console.
     **/
     
-    public static function pairs(tab:AnyTable):GlobalLibPairsReturn;
+    static function pairs(tab:AnyTable):GlobalLibPairsReturn;
     
     #if server
     /**
@@ -3799,7 +3799,7 @@ package gmod.libs;
 		I'm new here.
     **/
     
-    public static function PrintMessage(type:HUD, message:String):Void;
+    static function PrintMessage(type:HUD, message:String):Void;
     #end
     
     /**
@@ -3817,7 +3817,7 @@ package gmod.libs;
 		`c` | The lightness in the range [0, 1].
     **/
     
-    public static function ColorToHSL(color:Color):GlobalLibColorToHSLReturn;
+    static function ColorToHSL(color:Color):GlobalLibColorToHSLReturn;
     
     
     /**
@@ -3838,7 +3838,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function JoinServer(IP:String):Void;
+    static function JoinServer(IP:String):Void;
     
     #if client
     /**
@@ -3852,7 +3852,7 @@ package gmod.libs;
 		`**Returns:** A Color structure or nil
     **/
     
-    public static function NamedColor(name:String):Color;
+    static function NamedColor(name:String):Color;
     #end
     #if client
     /**
@@ -3871,7 +3871,7 @@ package gmod.libs;
 		`fov` | FOV to render the effect with
     **/
     
-    public static function RenderDoF(origin:Vector, angle:Angle, usableFocusPoint:Vector, angleSize:Float, radialSteps:Float, passes:Float, spin:Bool, inView:AnyTable, fov:Float):Void;
+    static function RenderDoF(origin:Vector, angle:Angle, usableFocusPoint:Vector, angleSize:Float, radialSteps:Float, passes:Float, spin:Bool, inView:AnyTable, fov:Float):Void;
     #end
     
     /**
@@ -3892,7 +3892,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function print(args:Rest<Dynamic>):Void;
+    static function print(args:Rest<Dynamic>):Void;
     
     
     /**
@@ -3910,7 +3910,7 @@ package gmod.libs;
 		`**Returns:** The result of the linear interpolation, (1 - t) * from + t * to.
     **/
     
-    public static function Lerp(t:Float, from:Float, to:Float):Float;
+    static function Lerp(t:Float, from:Float, to:Float):Float;
     
     
     /**
@@ -3934,7 +3934,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetGlobalString(index:String, ?_default:String):String;
+    static function GetGlobalString(index:String, ?_default:String):String;
     
     
     /**
@@ -3975,7 +3975,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function include(fileName:String):Rest<Dynamic>;
+    static function include(fileName:String):Rest<Dynamic>;
     
     
     /**
@@ -3990,7 +3990,7 @@ package gmod.libs;
 		`**Returns:** The global value, or the default if the global value is not set.
     **/
     
-    public static function GetGlobalFloat(index:String, ?_default:Float):Float;
+    static function GetGlobalFloat(index:String, ?_default:Float):Float;
     
     #if client
     /**
@@ -4022,7 +4022,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Label(text:String, ?parent:Panel):Panel;
+    static function Label(text:String, ?parent:Panel):Panel;
     #end
     
     /**
@@ -4096,14 +4096,14 @@ package gmod.libs;
 		1   2
     **/
     
-    public static function CompileString(code:String, identifier:String, ?HandleError:Bool):GlobalLibCompileStringReturn;
+    static function CompileString(code:String, identifier:String, ?HandleError:Bool):GlobalLibCompileStringReturn;
     
     
     /**
         Empties the pool of main menu background images.
     **/
     
-    public static function ClearBackgroundImages():Void;
+    static function ClearBackgroundImages():Void;
     
     
     /**
@@ -4151,7 +4151,7 @@ package gmod.libs;
 		Adam
     **/
     
-    public static function SortedPairsByMemberValue(table:AnyTable, memberKey:Dynamic, ?descending:Bool):GlobalLibSortedPairsByMemberValueReturn;
+    static function SortedPairsByMemberValue(table:AnyTable, memberKey:Dynamic, ?descending:Bool):GlobalLibSortedPairsByMemberValueReturn;
     
     
     /**
@@ -4169,7 +4169,7 @@ package gmod.libs;
 		`**Returns:** Whether or not the model is useless
     **/
     
-    public static function IsUselessModel(modelName:String):Bool;
+    static function IsUselessModel(modelName:String):Bool;
     
     
     /**
@@ -4203,7 +4203,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function setfenv(location:Function, enviroment:AnyTable):Void;
+    static function setfenv(location:Function, enviroment:AnyTable):Void;
     
     #if client
     /**
@@ -4230,7 +4230,7 @@ package gmod.libs;
 		Panel is painted with correct derma hooks
     **/
     
-    public static function Derma_Hook(panel:Panel, functionName:String, hookName:String, typeName:String):Void;
+    static function Derma_Hook(panel:Panel, functionName:String, hookName:String, typeName:String):Void;
     #end
     
     /**
@@ -4247,7 +4247,7 @@ package gmod.libs;
 		`**Returns:** Cosine value
     **/
     
-    public static function TimedCos(frequency:Float, min:Float, max:Float, offset:Float):Float;
+    static function TimedCos(frequency:Float, min:Float, max:Float, offset:Float):Float;
     
     
     /**
@@ -4264,7 +4264,7 @@ package gmod.libs;
 		`**Returns:** The numeric representation of the value with the given base, or nil if the conversion failed.
     **/
     
-    public static function tonumber(value:Dynamic, ?base:Float):Float;
+    static function tonumber(value:Dynamic, ?base:Float):Float;
     
     #if server
     /**
@@ -4290,7 +4290,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddOriginToPVS(position:Vector):Void;
+    static function AddOriginToPVS(position:Vector):Void;
     #end
     
     /**
@@ -4356,7 +4356,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Material(materialName:String, ?pngParameters:String):GlobalLibMaterialReturn;
+    static function Material(materialName:String, ?pngParameters:String):GlobalLibMaterialReturn;
     
     
     /**
@@ -4379,14 +4379,14 @@ package gmod.libs;
 		```
     **/
     
-    public static function OpenFolder(folder:String):Void;
+    static function OpenFolder(folder:String):Void;
     
     #if client
     /**
         Restores position of your cursor on screen. You can save it by using RememberCursorPosition.
     **/
     
-    public static function RestoreCursorPosition():Void;
+    static function RestoreCursorPosition():Void;
     #end
     
     /**
@@ -4400,7 +4400,7 @@ package gmod.libs;
 		`**Returns:** All entities valid
     **/
     
-    public static function IsTableOfEntitiesValid(table:AnyTable):Bool;
+    static function IsTableOfEntitiesValid(table:AnyTable):Bool;
     
     
     /**
@@ -4413,7 +4413,7 @@ package gmod.libs;
 		`**Returns:** Uptime of the game/server.
     **/
     
-    public static function RealTime():Float;
+    static function RealTime():Float;
     
     
     /**
@@ -4427,7 +4427,7 @@ package gmod.libs;
 		`**Returns:** True if the variable is a function.
     **/
     
-    public static function isfunction(variable:Dynamic):Bool;
+    static function isfunction(variable:Dynamic):Bool;
     
     
     /**
@@ -4450,7 +4450,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function IsMounted(game:String):Bool;
+    static function IsMounted(game:String):Bool;
     
     
     /**
@@ -4462,7 +4462,7 @@ package gmod.libs;
 		`info` | The debugging information to be written to the screen
     **/
     
-    public static function DebugInfo(slot:Float, info:String):Void;
+    static function DebugInfo(slot:Float, info:String):Void;
     
     #if client
     /**
@@ -4503,7 +4503,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function CreateMaterial(name:String, shaderName:String, materialData:AnyTable):IMaterial;
+    static function CreateMaterial(name:String, shaderName:String, materialData:AnyTable):IMaterial;
     #end
     
     /**
@@ -4517,7 +4517,7 @@ package gmod.libs;
 		`**Returns:** Demo data.
     **/
     
-    public static function GetDemoFileDetails(filename:String):AnyTable;
+    static function GetDemoFileDetails(filename:String):AnyTable;
     
     
     /**
@@ -4531,7 +4531,7 @@ package gmod.libs;
 		`string` | String to be networked
     **/
     
-    public static function SetGlobalString(index:Dynamic, string:String):Void;
+    static function SetGlobalString(index:Dynamic, string:String):Void;
     
     #if client
     /**
@@ -4557,7 +4557,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawToyTown(Passes:Float, Height:Float):Void;
+    static function DrawToyTown(Passes:Float, Height:Float):Void;
     #end
     
     /**
@@ -4568,7 +4568,7 @@ package gmod.libs;
 		`path` | Path to the image.
     **/
     
-    public static function AddBackgroundImage(path:String):Void;
+    static function AddBackgroundImage(path:String):Void;
     
     
     /**
@@ -4611,7 +4611,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function type(_var:Dynamic):String;
+    static function type(_var:Dynamic):String;
     
     #if client
     /**
@@ -4636,7 +4636,7 @@ package gmod.libs;
 		`**Returns:** The new render target.
     **/
     
-    public static function GetRenderTargetEx(name:String, width:Float, height:Float, sizeMode:RT_SIZE, depthMode:MATERIAL_RT_DEPTH, textureFlags:TEXTUREFLAGS, rtFlags:CREATERENDERTARGETFLAGS, imageFormat:IMAGE_FORMAT):ITexture;
+    static function GetRenderTargetEx(name:String, width:Float, height:Float, sizeMode:RT_SIZE, depthMode:MATERIAL_RT_DEPTH, textureFlags:TEXTUREFLAGS, rtFlags:CREATERENDERTARGETFLAGS, imageFormat:IMAGE_FORMAT):ITexture;
     #end
     #if client
     /**
@@ -4656,7 +4656,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function EyeVector():Vector;
+    static function EyeVector():Vector;
     #end
     #if client
     /**
@@ -4667,7 +4667,7 @@ package gmod.libs;
 		`htmlPanel` | Panel to add javascript functions to.
     **/
     
-    public static function JS_Workshop(htmlPanel:Panel):Void;
+    static function JS_Workshop(htmlPanel:Panel):Void;
     #end
     #if server
     /**
@@ -4691,14 +4691,14 @@ package gmod.libs;
 		Precaches sounds used in all sentences starting with "METROPOLICE".
     **/
     
-    public static function PrecacheSentenceGroup(group:String):Void;
+    static function PrecacheSentenceGroup(group:String):Void;
     #end
     #if client
     /**
         Clears focus from any text entries player may have focused.
     **/
     
-    public static function TextEntryLoseFocus():Void;
+    static function TextEntryLoseFocus():Void;
     #end
     #if client
     /**
@@ -4716,7 +4716,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function LoadPresets():AnyTable;
+    static function LoadPresets():AnyTable;
     #end
     #if server
     /**
@@ -4740,7 +4740,7 @@ package gmod.libs;
 		Loads and precaches the sentences.
     **/
     
-    public static function PrecacheSentenceFile(filename:String):Void;
+    static function PrecacheSentenceFile(filename:String):Void;
     #end
     
     /**
@@ -4749,7 +4749,7 @@ package gmod.libs;
 		`**Returns:** Format: key = Entity for NWVars or number (always 0) for global vars value = table formatted as: key = string var name value = any type var value
     **/
     
-    public static function BuildNetworkedVarsTable():AnyTable;
+    static function BuildNetworkedVarsTable():AnyTable;
     
     
     /**
@@ -4763,7 +4763,7 @@ package gmod.libs;
 		`**Returns:** True if the variable is a table.
     **/
     
-    public static function istable(variable:Dynamic):Bool;
+    static function istable(variable:Dynamic):Bool;
     
     
     /**
@@ -4802,7 +4802,7 @@ package gmod.libs;
 		0.00 0.00 0.00
     **/
     
-    public static function Angle(?pitch:Float, ?yaw:Float, ?roll:Float):Angle;
+    static function Angle(?pitch:Float, ?yaw:Float, ?roll:Float):Angle;
     
     
     /**
@@ -4816,7 +4816,7 @@ package gmod.libs;
 		`**Returns:** True if the variable is a number.
     **/
     
-    public static function isnumber(variable:Dynamic):Bool;
+    static function isnumber(variable:Dynamic):Bool;
     
     #if client
     /**
@@ -4837,7 +4837,7 @@ package gmod.libs;
 		`**Returns:** The render target
     **/
     
-    public static function GetRenderTarget(name:String, width:Float, height:Float, ?additive:Bool):ITexture;
+    static function GetRenderTarget(name:String, width:Float, height:Float, ?additive:Bool):ITexture;
     #end
     #if server
     /**
@@ -4848,7 +4848,7 @@ package gmod.libs;
 		`suppressPlayer` | The player to suppress any networking to.
     **/
     
-    public static function SuppressHostEvents(suppressPlayer:Player):Void;
+    static function SuppressHostEvents(suppressPlayer:Player):Void;
     #end
     #if client
     /**
@@ -4873,7 +4873,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawSobel(Threshold:Float):Void;
+    static function DrawSobel(Threshold:Float):Void;
     #end
     
     /**
@@ -4891,7 +4891,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetDownloadables():AnyTable;
+    static function GetDownloadables():AnyTable;
     
     #if client
     /**
@@ -4902,7 +4902,7 @@ package gmod.libs;
 		`presets` | Presets to be saved
     **/
     
-    public static function SavePresets(presets:AnyTable):Void;
+    static function SavePresets(presets:AnyTable):Void;
     #end
     
     /**
@@ -4916,7 +4916,7 @@ package gmod.libs;
 		`**Returns:** True if the variable is an Angle.
     **/
     
-    public static function isangle(variable:Dynamic):Bool;
+    static function isangle(variable:Dynamic):Bool;
     
     
     /**
@@ -4934,7 +4934,7 @@ package gmod.libs;
 		`**Returns:** The type ID of the variable. See the TYPE_ Enums.
     **/
     
-    public static function TypeID(variable:Dynamic):TYPE;
+    static function TypeID(variable:Dynamic):TYPE;
     
     
     /**
@@ -4945,7 +4945,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     @:deprecated("INTERNAL")
-    public static function CanAddServerToFavorites():Bool;
+    static function CanAddServerToFavorites():Bool;
     
     #if client
     /**
@@ -4971,7 +4971,7 @@ package gmod.libs;
 		105 (This will differ depending on your screen size.)
     **/
     @:deprecated("You should be using ScreenScale instead.")
-    public static function SScale(Size:Float):Void;
+    static function SScale(Size:Float):Void;
     #end
     
     /**
@@ -4989,7 +4989,7 @@ package gmod.libs;
 		`**Returns:** If handleError is false, the error message (if any).
     **/
     
-    public static function RunString(code:String, ?identifier:String, ?handleError:Bool):String;
+    static function RunString(code:String, ?identifier:String, ?handleError:Bool):String;
     
     
     /**
@@ -5017,7 +5017,7 @@ package gmod.libs;
 		22
     **/
     
-    public static function tostring(value:Dynamic):String;
+    static function tostring(value:Dynamic):String;
     
     
     /**
@@ -5028,7 +5028,7 @@ package gmod.libs;
 		`ent` | Entity to safely remove.
     **/
     
-    public static function SafeRemoveEntity(ent:Entity):Void;
+    static function SafeRemoveEntity(ent:Entity):Void;
     
     #if client
     /**
@@ -5041,7 +5041,7 @@ package gmod.libs;
 		`enable` | Enables or disables depth-of-field mode
     **/
     @:deprecated("INTERNAL")
-    public static function DOFModeHack(enable:Bool):Void;
+    static function DOFModeHack(enable:Bool):Void;
     #end
     
     /**
@@ -5056,7 +5056,7 @@ package gmod.libs;
 		`**Returns:** Whether or not the two values are equal.
     **/
     
-    public static function rawequal(value1:Dynamic, value2:Dynamic):Bool;
+    static function rawequal(value1:Dynamic, value2:Dynamic):Bool;
     
     #if client
     /**
@@ -5069,7 +5069,7 @@ package gmod.libs;
 		`viewFOV` | Field of View to render the effect at
     **/
     
-    public static function RenderSuperDoF(viewOrigin:Vector, viewAngles:Angle, viewFOV:Float):Void;
+    static function RenderSuperDoF(viewOrigin:Vector, viewAngles:Angle, viewFOV:Float):Void;
     #end
     
     /**
@@ -5121,7 +5121,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function assert(expression:Dynamic, ?errorMessage:String, returns:Rest<Dynamic>):GlobalLibAssertReturn;
+    static function assert(expression:Dynamic, ?errorMessage:String, returns:Rest<Dynamic>):GlobalLibAssertReturn;
     
     
     /**
@@ -5130,7 +5130,7 @@ package gmod.libs;
 		Adds a frame to the currently recording demo.
     **/
     @:deprecated("INTERNAL")
-    public static function RecordDemoFrame():Void;
+    static function RecordDemoFrame():Void;
     
     
     /**
@@ -5144,7 +5144,7 @@ package gmod.libs;
 		`vec` | Vector to be networked
     **/
     
-    public static function SetGlobalVector(index:Dynamic, vec:Vector):Void;
+    static function SetGlobalVector(index:Dynamic, vec:Vector):Void;
     
     
     /**
@@ -5178,7 +5178,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddCSLuaFile(?file:String):Void;
+    static function AddCSLuaFile(?file:String):Void;
     
     #if client
     /**
@@ -5201,7 +5201,7 @@ package gmod.libs;
 		[Player][1][Player1]
     **/
     
-    public static function LocalPlayer():Player;
+    static function LocalPlayer():Player;
     #end
     #if client
     /**
@@ -5238,7 +5238,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawColorModify(modifyParameters:AnyTable):Void;
+    static function DrawColorModify(modifyParameters:AnyTable):Void;
     #end
     
     /**
@@ -5254,7 +5254,7 @@ package gmod.libs;
 		`**Returns:** The ConVar's value.
     **/
     @:deprecated("Store the ConVar object retrieved with GetConVar and call ConVar: GetInt or ConVar: GetFloat on it.")
-    public static function GetConVarNumber(name:String):Float;
+    static function GetConVarNumber(name:String):Float;
     
     
     /**
@@ -5263,7 +5263,7 @@ package gmod.libs;
 		`**Returns:** True if we are in a game.
     **/
     
-    public static function IsInGame():Bool;
+    static function IsInGame():Bool;
     
     
     /**
@@ -5278,7 +5278,7 @@ package gmod.libs;
 		`flags` | Concommand flags using FCVAR_ Enums
     **/
     @:deprecated("INTERNAL: Use concommand. Add instead.")
-    public static function AddConsoleCommand(name:String, helpText:String, flags:FCVAR):Void;
+    static function AddConsoleCommand(name:String, helpText:String, flags:FCVAR):Void;
     
     
     /**
@@ -5287,7 +5287,7 @@ package gmod.libs;
 		`**Returns:** The asynchronous in-game time.
     **/
     
-    public static function UnPredictedCurTime():Float;
+    static function UnPredictedCurTime():Float;
     
     
     /**
@@ -5305,7 +5305,7 @@ package gmod.libs;
 		`**Returns:** The Color structure created from the HSL color space.
     **/
     
-    public static function HSLToColor(hue:Float, saturation:Float, value:Float):Color;
+    static function HSLToColor(hue:Float, saturation:Float, value:Float):Color;
     
     
     /**
@@ -5330,7 +5330,7 @@ package gmod.libs;
 		[ERROR] lua_run:1: garry
     **/
     
-    public static function error(message:String, ?errorLevel:Float):Void;
+    static function error(message:String, ?errorLevel:Float):Void;
     
     
     /**
@@ -5344,7 +5344,7 @@ package gmod.libs;
 		`vector2` | Bounding box max resultant
     **/
     
-    public static function OrderVectors(vector1:Vector, vector2:Vector):Void;
+    static function OrderVectors(vector1:Vector, vector2:Vector):Void;
     
     
     /**
@@ -5415,7 +5415,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ipairs(tab:AnyTable):GlobalLibIpairsReturn;
+    static function ipairs(tab:AnyTable):GlobalLibIpairsReturn;
     
     #if client
     /**
@@ -5426,7 +5426,7 @@ package gmod.libs;
 		`htmlPanel` | Panel to add javascript function 'util.MotionSensorAvailable' to.
     **/
     
-    public static function JS_Utility(htmlPanel:Panel):Void;
+    static function JS_Utility(htmlPanel:Panel):Void;
     #end
     #if client
     /**
@@ -5437,7 +5437,7 @@ package gmod.libs;
 		`**Returns:** The HUD panel
     **/
     
-    public static function GetHUDPanel():Panel;
+    static function GetHUDPanel():Panel;
     #end
     
     /**
@@ -5446,7 +5446,7 @@ package gmod.libs;
 		`**Returns:** TauntCamera
     **/
     
-    public static function TauntCamera():AnyTable;
+    static function TauntCamera():AnyTable;
     
     
     /**
@@ -5460,7 +5460,7 @@ package gmod.libs;
 		`**Returns:** Table of PhysCollide objects. The number of entries will match the model's physics object count. See also Entity: GetPhysicsObjectCount. Returns no value if the model doesn't exist, or has not been precached.
     **/
     
-    public static function CreatePhysCollidesFromModel(modelName:String):AnyTable;
+    static function CreatePhysCollidesFromModel(modelName:String):AnyTable;
     
     
     /**
@@ -5476,7 +5476,7 @@ package gmod.libs;
 		`**Returns:** The ConVar's value.
     **/
     @:deprecated("Store the ConVar object retrieved with GetConVar and call ConVar: GetString on it.")
-    public static function GetConVarString(name:String):String;
+    static function GetConVarString(name:String):String;
     
     #if client
     /**
@@ -5487,7 +5487,7 @@ package gmod.libs;
 		`panel` | This is the panel that has a tool tip.
     **/
     
-    public static function EndTooltip(panel:Panel):Void;
+    static function EndTooltip(panel:Panel):Void;
     #end
     #if client
     /**
@@ -5498,7 +5498,7 @@ package gmod.libs;
 		`panel` | Panel to display layout details of
     **/
     
-    public static function VisualizeLayout(panel:Panel):Void;
+    static function VisualizeLayout(panel:Panel):Void;
     #end
     
     /**
@@ -5532,7 +5532,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ParticleEffect(particleName:String, position:Vector, angles:Angle, ?parent:Entity):Void;
+    static function ParticleEffect(particleName:String, position:Vector, angles:Angle, ?parent:Entity):Void;
     
     
     /**
@@ -5543,7 +5543,7 @@ package gmod.libs;
 		`javascript` | JavaScript to run on the loading panel.
     **/
     
-    public static function UpdateLoadPanel(javascript:String):Void;
+    static function UpdateLoadPanel(javascript:String):Void;
     
     
     /**
@@ -5557,14 +5557,14 @@ package gmod.libs;
 		`**Returns:** True if the variable is a Vector.
     **/
     
-    public static function isvector(variable:Dynamic):Bool;
+    static function isvector(variable:Dynamic):Bool;
     
     #if client
     /**
         Cancels current DOF post-process effect started with DOF_Start
     **/
     
-    public static function DOF_Kill():Void;
+    static function DOF_Kill():Void;
     #end
     #if client
     /**
@@ -5595,7 +5595,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PositionSpawnIcon(model:Entity, position:Vector, noAngles:Bool):AnyTable;
+    static function PositionSpawnIcon(model:Entity, position:Vector, noAngles:Bool):AnyTable;
     #end
     
     /**
@@ -5631,7 +5631,7 @@ package gmod.libs;
 		This message will repeat every 5 seconds.
     **/
     
-    public static function CurTime():Float;
+    static function CurTime():Float;
     
     
     /**
@@ -5645,7 +5645,7 @@ package gmod.libs;
 		`**Returns:** True if the variable is an Entity.
     **/
     
-    public static function isentity(variable:Dynamic):Bool;
+    static function isentity(variable:Dynamic):Bool;
     
     
     /**
@@ -5659,7 +5659,7 @@ package gmod.libs;
 		`**Returns:** Save data.
     **/
     
-    public static function GetSaveFileDetails(filename:String):AnyTable;
+    static function GetSaveFileDetails(filename:String):AnyTable;
     
     
     /**
@@ -5675,7 +5675,7 @@ package gmod.libs;
 		`**Returns:** True if the object is valid.
     **/
     
-    public static function IsValid(toBeValidated:Dynamic):Bool;
+    static function IsValid(toBeValidated:Dynamic):Bool;
     
     
     /**
@@ -5708,7 +5708,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function IsFirstTimePredicted():Bool;
+    static function IsFirstTimePredicted():Bool;
     
     #if client
     /**
@@ -5747,7 +5747,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddWorldTip(?entindex:Float, text:String, ?dieTime:Float, ?pos:Vector, ?ent:Entity):Void;
+    static function AddWorldTip(?entindex:Float, text:String, ?dieTime:Float, ?pos:Vector, ?ent:Entity):Void;
     #end
     
     /**
@@ -5762,7 +5762,7 @@ package gmod.libs;
 		`**Returns:** Escaped input
     **/
     
-    public static function SQLStr(input:String, ?noQuotes:Bool):String;
+    static function SQLStr(input:String, ?noQuotes:Bool):String;
     
     
     /**
@@ -5776,7 +5776,7 @@ package gmod.libs;
 		`**Returns:** True if the variable is a string.
     **/
     
-    public static function isstring(variable:Dynamic):Bool;
+    static function isstring(variable:Dynamic):Bool;
     
     
     /**
@@ -5805,7 +5805,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function MsgC(args:Rest<Dynamic>):Void;
+    static function MsgC(args:Rest<Dynamic>):Void;
     
     #if client
     /**
@@ -5838,7 +5838,7 @@ package gmod.libs;
 		The PANEL table now contains the functions SetConVar, ConVarChanged, ConVarStringThink and ConVarNumberThink (and an Init function and a Think function)
     **/
     
-    public static function Derma_Install_Convar_Functions(target:Panel):Void;
+    static function Derma_Install_Convar_Functions(target:Panel):Void;
     #end
     
     /**
@@ -5863,7 +5863,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function unpack(tbl:AnyTable, ?startIndex:Float, ?endIndex:Float):Rest<Dynamic>;
+    static function unpack(tbl:AnyTable, ?startIndex:Float, ?endIndex:Float):Rest<Dynamic>;
     
     #if client
     /**
@@ -5910,7 +5910,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ParticleEmitter(position:Vector, use3D:Bool):CLuaEmitter;
+    static function ParticleEmitter(position:Vector, use3D:Bool):CLuaEmitter;
     #end
     
     /**
@@ -5921,7 +5921,7 @@ package gmod.libs;
 		`ent` | The entity to drop.
     **/
     
-    public static function DropEntityIfHeld(ent:Entity):Void;
+    static function DropEntityIfHeld(ent:Entity):Void;
     
     
 

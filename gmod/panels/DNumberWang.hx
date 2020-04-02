@@ -83,7 +83,7 @@ extern class DNumberWang extends DTextEntry {
     **/
     
     @:hook 
-    function OnValueChanged(val:Float):Void;
+    private function OnValueChanged(val:Float):Void;
     /**
         ***Deprecated:** 
 		

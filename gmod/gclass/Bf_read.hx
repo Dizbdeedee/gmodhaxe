@@ -12,7 +12,7 @@ extern class Bf_read {
 		`**Returns:** asciiVal
     **/
     
-    public function ReadChar():Float;
+    function ReadChar():Float;
     
     
     /**
@@ -21,7 +21,7 @@ extern class Bf_read {
 		`**Returns:** vec
     **/
     
-    public function ReadVector():Vector;
+    function ReadVector():Vector;
     
     
     /**
@@ -30,7 +30,7 @@ extern class Bf_read {
 		`**Returns:** ent
     **/
     
-    public function ReadEntity():Entity;
+    function ReadEntity():Entity;
     
     
     /**
@@ -39,7 +39,7 @@ extern class Bf_read {
 		`**Returns:** int
     **/
     
-    public function ReadLong():Float;
+    function ReadLong():Float;
     
     
     /**
@@ -48,7 +48,7 @@ extern class Bf_read {
 		`**Returns:** str
     **/
     
-    public function ReadString():String;
+    function ReadString():String;
     
     
     /**
@@ -57,7 +57,7 @@ extern class Bf_read {
 		`**Returns:** The read angle
     **/
     
-    public function ReadAngle():Angle;
+    function ReadAngle():Angle;
     
     
     /**
@@ -66,14 +66,14 @@ extern class Bf_read {
 		`**Returns:** normal
     **/
     
-    public function ReadVectorNormal():Vector;
+    function ReadVectorNormal():Vector;
     
     
     /**
         Rewinds the bitstream so it can be read again.
     **/
     
-    public function Reset():Void;
+    function Reset():Void;
     
     
     /**
@@ -82,7 +82,7 @@ extern class Bf_read {
 		`**Returns:** float
     **/
     
-    public function ReadFloat():Float;
+    function ReadFloat():Float;
     
     
     /**
@@ -91,7 +91,7 @@ extern class Bf_read {
 		`**Returns:** bit
     **/
     
-    public function ReadBool():Bool;
+    function ReadBool():Bool;
     
     
     /**
@@ -100,7 +100,7 @@ extern class Bf_read {
 		`**Returns:** short
     **/
     
-    public function ReadShort():Float;
+    function ReadShort():Float;
     
     
 }

@@ -30,7 +30,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetAll():Table<Int,Player>;
+    static function GetAll():Table<Int,Player>;
     
     #if server
     /**
@@ -77,7 +77,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function CreateNextBot(botName:String):Null<Player>;
+    static function CreateNextBot(botName:String):Null<Player>;
     #end
     
     /**
@@ -91,7 +91,7 @@ package gmod.libs;
 		`**Returns:** Player if one is found, false otherwise.
     **/
     
-    public static function GetBySteamID64(steamID64:String):Null<Player>;
+    static function GetBySteamID64(steamID64:String):Null<Player>;
     
     
     /**
@@ -109,7 +109,7 @@ package gmod.libs;
 		`**Returns:** Player if one is found, nil otherwise
     **/
     
-    public static function GetByID(connectionID:Int):Null<Player>;
+    static function GetByID(connectionID:Int):Null<Player>;
     
     
     /**
@@ -118,7 +118,7 @@ package gmod.libs;
 		`**Returns:** A table only containing bots ( AI / non human players )
     **/
     
-    public static function GetBots():Table<Int,Player>;
+    static function GetBots():Table<Int,Player>;
     
     
     /**
@@ -127,7 +127,7 @@ package gmod.libs;
 		`**Returns:** Number of players
     **/
     
-    public static function GetCount():Int;
+    static function GetCount():Int;
     
     
     /**
@@ -141,7 +141,7 @@ package gmod.libs;
 		`**Returns:** Player if one is found, false otherwise.
     **/
     
-    public static function GetByAccountID(accountID:String):EitherType<Player,Bool>;
+    static function GetByAccountID(accountID:String):EitherType<Player,Bool>;
     
     
     /**
@@ -152,7 +152,7 @@ package gmod.libs;
 		`**Returns:** A table of all human ( non bot/AI ) players.
     **/
     
-    public static function GetHumans():Table<Int,Player>;
+    static function GetHumans():Table<Int,Player>;
     
     
     /**
@@ -166,7 +166,7 @@ package gmod.libs;
 		`**Returns:** Player if one is found, false otherwise.
     **/
     
-    public static function GetBySteamID(steamID:String):EitherType<Player,Bool>;
+    static function GetBySteamID(steamID:String):EitherType<Player,Bool>;
     
     
     /**
@@ -182,7 +182,7 @@ package gmod.libs;
 		`**Returns:** Player if one is found, false otherwise.
     **/
     
-    public static function GetByUniqueID(uniqueID:String):EitherType<Player,Bool>;
+    static function GetByUniqueID(uniqueID:String):EitherType<Player,Bool>;
     
     
 

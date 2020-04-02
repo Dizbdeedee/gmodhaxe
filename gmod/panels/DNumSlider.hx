@@ -50,7 +50,7 @@ extern class DNumSlider extends Panel {
     **/
     
     @:hook 
-    function OnValueChanged(value:Float):Void;
+    private function OnValueChanged(value:Float):Void;
     /**
         Resets the slider to the default value, if one was set by DNumSlider:SetDefaultValue. 
 		

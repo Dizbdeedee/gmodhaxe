@@ -125,7 +125,7 @@ extern class DPropertySheet extends DPanel {
     **/
     
     @:hook 
-    function OnActiveTabChanged(old:Panel, _new:Panel):Void;
+    private function OnActiveTabChanged(old:Panel, _new:Panel):Void;
     /**
         ***Deprecated:** 
 		

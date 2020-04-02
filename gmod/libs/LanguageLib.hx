@@ -31,7 +31,7 @@ package gmod.libs;
 		When the player presses undo, "Cool stuff has been undone" will be shown. The cooltool's name will be "The really cool tool". Below that, where the description is shown, "Do some random cool stuff." will be shown. Below that, where the instructions or additional notes for the tool are shown, it will display "Left-click: Cool Stuff. Right-click: Nothing.".
     **/
     
-    public static function Add(placeholder:String, fulltext:String):Void;
+    static function Add(placeholder:String, fulltext:String):Void;
     
     
     /**
@@ -57,7 +57,7 @@ package gmod.libs;
 		Our phrase is: Limited Physgun
     **/
     
-    public static function GetPhrase(phrase:String):String;
+    static function GetPhrase(phrase:String):String;
     
     
 
