@@ -1,6 +1,5 @@
 package gmod.macros;
 #if macro
-
 import haxe.macro.Expr.Function;
 import haxe.macro.Expr.FieldType;
 import haxe.io.Path;
@@ -12,15 +11,20 @@ import haxe.macro.Context;
 import haxe.macro.Expr.TypeDefinition;
 using haxe.macro.TypeTools;
 using StringTools;
+
 #end
 class InitMacro {
     public static var baseEntFolder:String;
     public static var exportName:String;
     #if macro
     static public function init() {
-        
         #if (!display)
-        var addonName:String;        
+        Compiler.addMetadata("@:extern","lua.Boot","__string_rec",true);
+        Compiler.include("gmod.Patch");
+        Compiler.keep("gmod.Patch");
+        var addonName:String;
+        
+        Context.onAfterGenerate(supressBootWarning);
         if (!Context.defined("lua") || Context.defined("display_details") ) {
             return;
         }
@@ -63,7 +67,7 @@ class InitMacro {
             FileSystem.createDirectory('generated/$addonName/lua/autorun/');
             FileSystem.createDirectory('generated/$addonName/lua/$addonName');
             if (Context.defined("generateLuaInit")) {
-                var haxe_init:String = 'if SERVER then AddCSLuaFile("$addonName/cl_init.lua") $exportName = include("$addonName/init.lua") end\nif CLIENT then $exportName = include("$addonName/cl_init.lua") end';
+                var haxe_init:String = 'if SERVER then AddCSLuaFile("$addonName/$clientName.lua") $exportName = include("$addonName/$serverName.lua") end\nif CLIENT then $exportName = include("$addonName/$clientName.lua") end';
                 File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',haxe_init);
             }
             if (Context.defined("client")) {
@@ -112,6 +116,17 @@ class InitMacro {
             }
         }
         #end
+    }
+
+    static function supressBootWarning() {
+        Context.filterMessages(function (message) {
+            return switch (message) {
+                case Warning(msg, pos):
+                    msg.contains("Boot.hx");
+                default:
+                    false;
+            }
+        });
     }
 #end
 }
