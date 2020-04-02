@@ -10,7 +10,7 @@ package gmod.libs;
         Closes the chat window.
     **/
     
-    public static function Close():Void;
+    static function Close():Void;
     
     
     /**
@@ -32,7 +32,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetChatBoxSize():ChatLibGetChatBoxSizeReturn;
+    static function GetChatBoxSize():ChatLibGetChatBoxSizeReturn;
     
     
     /**
@@ -43,7 +43,7 @@ package gmod.libs;
 		`mode` | If equals 1, opens public chat, otherwise opens team chat
     **/
     
-    public static function Open(mode:Float):Void;
+    static function Open(mode:Float):Void;
     
     
     /**
@@ -59,7 +59,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PlaySound():Void;
+    static function PlaySound():Void;
     
     
     /**
@@ -81,7 +81,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetChatBoxPos():ChatLibGetChatBoxPosReturn;
+    static function GetChatBoxPos():ChatLibGetChatBoxPosReturn;
     
     
     /**
@@ -103,7 +103,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddText(arguments:Color):Void;
+    static function AddText(arguments:Color):Void;
     
     
 

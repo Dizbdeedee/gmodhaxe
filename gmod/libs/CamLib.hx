@@ -12,7 +12,7 @@ package gmod.libs;
         Switches the renderer back to the previous drawing mode from a 3D orthographic rendering context.
     **/
     
-    public static function EndOrthoView():Void;
+    static function EndOrthoView():Void;
     
     
     /**
@@ -21,7 +21,7 @@ package gmod.libs;
 		**Bug:** BUG This will crash the game if there is no context to end. Issue Tracker: #1091
     **/
     
-    public static function End3D():Void;
+    static function End3D():Void;
     
     
     /**
@@ -67,14 +67,14 @@ package gmod.libs;
 		All players can be seen through walls.
     **/
     
-    public static function Start3D(?pos:Vector, ?angles:Angle, ?fov:Float, ?x:Float, ?y:Float, ?w:Float, ?h:Float, ?zNear:Float, ?zFar:Float):Void;
+    static function Start3D(?pos:Vector, ?angles:Angle, ?fov:Float, ?x:Float, ?y:Float, ?w:Float, ?h:Float, ?zNear:Float, ?zFar:Float):Void;
     
     
     /**
         Pops the current active rendering matrix from the stack and reinstates the previous one.
     **/
     
-    public static function PopModelMatrix():Void;
+    static function PopModelMatrix():Void;
     
     
     /**
@@ -87,7 +87,7 @@ package gmod.libs;
 		`dataTbl` | Render context config. See RenderCamData structure
     **/
     
-    public static function Start(dataTbl:RenderCamData):Void;
+    static function Start(dataTbl:RenderCamData):Void;
     
     
     /**
@@ -127,7 +127,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Start3D2D(pos:Vector, angles:Angle, scale:Float):Void;
+    static function Start3D2D(pos:Vector, angles:Angle, scale:Float):Void;
     
     
     /**
@@ -138,7 +138,7 @@ package gmod.libs;
 		`ignoreZ` | Determines whenever to ignore the depth buffer or not.
     **/
     
-    public static function IgnoreZ(ignoreZ:Bool):Void;
+    static function IgnoreZ(ignoreZ:Bool):Void;
     
     
     /**
@@ -149,7 +149,7 @@ package gmod.libs;
 		**Bug:** BUG This will crash the game if there is no context to end. Issue Tracker: #1091
     **/
     
-    public static function End():Void;
+    static function End():Void;
     
     
     /**
@@ -158,7 +158,7 @@ package gmod.libs;
 		**Bug:** BUG This will crash the game if there is no context to end. Issue Tracker: #1091
     **/
     
-    public static function End2D():Void;
+    static function End2D():Void;
     
     
     /**
@@ -223,7 +223,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PushModelMatrix(matrix:VMatrix):Void;
+    static function PushModelMatrix(matrix:VMatrix):Void;
     
     
     /**
@@ -237,7 +237,7 @@ package gmod.libs;
 		`bottomOffset` | The bottom plane offset.
     **/
     
-    public static function StartOrthoView(leftOffset:Float, topOffset:Float, rightOffset:Float, bottomOffset:Float):Void;
+    static function StartOrthoView(leftOffset:Float, topOffset:Float, rightOffset:Float, bottomOffset:Float):Void;
     
     
     /**
@@ -250,7 +250,7 @@ package gmod.libs;
 		`factor` | The shake factor.
     **/
     
-    public static function ApplyShake(pos:Vector, angles:Angle, factor:Float):Void;
+    static function ApplyShake(pos:Vector, angles:Angle, factor:Float):Void;
     
     
     /**
@@ -259,7 +259,7 @@ package gmod.libs;
 		**Bug:** BUG This will crash the game if there is no context to end. Issue Tracker: #1091
     **/
     
-    public static function End3D2D():Void;
+    static function End3D2D():Void;
     
     
     /**
@@ -287,7 +287,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Start2D():Void;
+    static function Start2D():Void;
     
     
 

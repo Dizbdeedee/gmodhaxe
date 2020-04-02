@@ -29,7 +29,7 @@ package gmod.libs;
 		Enabled the gm_construct_beta addon, if installed.
     **/
     
-    public static function SetShouldMountAddon(workshopItemID:String, shouldMount:Bool):Void;
+    static function SetShouldMountAddon(workshopItemID:String, shouldMount:Bool):Void;
     
     
     /**
@@ -43,7 +43,7 @@ package gmod.libs;
 		`**Returns:** Whatever you have put in as first argument
     **/
     
-    public static function SetFileCompleted(workshopid:String):String;
+    static function SetFileCompleted(workshopid:String):String;
     
     
     /**
@@ -59,7 +59,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function OpenWorkshop():Void;
+    static function OpenWorkshop():Void;
     
     
     /**
@@ -76,7 +76,7 @@ package gmod.libs;
 		`desc` | Description of the Workshop submission
     **/
     @:deprecated("INTERNAL")
-    public static function Publish(tags:AnyTable, filename:String, image:String, name:String, desc:String):Void;
+    static function Publish(tags:AnyTable, filename:String, image:String, name:String, desc:String):Void;
     
     
     /**
@@ -109,7 +109,7 @@ package gmod.libs;
 		A name of local player is printed into console.
     **/
     @:deprecated("You should use the callback of steamworks. RequestPlayerInfo instead.")
-    public static function GetPlayerName(steamID64:String):String;
+    static function GetPlayerName(steamID64:String):String;
     
     
     /**
@@ -126,7 +126,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ApplyAddons():Void;
+    static function ApplyAddons():Void;
     
     
     /**
@@ -160,7 +160,7 @@ package gmod.libs;
 		Something like this will be printed into console: cache/559813303754221947.cache
     **/
     
-    public static function Download(workshopPreviewID:String, uncompress:Bool, resultCallback:Function):Void;
+    static function Download(workshopPreviewID:String, uncompress:Bool, resultCallback:Function):Void;
     
     
     /**
@@ -182,7 +182,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function FileInfo(workshopItemID:String, resultCallback:UGCFileInfo):Void;
+    static function FileInfo(workshopItemID:String, resultCallback:UGCFileInfo):Void;
     
     
     /**
@@ -210,7 +210,7 @@ package gmod.libs;
 		 up = 2916
     **/
     
-    public static function VoteInfo(workshopItemID:String, resultCallback:Function):Void;
+    static function VoteInfo(workshopItemID:String, resultCallback:Function):Void;
     
     
     /**
@@ -237,7 +237,7 @@ package gmod.libs;
 		Subscribes to gm_construct_beta addon, if not already.
     **/
     @:deprecated("INTERNAL")
-    public static function Subscribe(workshopItemID:String):Void;
+    static function Subscribe(workshopItemID:String):Void;
     
     
     /**
@@ -258,7 +258,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ViewFile(workshopItemID:String):Void;
+    static function ViewFile(workshopItemID:String):Void;
     
     
     /**
@@ -282,7 +282,7 @@ package gmod.libs;
 		```
     **/
     @:deprecated("INTERNAL")
-    public static function Vote(workshopItemID:String, upOrDown:Bool):Void;
+    static function Vote(workshopItemID:String, upOrDown:Bool):Void;
     
     
     /**
@@ -296,7 +296,7 @@ package gmod.libs;
 		`**Returns:** Whatever you have put in as first argument
     **/
     
-    public static function SetFilePlayed(workshopid:String):String;
+    static function SetFilePlayed(workshopid:String):String;
     
     
     /**
@@ -338,7 +338,7 @@ package gmod.libs;
 		 10 = 22104
     **/
     
-    public static function GetList(type:String, tags:AnyTable, offset:Float, numRetrieve:Float, days:Float, userID:String, resultCallback:Function):Void;
+    static function GetList(type:String, tags:AnyTable, offset:Float, numRetrieve:Float, days:Float, userID:String, resultCallback:Function):Void;
     
     
     /**
@@ -365,7 +365,7 @@ package gmod.libs;
 		The local player's name
     **/
     
-    public static function RequestPlayerInfo(steamID64:String, callback:Function):Void;
+    static function RequestPlayerInfo(steamID64:String, callback:Function):Void;
     
     
     /**
@@ -392,7 +392,7 @@ package gmod.libs;
 		Unsubscribes from the gm_construct_beta addon, if subscribed.
     **/
     @:deprecated("INTERNAL")
-    public static function Unsubscribe(workshopItemID:String):Void;
+    static function Unsubscribe(workshopItemID:String):Void;
     
     
     /**
@@ -418,7 +418,7 @@ package gmod.libs;
 		If client is subscribed true is printed into console, false otherwise.
     **/
     
-    public static function IsSubscribed(workshopItemID:String):Bool;
+    static function IsSubscribed(workshopItemID:String):Bool;
     
     
     /**
@@ -444,7 +444,7 @@ package gmod.libs;
 		If client has enabled the addon true is printed into console, false otherwise.
     **/
     
-    public static function ShouldMountAddon(workshopItemID:String):Bool;
+    static function ShouldMountAddon(workshopItemID:String):Bool;
     
     
 

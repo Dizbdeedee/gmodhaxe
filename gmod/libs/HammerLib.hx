@@ -244,7 +244,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SendCommand(cmd:String):String;
+    static function SendCommand(cmd:String):String;
     
     
 

@@ -49,7 +49,7 @@ extern class DNumberScratch extends DImageButton {
     **/
     
     @:hook 
-    function OnValueChanged(newValue:Float):Void;
+    private function OnValueChanged(newValue:Float):Void;
     /**
         Sets the zoom level of the scratch panel.
 		

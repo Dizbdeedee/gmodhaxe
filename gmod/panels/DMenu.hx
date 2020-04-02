@@ -15,7 +15,7 @@ extern class DMenu extends DScrollPanel {
     **/
     
     @:hook 
-    function OptionSelected(option:Panel, optionText:String):Void;
+    private function OptionSelected(option:Panel, optionText:String):Void;
     /**
         Returns the maximum height of the DMenu.
 		

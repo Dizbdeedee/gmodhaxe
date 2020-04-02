@@ -48,7 +48,7 @@ extern class DIconBrowser extends DScrollPanel {
     **/
     
     @:hook 
-    function OnChange():Void;
+    private function OnChange():Void;
     /**
         Scrolls the browser to the selected icon
     **/

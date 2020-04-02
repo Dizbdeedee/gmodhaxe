@@ -14,7 +14,7 @@ package gmod.libs;
 		`pnl` | The panel to parent to
     **/
     
-    public static function ParentTo(pnl:Panel):Void;
+    static function ParentTo(pnl:Panel):Void;
     
     
     /**
@@ -28,14 +28,14 @@ package gmod.libs;
 		`**Returns:** Is parent or not
     **/
     
-    public static function IsParent(pnl:Panel):Bool;
+    static function IsParent(pnl:Panel):Bool;
     
     
     /**
         Creates the menu bar ( The bar at the top of the screen when holding C or Q in sandbox ) and docks it to the top of the screen. It will not appear. Calling this multiple times will NOT remove previous panel.
     **/
     
-    public static function Init():Void;
+    static function Init():Void;
     
     
 

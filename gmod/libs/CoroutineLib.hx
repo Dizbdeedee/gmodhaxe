@@ -52,7 +52,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function create(func:Function):Thread;
+    static function create(func:Function):Thread;
     
     
     /**
@@ -81,7 +81,7 @@ package gmod.libs;
 		true, "Hello world!"
     **/
     
-    public static function yield(returnValue:Rest<Dynamic>):Rest<Dynamic>;
+    static function yield(returnValue:Rest<Dynamic>):Rest<Dynamic>;
     
     
     /**
@@ -95,7 +95,7 @@ package gmod.libs;
 		`**Returns:** status
     **/
     
-    public static function status(coroutine:Thread):String;
+    static function status(coroutine:Thread):String;
     
     
     /**
@@ -109,7 +109,7 @@ package gmod.libs;
 		`**Returns:** func
     **/
     
-    public static function wrap(coroutine:Function):Function;
+    static function wrap(coroutine:Function):Function;
     
     
     /**
@@ -127,7 +127,7 @@ package gmod.libs;
 		`b` | If an error occured, this will be a string containing the error message. Otherwise, this will be arguments that were yielded.
     **/
     
-    public static function resume(coroutine:Thread, args:Rest<Dynamic>):CoroutineLibResumeReturn;
+    static function resume(coroutine:Thread, args:Rest<Dynamic>):CoroutineLibResumeReturn;
     
     
     /**
@@ -142,7 +142,7 @@ package gmod.libs;
 		`duration` | The number of seconds to wait
     **/
     
-    public static function wait(duration:Float):Void;
+    static function wait(duration:Float):Void;
     
     
     /**
@@ -151,7 +151,7 @@ package gmod.libs;
 		`**Returns:** coroutine
     **/
     
-    public static function running():Thread;
+    static function running():Thread;
     
     
 

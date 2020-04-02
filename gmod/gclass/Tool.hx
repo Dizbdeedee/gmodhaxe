@@ -14,7 +14,7 @@ extern class Tool {
 		`**Returns:** Player using the tool
     **/
     
-    public function GetOwner():Entity;
+    function GetOwner():Entity;
     
     
     /**
@@ -28,7 +28,7 @@ extern class Tool {
 		`**Returns:** Associated local vector with given id.
     **/
     
-    public function GetLocalPos(id:Float):Vector;
+    function GetLocalPos(id:Float):Vector;
     
     
     /**
@@ -37,7 +37,7 @@ extern class Tool {
 		`**Returns:** The returned language key, for example "#tool.weld.1"
     **/
     
-    public function GetHelpText():String;
+    function GetHelpText():String;
     
     
     /**
@@ -58,14 +58,14 @@ extern class Tool {
 		```
     **/
     
-    public function GetMode():String;
+    function GetMode():String;
     
     
     /**
         Clears all objects previously set with Tool:SetObject.
     **/
     
-    public function ClearObjects():Void;
+    function ClearObjects():Void;
     
     
     /**
@@ -79,7 +79,7 @@ extern class Tool {
 		`**Returns:** Associated vector with given id. The vector is converted from Tool: GetLocalPos.
     **/
     
-    public function GetPos(id:Float):Vector;
+    function GetPos(id:Float):Vector;
     
     
     /**
@@ -93,7 +93,7 @@ extern class Tool {
 		`**Returns:** Associated PhysObj with given id. If it wasn't specified, returns current PhysObj of associated Entity
     **/
     
-    public function GetPhys(id:Float):PhysObj;
+    function GetPhys(id:Float):PhysObj;
     
     
     /**
@@ -113,7 +113,7 @@ extern class Tool {
 		`normal` | The hit normal to store.
     **/
     
-    public function SetObject(id:Float, ent:Entity, pos:Vector, phys:PhysObj, bone:Float, normal:Vector):Void;
+    function SetObject(id:Float, ent:Entity, pos:Vector, phys:PhysObj, bone:Float, normal:Vector):Void;
     
     
     /**
@@ -126,7 +126,7 @@ extern class Tool {
 		`operation` | The new operation ID to set.
     **/
     
-    public function SetOperation(operation:Float):Void;
+    function SetOperation(operation:Float):Void;
     
     
     /**
@@ -137,14 +137,14 @@ extern class Tool {
 		`**Returns:** The created tool object.
     **/
     @:deprecated("INTERNAL: This is called automatically for all tools.")
-    public function Create():Tool;
+    function Create():Tool;
     
     
     /**
         Removes any ghost entity created for this tool.
     **/
     
-    public function ReleaseGhostEntity():Void;
+    function ReleaseGhostEntity():Void;
     
     
     /**
@@ -158,7 +158,7 @@ extern class Tool {
 		`**Returns:** The value of the requested ConVar.
     **/
     
-    public function GetClientInfo(name:String):String;
+    function GetClientInfo(name:String):String;
     
     
     /**
@@ -172,7 +172,7 @@ extern class Tool {
 		`**Returns:** Associated normal vector with given id.
     **/
     
-    public function GetNormal(id:Float):Vector;
+    function GetNormal(id:Float):Vector;
     
     
     /**
@@ -187,7 +187,7 @@ extern class Tool {
 		`angle` | Angle to initialize the ghost entity at, usually not needed since this is updated in Tool: UpdateGhostEntity.
     **/
     
-    public function MakeGhostEntity(model:String, pos:Vector, angle:Angle):Void;
+    function MakeGhostEntity(model:String, pos:Vector, angle:Angle):Void;
     
     
     /**
@@ -201,7 +201,7 @@ extern class Tool {
 		`**Returns:** Associated physics bone with given id.
     **/
     
-    public function GetBone(id:Float):Float;
+    function GetBone(id:Float):Float;
     
     
     /**
@@ -212,7 +212,7 @@ extern class Tool {
 		`ent` | The entity to copy ghost parameters off
     **/
     
-    public function StartGhostEntity(ent:Entity):Void;
+    function StartGhostEntity(ent:Entity):Void;
     
     
     /**
@@ -226,7 +226,7 @@ extern class Tool {
 		`**Returns:** The value of the requested ConVar.
     **/
     
-    public function GetServerInfo(name:String):String;
+    function GetServerInfo(name:String):String;
     
     
     /**
@@ -235,7 +235,7 @@ extern class Tool {
 		Sets the tool's stage to how many stored objects the tool has.
     **/
     @:deprecated("INTERNAL: Called on deploy automatically")
-    public function UpdateData():Void;
+    function UpdateData():Void;
     
     
     /**
@@ -244,7 +244,7 @@ extern class Tool {
 		Creates clientside ConVars based on the ClientConVar table specified in the tool structure. Also creates the 'toolmode_allow_X' ConVar.
     **/
     @:deprecated("INTERNAL: This is called automatically for all tools.")
-    public function CreateConVars():Void;
+    function CreateConVars():Void;
     
     
     /**
@@ -257,7 +257,7 @@ extern class Tool {
 		`stage` | The new stage to set.
     **/
     
-    public function SetStage(stage:Float):Void;
+    function SetStage(stage:Float):Void;
     
     
     /**
@@ -266,7 +266,7 @@ extern class Tool {
 		`**Returns:** The amount of stored objects, or Tool: GetStage clientide.
     **/
     
-    public function NumObjects():Float;
+    function NumObjects():Float;
     
     
     /**
@@ -275,7 +275,7 @@ extern class Tool {
 		`**Returns:** The current stage of the current operation the tool is at.
     **/
     
-    public function GetStage():Float;
+    function GetStage():Float;
     
     
     /**
@@ -286,7 +286,7 @@ extern class Tool {
 		`**Returns:** Returns true if the tool is allowed.
     **/
     
-    public function Allowed():Bool;
+    function Allowed():Bool;
     
     
     /**
@@ -300,7 +300,7 @@ extern class Tool {
 		`**Returns:** Associated Entity with given id.
     **/
     
-    public function GetEnt(id:Float):Entity;
+    function GetEnt(id:Float):Entity;
     
     
     /**
@@ -309,7 +309,7 @@ extern class Tool {
 		`**Returns:** A list of all convars and their default values.
     **/
     
-    public function BuildConVarList():AnyTable;
+    function BuildConVarList():AnyTable;
     
     
     /**
@@ -320,7 +320,7 @@ extern class Tool {
 		 This command is only used for tools that move props, such as easy weld, axis and motor. If you want to update a ghost like the thruster tool does it for example, check its source code.
     **/
     
-    public function UpdateGhostEntity():Void;
+    function UpdateGhostEntity():Void;
     
     
     /**
@@ -335,7 +335,7 @@ extern class Tool {
 		`**Returns:** The value of the requested ConVar.
     **/
     
-    public function GetClientNumber(name:String, ?_default:Float):Float;
+    function GetClientNumber(name:String, ?_default:Float):Float;
     
     
     /**
@@ -344,7 +344,7 @@ extern class Tool {
 		`**Returns:** The current operation the tool is at.
     **/
     
-    public function GetOperation():Float;
+    function GetOperation():Float;
     
     
     /**
@@ -353,7 +353,7 @@ extern class Tool {
 		Checks all added objects to see if they're still valid, if not, clears the list of objects.
     **/
     @:deprecated("INTERNAL: This is called automatically for most toolgun actions so you shouldn't need to use it.")
-    public function CheckObjects():Void;
+    function CheckObjects():Void;
     
     
 }

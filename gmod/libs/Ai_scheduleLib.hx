@@ -17,7 +17,7 @@ package gmod.libs;
 		`**Returns:** A table containing schedule information to be used with ENTITY: StartSchedule.
     **/
     
-    public static function New(name:String):AnyTable;
+    static function New(name:String):AnyTable;
     
     
 

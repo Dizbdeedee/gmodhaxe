@@ -10,14 +10,14 @@ package gmod.libs;
         Flushes the whole cache of compiled code.
     **/
     
-    public static function flush():Void;
+    static function flush():Void;
     
     
     /**
         Enables LuaJIT Lua compilation.
     **/
     
-    public static function on():Void;
+    static function on():Void;
     
     
     /**
@@ -29,7 +29,7 @@ package gmod.libs;
 		`b` | Strings for CPU-specific features and enabled optimizations
     **/
     
-    public static function status():JitLibStatusReturn;
+    static function status():JitLibStatusReturn;
     
     
     /**
@@ -44,14 +44,14 @@ package gmod.libs;
 		`**Returns:** snapshot
     **/
     
-    public static function util(tr:Float, sn:Float):AnyTable;
+    static function util(tr:Float, sn:Float):AnyTable;
     
     
     /**
         Disables LuaJIT Lua compilation.
     **/
     
-    public static function off():Void;
+    static function off():Void;
     
     
     /**
@@ -62,7 +62,7 @@ package gmod.libs;
 		`args` | 
     **/
     
-    public static function opt(args:Rest<Dynamic>):Void;
+    static function opt(args:Rest<Dynamic>):Void;
     
     
     /**
@@ -76,7 +76,7 @@ package gmod.libs;
 		`event` | The event to hook into.
     **/
     
-    public static function attach(callback:Function, event:String):Void;
+    static function attach(callback:Function, event:String):Void;
     
     
 

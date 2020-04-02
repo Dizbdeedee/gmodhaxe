@@ -40,7 +40,7 @@ package gmod.libs;
 		If it successfully fetched the page, the variable 'TheReturnedHTML' should contain the returned HTML in plain text.
     **/
     
-    public static function Fetch(url:String, ?onSuccess:Function, ?onFailure:Function, ?headers:AnyTable):Void;
+    static function Fetch(url:String, ?onSuccess:Function, ?onFailure:Function, ?headers:AnyTable):Void;
     
     
     /**
@@ -78,7 +78,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Post(url:String, parameters:AnyTable, ?onSuccess:Function, ?onFailure:Function, ?headers:AnyTable):Void;
+    static function Post(url:String, parameters:AnyTable, ?onSuccess:Function, ?onFailure:Function, ?headers:AnyTable):Void;
     
     
 

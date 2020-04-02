@@ -33,7 +33,7 @@ package gmod.libs;
 		1052 1105 1085 1105 1084
     **/
     
-    public static function codepoint(string:String, ?startPos:Float, ?endPos:Float):Rest<Dynamic>;
+    static function codepoint(string:String, ?startPos:Float, ?endPos:Float):Rest<Dynamic>;
     
     
     /**
@@ -61,7 +61,7 @@ package gmod.libs;
 		7
     **/
     
-    public static function offset(string:String, n:Float, ?startPos:Float):Float;
+    static function offset(string:String, n:Float, ?startPos:Float):Float;
     
     
     /**
@@ -99,7 +99,7 @@ package gmod.libs;
 		17    41
     **/
     
-    public static function codes(string:String):Function;
+    static function codes(string:String):Function;
     
     
     /**
@@ -132,7 +132,7 @@ package gmod.libs;
 		11 5
     **/
     
-    public static function len(string:String, ?startPos:Float, ?endPos:Float):Utf8LibLenReturn;
+    static function len(string:String, ?startPos:Float, ?endPos:Float):Utf8LibLenReturn;
     
     
     /**
@@ -148,7 +148,7 @@ package gmod.libs;
 		`**Returns:** The UTF-8 string.
     **/
     
-    public static function force(string:String):String;
+    static function force(string:String):String;
     
     
     /**
@@ -162,7 +162,7 @@ package gmod.libs;
 		`**Returns:** UTF-8 string generated from given arguments.
     **/
     
-    public static function char(codepoints:Rest<Dynamic>):String;
+    static function char(codepoints:Rest<Dynamic>):String;
     
     
 

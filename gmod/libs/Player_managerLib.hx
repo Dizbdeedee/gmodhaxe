@@ -30,7 +30,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddValidHands(name:String, model:String, skin:Float, bodygroups:String):Void;
+    static function AddValidHands(name:String, model:String, skin:Float, bodygroups:String):Void;
     
     
     /**
@@ -56,7 +56,7 @@ package gmod.libs;
 		Console outputs: "models/player/alyx.mdl"
     **/
     
-    public static function TranslatePlayerModel(shortName:String):String;
+    static function TranslatePlayerModel(shortName:String):String;
     
     
     /**
@@ -76,7 +76,7 @@ package gmod.libs;
 		Console outputs: "models/player/alyx.mdl"
     **/
     
-    public static function AllValidModels():Void;
+    static function AllValidModels():Void;
     
     
     /**
@@ -115,7 +115,7 @@ package gmod.libs;
 		Walkspeed = 300 RunSpeed = 500 CalcView = function: 0x00665988 UseVMHands = true etc...
     **/
     
-    public static function RegisterClass(name:String, table:AnyTable, base:String):Void;
+    static function RegisterClass(name:String, table:AnyTable, base:String):Void;
     
     
     /**
@@ -140,7 +140,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ClearPlayerClass(ply:Player):Void;
+    static function ClearPlayerClass(ply:Player):Void;
     
     
     /**
@@ -152,7 +152,7 @@ package gmod.libs;
 		`model` | Valid PlayerModel path
     **/
     
-    public static function AddValidModel(name:String, model:String):Void;
+    static function AddValidModel(name:String, model:String):Void;
     
     
     /**
@@ -166,7 +166,7 @@ package gmod.libs;
 		`**Returns:** The players class
     **/
     
-    public static function GetPlayerClass(ply:Player):String;
+    static function GetPlayerClass(ply:Player):String;
     
     
     /**
@@ -179,7 +179,7 @@ package gmod.libs;
 		`ply` | Player to setup
     **/
     
-    public static function OnPlayerSpawn(ply:Player):Void;
+    static function OnPlayerSpawn(ply:Player):Void;
     
     
     /**
@@ -195,7 +195,7 @@ package gmod.libs;
 		`**Returns:** The simplified name for that model
     **/
     
-    public static function TranslateToPlayerModelName(model:String):String;
+    static function TranslateToPlayerModelName(model:String):String;
     
     
     /**
@@ -250,7 +250,7 @@ package gmod.libs;
 		Hello Flowx !
     **/
     
-    public static function RunClass(ply:Player, funcName:String, arguments:Rest<Dynamic>):Rest<Dynamic>;
+    static function RunClass(ply:Player, funcName:String, arguments:Rest<Dynamic>):Rest<Dynamic>;
     
     
     /**
@@ -274,7 +274,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetPlayerClass(ply:Player, classname:String):Void;
+    static function SetPlayerClass(ply:Player, classname:String):Void;
     
     
     /**
@@ -288,7 +288,7 @@ package gmod.libs;
 		`**Returns:** A table with following contents: string model - Model of hands number skin - Skin of hands string body - Bodygroups of hands
     **/
     
-    public static function TranslatePlayerHands(name:String):AnyTable;
+    static function TranslatePlayerHands(name:String):AnyTable;
     
     
 

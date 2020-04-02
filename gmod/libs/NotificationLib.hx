@@ -14,7 +14,7 @@ package gmod.libs;
 		`uid` | The unique ID of the notification
     **/
     
-    public static function Kill(uid:Dynamic):Void;
+    static function Kill(uid:Dynamic):Void;
     
     
     /**
@@ -39,7 +39,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddProgress(id:Dynamic, strText:String):Void;
+    static function AddProgress(id:Dynamic, strText:String):Void;
     
     
     /**
@@ -67,7 +67,7 @@ package gmod.libs;
 		Adds a notice that says "Undone Prop", plays the undo sound, and adds a message to the console.
     **/
     
-    public static function AddLegacy(text:String, type:NOTIFY, length:Float):Void;
+    static function AddLegacy(text:String, type:NOTIFY, length:Float):Void;
     
     
 

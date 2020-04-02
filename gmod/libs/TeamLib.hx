@@ -29,7 +29,7 @@ package gmod.libs;
 		1
     **/
     
-    public static function GetScore(teamIndex:Float):Float;
+    static function GetScore(teamIndex:Float):Float;
     
     
     /**
@@ -52,7 +52,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetName(teamIndex:Float):String;
+    static function GetName(teamIndex:Float):String;
     
     
     /**
@@ -64,7 +64,7 @@ package gmod.libs;
 		`increment` | Amount to increase the team's score by
     **/
     
-    public static function AddScore(index:Float, increment:Float):Void;
+    static function AddScore(index:Float, increment:Float):Void;
     
     
     /**
@@ -86,7 +86,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetClass(index:Float, classes:Dynamic):Void;
+    static function SetClass(index:Float, classes:Dynamic):Void;
     
     
     /**
@@ -110,7 +110,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetSpawnPoint(index:Float, classes:Dynamic):Void;
+    static function SetSpawnPoint(index:Float, classes:Dynamic):Void;
     
     
     /**
@@ -136,7 +136,7 @@ package gmod.libs;
 		2
     **/
     
-    public static function TotalDeaths(teamIndex:Float):Float;
+    static function TotalDeaths(teamIndex:Float):Float;
     
     
     /**
@@ -160,7 +160,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetUp(teamIndex:Float, teamName:String, teamColor:Color, ?isJoinable:Bool):Void;
+    static function SetUp(teamIndex:Float, teamName:String, teamColor:Color, ?isJoinable:Bool):Void;
     
     
     /**
@@ -169,7 +169,7 @@ package gmod.libs;
 		`**Returns:** Team index
     **/
     
-    public static function BestAutoJoinTeam():Float;
+    static function BestAutoJoinTeam():Float;
     
     
     /**
@@ -195,7 +195,7 @@ package gmod.libs;
 		Spawnpoint Entity
     **/
     
-    public static function GetSpawnPoints(index:Float):AnyTable;
+    static function GetSpawnPoints(index:Float):AnyTable;
     
     
     /**
@@ -221,7 +221,7 @@ package gmod.libs;
 		List of players.
     **/
     
-    public static function GetPlayers(teamIndex:Float):AnyTable;
+    static function GetPlayers(teamIndex:Float):AnyTable;
     
     
     /**
@@ -239,7 +239,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetAllTeams():AnyTable;
+    static function GetAllTeams():AnyTable;
     
     
     /**
@@ -265,7 +265,7 @@ package gmod.libs;
 		1
     **/
     
-    public static function TotalFrags(number:Entity):Float;
+    static function TotalFrags(number:Entity):Float;
     
     
     /**
@@ -277,7 +277,7 @@ package gmod.libs;
 		`score` | The team's new score
     **/
     
-    public static function SetScore(index:Float, score:Float):Void;
+    static function SetScore(index:Float, score:Float):Void;
     
     
     /**
@@ -291,7 +291,7 @@ package gmod.libs;
 		`**Returns:** True if the team is joinable. False otherwise.
     **/
     
-    public static function Joinable(index:Float):Bool;
+    static function Joinable(index:Float):Bool;
     
     
     /**
@@ -317,7 +317,7 @@ package gmod.libs;
 		The number of players in ply's team.
     **/
     
-    public static function NumPlayers(teamIndex:Float):Float;
+    static function NumPlayers(teamIndex:Float):Float;
     
     
     /**
@@ -331,7 +331,7 @@ package gmod.libs;
 		`**Returns:** Valid spawnpoint classes
     **/
     
-    public static function GetSpawnPoint(index:Float):AnyTable;
+    static function GetSpawnPoint(index:Float):AnyTable;
     
     
     /**
@@ -345,7 +345,7 @@ package gmod.libs;
 		`**Returns:** The team's color as a Color structure.
     **/
     
-    public static function GetColor(teamIndex:Float):Color;
+    static function GetColor(teamIndex:Float):Color;
     
     
     /**
@@ -359,7 +359,7 @@ package gmod.libs;
 		`**Returns:** Is valid
     **/
     
-    public static function Valid(index:Float):Bool;
+    static function Valid(index:Float):Bool;
     
     
     /**
@@ -373,7 +373,7 @@ package gmod.libs;
 		`**Returns:** Selectable classes
     **/
     
-    public static function GetClass(index:Float):AnyTable;
+    static function GetClass(index:Float):AnyTable;
     
     
     /**
@@ -385,7 +385,7 @@ package gmod.libs;
 		`color` | The team's new color as a Color structure.
     **/
     
-    public static function SetColor(teamIndex:Float, color:Color):Void;
+    static function SetColor(teamIndex:Float, color:Color):Void;
     
     
 

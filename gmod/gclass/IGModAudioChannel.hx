@@ -12,7 +12,7 @@ extern class IGModAudioChannel {
 		`**Returns:** Is online or not.
     **/
     
-    public function IsOnline():Bool;
+    function IsOnline():Bool;
     
     
     /**
@@ -23,7 +23,7 @@ extern class IGModAudioChannel {
 		`**Returns:** Number of bits per sample, or 0 if unknown.
     **/
     
-    public function GetBitsPerSample():Float;
+    function GetBitsPerSample():Float;
     
     
     /**
@@ -34,7 +34,7 @@ extern class IGModAudioChannel {
 		`rate` | Playback rate to set to. 1 is normal speed, 0.5 is half the normal speed, etc.
     **/
     
-    public function SetPlaybackRate(rate:Float):Void;
+    function SetPlaybackRate(rate:Float):Void;
     
     
     /**
@@ -43,21 +43,21 @@ extern class IGModAudioChannel {
 		`**Returns:** The position of the sound channel, previously set by IGModAudioChannel: SetPos
     **/
     
-    public function GetPos():Vector;
+    function GetPos():Vector;
     
     
     /**
         Pauses the stream. It can be started again using IGModAudioChannel:Play
     **/
     
-    public function Pause():Void;
+    function Pause():Void;
     
     
     /**
         Starts playing the stream.
     **/
     
-    public function Play():Void;
+    function Play():Void;
     
     
     /**
@@ -66,7 +66,7 @@ extern class IGModAudioChannel {
 		`**Returns:** The current playback rate of the sound channel
     **/
     
-    public function GetPlaybackRate():Float;
+    function GetPlaybackRate():Float;
     
     
     /**
@@ -75,7 +75,7 @@ extern class IGModAudioChannel {
 		`**Returns:** Is the audio stream block streamed or not.
     **/
     
-    public function IsBlockStreamed():Bool;
+    function IsBlockStreamed():Bool;
     
     
     /**
@@ -84,7 +84,7 @@ extern class IGModAudioChannel {
 		`**Returns:** Is 3D or not.
     **/
     
-    public function Is3D():Bool;
+    function Is3D():Bool;
     
     
     /**
@@ -97,7 +97,7 @@ extern class IGModAudioChannel {
 		`secs` | The time to set the stream to, in seconds.
     **/
     
-    public function SetTime(secs:Float):Void;
+    function SetTime(secs:Float):Void;
     
     
     /**
@@ -106,7 +106,7 @@ extern class IGModAudioChannel {
 		`**Returns:** The length of the sound. This value seems to be less then 0 for continuous radio streams.
     **/
     
-    public function GetLength():Float;
+    function GetLength():Float;
     
     
     /**
@@ -115,7 +115,7 @@ extern class IGModAudioChannel {
 		`**Returns:** The sample rate in Hz. This should always be 44100.
     **/
     
-    public function GetSamplingRate():Float;
+    function GetSamplingRate():Float;
     
     
     /**
@@ -138,7 +138,7 @@ extern class IGModAudioChannel {
 		```
     **/
     
-    public function Set3DCone(innerAngle:Float, outerAngle:Float, outerVolume:Float):Void;
+    function Set3DCone(innerAngle:Float, outerAngle:Float, outerVolume:Float):Void;
     
     
     /**
@@ -150,7 +150,7 @@ extern class IGModAudioChannel {
 		`b` | The maximum distance. The channel's volume stops decreasing when the listener is beyond this distance
     **/
     
-    public function Get3DFadeDistance():IGModAudioChannelGet3DFadeDistanceReturn;
+    function Get3DFadeDistance():IGModAudioChannelGet3DFadeDistanceReturn;
     
     
     /**
@@ -172,7 +172,7 @@ extern class IGModAudioChannel {
 		```
     **/
     
-    public function Set3DFadeDistance(min:Float, max:Float):Void;
+    function Set3DFadeDistance(min:Float, max:Float):Void;
     
     
     /**
@@ -197,7 +197,7 @@ extern class IGModAudioChannel {
 		`**Returns:** The number of frequency bins that have been filled in the output table.
     **/
     
-    public function FFT(tbl:AnyTable, size:FFT):Float;
+    function FFT(tbl:AnyTable, size:FFT):Float;
     
     
     /**
@@ -209,7 +209,7 @@ extern class IGModAudioChannel {
 		`dir` | The direction of the sound
     **/
     
-    public function SetPos(pos:Vector, ?dir:Vector):Void;
+    function SetPos(pos:Vector, ?dir:Vector):Void;
     
     
     /**
@@ -218,7 +218,7 @@ extern class IGModAudioChannel {
 		`**Returns:** The current time of the stream
     **/
     
-    public function GetTime():Float;
+    function GetTime():Float;
     
     
     /**
@@ -231,7 +231,7 @@ extern class IGModAudioChannel {
 		`c` | The delta-volume outside the outer projection cone.
     **/
     
-    public function Get3DCone():IGModAudioChannelGet3DConeReturn;
+    function Get3DCone():IGModAudioChannelGet3DConeReturn;
     
     
     /**
@@ -242,7 +242,7 @@ extern class IGModAudioChannel {
 		`enable` | Enable or disable looping of this audio channel.
     **/
     
-    public function EnableLooping(enable:Bool):Void;
+    function EnableLooping(enable:Bool):Void;
     
     
     /**
@@ -251,7 +251,7 @@ extern class IGModAudioChannel {
 		`**Returns:** The average bit rate of the sound channel.
     **/
     
-    public function GetAverageBitRate():Float;
+    function GetAverageBitRate():Float;
     
     
     /**
@@ -277,7 +277,7 @@ extern class IGModAudioChannel {
 		```
     **/
     
-    public function SetVolume(volume:Float):Void;
+    function SetVolume(volume:Float):Void;
     
     
     /**
@@ -286,7 +286,7 @@ extern class IGModAudioChannel {
 		`**Returns:** The file name. This will not be always what you have put into the sound. PlayURL as first argument.
     **/
     
-    public function GetFileName():String;
+    function GetFileName():String;
     
     
     /**
@@ -295,7 +295,7 @@ extern class IGModAudioChannel {
 		`**Returns:** The volume of the sound channel
     **/
     
-    public function GetVolume():Float;
+    function GetVolume():Float;
     
     
     /**
@@ -304,7 +304,7 @@ extern class IGModAudioChannel {
 		`**Returns:** Is looping or not.
     **/
     
-    public function IsLooping():Bool;
+    function IsLooping():Bool;
     
     
     /**
@@ -313,7 +313,7 @@ extern class IGModAudioChannel {
 		`**Returns:** The state of the sound channel, see GMOD_CHANNEL_ Enums
     **/
     
-    public function GetState():GMOD_CHANNEL;
+    function GetState():GMOD_CHANNEL;
     
     
     /**
@@ -322,7 +322,7 @@ extern class IGModAudioChannel {
 		`**Returns:** Is the sound channel valid or not
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     
     /**
@@ -334,7 +334,7 @@ extern class IGModAudioChannel {
 		`b` | The right sound level. The value is between 0 and 1.
     **/
     
-    public function GetLevel():IGModAudioChannelGetLevelReturn;
+    function GetLevel():IGModAudioChannelGetLevelReturn;
     
     
     /**
@@ -343,7 +343,7 @@ extern class IGModAudioChannel {
 		**Bug:** BUG Calling this invalidates the IGModAudioChannel object rendering it unusable for further functions. Issue Tracker: #1497
     **/
     
-    public function Stop():Void;
+    function Stop():Void;
     
     
 }

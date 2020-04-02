@@ -14,7 +14,7 @@ package gmod.libs;
 		`ID` | The impulse ID returned by numpad. OnUp or numpad. OnDown
     **/
     
-    public static function Remove(ID:Float):Void;
+    static function Remove(ID:Float):Void;
     
     
     /**
@@ -27,7 +27,7 @@ package gmod.libs;
 		`isButton` | Should this keypress pretend to be a from a gmod_button? (causes numpad. FromButton to return true)
     **/
     
-    public static function Deactivate(ply:Player, key:KEY, isButton:Bool):Void;
+    static function Deactivate(ply:Player, key:KEY, isButton:Bool):Void;
     
     
     /**
@@ -40,7 +40,7 @@ package gmod.libs;
 		`isButton` | Should this keypress pretend to be a from a gmod_button? (causes numpad. FromButton to return true)
     **/
     
-    public static function Activate(ply:Player, key:KEY, isButton:Bool):Void;
+    static function Activate(ply:Player, key:KEY, isButton:Bool):Void;
     
     
     /**
@@ -51,7 +51,7 @@ package gmod.libs;
 		`**Returns:** wasButton
     **/
     
-    public static function FromButton():Bool;
+    static function FromButton():Bool;
     
     
     /**
@@ -70,7 +70,7 @@ package gmod.libs;
 		`**Returns:** The impulse ID
     **/
     
-    public static function OnUp(ply:Player, key:KEY, name:String, vargs:Rest<Dynamic>):Float;
+    static function OnUp(ply:Player, key:KEY, name:String, vargs:Rest<Dynamic>):Float;
     
     
     /**
@@ -89,7 +89,7 @@ package gmod.libs;
 		`**Returns:** The impulse ID
     **/
     
-    public static function OnDown(ply:Player, key:KEY, name:String, vargs:Rest<Dynamic>):Float;
+    static function OnDown(ply:Player, key:KEY, name:String, vargs:Rest<Dynamic>):Float;
     
     
     /**
@@ -101,7 +101,7 @@ package gmod.libs;
 		`key` | The key to press, corresponding to KEY_ Enums
     **/
     
-    public static function Toggle(ply:Player, key:KEY):Void;
+    static function Toggle(ply:Player, key:KEY):Void;
     
     
     /**
@@ -113,7 +113,7 @@ package gmod.libs;
 		`func` | The function to be executed. Arguments are: Player ply - The player who pressed the button vararg ... - The 4th and all subsequent arguments passed from numpad.OnDown and/or numpad.OnUp Returning false in this function will remove the listener which triggered this function (example: return false if one of your varargs is an entity which is no longer valid)
     **/
     
-    public static function Register(id:String, func:Function):Void;
+    static function Register(id:String, func:Function):Void;
     
     
 

@@ -14,7 +14,7 @@ extern class CRecipientFilter {
 		`teamid` | Team index to add players from.
     **/
     
-    public function AddRecipientsByTeam(teamid:Float):Void;
+    function AddRecipientsByTeam(teamid:Float):Void;
     
     
     /**
@@ -38,7 +38,7 @@ extern class CRecipientFilter {
 		2 1 = Player [1][Player #1] 2 = Player [2][Player #2]
     **/
     
-    public function GetCount():Float;
+    function GetCount():Float;
     
     
     /**
@@ -62,7 +62,7 @@ extern class CRecipientFilter {
 		Sends a usermessage to every player.
     **/
     
-    public function AddAllPlayers():Void;
+    function AddAllPlayers():Void;
     
     
     /**
@@ -88,7 +88,7 @@ extern class CRecipientFilter {
 		Sends a usermessage to the first player object, if it exists.
     **/
     
-    public function RemoveAllPlayers():Void;
+    function RemoveAllPlayers():Void;
     
     
     /**
@@ -118,7 +118,7 @@ extern class CRecipientFilter {
 		Adds all players that can see the map's origin to the recipient filter, then removes all players who can see 10 units to the left of the origin, and sends the rest a message.
     **/
     
-    public function RemovePVS(pos:Vector):Void;
+    function RemovePVS(pos:Vector):Void;
     
     
     /**
@@ -129,7 +129,7 @@ extern class CRecipientFilter {
 		`teamid` | Team index.
     **/
     
-    public function RemoveRecipientsNotOnTeam(teamid:Float):Void;
+    function RemoveRecipientsNotOnTeam(teamid:Float):Void;
     
     
     /**
@@ -153,7 +153,7 @@ extern class CRecipientFilter {
 		2 1 = Player [1][Player #1] 2 = Player [2][Player #2]
     **/
     
-    public function GetPlayers():AnyTable;
+    function GetPlayers():AnyTable;
     
     
     /**
@@ -164,7 +164,7 @@ extern class CRecipientFilter {
 		`teamid` | Team index to remove players from.
     **/
     
-    public function RemoveRecipientsByTeam(teamid:Float):Void;
+    function RemoveRecipientsByTeam(teamid:Float):Void;
     
     
     /**
@@ -195,7 +195,7 @@ extern class CRecipientFilter {
 		Sends a net message to every player except the first.
     **/
     
-    public function RemovePlayer(Player:Player):Void;
+    function RemovePlayer(Player:Player):Void;
     
     
     /**
@@ -224,7 +224,7 @@ extern class CRecipientFilter {
 		Sends a usermessage to the first player object, if it exists.
     **/
     
-    public function AddPlayer(Player:Player):Void;
+    function AddPlayer(Player:Player):Void;
     
     
     /**
@@ -235,7 +235,7 @@ extern class CRecipientFilter {
 		`pos` | PAS position that players may be able to see.
     **/
     
-    public function AddPAS(pos:Vector):Void;
+    function AddPAS(pos:Vector):Void;
     
     
     /**
@@ -246,7 +246,7 @@ extern class CRecipientFilter {
 		`position` | The position to test
     **/
     
-    public function RemovePAS(position:Vector):Void;
+    function RemovePAS(position:Vector):Void;
     
     
     /**
@@ -275,7 +275,7 @@ extern class CRecipientFilter {
 		Sends a usermessage to every player visible from 0,0,0
     **/
     
-    public function AddPVS(Position:Vector):Void;
+    function AddPVS(Position:Vector):Void;
     
     
 }

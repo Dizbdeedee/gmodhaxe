@@ -19,7 +19,7 @@ package gmod.libs;
 		`**Returns:** The gamemode's table
     **/
     @:deprecated("INTERNAL")
-    public static function Get(name:String):AnyTable;
+    static function Get(name:String):AnyTable;
     
     
     /**
@@ -48,7 +48,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Call(name:String, args:Rest<Dynamic>):Dynamic;
+    static function Call(name:String, args:Rest<Dynamic>):Dynamic;
     
     
     /**
@@ -63,7 +63,7 @@ package gmod.libs;
 		`derived` | The gamemode name that your gamemode is derived from
     **/
     @:deprecated("INTERNAL")
-    public static function Register(gm:AnyTable, name:String, derived:String):Void;
+    static function Register(gm:AnyTable, name:String, derived:String):Void;
     
     
 

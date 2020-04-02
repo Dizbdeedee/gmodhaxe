@@ -21,7 +21,7 @@ package gmod.libs;
 		`msg` | The message.
     **/
     @:deprecated("INTERNAL")
-    public static function IncomingMessage(name:String #if client , msg:Bf_read #end):Void;
+    static function IncomingMessage(name:String #if client , msg:Bf_read #end):Void;
     
     
     /**
@@ -38,7 +38,7 @@ package gmod.libs;
 		`preArgs` | Arguments that are passed to the callback function when the hook is called. *ring ring*
     **/
     @:deprecated("You should be using net library instead")
-    public static function Hook(name:String, callback:Function, preArgs:Rest<Dynamic>):Void;
+    static function Hook(name:String, callback:Function, preArgs:Rest<Dynamic>):Void;
     
     
     /**
@@ -47,7 +47,7 @@ package gmod.libs;
 		`**Returns:** hooks
     **/
     
-    public static function GetTable():AnyTable;
+    static function GetTable():AnyTable;
     
     
 

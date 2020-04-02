@@ -26,14 +26,14 @@ package gmod.libs;
 		```
     **/
     
-    public static function Get(name:String):Panel;
+    static function Get(name:String):Panel;
     
     
     /**
         Clears ALL the control panels ( for tools )
     **/
     
-    public static function Clear():Void;
+    static function Clear():Void;
     
     
 

@@ -12,7 +12,7 @@ package gmod.libs;
 		`**Returns:** GAMEMODE
     **/
     
-    public static function GetGamemode():AnyTable;
+    static function GetGamemode():AnyTable;
     
     
 

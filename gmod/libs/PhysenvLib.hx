@@ -36,7 +36,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddSurfaceData(properties:String):Void;
+    static function AddSurfaceData(properties:String):Void;
     
     
     /**
@@ -45,7 +45,7 @@ package gmod.libs;
 		`**Returns:** Performance settings. See PhysEnvPerformanceSettings structure
     **/
     
-    public static function GetPerformanceSettings():PhysEnvPerformanceSettings;
+    static function GetPerformanceSettings():PhysEnvPerformanceSettings;
     
     
     /**
@@ -56,7 +56,7 @@ package gmod.libs;
 		`airDensity` | The new air density.
     **/
     
-    public static function SetAirDensity(airDensity:Float):Void;
+    static function SetAirDensity(airDensity:Float):Void;
     
     
     /**
@@ -67,7 +67,7 @@ package gmod.libs;
 		`gravity` | The new gravity.
     **/
     
-    public static function SetGravity(gravity:Vector):Void;
+    static function SetGravity(gravity:Vector):Void;
     
     
     /**
@@ -78,7 +78,7 @@ package gmod.libs;
 		`performanceSettings` | The new performance settings. See PhysEnvPerformanceSettings structure
     **/
     
-    public static function SetPerformanceSettings(performanceSettings:PhysEnvPerformanceSettings):Void;
+    static function SetPerformanceSettings(performanceSettings:PhysEnvPerformanceSettings):Void;
     
     
     /**
@@ -87,7 +87,7 @@ package gmod.libs;
 		`**Returns:** gravity
     **/
     
-    public static function GetGravity():Vector;
+    static function GetGravity():Vector;
     
     
     /**
@@ -96,7 +96,7 @@ package gmod.libs;
 		`**Returns:** airDensity
     **/
     
-    public static function GetAirDensity():Float;
+    static function GetAirDensity():Float;
     
     
 

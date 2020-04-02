@@ -18,7 +18,7 @@ package gmod.libs;
 		`newVal` | The new value of the convar
     **/
     @:deprecated("INTERNAL: You are probably looking for cvars. AddChangeCallback.")
-    public static function OnConVarChanged(name:String, oldVal:String, newVal:String):Void;
+    static function OnConVarChanged(name:String, oldVal:String, newVal:String):Void;
     
     
     /**
@@ -33,7 +33,7 @@ package gmod.libs;
 		`**Returns:** Retrieved value
     **/
     
-    public static function Bool(cvar:String, ?_default:Bool):Bool;
+    static function Bool(cvar:String, ?_default:Bool):Bool;
     
     
     /**
@@ -67,7 +67,7 @@ package gmod.libs;
 		"convar name" 2 5
     **/
     
-    public static function AddChangeCallback(name:String, callback:Function, ?identifier:String):Void;
+    static function AddChangeCallback(name:String, callback:Function, ?identifier:String):Void;
     
     
     /**
@@ -79,7 +79,7 @@ package gmod.libs;
 		`indentifier` | The callback's identifier.
     **/
     
-    public static function RemoveChangeCallback(name:String, indentifier:String):Void;
+    static function RemoveChangeCallback(name:String, indentifier:String):Void;
     
     
     /**
@@ -94,7 +94,7 @@ package gmod.libs;
 		`**Returns:** Retrieved value
     **/
     
-    public static function Number(cvar:String, ?_default:Dynamic):Float;
+    static function Number(cvar:String, ?_default:Dynamic):Float;
     
     
     /**
@@ -109,7 +109,7 @@ package gmod.libs;
 		`**Returns:** Retrieved value
     **/
     
-    public static function String(cvar:String, ?_default:Dynamic):String;
+    static function String(cvar:String, ?_default:Dynamic):String;
     
     
     /**
@@ -124,7 +124,7 @@ package gmod.libs;
 		`**Returns:** A table of the convar's callbacks, or nil if the convar doesn't exist.
     **/
     
-    public static function GetConVarCallbacks(name:String, ?createIfNotFound:Bool):AnyTable;
+    static function GetConVarCallbacks(name:String, ?createIfNotFound:Bool):AnyTable;
     
     
 

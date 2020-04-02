@@ -31,7 +31,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Parse(markup:String, maxwidth:Float):MarkupObject;
+    static function Parse(markup:String, maxwidth:Float):MarkupObject;
     
     
 

@@ -43,7 +43,7 @@ extern class DEntityProperties extends DProperties {
     **/
     
     @:hook 
-    function OnEntityLost():Void;
+    private function OnEntityLost():Void;
     /**
         ***INTERNAL** 
 		

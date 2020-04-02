@@ -27,7 +27,7 @@ package gmod.libs;
 		SoundEmitter: adding map sound overrides from scripts/override_test.txt [1 total, 1 replacements, 0 duplicated replacements] (Displayed in the console)
     **/
     
-    public static function AddSoundOverrides(filepath:String):Void;
+    static function AddSoundOverrides(filepath:String):Void;
     
     
     /**
@@ -58,7 +58,7 @@ package gmod.libs;
 		You can now play your custom sound script with Entity: EmitSound like so: Entity( 1 ):EmitSound( "enzo_engine_idle" )
     **/
     
-    public static function Add(soundData:SoundData):Void;
+    static function Add(soundData:SoundData):Void;
     
     
     /**
@@ -83,7 +83,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Play(Name:String, Pos:Vector, Level:Float, Pitch:Float, Volume:Float):Void;
+    static function Play(Name:String, Pos:Vector, Level:Float, Pitch:Float, Volume:Float):Void;
     
     #if client
     /**
@@ -118,7 +118,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PlayFile(path:String, flags:String, callback:Function):Void;
+    static function PlayFile(path:String, flags:String, callback:Function):Void;
     #end
     
     /**
@@ -172,7 +172,7 @@ package gmod.libs;
 		...
     **/
     
-    public static function GetTable():AnyTable;
+    static function GetTable():AnyTable;
     
     
     /**
@@ -186,7 +186,7 @@ package gmod.libs;
 		`**Returns:** The properties of the soundscript. See SoundData structure
     **/
     
-    public static function GetProperties(name:String):SoundData;
+    static function GetProperties(name:String):SoundData;
     
     #if client
     /**
@@ -222,7 +222,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Generate(indentifier:String, samplerate:Float, length:Float, callback:Function):Void;
+    static function Generate(indentifier:String, samplerate:Float, length:Float, callback:Function):Void;
     #end
     #if client
     /**
@@ -261,7 +261,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PlayURL(url:String, flags:String, callback:Function):Void;
+    static function PlayURL(url:String, flags:String, callback:Function):Void;
     #end
     
 

@@ -30,7 +30,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Do_Undo(tab:Undo):Float;
+    static function Do_Undo(tab:Undo):Float;
     #end
     #if server
     /**
@@ -64,7 +64,7 @@ package gmod.libs;
 		"PlayerName removed prop models/props_junk/wood_crate001a.mdl, code: 556" will be printed
     **/
     
-    public static function AddFunction(func:Function, arguments:Rest<Dynamic>):Void;
+    static function AddFunction(func:Function, arguments:Rest<Dynamic>):Void;
     #end
     #if client
     /**
@@ -73,7 +73,7 @@ package gmod.libs;
 		Adds a hook (CPanelPaint) to the control panel paint function so we can determine when it is being drawn.
     **/
     @:deprecated("INTERNAL")
-    public static function SetupUI():Void;
+    static function SetupUI():Void;
     #end
     #if server
     /**
@@ -100,7 +100,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Create(name:String):Void;
+    static function Create(name:String):Void;
     #end
     #if server
     /**
@@ -127,7 +127,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetPlayer(ply:Player):Void;
+    static function SetPlayer(ply:Player):Void;
     #end
     
     /**
@@ -136,7 +136,7 @@ package gmod.libs;
 		`**Returns:** The undo table.
     **/
     
-    public static function GetTable():AnyTable;
+    static function GetTable():AnyTable;
     
     #if server
     /**
@@ -164,7 +164,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ReplaceEntity(from:Entity, to:Entity):Bool;
+    static function ReplaceEntity(from:Entity, to:Entity):Bool;
     #end
     
     /**
@@ -186,7 +186,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Finish():Void;
+    static function Finish():Void;
     
     #if server
     /**
@@ -214,7 +214,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetCustomUndoText(customText:String):Void;
+    static function SetCustomUndoText(customText:String):Void;
     #end
     #if client
     /**
@@ -223,7 +223,7 @@ package gmod.libs;
 		Makes the UI dirty - it will re-create the controls the next time it is viewed. We also take this opportun
     **/
     @:deprecated("INTERNAL")
-    public static function MakeUIDirty():Void;
+    static function MakeUIDirty():Void;
     #end
     #if server
     /**
@@ -251,7 +251,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddEntity(ent:Entity):Void;
+    static function AddEntity(ent:Entity):Void;
     #end
     
 

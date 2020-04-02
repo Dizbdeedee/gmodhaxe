@@ -12,7 +12,7 @@ extern class ITexture {
 		`**Returns:** width
     **/
     
-    public function Width():Float;
+    function Width():Float;
     
     
     /**
@@ -21,7 +21,7 @@ extern class ITexture {
 		`**Returns:** name
     **/
     
-    public function GetName():String;
+    function GetName():String;
     
     
     /**
@@ -30,14 +30,14 @@ extern class ITexture {
 		`**Returns:** height
     **/
     
-    public function Height():Float;
+    function Height():Float;
     
     
     /**
         Invokes the generator of the texture. Reloads file based textures from disk and clears render target textures.
     **/
     
-    public function Download():Void;
+    function Download():Void;
     
     
     /**
@@ -48,7 +48,7 @@ extern class ITexture {
 		`**Returns:** Whether the texture was loaded successfully or not.
     **/
     
-    public function IsError():Bool;
+    function IsError():Bool;
     
     
     /**
@@ -57,7 +57,7 @@ extern class ITexture {
 		`**Returns:** height
     **/
     
-    public function GetMappingHeight():Float;
+    function GetMappingHeight():Float;
     
     
     /**
@@ -66,7 +66,7 @@ extern class ITexture {
 		`**Returns:** Whether the texture is the error texture or not.
     **/
     
-    public function IsErrorTexture():Bool;
+    function IsErrorTexture():Bool;
     
     
     /**
@@ -75,7 +75,7 @@ extern class ITexture {
 		`**Returns:** width
     **/
     
-    public function GetMappingWidth():Float;
+    function GetMappingWidth():Float;
     
     
     /**
@@ -92,7 +92,7 @@ extern class ITexture {
 		`**Returns:** The color of the pixel as a Color structure.
     **/
     
-    public function GetColor(x:Float, y:Float):Color;
+    function GetColor(x:Float, y:Float):Color;
     
     
 }

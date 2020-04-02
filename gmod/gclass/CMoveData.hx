@@ -19,7 +19,7 @@ extern class CMoveData {
 		`**Returns:** Is the key down or not
     **/
     
-    public function KeyDown(key:IN):Bool;
+    function KeyDown(key:IN):Bool;
     
     
     /**
@@ -28,7 +28,7 @@ extern class CMoveData {
 		`**Returns:** Vertical speed
     **/
     
-    public function GetUpSpeed():Float;
+    function GetUpSpeed():Float;
     
     
     /**
@@ -50,7 +50,7 @@ extern class CMoveData {
 		```
     **/
     
-    public function GetVelocity():Vector;
+    function GetVelocity():Vector;
     
     
     /**
@@ -73,7 +73,7 @@ extern class CMoveData {
 		```
     **/
     
-    public function SetVelocity(velocity:Vector):Void;
+    function SetVelocity(velocity:Vector):Void;
     
     
     /**
@@ -93,7 +93,7 @@ extern class CMoveData {
 		```
     **/
     
-    public function GetOrigin():Vector;
+    function GetOrigin():Vector;
     
     
     /**
@@ -102,7 +102,7 @@ extern class CMoveData {
 		`**Returns:** Aiming angle
     **/
     
-    public function GetAngles():Angle;
+    function GetAngles():Angle;
     
     
     /**
@@ -111,7 +111,7 @@ extern class CMoveData {
 		`**Returns:** The impulse
     **/
     
-    public function GetImpulseCommand():Float;
+    function GetImpulseCommand():Float;
     
     
     /**
@@ -122,7 +122,7 @@ extern class CMoveData {
 		`buttons` | A number representing which buttons are down, see IN_ Enums
     **/
     
-    public function SetButtons(buttons:IN):Void;
+    function SetButtons(buttons:IN):Void;
     
     
     /**
@@ -145,7 +145,7 @@ extern class CMoveData {
 		```
     **/
     
-    public function SetOrigin(pos:Vector):Void;
+    function SetOrigin(pos:Vector):Void;
     
     
     /**
@@ -159,7 +159,7 @@ extern class CMoveData {
 		`**Returns:** Was the key down or not
     **/
     
-    public function KeyWasDown(key:IN):Bool;
+    function KeyWasDown(key:IN):Bool;
     
     
     /**
@@ -168,7 +168,7 @@ extern class CMoveData {
 		`**Returns:** speed
     **/
     
-    public function GetSideSpeed():Float;
+    function GetSideSpeed():Float;
     
     
     /**
@@ -179,7 +179,7 @@ extern class CMoveData {
 		`buttons` | A number representing which buttons were down, see IN_ Enums
     **/
     
-    public function SetOldButtons(buttons:IN):Void;
+    function SetOldButtons(buttons:IN):Void;
     
     
     /**
@@ -188,7 +188,7 @@ extern class CMoveData {
 		`**Returns:** The move direction
     **/
     
-    public function GetMoveAngles():Angle;
+    function GetMoveAngles():Angle;
     
     
     /**
@@ -197,7 +197,7 @@ extern class CMoveData {
 		`**Returns:** The maximum client speed
     **/
     
-    public function GetMaxClientSpeed():Float;
+    function GetMaxClientSpeed():Float;
     
     
     /**
@@ -208,7 +208,7 @@ extern class CMoveData {
 		`radius` | The new constraint radius
     **/
     
-    public function SetConstraintRadius(radius:Float):Void;
+    function SetConstraintRadius(radius:Float):Void;
     
     
     /**
@@ -219,7 +219,7 @@ extern class CMoveData {
 		`speed` | New forward speed
     **/
     
-    public function SetForwardSpeed(speed:Float):Void;
+    function SetForwardSpeed(speed:Float):Void;
     
     
     /**
@@ -230,7 +230,7 @@ extern class CMoveData {
 		`impulse` | The impulse to set
     **/
     
-    public function SetImpulseCommand(impulse:Float):Void;
+    function SetImpulseCommand(impulse:Float):Void;
     
     
     /**
@@ -243,7 +243,7 @@ extern class CMoveData {
 		`dir` | The aim direction.
     **/
     
-    public function SetMoveAngles(dir:Angle):Void;
+    function SetMoveAngles(dir:Angle):Void;
     
     
     /**
@@ -252,7 +252,7 @@ extern class CMoveData {
 		`**Returns:** An integer representing which buttons are down, see IN_ Enums
     **/
     
-    public function GetButtons():IN;
+    function GetButtons():IN;
     
     
     /**
@@ -265,7 +265,7 @@ extern class CMoveData {
 		`ang` | The angles.
     **/
     
-    public function SetAngles(ang:Angle):Void;
+    function SetAngles(ang:Angle):Void;
     
     
     /**
@@ -276,7 +276,7 @@ extern class CMoveData {
 		`speed` | Strafe speed
     **/
     
-    public function SetSideSpeed(speed:Float):Void;
+    function SetSideSpeed(speed:Float):Void;
     
     
     /**
@@ -287,7 +287,7 @@ extern class CMoveData {
 		`ang` | New absolute move angles
     **/
     
-    public function SetAbsMoveAngles(ang:Angle):Void;
+    function SetAbsMoveAngles(ang:Angle):Void;
     
     
     /**
@@ -298,7 +298,7 @@ extern class CMoveData {
 		`maxSpeed` | The new maximum speed
     **/
     
-    public function SetMaxSpeed(maxSpeed:Float):Void;
+    function SetMaxSpeed(maxSpeed:Float):Void;
     
     
     /**
@@ -309,7 +309,7 @@ extern class CMoveData {
 		`speed` | Vertical speed to set
     **/
     
-    public function SetUpSpeed(speed:Float):Void;
+    function SetUpSpeed(speed:Float):Void;
     
     
     /**
@@ -345,7 +345,7 @@ extern class CMoveData {
 		```
     **/
     
-    public function SetMaxClientSpeed(maxSpeed:Float):Void;
+    function SetMaxClientSpeed(maxSpeed:Float):Void;
     
     
     /**
@@ -354,7 +354,7 @@ extern class CMoveData {
 		`**Returns:** The maximum speed
     **/
     
-    public function GetMaxSpeed():Float;
+    function GetMaxSpeed():Float;
     
     
     /**
@@ -363,7 +363,7 @@ extern class CMoveData {
 		`**Returns:** The aim angle
     **/
     
-    public function GetOldAngles():Angle;
+    function GetOldAngles():Angle;
     
     
     /**
@@ -377,7 +377,7 @@ extern class CMoveData {
 		`**Returns:** Was the key released or not.
     **/
     
-    public function KeyReleased(key:IN):Bool;
+    function KeyReleased(key:IN):Bool;
     
     
     /**
@@ -388,7 +388,7 @@ extern class CMoveData {
 		`keys` | Keys to add, see IN_ Enums
     **/
     
-    public function AddKey(keys:IN):Void;
+    function AddKey(keys:IN):Void;
     
     
     /**
@@ -397,7 +397,7 @@ extern class CMoveData {
 		`**Returns:** Aiming angle
     **/
     
-    public function GetAbsMoveAngles():Angle;
+    function GetAbsMoveAngles():Angle;
     
     
     /**
@@ -406,7 +406,7 @@ extern class CMoveData {
 		`**Returns:** An integer representing which buttons were down, see IN_ Enums
     **/
     
-    public function GetOldButtons():IN;
+    function GetOldButtons():IN;
     
     
     /**
@@ -420,7 +420,7 @@ extern class CMoveData {
 		`**Returns:** Was the key pressed or not.
     **/
     
-    public function KeyPressed(key:IN):Bool;
+    function KeyPressed(key:IN):Bool;
     
     
     /**
@@ -429,7 +429,7 @@ extern class CMoveData {
 		`**Returns:** speed
     **/
     
-    public function GetForwardSpeed():Float;
+    function GetForwardSpeed():Float;
     
     
     /**
@@ -440,7 +440,7 @@ extern class CMoveData {
 		`aimAng` | The old angles
     **/
     
-    public function SetOldAngles(aimAng:Angle):Void;
+    function SetOldAngles(aimAng:Angle):Void;
     
     
     /**
@@ -449,7 +449,7 @@ extern class CMoveData {
 		`**Returns:** The constraint radius
     **/
     
-    public function GetConstraintRadius():Float;
+    function GetConstraintRadius():Float;
     
     
 }

@@ -71,7 +71,7 @@ extern class DFileBrowser extends DPanel {
     **/
     
     @:hook 
-    function OnRightClick(filePath:String, selectedPanel:Panel):Void;
+    private function OnRightClick(filePath:String, selectedPanel:Panel):Void;
     /**
         Enables or disables the model viewer mode. In this mode, files are displayed as SpawnIcons instead of a list.
 		
@@ -124,7 +124,7 @@ extern class DFileBrowser extends DPanel {
     **/
     
     @:hook 
-    function OnSelect(filePath:String, selectedPanel:Panel):Void;
+    private function OnSelect(filePath:String, selectedPanel:Panel):Void;
     /**
         ***INTERNAL** 
 		
@@ -272,7 +272,7 @@ extern class DFileBrowser extends DPanel {
     **/
     
     @:hook 
-    function OnDoubleClick(filePath:String, selectedPanel:Panel):Void;
+    private function OnDoubleClick(filePath:String, selectedPanel:Panel):Void;
     
 }
 

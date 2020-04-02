@@ -22,7 +22,7 @@ extern class NextBot extends Entity {
 		`**Returns:** Either "failed", "stuck", "timeout" or "ok" - depending on how the NPC got on
     **/
     
-    public function MoveToPos(pos:Vector, options:AnyTable):String;
+    function MoveToPos(pos:Vector, options:AnyTable):String;
     
     
     /**
@@ -36,7 +36,7 @@ extern class NextBot extends Entity {
 		`**Returns:** An unsorted table of tables containing: Vector vector - The position of the hiding spot number distance - the distance to that position
     **/
     
-    public function FindSpots(specs:AnyTable):AnyTable;
+    function FindSpots(specs:AnyTable):AnyTable;
     
     
     /**
@@ -51,7 +51,7 @@ extern class NextBot extends Entity {
 		`**Returns:** If it finds a spot it will return a vector. If not it will return nil.
     **/
     
-    public function FindSpot(type:String, options:AnyTable):Vector;
+    function FindSpot(type:String, options:AnyTable):Vector;
     
     
     /**
@@ -65,7 +65,7 @@ extern class NextBot extends Entity {
 		`**Returns:** The created ragdoll, if any.
     **/
     
-    public function BecomeRagdoll(info:CTakeDamageInfo):Entity;
+    function BecomeRagdoll(info:CTakeDamageInfo):Entity;
     
     
     /**
@@ -78,7 +78,7 @@ extern class NextBot extends Entity {
 		`mask` | The new mask, see CONTENTS_ Enums and MASK_ Enums
     **/
     
-    public function SetSolidMask(mask:CONTENTS):Void;
+    function SetSolidMask(mask:CONTENTS):Void;
     
     
     /**
@@ -90,7 +90,7 @@ extern class NextBot extends Entity {
 		`speed` | Playback Rate of that sequence
     **/
     
-    public function PlaySequenceAndWait(name:String, ?speed:Float):Void;
+    function PlaySequenceAndWait(name:String, ?speed:Float):Void;
     
     
     /**
@@ -99,7 +99,7 @@ extern class NextBot extends Entity {
 		**Bug:** BUG This function might cause crashes with some activities. Issue Tracker: #3420
     **/
     
-    public function BodyMoveXY():Void;
+    function BodyMoveXY():Void;
     
     
     /**
@@ -115,7 +115,7 @@ extern class NextBot extends Entity {
 		`**Returns:** The squared distance
     **/
     
-    public function GetRangeSquaredTo(to:Vector):Float;
+    function GetRangeSquaredTo(to:Vector):Float;
     
     
     /**
@@ -126,7 +126,7 @@ extern class NextBot extends Entity {
 		`activity` | One of the ACT_ Enums
     **/
     
-    public function StartActivity(activity:ACT):Void;
+    function StartActivity(activity:ACT):Void;
     
     
     /**
@@ -135,7 +135,7 @@ extern class NextBot extends Entity {
 		`**Returns:** The current activity
     **/
     
-    public function GetActivity():Float;
+    function GetActivity():Float;
     
     
     /**
@@ -144,7 +144,7 @@ extern class NextBot extends Entity {
 		`**Returns:** The solid mask, see CONTENTS_ Enums and MASK_ Enums
     **/
     
-    public function GetSolidMask():CONTENTS;
+    function GetSolidMask():CONTENTS;
     
     
     /**
@@ -153,7 +153,7 @@ extern class NextBot extends Entity {
 		You should always call self.loco:ClearStuck() in this function to reset the stuck status - so it knows it's unstuck. See CLuaLocomotion:ClearStuck.
     **/
     
-    public function HandleStuck():Void;
+    function HandleStuck():Void;
     
     
     /**
@@ -169,7 +169,7 @@ extern class NextBot extends Entity {
 		`**Returns:** The distance
     **/
     
-    public function GetRangeTo(to:Vector):Float;
+    function GetRangeTo(to:Vector):Float;
     
     
 }

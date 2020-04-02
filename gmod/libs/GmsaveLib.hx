@@ -17,7 +17,7 @@ package gmod.libs;
 		`**Returns:** The encoded to JSON string containing save data
     **/
     
-    public static function SaveMap(ply:Player):String;
+    static function SaveMap(ply:Player):String;
     
     
     /**
@@ -31,7 +31,7 @@ package gmod.libs;
 		`**Returns:** A table containing player position ( Origin ) and angles ( Angle )
     **/
     
-    public static function PlayerSave(ply:Player):AnyTable;
+    static function PlayerSave(ply:Player):AnyTable;
     
     
     /**
@@ -43,7 +43,7 @@ package gmod.libs;
 		`ply` | The player to load positions for
     **/
     
-    public static function LoadMap(mapData:String, ply:Player):Void;
+    static function LoadMap(mapData:String, ply:Player):Void;
     
     
     /**
@@ -55,7 +55,7 @@ package gmod.libs;
 		`data` | A table containing Origin and Angle keys for position and angles to set.
     **/
     
-    public static function PlayerLoad(ply:Player, data:AnyTable):Void;
+    static function PlayerLoad(ply:Player, data:AnyTable):Void;
     
     
     /**
@@ -70,7 +70,7 @@ package gmod.libs;
 		`**Returns:** Should save entity or not
     **/
     
-    public static function ShouldSaveEntity(ent:Entity, t:AnyTable):Bool;
+    static function ShouldSaveEntity(ent:Entity, t:AnyTable):Bool;
     
     
 

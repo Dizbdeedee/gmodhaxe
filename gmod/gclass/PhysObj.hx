@@ -18,7 +18,7 @@ extern class PhysObj {
 		`enable` | True to enable, false to disable.
     **/
     
-    public function EnableMotion(enable:Bool):Void;
+    function EnableMotion(enable:Bool):Void;
     
     
     /**
@@ -36,7 +36,7 @@ extern class PhysObj {
 		`b` | The calculated torque on the physics object's center of mass
     **/
     
-    public function CalculateForceOffset(force:Vector, pos:Vector):PhysObjCalculateForceOffsetReturn;
+    function CalculateForceOffset(force:Vector, pos:Vector):PhysObjCalculateForceOffsetReturn;
     
     
     /**
@@ -48,7 +48,7 @@ extern class PhysObj {
 		`b` | The angular damping
     **/
     
-    public function GetDamping():PhysObjGetDampingReturn;
+    function GetDamping():PhysObjGetDampingReturn;
     
     
     /**
@@ -57,7 +57,7 @@ extern class PhysObj {
 		`**Returns:** velocity
     **/
     
-    public function GetVelocity():Vector;
+    function GetVelocity():Vector;
     
     
     /**
@@ -69,7 +69,7 @@ extern class PhysObj {
 		`b` | Maxs
     **/
     
-    public function GetAABB():PhysObjGetAABBReturn;
+    function GetAABB():PhysObjGetAABBReturn;
     
     
     /**
@@ -78,7 +78,7 @@ extern class PhysObj {
 		`**Returns:** The position and angle matrix.
     **/
     
-    public function GetPositionMatrix():VMatrix;
+    function GetPositionMatrix():VMatrix;
     
     
     /**
@@ -90,14 +90,14 @@ extern class PhysObj {
 		`angularDamping` | Angular damping.
     **/
     
-    public function SetDamping(linearDamping:Float, angularDamping:Float):Void;
+    function SetDamping(linearDamping:Float, angularDamping:Float):Void;
     
     
     /**
         Call this when the collision filter conditions change due to this object's state (e.g. changing solid type or collision group)
     **/
     
-    public function RecheckCollisionFilter():Void;
+    function RecheckCollisionFilter():Void;
     
     
     /**
@@ -106,7 +106,7 @@ extern class PhysObj {
 		`**Returns:** motionEnabled
     **/
     
-    public function IsMotionEnabled():Bool;
+    function IsMotionEnabled():Bool;
     
     
     /**
@@ -117,7 +117,7 @@ extern class PhysObj {
 		`velocity` | The new velocity of the physics object.
     **/
     
-    public function SetVelocity(velocity:Vector):Void;
+    function SetVelocity(velocity:Vector):Void;
     
     
     /**
@@ -133,7 +133,7 @@ extern class PhysObj {
 		`**Returns:** The corresponding vector relative to the PhysObj
     **/
     
-    public function WorldToLocalVector(WorldVec:Vector):Vector;
+    function WorldToLocalVector(WorldVec:Vector):Vector;
     
     
     /**
@@ -142,7 +142,7 @@ extern class PhysObj {
 		`**Returns:** parent
     **/
     
-    public function GetEntity():Entity;
+    function GetEntity():Entity;
     
     
     /**
@@ -151,7 +151,7 @@ extern class PhysObj {
 		`**Returns:** The rotation damping
     **/
     
-    public function GetRotDamping():Float;
+    function GetRotDamping():Float;
     
     
     /**
@@ -160,7 +160,7 @@ extern class PhysObj {
 		`**Returns:** The angles of the physics object.
     **/
     
-    public function GetAngles():Angle;
+    function GetAngles():Angle;
     
     
     /**
@@ -171,7 +171,7 @@ extern class PhysObj {
 		`drag` | The drag coefficient It can be positive or negative.
     **/
     
-    public function SetDragCoefficient(drag:Float):Void;
+    function SetDragCoefficient(drag:Float):Void;
     
     
     /**
@@ -180,7 +180,7 @@ extern class PhysObj {
 		`**Returns:** The name of the physics object.
     **/
     
-    public function GetName():String;
+    function GetName():String;
     
     
     /**
@@ -189,7 +189,7 @@ extern class PhysObj {
 		`**Returns:** The position of the PhysObj shadow.
     **/
     
-    public function GetShadowPos():Vector;
+    function GetShadowPos():Vector;
     
     
     /**
@@ -202,7 +202,7 @@ extern class PhysObj {
 		`enable` | True to enable, false to disable.
     **/
     
-    public function EnableCollisions(enable:Bool):Void;
+    function EnableCollisions(enable:Bool):Void;
     
     
     /**
@@ -213,7 +213,7 @@ extern class PhysObj {
 		`enable` | True to enable, false to disable.
     **/
     
-    public function EnableGravity(enable:Bool):Void;
+    function EnableGravity(enable:Bool):Void;
     
     
     /**
@@ -249,7 +249,7 @@ extern class PhysObj {
 		```
     **/
     
-    public function SetMaterial(materialName:String):Void;
+    function SetMaterial(materialName:String):Void;
     
     
     /**
@@ -260,7 +260,7 @@ extern class PhysObj {
 		`angularVelocity` | Additional velocity.
     **/
     
-    public function AddAngleVelocity(angularVelocity:Vector):Void;
+    function AddAngleVelocity(angularVelocity:Vector):Void;
     
     
     /**
@@ -271,7 +271,7 @@ extern class PhysObj {
 		`**Returns:** Whether the physics object is penetrating another object.
     **/
     
-    public function IsPenetrating():Bool;
+    function IsPenetrating():Bool;
     
     
     /**
@@ -280,7 +280,7 @@ extern class PhysObj {
 		`**Returns:** movable
     **/
     
-    public function IsMoveable():Bool;
+    function IsMoveable():Bool;
     
     #if server
     /**
@@ -289,7 +289,7 @@ extern class PhysObj {
 		`**Returns:** exertedStress
     **/
     
-    public function GetStress():Float;
+    function GetStress():Float;
     #end
     
     /**
@@ -298,7 +298,7 @@ extern class PhysObj {
 		`**Returns:** The position
     **/
     
-    public function GetPos():Vector;
+    function GetPos():Vector;
     
     
     /**
@@ -307,7 +307,7 @@ extern class PhysObj {
 		`**Returns:** The physical material
     **/
     
-    public function GetMaterial():String;
+    function GetMaterial():String;
     
     
     /**
@@ -318,7 +318,7 @@ extern class PhysObj {
 		`mass` | The mass in kilograms.
     **/
     
-    public function SetMass(mass:Float):Void;
+    function SetMass(mass:Float):Void;
     
     
     /**
@@ -362,7 +362,7 @@ extern class PhysObj {
 		```
     **/
     
-    public function ComputeShadowControl(shadowparams:AnyTable):Void;
+    function ComputeShadowControl(shadowparams:AnyTable):Void;
     
     
     /**
@@ -378,7 +378,7 @@ extern class PhysObj {
 		`**Returns:** The corresponding vector in world frame
     **/
     
-    public function LocalToWorld(LocalVec:Vector):Vector;
+    function LocalToWorld(LocalVec:Vector):Vector;
     
     
     /**
@@ -389,7 +389,7 @@ extern class PhysObj {
 		`flags` | Bitflag, see FVPHYSICS_ Enums.
     **/
     
-    public function ClearGameFlag(flags:FVPHYSICS):Void;
+    function ClearGameFlag(flags:FVPHYSICS):Void;
     
     
     /**
@@ -400,7 +400,7 @@ extern class PhysObj {
 		`**Returns:** Whether the physics object is sleeping.
     **/
     
-    public function IsAsleep():Bool;
+    function IsAsleep():Bool;
     
     
     /**
@@ -430,7 +430,7 @@ extern class PhysObj {
 		```
     **/
     
-    public function ApplyForceOffset(force:Vector, position:Vector):Void;
+    function ApplyForceOffset(force:Vector, position:Vector):Void;
     
     
     /**
@@ -439,7 +439,7 @@ extern class PhysObj {
 		`**Returns:** The surface area
     **/
     
-    public function GetSurfaceArea():Float;
+    function GetSurfaceArea():Float;
     
     
     /**
@@ -448,7 +448,7 @@ extern class PhysObj {
 		`**Returns:** The inverted mass.
     **/
     
-    public function GetInvMass():Float;
+    function GetInvMass():Float;
     
     
     /**
@@ -462,7 +462,7 @@ extern class PhysObj {
 		`**Returns:** The vector local to PhysObj: GetPos.
     **/
     
-    public function WorldToLocal(vec:Vector):Vector;
+    function WorldToLocal(vec:Vector):Vector;
     
     
     /**
@@ -471,7 +471,7 @@ extern class PhysObj {
 		`**Returns:** The inverted inertia
     **/
     
-    public function GetInvInertia():Float;
+    function GetInvInertia():Float;
     
     
     /**
@@ -482,7 +482,7 @@ extern class PhysObj {
 		`coefficient` | Drag coefficient. The bigger this value is, the slower the angles will change.
     **/
     
-    public function SetAngleDragCoefficient(coefficient:Float):Void;
+    function SetAngleDragCoefficient(coefficient:Float):Void;
     
     
     /**
@@ -491,7 +491,7 @@ extern class PhysObj {
 		`**Returns:** The center of mass of the physics object.
     **/
     
-    public function GetMassCenter():Vector;
+    function GetMassCenter():Vector;
     
     
     /**
@@ -502,7 +502,7 @@ extern class PhysObj {
 		`torque` | The torque to be applied in kg * degrees / s.
     **/
     
-    public function ApplyTorqueCenter(torque:Vector):Void;
+    function ApplyTorqueCenter(torque:Vector):Void;
     
     
     /**
@@ -542,7 +542,7 @@ extern class PhysObj {
 		```
     **/
     
-    public function ApplyForceCenter(force:Vector):Void;
+    function ApplyForceCenter(force:Vector):Void;
     
     
     /**
@@ -560,7 +560,7 @@ extern class PhysObj {
 		`b` | The calculated angular velocity from the force on the physics object's center of mass
     **/
     
-    public function CalculateVelocityOffset(force:Vector, pos:Vector):PhysObjCalculateVelocityOffsetReturn;
+    function CalculateVelocityOffset(force:Vector, pos:Vector):PhysObjCalculateVelocityOffsetReturn;
     
     
     /**
@@ -569,7 +569,7 @@ extern class PhysObj {
 		`**Returns:** speedDamping
     **/
     
-    public function GetSpeedDamping():Float;
+    function GetSpeedDamping():Float;
     
     
     /**
@@ -588,7 +588,7 @@ extern class PhysObj {
 		----------------- Object: models/props_borealis/bluebarrel001.mdl Mass: 60.0 (inv 0.017) Inertia: 8.69, 8.69, 2.46 (inv 0.115, 0.115, 0.406) Velocity: 0.00, 0.00, -0.00 Ang Velocity: 0.00, 0.00, -0.00 Damping 0.00 linear, 0.00 angular Linear Drag: 0.02, 0.01, 0.01 (factor 1.00) Angular Drag: 0.01, 0.02, 0.01 (factor 1.00) attached to 5 controllers 4) sys:friction 3) sys:friction 2) sys:friction 1) vphysics:drag 0) sys:gravity State: Asleep, Collision Enabled, Motion Enabled, Flags 1127 (game 0000, index 0) Material: plastic_barrel : density(500.0), thickness(0.25), friction(0.80), elasticity(0.01) CollisionModel: Compact Surface: 1 convex pieces no outer hull
     **/
     
-    public function OutputDebugInfo():Void;
+    function OutputDebugInfo():Void;
     
     
     /**
@@ -602,7 +602,7 @@ extern class PhysObj {
 		`**Returns:** If flag was set or not
     **/
     
-    public function HasGameFlag(flags:FVPHYSICS):Bool;
+    function HasGameFlag(flags:FVPHYSICS):Bool;
     
     
     /**
@@ -613,7 +613,7 @@ extern class PhysObj {
 		`angles` | The new angles of the physobject.
     **/
     
-    public function SetAngles(angles:Angle):Void;
+    function SetAngles(angles:Angle):Void;
     
     
     /**
@@ -642,7 +642,7 @@ extern class PhysObj {
 		Angle of the PhysObj: 0.045 89.952 89.993; Vector in world frame: 3.000585 0.999039 1.999603;
     **/
     
-    public function LocalToWorldVector(LocalVec:Vector):Vector;
+    function LocalToWorldVector(LocalVec:Vector):Vector;
     
     
     /**
@@ -651,7 +651,7 @@ extern class PhysObj {
 		`**Returns:** isCollisionEnabled
     **/
     
-    public function IsCollisionEnabled():Bool;
+    function IsCollisionEnabled():Bool;
     
     
     /**
@@ -660,7 +660,7 @@ extern class PhysObj {
 		`**Returns:** The angular velocity
     **/
     
-    public function GetAngleVelocity():Vector;
+    function GetAngleVelocity():Vector;
     
     
     /**
@@ -669,7 +669,7 @@ extern class PhysObj {
 		`**Returns:** dragEnabled
     **/
     
-    public function IsDragEnabled():Bool;
+    function IsDragEnabled():Bool;
     
     
     /**
@@ -680,7 +680,7 @@ extern class PhysObj {
 		`velocity` | Additional velocity.
     **/
     
-    public function AddVelocity(velocity:Vector):Void;
+    function AddVelocity(velocity:Vector):Void;
     
     
     /**
@@ -714,7 +714,7 @@ extern class PhysObj {
 		-27.179 133.246 -23.236
     **/
     
-    public function RotateAroundAxis(dir:Vector, ang:Float):Angle;
+    function RotateAroundAxis(dir:Vector, ang:Float):Angle;
     
     
     /**
@@ -723,7 +723,7 @@ extern class PhysObj {
 		`**Returns:** The mass in kilograms.
     **/
     
-    public function GetMass():Float;
+    function GetMass():Float;
     
     
     /**
@@ -732,7 +732,7 @@ extern class PhysObj {
 		See PhysObj:Sleep for more information.
     **/
     
-    public function Wake():Void;
+    function Wake():Void;
     
     
     /**
@@ -741,7 +741,7 @@ extern class PhysObj {
 		The physics object will no longer be moving unless it is "woken up" by either a collision with another moving object, or by PhysObj:Wake. This is an optimization feature of the physics engine.
     **/
     
-    public function Sleep():Void;
+    function Sleep():Void;
     
     
     /**
@@ -752,7 +752,7 @@ extern class PhysObj {
 		`flags` | Bitflag, see FVPHYSICS_ Enums.
     **/
     
-    public function AddGameFlag(flags:FVPHYSICS):Void;
+    function AddGameFlag(flags:FVPHYSICS):Void;
     
     
     /**
@@ -763,7 +763,7 @@ extern class PhysObj {
 		`buoyancy` | Buoyancy ratio, where 0 is not buoyant at all (like a rock), and 1 is very buoyant (like wood)
     **/
     
-    public function SetBuoyancyRatio(buoyancy:Float):Void;
+    function SetBuoyancyRatio(buoyancy:Float):Void;
     
     
     /**
@@ -778,7 +778,7 @@ extern class PhysObj {
 		`**Returns:** 
     **/
     
-    public function AlignAngles(from:Angle, to:Angle):Angle;
+    function AlignAngles(from:Angle, to:Angle):Angle;
     
     
     /**
@@ -793,7 +793,7 @@ extern class PhysObj {
 		`frameTime` | The frame time to use for this movement, can be generally filled with FrameTime or ENTITY:PhysicsSimulate with the deltaTime. Can be set to 0 when you need to update the physics object just once.
     **/
     
-    public function UpdateShadow(targetPosition:Vector, targetAngles:Angle, frameTime:Float):Void;
+    function UpdateShadow(targetPosition:Vector, targetAngles:Angle, frameTime:Float):Void;
     
     
     /**
@@ -805,7 +805,7 @@ extern class PhysObj {
 		`teleport` | 
     **/
     
-    public function SetPos(position:Vector, ?teleport:Bool):Void;
+    function SetPos(position:Vector, ?teleport:Bool):Void;
     
     
     /**
@@ -819,7 +819,7 @@ extern class PhysObj {
 		`**Returns:** 
     **/
     
-    public function GetVelocityAtPoint(point:Vector):Vector;
+    function GetVelocityAtPoint(point:Vector):Vector;
     
     
     /**
@@ -828,7 +828,7 @@ extern class PhysObj {
 		`**Returns:** The angles of the PhysObj shadow.
     **/
     
-    public function GetShadowAngles():Angle;
+    function GetShadowAngles():Angle;
     
     
     /**
@@ -837,7 +837,7 @@ extern class PhysObj {
 		`**Returns:** Table of MeshVertex structures where each MeshVertex structure is an independent convex mesh and each three vertices represent a triangle. Returns nil if the physics object is a sphere.
     **/
     
-    public function GetMeshConvexes():MeshVertex;
+    function GetMeshConvexes():MeshVertex;
     
     
     /**
@@ -848,7 +848,7 @@ extern class PhysObj {
 		`velocity` | The new velocity of the physics object.
     **/
     
-    public function SetVelocityInstantaneous(velocity:Vector):Void;
+    function SetVelocityInstantaneous(velocity:Vector):Void;
     
     
     /**
@@ -859,7 +859,7 @@ extern class PhysObj {
 		`enable` | True to enable, false to disable.
     **/
     
-    public function EnableDrag(enable:Bool):Void;
+    function EnableDrag(enable:Bool):Void;
     
     
     /**
@@ -868,7 +868,7 @@ extern class PhysObj {
 		`**Returns:** directionalInertia
     **/
     
-    public function GetInertia():Vector;
+    function GetInertia():Vector;
     
     
     /**
@@ -877,7 +877,7 @@ extern class PhysObj {
 		`**Returns:** volume
     **/
     
-    public function GetVolume():Float;
+    function GetVolume():Float;
     
     
     /**
@@ -886,7 +886,7 @@ extern class PhysObj {
 		`**Returns:** gravitated
     **/
     
-    public function IsGravityEnabled():Bool;
+    function IsGravityEnabled():Bool;
     
     
     /**
@@ -897,7 +897,7 @@ extern class PhysObj {
 		`contents` | The CONTENTS_ Enums.
     **/
     
-    public function SetContents(contents:CONTENTS):Void;
+    function SetContents(contents:CONTENTS):Void;
     
     
     /**
@@ -906,7 +906,7 @@ extern class PhysObj {
 		`**Returns:** isValid
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     
     /**
@@ -917,7 +917,7 @@ extern class PhysObj {
 		`directionalInertia` | The directional inertia of the object. A value of Vector(0,0,0) makes the physobject go invalid.
     **/
     
-    public function SetInertia(directionalInertia:Vector):Void;
+    function SetInertia(directionalInertia:Vector):Void;
     
     
     /**
@@ -926,7 +926,7 @@ extern class PhysObj {
 		`**Returns:** The kinetic energy
     **/
     
-    public function GetEnergy():Float;
+    function GetEnergy():Float;
     
     
     /**
@@ -935,7 +935,7 @@ extern class PhysObj {
 		`**Returns:** Table of MeshVertex structures where each three vertices represent a triangle. Returns nil if the physics object is a sphere.
     **/
     
-    public function GetMesh():MeshVertex;
+    function GetMesh():MeshVertex;
     
     
     /**
@@ -944,7 +944,7 @@ extern class PhysObj {
 		`**Returns:** The CONTENTS_ Enums.
     **/
     
-    public function GetContents():CONTENTS;
+    function GetContents():CONTENTS;
     
     
 }

@@ -14,7 +14,7 @@ package gmod.libs;
 		`normal` | The normal of the vertex.
     **/
     
-    public static function Normal(normal:Vector):Void;
+    static function Normal(normal:Vector):Void;
     
     
     /**
@@ -28,14 +28,14 @@ package gmod.libs;
 		`a` | Alpha component.
     **/
     
-    public static function Color(r:Float, g:Float, b:Float, a:Float):Void;
+    static function Color(r:Float, g:Float, b:Float, a:Float):Void;
     
     
     /**
         Pushes the new vertex data onto the render stack.
     **/
     
-    public static function AdvanceVertex():Void;
+    static function AdvanceVertex():Void;
     
     
     /**
@@ -51,7 +51,7 @@ package gmod.libs;
 		`tangentHandedness` | 
     **/
     
-    public static function UserData(tangentX:Float, tangentY:Float, tangentZ:Float, tangentHandedness:Float):Void;
+    static function UserData(tangentX:Float, tangentY:Float, tangentZ:Float, tangentHandedness:Float):Void;
     
     
     /**
@@ -66,7 +66,7 @@ package gmod.libs;
 		`v` | V coordinate.
     **/
     
-    public static function TexCoord(stage:Float, u:Float, v:Float):Void;
+    static function TexCoord(stage:Float, u:Float, v:Float):Void;
     
     
     /**
@@ -75,7 +75,7 @@ package gmod.libs;
 		`**Returns:** vertexCount
     **/
     
-    public static function VertexCount():Float;
+    static function VertexCount():Float;
     
     
     /**
@@ -89,14 +89,14 @@ package gmod.libs;
 		`sizeY` | Y size in pixels.
     **/
     
-    public static function QuadEasy(position:Vector, normal:Vector, sizeX:Float, sizeY:Float):Void;
+    static function QuadEasy(position:Vector, normal:Vector, sizeX:Float, sizeY:Float):Void;
     
     
     /**
         Ends the mesh and renders it.
     **/
     
-    public static function End():Void;
+    static function End():Void;
     
     
     /**
@@ -112,7 +112,7 @@ package gmod.libs;
 		`a` | The alpha channel multiplier of the specular map.
     **/
     
-    public static function Specular(r:Float, g:Float, b:Float, a:Float):Void;
+    static function Specular(r:Float, g:Float, b:Float, a:Float):Void;
     
     
     /**
@@ -126,7 +126,7 @@ package gmod.libs;
 		`vertex4` | The fourth vertex.
     **/
     
-    public static function Quad(vertex1:Vector, vertex2:Vector, vertex3:Vector, vertex4:Vector):Void;
+    static function Quad(vertex1:Vector, vertex2:Vector, vertex3:Vector, vertex4:Vector):Void;
     
     
     /**
@@ -195,7 +195,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Begin(?mesh:IMesh, primitiveType:MATERIAL, primiteCount:Float):Void;
+    static function Begin(?mesh:IMesh, primitiveType:MATERIAL, primiteCount:Float):Void;
     
     
     /**
@@ -208,7 +208,7 @@ package gmod.libs;
 		`sTanger` | The s tangent.
     **/
     
-    public static function TangentS(sTanger:Vector):Void;
+    static function TangentS(sTanger:Vector):Void;
     
     
     /**
@@ -219,7 +219,7 @@ package gmod.libs;
 		`position` | The position of the vertex.
     **/
     
-    public static function Position(position:Vector):Void;
+    static function Position(position:Vector):Void;
     
     
     /**
@@ -232,7 +232,7 @@ package gmod.libs;
 		`tTanger` | The t tangent.
     **/
     
-    public static function TangentT(tTanger:Vector):Void;
+    static function TangentT(tTanger:Vector):Void;
     
     
 

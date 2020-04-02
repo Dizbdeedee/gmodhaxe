@@ -10,7 +10,7 @@ package gmod.libs;
         Used by "Demo to Video" to record the frame.
     **/
     
-    public static function RecordFrame():Void;
+    static function RecordFrame():Void;
     
     
 

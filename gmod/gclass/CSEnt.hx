@@ -12,7 +12,7 @@ extern class CSEnt extends Entity {
         Removes the clientside entity
     **/
     
-    public function Remove():Void;
+    function Remove():Void;
     
     
 }

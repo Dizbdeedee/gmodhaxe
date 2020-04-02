@@ -141,7 +141,7 @@ extern class DCheckBoxLabel extends DPanel {
     **/
     
     @:hook 
-    function OnChange(bVal:Bool):Void;
+    private function OnChange(bVal:Bool):Void;
     /**
         Sets the console variable to be set when the checked state of the DCheckBoxLabel changes.
 		

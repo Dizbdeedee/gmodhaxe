@@ -64,7 +64,7 @@ extern class DMenuOption extends DButton {
     **/
     
     @:hook 
-    function OnChecked(checked:Bool):Void;
+    private function OnChecked(checked:Bool):Void;
     /**
         
 		

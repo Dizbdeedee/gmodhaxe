@@ -12,7 +12,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The RPM.
     **/
     
-    public function GetRPM():Float;
+    function GetRPM():Float;
     #end
     
     /**
@@ -21,7 +21,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** Returns true if third person mode enabled, false otherwise
     **/
     
-    public function GetThirdPersonMode():Bool;
+    function GetThirdPersonMode():Bool;
     
     #if server
     /**
@@ -32,7 +32,7 @@ extern class Vehicle extends Entity {
 		`enable` | Enable or disable the engine
     **/
     
-    public function EnableEngine(enable:Bool):Void;
+    function EnableEngine(enable:Bool):Void;
     #end
     #if server
     /**
@@ -53,7 +53,7 @@ extern class Vehicle extends Entity {
 		RPM = 19.902961730957 gear = 0 isTorqueBoosting = false speed = -0.67361652851105 steeringAngle = 0 wheelsInContact = 4
     **/
     
-    public function GetOperatingParams():OperatingParams;
+    function GetOperatingParams():OperatingParams;
     #end
     #if server
     /**
@@ -62,7 +62,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The current throttle of the vehicle
     **/
     
-    public function GetThrottle():Float;
+    function GetThrottle():Float;
     #end
     #if server
     /**
@@ -71,7 +71,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The speed of the vehicle in MPH
     **/
     
-    public function GetSpeed():Float;
+    function GetSpeed():Float;
     #end
     #if server
     /**
@@ -80,7 +80,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** Whether this vehicle's engine is underwater or not.
     **/
     
-    public function IsVehicleBodyInWater():Bool;
+    function IsVehicleBodyInWater():Bool;
     #end
     #if server
     /**
@@ -89,7 +89,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The amount of wheels
     **/
     
-    public function GetWheelCount():Float;
+    function GetWheelCount():Float;
     #end
     #if client
     /**
@@ -102,7 +102,7 @@ extern class Vehicle extends Entity {
 		`c` | Count
     **/
     
-    public function GetAmmo():VehicleGetAmmoReturn;
+    function GetAmmo():VehicleGetAmmoReturn;
     #end
     #if server
     /**
@@ -117,7 +117,7 @@ extern class Vehicle extends Entity {
 		`params` | The new new vehicle parameters. See VehicleParams structure
     **/
     
-    public function SetVehicleParams(params:VehicleParams):Void;
+    function SetVehicleParams(params:VehicleParams):Void;
     #end
     
     /**
@@ -126,7 +126,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** Camera distance
     **/
     
-    public function GetCameraDistance():Float;
+    function GetCameraDistance():Float;
     
     #if server
     /**
@@ -135,7 +135,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** Whether the engine is started or not.
     **/
     
-    public function IsEngineStarted():Bool;
+    function IsEngineStarted():Bool;
     #end
     #if server
     /**
@@ -153,7 +153,7 @@ extern class Vehicle extends Entity {
 		`c` | The field of view, will be 0 on failure
     **/
     
-    public function GetVehicleViewPosition(?role:Float):VehicleGetVehicleViewPositionReturn;
+    function GetVehicleViewPosition(?role:Float):VehicleGetVehicleViewPositionReturn;
     #end
     #if server
     /**
@@ -164,7 +164,7 @@ extern class Vehicle extends Entity {
 		`maxThrottle` | The new maximum throttle.
     **/
     
-    public function SetMaxThrottle(maxThrottle:Float):Void;
+    function SetMaxThrottle(maxThrottle:Float):Void;
     #end
     #if server
     /**
@@ -178,7 +178,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The total wheel height.
     **/
     
-    public function GetWheelTotalHeight(wheel:Float):Float;
+    function GetWheelTotalHeight(wheel:Float):Float;
     #end
     #if server
     /**
@@ -187,7 +187,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** Whether the engine is enabled
     **/
     
-    public function IsEngineEnabled():Bool;
+    function IsEngineEnabled():Bool;
     #end
     
     /**
@@ -200,7 +200,7 @@ extern class Vehicle extends Entity {
 		`class` | The vehicle class name to set
     **/
     @:deprecated("INTERNAL")
-    public function SetVehicleClass(_class:String):Void;
+    function SetVehicleClass(_class:String):Void;
     
     #if server
     /**
@@ -209,7 +209,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** Whether this vehicle is currently boosting or not.
     **/
     
-    public function IsBoosting():Bool;
+    function IsBoosting():Bool;
     #end
     #if server
     /**
@@ -218,7 +218,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The speed of the vehicle
     **/
     
-    public function GetHLSpeed():Float;
+    function GetHLSpeed():Float;
     #end
     #if server
     /**
@@ -232,7 +232,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The wheel
     **/
     
-    public function GetWheel(wheel:Float):PhysObj;
+    function GetWheel(wheel:Float):PhysObj;
     #end
     
     /**
@@ -241,7 +241,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** Is the vehicle a valid vehicle or not
     **/
     
-    public function IsValidVehicle():Bool;
+    function IsValidVehicle():Bool;
     
     #if server
     /**
@@ -250,7 +250,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The maximum steering degree of the vehicle
     **/
     
-    public function GetSteeringDegrees():Float;
+    function GetSteeringDegrees():Float;
     #end
     #if server
     /**
@@ -267,7 +267,7 @@ extern class Vehicle extends Entity {
 		`b` | The seat angle
     **/
     
-    public function GetPassengerSeatPoint(role:Float):VehicleGetPassengerSeatPointReturn;
+    function GetPassengerSeatPoint(role:Float):VehicleGetPassengerSeatPointReturn;
     #end
     #if server
     /**
@@ -282,7 +282,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** Returns the vector for exit position or nil if cannot exit that way.
     **/
     
-    public function CheckExitPoint(yaw:Float, distance:Float):Vector;
+    function CheckExitPoint(yaw:Float, distance:Float):Vector;
     #end
     #if server
     /**
@@ -296,7 +296,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The base wheel height.
     **/
     
-    public function GetWheelBaseHeight(wheel:Float):Float;
+    function GetWheelBaseHeight(wheel:Float):Float;
     #end
     #if server
     /**
@@ -307,7 +307,7 @@ extern class Vehicle extends Entity {
 		`brakePedal` | Whether this vehicle has a brake pedal
     **/
     
-    public function SetHasBrakePedal(brakePedal:Bool):Void;
+    function SetHasBrakePedal(brakePedal:Bool):Void;
     #end
     
     /**
@@ -318,7 +318,7 @@ extern class Vehicle extends Entity {
 		`enable` | Enable or disable the third person mode for this vehicle
     **/
     
-    public function SetThirdPersonMode(enable:Bool):Void;
+    function SetThirdPersonMode(enable:Bool):Void;
     
     #if server
     /**
@@ -336,7 +336,7 @@ extern class Vehicle extends Entity {
 		`c` | Whether the wheel is on ground or not
     **/
     
-    public function GetWheelContactPoint(wheel:Float):VehicleGetWheelContactPointReturn;
+    function GetWheelContactPoint(wheel:Float):VehicleGetWheelContactPointReturn;
     #end
     #if server
     /**
@@ -348,7 +348,7 @@ extern class Vehicle extends Entity {
 		`rear` | Angle of the rear wheels (-1 to 1)
     **/
     
-    public function SetSteering(front:Float, rear:Float):Void;
+    function SetSteering(front:Float, rear:Float):Void;
     #end
     #if server
     /**
@@ -357,7 +357,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** Whether this vehicle has boost at all.
     **/
     
-    public function HasBoost():Bool;
+    function HasBoost():Bool;
     #end
     #if server
     /**
@@ -366,7 +366,7 @@ extern class Vehicle extends Entity {
 		This will be overwritten if the vehicle has a driver. Same as Vehicle:SetHandbrake( false )
     **/
     
-    public function ReleaseHandbrake():Void;
+    function ReleaseHandbrake():Void;
     #end
     #if server
     /**
@@ -377,7 +377,7 @@ extern class Vehicle extends Entity {
 		`steeringDegrees` | The new maximum steering degree
     **/
     
-    public function SetSteeringDegrees(steeringDegrees:Float):Void;
+    function SetSteeringDegrees(steeringDegrees:Float):Void;
     #end
     #if server
     /**
@@ -390,7 +390,7 @@ extern class Vehicle extends Entity {
 		`handbrake` | true to turn on, false to turn off.
     **/
     
-    public function SetHandbrake(handbrake:Bool):Void;
+    function SetHandbrake(handbrake:Bool):Void;
     #end
     #if server
     /**
@@ -399,7 +399,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The vehicle parameters. See VehicleParams structure
     **/
     
-    public function GetVehicleParams():VehicleParams;
+    function GetVehicleParams():VehicleParams;
     #end
     #if server
     /**
@@ -413,7 +413,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The passenger
     **/
     
-    public function GetPassenger(passenger:Float):Entity;
+    function GetPassenger(passenger:Float):Entity;
     #end
     #if server
     /**
@@ -424,7 +424,7 @@ extern class Vehicle extends Entity {
 		`start` | True to start, false to stop.
     **/
     
-    public function StartEngine(start:Bool):Void;
+    function StartEngine(start:Bool):Void;
     #end
     #if server
     /**
@@ -436,7 +436,7 @@ extern class Vehicle extends Entity {
 		`length` | The new spring length
     **/
     
-    public function SetSpringLength(wheel:Float, length:Float):Void;
+    function SetSpringLength(wheel:Float, length:Float):Void;
     #end
     
     /**
@@ -457,7 +457,7 @@ extern class Vehicle extends Entity {
 		```
     **/
     
-    public function GetVehicleClass():String;
+    function GetVehicleClass():String;
     
     #if server
     /**
@@ -466,7 +466,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The remaining boosting time left
     **/
     
-    public function BoostTimeLeft():Float;
+    function BoostTimeLeft():Float;
     #end
     #if server
     /**
@@ -477,7 +477,7 @@ extern class Vehicle extends Entity {
 		`boost` | The new boost value
     **/
     
-    public function SetBoost(boost:Float):Void;
+    function SetBoost(boost:Float):Void;
     #end
     #if server
     /**
@@ -488,7 +488,7 @@ extern class Vehicle extends Entity {
 		`throttle` | The new throttle.
     **/
     
-    public function SetThrottle(throttle:Float):Void;
+    function SetThrottle(throttle:Float):Void;
     #end
     #if server
     /**
@@ -497,7 +497,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The max speed of the vehicle in MPH
     **/
     
-    public function GetMaxSpeed():Float;
+    function GetMaxSpeed():Float;
     #end
     #if server
     /**
@@ -509,7 +509,7 @@ extern class Vehicle extends Entity {
 		`friction` | The new friction to set
     **/
     
-    public function SetWheelFriction(wheel:Float, friction:Float):Void;
+    function SetWheelFriction(wheel:Float, friction:Float):Void;
     #end
     #if server
     /**
@@ -518,7 +518,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** Whether this vehicle has a brake pedal or not.
     **/
     
-    public function HasBrakePedal():Bool;
+    function HasBrakePedal():Bool;
     #end
     #if server
     /**
@@ -527,7 +527,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The current steering of the vehicle.
     **/
     
-    public function GetSteering():Float;
+    function GetSteering():Float;
     #end
     #if server
     /**
@@ -536,7 +536,7 @@ extern class Vehicle extends Entity {
 		`**Returns:** The driver of the vehicle
     **/
     
-    public function GetDriver():Entity;
+    function GetDriver():Entity;
     #end
     
     /**
@@ -547,7 +547,7 @@ extern class Vehicle extends Entity {
 		`distance` | Camera distance to set to
     **/
     
-    public function SetCameraDistance(distance:Float):Void;
+    function SetCameraDistance(distance:Float):Void;
     
     #if server
     /**
@@ -558,7 +558,7 @@ extern class Vehicle extends Entity {
 		`maxRevThrottle` | The new maximum throttle. This number must be negative.
     **/
     
-    public function SetMaxReverseThrottle(maxRevThrottle:Float):Void;
+    function SetMaxReverseThrottle(maxRevThrottle:Float):Void;
     #end
     #if server
     /**
@@ -569,7 +569,7 @@ extern class Vehicle extends Entity {
 		`bOn` | Whether the entry or exit camera animation should be played or not.
     **/
     
-    public function SetVehicleEntryAnim(bOn:Bool):Void;
+    function SetVehicleEntryAnim(bOn:Bool):Void;
     #end
     
 }

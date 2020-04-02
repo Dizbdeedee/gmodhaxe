@@ -16,7 +16,7 @@ package gmod.libs;
 		`ply` | The player to affect
     **/
     @:deprecated("INTERNAL")
-    public static function DestroyMethod(ply:Player):Void;
+    static function DestroyMethod(ply:Player):Void;
     
     
     /**
@@ -33,7 +33,7 @@ package gmod.libs;
 		`**Returns:** true if succeeded
     **/
     @:deprecated("INTERNAL")
-    public static function FinishMove(ply:Player, mv:CMoveData):Bool;
+    static function FinishMove(ply:Player, mv:CMoveData):Bool;
     
     
     /**
@@ -44,7 +44,7 @@ package gmod.libs;
 		`ply` | The player to affect
     **/
     
-    public static function PlayerStopDriving(ply:Player):Void;
+    static function PlayerStopDriving(ply:Player):Void;
     
     
     /**
@@ -60,7 +60,7 @@ package gmod.libs;
 		`**Returns:** true if succeeded
     **/
     @:deprecated("INTERNAL")
-    public static function CreateMove(cmd:CUserCmd):Bool;
+    static function CreateMove(cmd:CUserCmd):Bool;
     
     
     /**
@@ -72,7 +72,7 @@ package gmod.libs;
 		`ent` | The entity
     **/
     
-    public static function Start(ply:Player, ent:Entity):Void;
+    static function Start(ply:Player, ent:Entity):Void;
     
     
     /**
@@ -89,7 +89,7 @@ package gmod.libs;
 		`**Returns:** true if succeeded
     **/
     @:deprecated("INTERNAL")
-    public static function Move(ply:Player, mv:CMoveData):Bool;
+    static function Move(ply:Player, mv:CMoveData):Bool;
     
     
     /**
@@ -107,7 +107,7 @@ package gmod.libs;
 		`**Returns:** true if succeeded
     **/
     @:deprecated("INTERNAL")
-    public static function StartMove(ply:Player, mv:CMoveData, cmd:CUserCmd):Bool;
+    static function StartMove(ply:Player, mv:CMoveData, cmd:CUserCmd):Bool;
     
     
     /**
@@ -124,7 +124,7 @@ package gmod.libs;
 		`**Returns:** true if succeeded
     **/
     @:deprecated("INTERNAL")
-    public static function CalcView(ply:Player, view:ViewData):Bool;
+    static function CalcView(ply:Player, view:ViewData):Bool;
     
     
     /**
@@ -136,7 +136,7 @@ package gmod.libs;
 		`ent` | The entity
     **/
     
-    public static function End(ply:Player, ent:Entity):Void;
+    static function End(ply:Player, ent:Entity):Void;
     
     
     /**
@@ -152,7 +152,7 @@ package gmod.libs;
 		`**Returns:** A method object.
     **/
     @:deprecated("INTERNAL")
-    public static function GetMethod(ply:Player):AnyTable;
+    static function GetMethod(ply:Player):AnyTable;
     
     
     /**
@@ -165,7 +165,7 @@ package gmod.libs;
 		`mode` | The driving mode
     **/
     
-    public static function PlayerStartDriving(ply:Player, ent:Entity, mode:String):Void;
+    static function PlayerStartDriving(ply:Player, ent:Entity, mode:String):Void;
     
     
     /**
@@ -301,7 +301,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Register(name:String, data:AnyTable, base:String):Void;
+    static function Register(name:String, data:AnyTable, base:String):Void;
     
     
 

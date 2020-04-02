@@ -17,7 +17,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetAmmoForce(id:Float):Float;
+    static function GetAmmoForce(id:Float):Float;
     
     
     /**
@@ -31,7 +31,7 @@ package gmod.libs;
 		`materialName` | The material to be used for the decal. May also be a list of material names, in which case a random material from that list will be chosen every time the decal is placed.
     **/
     
-    public static function AddDecal(decalName:String, materialName:String):Void;
+    static function AddDecal(decalName:String, materialName:String):Void;
     
     
     /**
@@ -40,7 +40,7 @@ package gmod.libs;
 		`**Returns:** mapVersion
     **/
     
-    public static function GetMapVersion():Float;
+    static function GetMapVersion():Float;
     
     
     /**
@@ -51,7 +51,7 @@ package gmod.libs;
 		`**Returns:** All ammo types registered via game. AddAmmoType, sorted by its name value.
     **/
     @:deprecated("INTERNAL: Consider using game. GetAmmoTypes and game. GetAmmoData instead.")
-    public static function BuildAmmoTypes():AnyTable;
+    static function BuildAmmoTypes():AnyTable;
     
     
     /**
@@ -64,7 +64,7 @@ package gmod.libs;
 		`**Returns:** The IP address and port in the format "x.x.x.x:x"
     **/
     
-    public static function GetIPAddress():String;
+    static function GetIPAddress():String;
     
     
     /**
@@ -104,7 +104,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddAmmoType(ammoData:AmmoData):Void;
+    static function AddAmmoType(ammoData:AmmoData):Void;
     
     #if server
     /**
@@ -120,7 +120,7 @@ package gmod.libs;
 		`**Returns:** The state of the Global State. See GLOBAL_ Enums
     **/
     
-    public static function GetGlobalState(name:String):GLOBAL;
+    static function GetGlobalState(name:String):GLOBAL;
     #end
     
     /**
@@ -129,7 +129,7 @@ package gmod.libs;
 		`**Returns:** isSinglePlayer
     **/
     
-    public static function SinglePlayer():Bool;
+    static function SinglePlayer():Bool;
     
     
     /**
@@ -138,7 +138,7 @@ package gmod.libs;
 		`**Returns:** The world
     **/
     
-    public static function GetWorld():Entity;
+    static function GetWorld():Entity;
     
     
     /**
@@ -152,7 +152,7 @@ package gmod.libs;
 		`**Returns:** See DMG_ Enums
     **/
     
-    public static function GetAmmoDamageType(id:Float):DMG;
+    static function GetAmmoDamageType(id:Float):DMG;
     
     #if server
     /**
@@ -161,7 +161,7 @@ package gmod.libs;
 		`**Returns:** nextMap
     **/
     
-    public static function GetMapNext():String;
+    static function GetMapNext():String;
     #end
     #if server
     /**
@@ -176,7 +176,7 @@ package gmod.libs;
 		`level` | The difficulty level, Easy( 1 ), Normal( 2 ), Hard( 3 ).
     **/
     
-    public static function SetSkillLevel(level:Float):Void;
+    static function SetSkillLevel(level:Float):Void;
     #end
     
     /**
@@ -192,7 +192,7 @@ package gmod.libs;
 		`**Returns:** The name of given ammo type ID or nil if ammo type ID is invalid.
     **/
     
-    public static function GetAmmoName(id:Float):String;
+    static function GetAmmoName(id:Float):String;
     
     #if server
     /**
@@ -209,7 +209,7 @@ package gmod.libs;
 		`timeScale` | The new timescale, minimum value is 0.001 and maximum is 5.
     **/
     
-    public static function SetTimeScale(timeScale:Float):Void;
+    static function SetTimeScale(timeScale:Float):Void;
     #end
     
     /**
@@ -225,14 +225,14 @@ package gmod.libs;
 		`**Returns:** The maximum amount of reserve ammo a player can hold of this ammo type.
     **/
     
-    public static function GetAmmoMax(id:Float):Float;
+    static function GetAmmoMax(id:Float):Float;
     
     #if server
     /**
         Loads the next map according to the nextlevel convar, or from the current mapcycle file set by the respective convar.
     **/
     
-    public static function LoadNextMap():Void;
+    static function LoadNextMap():Void;
     #end
     
     /**
@@ -248,7 +248,7 @@ package gmod.libs;
 		`**Returns:** The ammo type ID of given ammo type name, or -1 if not found
     **/
     
-    public static function GetAmmoID(name:String):Float;
+    static function GetAmmoID(name:String):Float;
     
     
     /**
@@ -264,7 +264,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function RemoveRagdolls():Void;
+    static function RemoveRagdolls():Void;
     
     
     /**
@@ -285,7 +285,7 @@ package gmod.libs;
 		gm_flatgrass
     **/
     
-    public static function GetMap():String;
+    static function GetMap():String;
     
     #if server
     /**
@@ -297,7 +297,7 @@ package gmod.libs;
 		`reason` | Reason to display to the player. This can span across multiple lines.
     **/
     
-    public static function KickID(id:String, ?reason:String):Void;
+    static function KickID(id:String, ?reason:String):Void;
     #end
     #if server
     /**
@@ -311,7 +311,7 @@ package gmod.libs;
 		`count` | The value to set for that Global State.
     **/
     
-    public static function SetGlobalCounter(name:String, count:Float):Void;
+    static function SetGlobalCounter(name:String, count:Float):Void;
     #end
     
     /**
@@ -342,7 +342,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function AddParticles(particleFileName:String):Void;
+    static function AddParticles(particleFileName:String):Void;
     
     #if server
     /**
@@ -356,7 +356,7 @@ package gmod.libs;
 		`state` | The state of the Global State. See GLOBAL_ Enums
     **/
     
-    public static function SetGlobalState(name:String, state:GLOBAL):Void;
+    static function SetGlobalState(name:String, state:GLOBAL):Void;
     #end
     
     /**
@@ -370,7 +370,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetAmmoNPCDamage(id:Float):Float;
+    static function GetAmmoNPCDamage(id:Float):Float;
     
     #if server
     /**
@@ -393,7 +393,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ConsoleCommand(stringCommand:String):Void;
+    static function ConsoleCommand(stringCommand:String):Void;
     #end
     
     /**
@@ -404,7 +404,7 @@ package gmod.libs;
 		`**Returns:** Is the server dedicated or not.
     **/
     
-    public static function IsDedicated():Bool;
+    static function IsDedicated():Bool;
     
     
     /**
@@ -413,7 +413,7 @@ package gmod.libs;
 		`**Returns:** startSpot
     **/
     
-    public static function StartSpot():Vector;
+    static function StartSpot():Vector;
     
     #if server
     /**
@@ -429,7 +429,7 @@ package gmod.libs;
 		`**Returns:** The value of the given Global State, 0 if the global state doesn't exist.
     **/
     
-    public static function GetGlobalCounter(name:String):Float;
+    static function GetGlobalCounter(name:String):Float;
     #end
     #if server
     /**
@@ -440,7 +440,7 @@ package gmod.libs;
 		`**Returns:** The load type. Possible values are: "newgame", "loadgame", "transition", "background".
     **/
     
-    public static function MapLoadType():String;
+    static function MapLoadType():String;
     #end
     
     /**
@@ -454,7 +454,7 @@ package gmod.libs;
 		`**Returns:** The AmmoData structure containing all ammo data
     **/
     
-    public static function GetAmmoData(id:Float):AmmoData;
+    static function GetAmmoData(id:Float):AmmoData;
     
     
     /**
@@ -467,7 +467,7 @@ package gmod.libs;
 		`**Returns:** The difficulty level, Easy( 1 ), Normal( 2 ), Hard( 3 ).
     **/
     
-    public static function GetSkillLevel():Float;
+    static function GetSkillLevel():Float;
     
     
     /**
@@ -500,7 +500,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function MountGMA(path:String):GameLibMountGMAReturn;
+    static function MountGMA(path:String):GameLibMountGMAReturn;
     
     
     /**
@@ -522,7 +522,7 @@ package gmod.libs;
 		`ExtraFilters` | Entity classes not to reset during cleanup.
     **/
     
-    public static function CleanUpMap(?dontSendToClients:Bool, ?ExtraFilters:AnyTable):Void;
+    static function CleanUpMap(?dontSendToClients:Bool, ?ExtraFilters:AnyTable):Void;
     
     
     /**
@@ -531,7 +531,7 @@ package gmod.libs;
 		`**Returns:** The maximum amount of players
     **/
     
-    public static function MaxPlayers():Float;
+    static function MaxPlayers():Float;
     
     
     /**
@@ -540,7 +540,7 @@ package gmod.libs;
 		`**Returns:** The time scale
     **/
     
-    public static function GetTimeScale():Float;
+    static function GetTimeScale():Float;
     
     
     /**
@@ -549,7 +549,7 @@ package gmod.libs;
 		`**Returns:** A table containing all ammo types. The keys are ammo IDs, the values are the names associated with those IDs.
     **/
     
-    public static function GetAmmoTypes():AnyTable;
+    static function GetAmmoTypes():AnyTable;
     
     
     /**
@@ -563,7 +563,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetAmmoPlayerDamage(id:Float):Float;
+    static function GetAmmoPlayerDamage(id:Float):Float;
     
     
 

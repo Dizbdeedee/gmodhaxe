@@ -14,7 +14,7 @@ extern class PathFollower {
 		`distance` | The distance we're setting it to
     **/
     
-    public function SetGoalTolerance(distance:Float):Void;
+    function SetGoalTolerance(distance:Float):Void;
     
     
     /**
@@ -37,7 +37,7 @@ extern class PathFollower {
 		```
     **/
     
-    public function GetPositionOnPath(distance:Float):Vector;
+    function GetPositionOnPath(distance:Float):Vector;
     
     
     /**
@@ -46,7 +46,7 @@ extern class PathFollower {
 		`**Returns:** A table with PathSegment structure.
     **/
     
-    public function LastSegment():PathSegment;
+    function LastSegment():PathSegment;
     
     
     /**
@@ -59,7 +59,7 @@ extern class PathFollower {
 		`distance` | The distance to move the cursor (in world units)
     **/
     
-    public function MoveCursorTo(distance:Float):Void;
+    function MoveCursorTo(distance:Float):Void;
     
     
     /**
@@ -70,7 +70,7 @@ extern class PathFollower {
 		`mindist` | The minimum look ahead distance
     **/
     
-    public function SetMinLookAheadDistance(mindist:Float):Void;
+    function SetMinLookAheadDistance(mindist:Float):Void;
     
     
     /**
@@ -84,7 +84,7 @@ extern class PathFollower {
 		`**Returns:** The closest position on the path
     **/
     
-    public function GetClosestPosition(position:Vector):Vector;
+    function GetClosestPosition(position:Vector):Vector;
     
     
     /**
@@ -96,7 +96,7 @@ extern class PathFollower {
 		`ent` | The entity we want to chase
     **/
     
-    public function Chase(bot:NextBot, ent:Entity):Void;
+    function Chase(bot:NextBot, ent:Entity):Void;
     
     
     /**
@@ -107,7 +107,7 @@ extern class PathFollower {
 		`bot` | The bot to update along the path
     **/
     
-    public function Update(bot:NextBot):Void;
+    function Update(bot:NextBot):Void;
     
     
     /**
@@ -116,7 +116,7 @@ extern class PathFollower {
 		`**Returns:** A table with 3 keys: number curvature Vector forward Vector pos
     **/
     
-    public function GetCursorData():AnyTable;
+    function GetCursorData():AnyTable;
     
     
     /**
@@ -125,7 +125,7 @@ extern class PathFollower {
 		`**Returns:** 
     **/
     
-    public function GetHindrance():Entity;
+    function GetHindrance():Entity;
     
     
     /**
@@ -134,7 +134,7 @@ extern class PathFollower {
 		`**Returns:** The distance we're setting it to
     **/
     
-    public function GetGoalTolerance():Float;
+    function GetGoalTolerance():Float;
     
     
     /**
@@ -143,7 +143,7 @@ extern class PathFollower {
 		`**Returns:** A table with PathSegment structure.
     **/
     
-    public function GetCurrentGoal():PathSegment;
+    function GetCurrentGoal():PathSegment;
     
     
     /**
@@ -156,7 +156,7 @@ extern class PathFollower {
 		`distance` | The distance to move the cursor (in relative world units)
     **/
     
-    public function MoveCursor(distance:Float):Void;
+    function MoveCursor(distance:Float):Void;
     
     
     /**
@@ -165,7 +165,7 @@ extern class PathFollower {
 		`**Returns:** The current progress
     **/
     
-    public function GetCursorPosition():Float;
+    function GetCursorPosition():Float;
     
     
     /**
@@ -174,7 +174,7 @@ extern class PathFollower {
 		`**Returns:** Path age
     **/
     
-    public function GetAge():Float;
+    function GetAge():Float;
     
     
     /**
@@ -183,7 +183,7 @@ extern class PathFollower {
 		`**Returns:** The length of the path
     **/
     
-    public function GetLength():Float;
+    function GetLength():Float;
     
     
     /**
@@ -192,14 +192,14 @@ extern class PathFollower {
 		`**Returns:** A table of tables with PathSegment structure.
     **/
     
-    public function GetAllSegments():PathSegment;
+    function GetAllSegments():PathSegment;
     
     
     /**
         Moves the cursor to the end of the path
     **/
     
-    public function MoveCursorToStart():Void;
+    function MoveCursorToStart():Void;
     
     
     /**
@@ -269,7 +269,7 @@ extern class PathFollower {
 		```
     **/
     
-    public function Compute(from:NextBot, to:Vector, ?generator:Function):Bool;
+    function Compute(from:NextBot, to:Vector, ?generator:Function):Bool;
     
     
     /**
@@ -278,21 +278,21 @@ extern class PathFollower {
 		`**Returns:** The minimum look ahead distance
     **/
     
-    public function GetMinLookAheadDistance():Float;
+    function GetMinLookAheadDistance():Float;
     
     
     /**
         Draws the path. This is meant for debugging - and uses debug overlay.
     **/
     
-    public function Draw():Void;
+    function Draw():Void;
     
     
     /**
         Invalidates the current path
     **/
     
-    public function Invalidate():Void;
+    function Invalidate():Void;
     
     
     /**
@@ -301,14 +301,14 @@ extern class PathFollower {
 		`**Returns:** The end position
     **/
     
-    public function GetEnd():Vector;
+    function GetEnd():Vector;
     
     
     /**
         Moves the cursor to the end of the path
     **/
     
-    public function MoveCursorToEnd():Void;
+    function MoveCursorToEnd():Void;
     
     
     /**
@@ -321,14 +321,14 @@ extern class PathFollower {
 		`alongLimit` | 
     **/
     
-    public function MoveCursorToClosestPosition(pos:Vector, ?type:Float, ?alongLimit:Float):Void;
+    function MoveCursorToClosestPosition(pos:Vector, ?type:Float, ?alongLimit:Float):Void;
     
     
     /**
         Resets the age which is retrieved by PathFollower:GetAge to 0.
     **/
     
-    public function ResetAge():Void;
+    function ResetAge():Void;
     
     
     /**
@@ -337,7 +337,7 @@ extern class PathFollower {
 		`**Returns:** The start position
     **/
     
-    public function GetStart():Vector;
+    function GetStart():Vector;
     
     
     /**
@@ -346,7 +346,7 @@ extern class PathFollower {
 		`**Returns:** A table with PathSegment structure.
     **/
     
-    public function FirstSegment():PathSegment;
+    function FirstSegment():PathSegment;
     
     
     /**
@@ -355,7 +355,7 @@ extern class PathFollower {
 		`**Returns:** Wether the path is valid or not.
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     
 }

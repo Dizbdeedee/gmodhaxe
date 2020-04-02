@@ -14,7 +14,7 @@ package gmod.libs;
 		`**Returns:** If set, the currently rendered entity by the halo library.
     **/
     
-    public static function RenderedEntity():Entity;
+    static function RenderedEntity():Entity;
     
     
     /**
@@ -69,7 +69,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Add(entities:AnyTable, color:Color, ?blurX:Float, ?blurY:Float, ?passes:Float, ?additive:Bool, ?ignoreZ:Bool):Void;
+    static function Add(entities:AnyTable, color:Color, ?blurX:Float, ?blurY:Float, ?passes:Float, ?additive:Bool, ?ignoreZ:Bool):Void;
     
     
     /**
@@ -82,7 +82,7 @@ package gmod.libs;
 		`entry` | Table with info about the halo to draw.
     **/
     @:deprecated("INTERNAL")
-    public static function Render(entry:AnyTable):Void;
+    static function Render(entry:AnyTable):Void;
     
     
 

@@ -12,7 +12,7 @@ package gmod.libs;
 		`**Returns:** Connected or not
     **/
     
-    public static function IsAvailable():Bool;
+    static function IsAvailable():Bool;
     #end
     
     /**
@@ -29,14 +29,14 @@ package gmod.libs;
 		`**Returns:** Ang. If !translator.AnglesTable then return - {}
     **/
     
-    public static function ProcessAnglesTable(translator:AnyTable, sensor:AnyTable, pos:Vector, rotation:Angle):Angle;
+    static function ProcessAnglesTable(translator:AnyTable, sensor:AnyTable, pos:Vector, rotation:Angle):Angle;
     
     #if client
     /**
         
     **/
     
-    public static function GetSkeleton():Void;
+    static function GetSkeleton():Void;
     #end
     
     /**
@@ -50,7 +50,7 @@ package gmod.libs;
 		`**Returns:** Chosen builder
     **/
     
-    public static function ChooseBuilderFromEntity(ent:Entity):String;
+    static function ChooseBuilderFromEntity(ent:Entity):String;
     
     
     /**
@@ -70,7 +70,7 @@ package gmod.libs;
 		`**Returns:** Return nil on failure
     **/
     
-    public static function ProcessAngle(translator:AnyTable, sensor:AnyTable, pos:Vector, ang:Angle, special_vectors:AnyTable, boneid:Float, v:AnyTable):Bool;
+    static function ProcessAngle(translator:AnyTable, sensor:AnyTable, pos:Vector, ang:Angle, special_vectors:AnyTable, boneid:Float, v:AnyTable):Bool;
     
     
     /**
@@ -85,14 +85,14 @@ package gmod.libs;
 		`**Returns:** Pos. if !translator.PositionTable then return - {}
     **/
     
-    public static function ProcessPositionTable(translator:AnyTable, sensor:AnyTable):Vector;
+    static function ProcessPositionTable(translator:AnyTable, sensor:AnyTable):Vector;
     
     #if client
     /**
         This starts access to the kinect sensor. Note that this usually freezes the game for a couple of seconds.
     **/
     
-    public static function Start():Void;
+    static function Start():Void;
     #end
     #if client
     /**
@@ -101,7 +101,7 @@ package gmod.libs;
 		`**Returns:** Connected and active or not
     **/
     
-    public static function IsActive():Bool;
+    static function IsActive():Bool;
     #end
     
     /**
@@ -121,7 +121,7 @@ package gmod.libs;
 		`c` | sensor
     **/
     
-    public static function BuildSkeleton(translator:AnyTable, player:Player, rotation:Angle):MotionsensorLibBuildSkeletonReturn;
+    static function BuildSkeleton(translator:AnyTable, player:Player, rotation:Angle):MotionsensorLibBuildSkeletonReturn;
     
     #if client
     /**
@@ -130,14 +130,14 @@ package gmod.libs;
 		`**Returns:** The material
     **/
     
-    public static function GetColourMaterial():IMaterial;
+    static function GetColourMaterial():IMaterial;
     #end
     #if client
     /**
         Stops the motion capture.
     **/
     
-    public static function Stop():Void;
+    static function Stop():Void;
     #end
     
 

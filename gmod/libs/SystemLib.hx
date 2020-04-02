@@ -14,7 +14,7 @@ package gmod.libs;
 		`**Returns:** Two-letter country code, using ISO 3166-1 standard.
     **/
     
-    public static function GetCountry():String;
+    static function GetCountry():String;
     
     
     /**
@@ -27,7 +27,7 @@ package gmod.libs;
 		`**Returns:** The amount of seconds since the Steam user last moved their mouse.
     **/
     
-    public static function UpTime():Float;
+    static function UpTime():Float;
     
     
     /**
@@ -36,7 +36,7 @@ package gmod.libs;
 		`**Returns:** Whether or not the game is running on Linux.
     **/
     
-    public static function IsLinux():Bool;
+    static function IsLinux():Bool;
     
     
     /**
@@ -45,7 +45,7 @@ package gmod.libs;
 		`**Returns:** Whether the system the game runs on is Windows or not.
     **/
     
-    public static function IsWindows():Bool;
+    static function IsWindows():Bool;
     
     
     /**
@@ -60,7 +60,7 @@ package gmod.libs;
 		`**Returns:** Whether or not the game window has focus.
     **/
     
-    public static function HasFocus():Bool;
+    static function HasFocus():Bool;
     
     #if client
     /**
@@ -80,7 +80,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function IsWindowed():Bool;
+    static function IsWindowed():Bool;
     #end
     
     /**
@@ -89,7 +89,7 @@ package gmod.libs;
 		`**Returns:** Whether or not the game is running on OSX.
     **/
     
-    public static function IsOSX():Bool;
+    static function IsOSX():Bool;
     
     
     /**
@@ -100,7 +100,7 @@ package gmod.libs;
 		`**Returns:** Current Steam-synchronized Unix time.
     **/
     
-    public static function SteamTime():Float;
+    static function SteamTime():Float;
     
     
     /**
@@ -109,14 +109,14 @@ package gmod.libs;
 		`**Returns:** 0-100 if on battery power. If plugged in, the value will be 255 regardless of charging state.
     **/
     
-    public static function BatteryPower():Float;
+    static function BatteryPower():Float;
     
     #if client
     /**
         Flashes the window. Currently works only on Windows.
     **/
     
-    public static function FlashWindow():Void;
+    static function FlashWindow():Void;
     #end
     
     /**
@@ -129,7 +129,7 @@ package gmod.libs;
 		`**Returns:** Seconds of game uptime as an integer.
     **/
     
-    public static function AppTime():Float;
+    static function AppTime():Float;
     
     
 

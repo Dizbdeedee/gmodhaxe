@@ -40,7 +40,7 @@ extern class DHorizontalScroller extends Panel {
     **/
     
     @:hook 
-    function OnDragModified():Void;
+    private function OnDragModified():Void;
     /**
         Adds a panel to the DHorizontalScroller.
 		

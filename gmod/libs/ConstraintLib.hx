@@ -34,7 +34,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function RemoveAll(ent:Entity):ConstraintLibRemoveAllReturn;
+    static function RemoveAll(ent:Entity):ConstraintLibRemoveAllReturn;
     
     
     /**
@@ -45,7 +45,7 @@ package gmod.libs;
 		`ent` | The entity that will forget its constraints.
     **/
     
-    public static function ForgetConstraints(ent:Entity):Void;
+    static function ForgetConstraints(ent:Entity):Void;
     
     
     /**
@@ -79,7 +79,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Weld(ent1:Entity, ent2:Entity, bone1:Float, bone2:Float, forcelimit:Float, nocollide:Bool, deleteent1onbreak:Bool):Entity;
+    static function Weld(ent1:Entity, ent2:Entity, bone1:Float, bone2:Float, forcelimit:Float, nocollide:Bool, deleteent1onbreak:Bool):Entity;
     
     
     /**
@@ -93,7 +93,7 @@ package gmod.libs;
 		`**Returns:** Whether the entity has any constraints or not.
     **/
     
-    public static function HasConstraints(ent:Entity):Bool;
+    static function HasConstraints(ent:Entity):Bool;
     
     
     /**
@@ -126,7 +126,7 @@ package gmod.libs;
 		`b` | axis. Will return nil if the constraint could not be created.
     **/
     
-    public static function Motor(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, friction:Float, torque:Float, forcetime:Float, nocollide:Float, toggle:Float, pl:Player, forcelimit:Float, numpadkey_fwd:KEY, numpadkey_bwd:KEY, direction:Float, LocalAxis:Vector):ConstraintLibMotorReturn;
+    static function Motor(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, friction:Float, torque:Float, forcetime:Float, nocollide:Float, toggle:Float, pl:Player, forcelimit:Float, numpadkey_fwd:KEY, numpadkey_bwd:KEY, direction:Float, LocalAxis:Vector):ConstraintLibMotorReturn;
     
     
     /**
@@ -144,7 +144,7 @@ package gmod.libs;
 		`**Returns:** constraint
     **/
     
-    public static function Find(ent1:Entity, ent2:Entity, type:String, bone1:Float, bone2:Float):Entity;
+    static function Find(ent1:Entity, ent2:Entity, type:String, bone1:Float, bone2:Float):Entity;
     
     
     /**
@@ -159,7 +159,7 @@ package gmod.libs;
 		`**Returns:** The other entity.
     **/
     
-    public static function FindConstraintEntity(ent:Entity, type:String):Entity;
+    static function FindConstraintEntity(ent:Entity, type:String):Entity;
     
     
     /**
@@ -191,7 +191,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetAllConstrainedEntities(ent:Entity, ?ResultTable:AnyTable):AnyTable;
+    static function GetAllConstrainedEntities(ent:Entity, ?ResultTable:AnyTable):AnyTable;
     
     
     /**
@@ -219,7 +219,7 @@ package gmod.libs;
 		`b` | rope. Will return nil if the constraint could not be created.
     **/
     
-    public static function Elastic(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, constant:Float, damping:Float, rdamping:Float, material:String, width:Float, stretchonly:Bool):ConstraintLibElasticReturn;
+    static function Elastic(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, constant:Float, damping:Float, rdamping:Float, material:String, width:Float, stretchonly:Bool):ConstraintLibElasticReturn;
     
     
     /**
@@ -234,7 +234,7 @@ package gmod.libs;
 		`ent4` | Optional. Same as ent2.
     **/
     
-    public static function AddConstraintTable(ent1:Entity, constrt:Entity, ?ent2:Entity, ?ent3:Entity, ?ent4:Entity):Void;
+    static function AddConstraintTable(ent1:Entity, constrt:Entity, ?ent2:Entity, ?ent3:Entity, ?ent4:Entity):Void;
     
     
     /**
@@ -265,7 +265,7 @@ package gmod.libs;
 		`c` | controller. Can return nil.
     **/
     
-    public static function Winch(pl:Player, Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, width:Float, fwd_bind:KEY, bwd_bind:KEY, fwd_speed:Float, bwd_speed:Float, material:String, toggle:Bool):ConstraintLibWinchReturn;
+    static function Winch(pl:Player, Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, width:Float, fwd_bind:KEY, bwd_bind:KEY, fwd_speed:Float, bwd_speed:Float, material:String, toggle:Bool):ConstraintLibWinchReturn;
     
     
     /**
@@ -299,7 +299,7 @@ package gmod.libs;
 		`d` | slider. Will return nil if the fixed argument is not 1 or if the constraint could not be created.
     **/
     
-    public static function Muscle(pl:Player, Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, Length1:Float, Length2:Float, width:Float, key:KEY, fixed:Float, period:Float, amplitude:Float, starton:Bool, material:String):ConstraintLibMuscleReturn;
+    static function Muscle(pl:Player, Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, Length1:Float, Length2:Float, width:Float, key:KEY, fixed:Float, period:Float, amplitude:Float, starton:Bool, material:String):ConstraintLibMuscleReturn;
     
     
     /**
@@ -318,7 +318,7 @@ package gmod.libs;
 		`d` | LPos
     **/
     
-    public static function CreateStaticAnchorPoint(pos:Vector):ConstraintLibCreateStaticAnchorPointReturn;
+    static function CreateStaticAnchorPoint(pos:Vector):ConstraintLibCreateStaticAnchorPointReturn;
     
     
     /**
@@ -342,7 +342,7 @@ package gmod.libs;
 		`b` | rope. Will return nil if the constraint could not be created.
     **/
     
-    public static function Slider(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, width:Float, material:String):ConstraintLibSliderReturn;
+    static function Slider(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, width:Float, material:String):ConstraintLibSliderReturn;
     
     
     /**
@@ -361,7 +361,7 @@ package gmod.libs;
 		`**Returns:** Constraint. Will return false if the constraint could not be created.
     **/
     
-    public static function NoCollide(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float):Entity;
+    static function NoCollide(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float):Entity;
     
     
     /**
@@ -375,7 +375,7 @@ package gmod.libs;
 		`**Returns:** A list of all constraints connected to the entity.
     **/
     
-    public static function GetTable(ent:Entity):AnyTable;
+    static function GetTable(ent:Entity):AnyTable;
     
     
     /**
@@ -403,7 +403,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Keepupright(ent:Entity, ang:Angle, bone:Float, angularLimit:Float):Entity;
+    static function Keepupright(ent:Entity, ang:Angle, bone:Float, angularLimit:Float):Entity;
     
     
     /**
@@ -418,7 +418,7 @@ package gmod.libs;
 		`ent4` | Optional. Same as ent2.
     **/
     
-    public static function AddConstraintTableNoDelete(ent1:Entity, constrt:Entity, ?ent2:Entity, ?ent3:Entity, ?ent4:Entity):Void;
+    static function AddConstraintTableNoDelete(ent1:Entity, constrt:Entity, ?ent2:Entity, ?ent3:Entity, ?ent4:Entity):Void;
     
     
     /**
@@ -439,7 +439,7 @@ package gmod.libs;
 		`**Returns:** Constraint. Will return false if the constraint could not be created.
     **/
     
-    public static function Ballsocket(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LocalPos:Vector, forcelimit:Float, torquelimit:Float, nocollide:Float):Entity;
+    static function Ballsocket(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LocalPos:Vector, forcelimit:Float, torquelimit:Float, nocollide:Float):Entity;
     
     
     /**
@@ -471,7 +471,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function RemoveConstraints(ent:Entity, type:String):ConstraintLibRemoveConstraintsReturn;
+    static function RemoveConstraints(ent:Entity, type:String):ConstraintLibRemoveConstraintsReturn;
     
     
     /**
@@ -495,7 +495,7 @@ package gmod.libs;
 		`**Returns:** rope
     **/
     
-    public static function CreateKeyframeRope(pos:Vector, width:Float, material:String, Constraint:Entity, Ent1:Entity, LPos1:Vector, Bone1:Float, Ent2:Entity, LPos2:Vector, Bone2:Float, kv:AnyTable):Entity;
+    static function CreateKeyframeRope(pos:Vector, width:Float, material:String, Constraint:Entity, Ent1:Entity, LPos1:Vector, Bone1:Float, Ent2:Entity, LPos2:Vector, Bone2:Float, kv:AnyTable):Entity;
     
     
     /**
@@ -520,7 +520,7 @@ package gmod.libs;
 		`**Returns:** Constraint. Will return false if the constraint could not be created.
     **/
     
-    public static function Pulley(Ent1:Entity, Ent4:Entity, Bone1:Float, Bone4:Float, LPos1:Vector, LPos4:Vector, WPos2:Vector, WPos3:Vector, forcelimit:Float, rigid:Bool, width:Float, material:String):Entity;
+    static function Pulley(Ent1:Entity, Ent4:Entity, Bone1:Float, Bone4:Float, LPos1:Vector, LPos4:Vector, WPos2:Vector, WPos3:Vector, forcelimit:Float, rigid:Bool, width:Float, material:String):Entity;
     
     
     /**
@@ -554,7 +554,7 @@ package gmod.libs;
 		`**Returns:** A phys_ragdollconstraint entity. Will return false if the constraint could not be created.
     **/
     
-    public static function AdvBallsocket(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, forcelimit:Float, torquelimit:Float, xmin:Float, ymin:Float, zmin:Float, xmax:Float, ymax:Float, zmax:Float, xfric:Float, yfric:Float, zfric:Float, onlyrotation:Float, nocollide:Float):Entity;
+    static function AdvBallsocket(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, forcelimit:Float, torquelimit:Float, xmin:Float, ymin:Float, zmin:Float, xmax:Float, ymax:Float, zmax:Float, xfric:Float, yfric:Float, zfric:Float, onlyrotation:Float, nocollide:Float):Entity;
     
     
     /**
@@ -582,7 +582,7 @@ package gmod.libs;
 		`b` | rope. Will return nil if "Constraint" is a keyframe_rope or if the constraint could not be created.
     **/
     
-    public static function Rope(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, length:Float, addlength:Float, forcelimit:Float, width:Float, material:String, rigid:Bool):ConstraintLibRopeReturn;
+    static function Rope(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, length:Float, addlength:Float, forcelimit:Float, width:Float, material:String, rigid:Bool):ConstraintLibRopeReturn;
     
     
     /**
@@ -608,7 +608,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function CanConstrain(ent:Entity, bone:Float):Bool;
+    static function CanConstrain(ent:Entity, bone:Float):Bool;
     
     
     /**
@@ -623,7 +623,7 @@ package gmod.libs;
 		`**Returns:** The constraint table, set with constraint. AddConstraintTable
     **/
     
-    public static function FindConstraint(ent:Entity, type:String):AnyTable;
+    static function FindConstraint(ent:Entity, type:String):AnyTable;
     
     
     /**
@@ -655,7 +655,7 @@ package gmod.libs;
 		`d` | slider. Can return nil depending on how the constraint was created. Will return nil if the constraint could not be created.
     **/
     
-    public static function Hydraulic(pl:Player, Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, Length1:Float, Length2:Float, width:Float, key:KEY, fixed:Float, speed:Float, material:String):ConstraintLibHydraulicReturn;
+    static function Hydraulic(pl:Player, Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, Length1:Float, Length2:Float, width:Float, key:KEY, fixed:Float, speed:Float, material:String):ConstraintLibHydraulicReturn;
     
     
     /**
@@ -670,7 +670,7 @@ package gmod.libs;
 		`**Returns:** All the constraints of this entity.
     **/
     
-    public static function FindConstraints(ent:Entity, type:String):AnyTable;
+    static function FindConstraints(ent:Entity, type:String):AnyTable;
     
     
     /**
@@ -695,7 +695,7 @@ package gmod.libs;
 		`**Returns:** Constraint. Will return false if the constraint could not be created.
     **/
     
-    public static function Axis(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, forcelimit:Float, torquelimit:Float, friction:Float, nocollide:Float, LocalAxis:Vector, DontAddTable:Bool):Entity;
+    static function Axis(Ent1:Entity, Ent2:Entity, Bone1:Float, Bone2:Float, LPos1:Vector, LPos2:Vector, forcelimit:Float, torquelimit:Float, friction:Float, nocollide:Float, LocalAxis:Vector, DontAddTable:Bool):Entity;
     
     
 

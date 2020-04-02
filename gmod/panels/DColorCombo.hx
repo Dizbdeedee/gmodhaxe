@@ -22,7 +22,7 @@ extern class DColorCombo extends DPropertySheet {
     **/
     
     @:hook 
-    function OnValueChanged(newcol:AnyTable):Void;
+    private function OnValueChanged(newcol:AnyTable):Void;
     /**
         Returns true if the panel is currently being edited 
 		

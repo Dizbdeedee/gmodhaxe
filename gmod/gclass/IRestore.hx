@@ -14,7 +14,7 @@ extern class IRestore {
 		`**Returns:** The read integer number.
     **/
     
-    public function ReadInt():Float;
+    function ReadInt():Float;
     
     
     /**
@@ -23,7 +23,7 @@ extern class IRestore {
 		`**Returns:** The read vector.
     **/
     
-    public function ReadVector():Vector;
+    function ReadVector():Vector;
     
     
     /**
@@ -32,7 +32,7 @@ extern class IRestore {
 		`**Returns:** The entity that has been read.
     **/
     
-    public function ReadEntity():Entity;
+    function ReadEntity():Entity;
     
     
     /**
@@ -41,7 +41,7 @@ extern class IRestore {
 		`**Returns:** The read string. Maximum length is 1024.
     **/
     
-    public function ReadString():String;
+    function ReadString():String;
     
     
     /**
@@ -50,7 +50,7 @@ extern class IRestore {
 		`**Returns:** The angle that has been read
     **/
     
-    public function ReadAngle():Angle;
+    function ReadAngle():Angle;
     
     
     /**
@@ -59,7 +59,7 @@ extern class IRestore {
 		`**Returns:** The read floating point number.
     **/
     
-    public function ReadFloat():Float;
+    function ReadFloat():Float;
     
     
     /**
@@ -68,7 +68,7 @@ extern class IRestore {
 		`**Returns:** The boolean that has been read
     **/
     
-    public function ReadBool():Bool;
+    function ReadBool():Bool;
     
     
     /**
@@ -77,7 +77,7 @@ extern class IRestore {
 		To avoid all sorts of errors, you must end all blocks you start.
     **/
     
-    public function EndBlock():Void;
+    function EndBlock():Void;
     
     
     /**
@@ -104,7 +104,7 @@ extern class IRestore {
 		With example from ISave: StartBlock Test myawesomestring
     **/
     
-    public function StartBlock():String;
+    function StartBlock():String;
     
     
 }

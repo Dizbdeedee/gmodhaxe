@@ -158,7 +158,7 @@ extern class DComboBox extends DButton {
     **/
     
     @:hook 
-    function OnSelect(index:Float, value:String, data:Dynamic):Void;
+    private function OnSelect(index:Float, value:String, data:Dynamic):Void;
     /**
         Closes the combo box menu. Called when the combo box is clicked while open.
     **/

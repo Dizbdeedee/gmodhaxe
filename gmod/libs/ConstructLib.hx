@@ -31,7 +31,7 @@ package gmod.libs;
 		`**Returns:** The magnet
     **/
     
-    public static function Magnet(ply:Player, pos:Vector, ang:Angle, model:String, material:String, key:KEY, maxObjects:Float, strength:Float, ?nopull:Float, ?allowrot:Float, ?startOn:Float, toggle:Float, ?vel:Vector, ?aVel:Angle, ?frozen:Bool):Entity;
+    static function Magnet(ply:Player, pos:Vector, ang:Angle, model:String, material:String, key:KEY, maxObjects:Float, strength:Float, ?nopull:Float, ?allowrot:Float, ?startOn:Float, toggle:Float, ?vel:Vector, ?aVel:Angle, ?frozen:Bool):Entity;
     
     
     /**
@@ -46,7 +46,7 @@ package gmod.libs;
 		`data` | The table containing properties to apply. See PhysProperties structure
     **/
     
-    public static function SetPhysProp(ply:Player, ent:Entity, physObjID:Float, physObj:PhysObj, data:PhysProperties):Void;
+    static function SetPhysProp(ply:Player, ent:Entity, physObjID:Float, physObj:PhysObj, data:PhysProperties):Void;
     
     
 

@@ -23,7 +23,7 @@ package gmod.libs;
 		`**Returns:** The read integer number, or 0 if no integer could be read.
     **/
     
-    public static function ReadInt(bitCount:Int):Int;
+    static function ReadInt(bitCount:Int):Int;
     
     
     /**
@@ -34,7 +34,7 @@ package gmod.libs;
 		`**Returns:** The double-precision number, or 0 if no number could be read.
     **/
     
-    public static function ReadDouble():Float;
+    static function ReadDouble():Float;
     
     
     /**
@@ -45,7 +45,7 @@ package gmod.libs;
 		`float` | The float to be sent.
     **/
     
-    public static function WriteFloat(float:Float):Void;
+    static function WriteFloat(float:Float):Void;
     
     
     /**
@@ -56,7 +56,7 @@ package gmod.libs;
 		`**Returns:** The read vector, or Vector(0,0,0) if no vector could be read.
     **/
     
-    public static function ReadVector():Vector;
+    static function ReadVector():Vector;
     
     
     /**
@@ -70,7 +70,7 @@ package gmod.libs;
 		`client` | The player that sent the message. This will be nil in the client state.
     **/
     @:deprecated("INTERNAL: You may be looking for net. Receive.")
-    public static function Incoming(length:Float, client:Player):Void;
+    static function Incoming(length:Float, client:Player):Void;
     
     
     /**
@@ -84,7 +84,7 @@ package gmod.libs;
 		`b` | The amount of bits written to the current net message. Returns nil if no net message has been started.
     **/
     
-    public static function BytesWritten():NetLibBytesWrittenReturn;
+    static function BytesWritten():NetLibBytesWrittenReturn;
     
     
     /**
@@ -96,7 +96,7 @@ package gmod.libs;
 		`numberOfBits` | The size of the integer to be sent, in bits. Acceptable values range from any number 1 to 32 inclusive. For reference, 1 = bit, 4 = nibble, 8 = byte, 16 = short, 32 = long.
     **/
     
-    public static function WriteUInt(unsignedInteger:Float, numberOfBits:Float):Void;
+    static function WriteUInt(unsignedInteger:Float, numberOfBits:Float):Void;
     
     
     /**
@@ -107,7 +107,7 @@ package gmod.libs;
 		`**Returns:** The entity, or Entity(0) if no entity could be read.
     **/
     
-    public static function ReadEntity():Entity;
+    static function ReadEntity():Entity;
     
     
     /**
@@ -123,7 +123,7 @@ package gmod.libs;
 		`**Returns:** The binary data read, or a string containing one character with a byte of 0 if no data could be read.
     **/
     
-    public static function ReadData(length:Float):String;
+    static function ReadData(length:Float):String;
     
     
     /**
@@ -134,7 +134,7 @@ package gmod.libs;
 		`**Returns:** The matrix, or an empty matrix if no matrix could be read.
     **/
     
-    public static function ReadMatrix():VMatrix;
+    static function ReadMatrix():VMatrix;
     
     
     /**
@@ -191,7 +191,7 @@ package gmod.libs;
 		69 nil 1.218750 2.343750 3.437500 27 nil 1.000000 1.000000 0.000000 27 nil 0.283341 0.538349 0.793661 27 nil 0.499756 -0.499756 0.707452
     **/
     
-    public static function WriteNormal(normal:Vector):Void;
+    static function WriteNormal(normal:Vector):Void;
     
     
     /**
@@ -202,7 +202,7 @@ package gmod.libs;
 		`**Returns:** The read string, or a string with 0 length if no string could be read.
     **/
     
-    public static function ReadString():String;
+    static function ReadString():String;
     
     
     /**
@@ -217,7 +217,7 @@ package gmod.libs;
 		`table` | The table to be sent. WARNING If the table contains a nil key the table may not be read correctly. Not all objects can be sent over the network. Things like functions, IMaterials, etc will cause errors when reading the table from a net message.
     **/
     
-    public static function WriteTable(table:AnyTable):Void;
+    static function WriteTable(table:AnyTable):Void;
     
     
     /**
@@ -229,7 +229,7 @@ package gmod.libs;
 		`length` | The length of the binary data to be sent, in bytes.
     **/
     
-    public static function WriteData(binaryData:String, length:Float):Void;
+    static function WriteData(binaryData:String, length:Float):Void;
     
     
     /**
@@ -240,7 +240,7 @@ package gmod.libs;
 		`**Returns:** The normalized vector ( length = 1 ), or Vector(0,0,1) if no normal could be read.
     **/
     
-    public static function ReadNormal():Vector;
+    static function ReadNormal():Vector;
     
     
     /**
@@ -251,7 +251,7 @@ package gmod.libs;
 		`string` | The string to be sent.
     **/
     
-    public static function WriteString(string:String):Void;
+    static function WriteString(string:String):Void;
     
     
     /**
@@ -262,7 +262,7 @@ package gmod.libs;
 		`matrix` | The matrix to be sent.
     **/
     
-    public static function WriteMatrix(matrix:VMatrix):Void;
+    static function WriteMatrix(matrix:VMatrix):Void;
     
     
     /**
@@ -274,7 +274,7 @@ package gmod.libs;
 		`b` | The amount of data left to read in the current net message in bits. Returns nil if no net message has been started.
     **/
     
-    public static function BytesLeft():NetLibBytesLeftReturn;
+    static function BytesLeft():NetLibBytesLeftReturn;
     
     
     /**
@@ -285,7 +285,7 @@ package gmod.libs;
 		`**Returns:** The read angle, or Angle(0,0,0) if no angle could be read
     **/
     
-    public static function ReadAngle():Angle;
+    static function ReadAngle():Angle;
     
     #if client
     /**
@@ -306,7 +306,7 @@ package gmod.libs;
 		The netmessage "hello_world" is sent to the server. The server can handle this with net.Receive. Remember that any client has the potential to send any net message at any time. On your server-side net.Receive, make sure to verify the message sender's permissions whenever you can and prevent expensive functions from being run too often.
     **/
     
-    public static function SendToServer():Void;
+    static function SendToServer():Void;
     #end
     
     /**
@@ -347,7 +347,7 @@ package gmod.libs;
 		Client: Type = "Dining" Legs = 4 Material = "Wood" Server: Legs = 4 Material = "Wood" Type = "Dining"
     **/
     
-    public static function ReadTable():AnyTable;
+    static function ReadTable():AnyTable;
     
     
     /**
@@ -358,7 +358,7 @@ package gmod.libs;
 		`**Returns:** 0 or 1, or 0 if the bit could not be read.
     **/
     
-    public static function ReadBit():Float;
+    static function ReadBit():Float;
     
     
     /**
@@ -369,7 +369,7 @@ package gmod.libs;
 		`angle` | The angle to be sent.
     **/
     
-    public static function WriteAngle(angle:Angle):Void;
+    static function WriteAngle(angle:Angle):Void;
     
     
     /**
@@ -382,7 +382,7 @@ package gmod.libs;
 		`boolean` | Bit status (false = 0, true = 1)
     **/
     
-    public static function WriteBit(boolean:Bool):Void;
+    static function WriteBit(boolean:Bool):Void;
     
     
     /**
@@ -393,7 +393,7 @@ package gmod.libs;
 		`boolean` | Boolean value to write
     **/
     
-    public static function WriteBool(boolean:Bool):Void;
+    static function WriteBool(boolean:Bool):Void;
     
     
     /**
@@ -412,7 +412,7 @@ package gmod.libs;
 		`**Returns:** True if the message has been started.
     **/
     
-    public static function Start(messageName:String, ?unreliable:Bool):Bool;
+    static function Start(messageName:String, ?unreliable:Bool):Bool;
     
     
     /**
@@ -423,7 +423,7 @@ package gmod.libs;
 		`**Returns:** The Color structure read from the current net message, or Color(0,0,0,0) if the color could not be read.
     **/
     
-    public static function ReadColor():Color;
+    static function ReadColor():Color;
     
     
     /**
@@ -434,7 +434,7 @@ package gmod.libs;
 		`**Returns:** The floating point number, or 0 if no number could be read.
     **/
     
-    public static function ReadFloat():Float;
+    static function ReadFloat():Float;
     
     
     /**
@@ -475,7 +475,7 @@ package gmod.libs;
 		RECV: vec = 10000.000000 3616.000000 -3616.093750
     **/
     
-    public static function WriteVector(vector:Vector):Void;
+    static function WriteVector(vector:Vector):Void;
     
     
     /**
@@ -486,7 +486,7 @@ package gmod.libs;
 		`**Returns:** true or false, or false if the bool could not be read.
     **/
     
-    public static function ReadBool():Bool;
+    static function ReadBool():Bool;
     
     #if server
     /**
@@ -497,7 +497,7 @@ package gmod.libs;
 		`position` | Position that must be in players' visibility set.
     **/
     
-    public static function SendPVS(position:Vector):Void;
+    static function SendPVS(position:Vector):Void;
     #end
     #if server
     /**
@@ -508,7 +508,7 @@ package gmod.libs;
 		`position` | PAS position.
     **/
     
-    public static function SendPAS(position:Vector):Void;
+    static function SendPAS(position:Vector):Void;
     #end
     
     /**
@@ -519,7 +519,7 @@ package gmod.libs;
 		`**Returns:** The header number
     **/
     @:deprecated("INTERNAL")
-    public static function ReadHeader():Float;
+    static function ReadHeader():Float;
     
     
     /**
@@ -535,7 +535,7 @@ package gmod.libs;
 		`**Returns:** The unsigned integer read, or 0 if the integer could not be read.
     **/
     
-    public static function ReadUInt(numberOfBits:Float):Float;
+    static function ReadUInt(numberOfBits:Float):Float;
     
     
     /**
@@ -553,7 +553,7 @@ package gmod.libs;
 		`**Returns:** The value, or the respective blank value based on the type you're reading if the value could not be read.
     **/
     @:deprecated("INTERNAL: Used internally by net. ReadTable.")
-    public static function ReadType(?typeID:TYPE):Dynamic;
+    static function ReadType(?typeID:TYPE):Dynamic;
     
     
     /**
@@ -568,7 +568,7 @@ package gmod.libs;
 		`Data` | The data to be sent
     **/
     @:deprecated("INTERNAL: Used internally by net. WriteTable.")
-    public static function WriteType(Data:Dynamic):Void;
+    static function WriteType(Data:Dynamic):Void;
     
     
     /**
@@ -609,7 +609,7 @@ package gmod.libs;
 		Player <name> is 3 years old.
     **/
     
-    public static function WriteInt(integer:Float, bitCount:Float):Void;
+    static function WriteInt(integer:Float, bitCount:Float):Void;
     
     #if server
     /**
@@ -620,7 +620,7 @@ package gmod.libs;
 		`ply` | The player(s) to NOT send the message to. Can be a table of players
     **/
     
-    public static function SendOmit(ply:Player):Void;
+    static function SendOmit(ply:Player):Void;
     #end
     
     /**
@@ -631,7 +631,7 @@ package gmod.libs;
 		`double` | The double to be sent
     **/
     
-    public static function WriteDouble(double:Float):Void;
+    static function WriteDouble(double:Float):Void;
     
     
     /**
@@ -642,7 +642,7 @@ package gmod.libs;
 		`entity` | The entity to be sent.
     **/
     
-    public static function WriteEntity(entity:Entity):Void;
+    static function WriteEntity(entity:Entity):Void;
     
     
     /**
@@ -653,7 +653,7 @@ package gmod.libs;
 		`Color` | The Color structure you want to append to the net message.
     **/
     
-    public static function WriteColor(Color:Color):Void;
+    static function WriteColor(Color:Color):Void;
     
     
     /**
@@ -692,7 +692,7 @@ package gmod.libs;
 		When run server-side: Message from John received. Its length is 4. And client-side: Message from server received. Its length is 4.
     **/
     
-    public static function Receive(messageName:String, callback:Function):Void;
+    static function Receive(messageName:String, callback:Function):Void;
     
     #if server
     /**
@@ -710,7 +710,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Broadcast():Void;
+    static function Broadcast():Void;
     #end
     #if server
     /**
@@ -721,7 +721,7 @@ package gmod.libs;
 		`ply` | The player(s) to send the message to. Can be a table of players or a CRecipientFilter.
     **/
     
-    public static function Send(ply:Player):Void;
+    static function Send(ply:Player):Void;
     #end
     
 

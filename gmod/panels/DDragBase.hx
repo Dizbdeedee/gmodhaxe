@@ -78,7 +78,7 @@ extern class DDragBase extends DPanel {
     **/
     
     @:hook 
-    function OnModified():Void;
+    private function OnModified():Void;
     /**
         ***INTERNAL** 
 		

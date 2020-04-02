@@ -159,7 +159,7 @@ extern class DRGBPicker extends DPanel {
     **/
     
     @:hook 
-    function OnChange(col:Color):Void;
+    private function OnChange(col:Color):Void;
     
 }
 

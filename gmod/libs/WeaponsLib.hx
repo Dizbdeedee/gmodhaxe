@@ -30,7 +30,7 @@ package gmod.libs;
 		true false
     **/
     
-    public static function IsBasedOn(name:String, base:String):Bool;
+    static function IsBasedOn(name:String, base:String):Bool;
     
     
     /**
@@ -44,7 +44,7 @@ package gmod.libs;
 		`**Returns:** The retrieved table or nil
     **/
     
-    public static function Get(classname:String):AnyTable;
+    static function Get(classname:String):AnyTable;
     
     
     /**
@@ -57,7 +57,7 @@ package gmod.libs;
 		**Note:** This is not called after a SWEP auto refresh, and thus the inherited baseclass functions retrieved with baseclass.Get will not be updated
     **/
     @:deprecated("INTERNAL")
-    public static function OnLoaded():Void;
+    static function OnLoaded():Void;
     
     
     /**
@@ -85,7 +85,7 @@ package gmod.libs;
 			-- The rest of the SWEP table
     **/
     
-    public static function GetList():AnyTable;
+    static function GetList():AnyTable;
     
     
     /**
@@ -99,7 +99,7 @@ package gmod.libs;
 		`classname` | Classname to assign to that swep
     **/
     
-    public static function Register(swep_table:AnyTable, classname:String):Void;
+    static function Register(swep_table:AnyTable, classname:String):Void;
     
     
     /**
@@ -115,7 +115,7 @@ package gmod.libs;
 		`**Returns:** The weapon table
     **/
     
-    public static function GetStored(weapon_class:String):AnyTable;
+    static function GetStored(weapon_class:String):AnyTable;
     
     
 

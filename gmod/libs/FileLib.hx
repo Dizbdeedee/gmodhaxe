@@ -40,7 +40,7 @@ package gmod.libs;
 		31.01.2016
     **/
     
-    public static function Time(path:String, gamePath:String):Float;
+    static function Time(path:String, gamePath:String):Float;
     
     
     /**
@@ -74,7 +74,7 @@ package gmod.libs;
 		File: helloworld.txt Folder: ctp
     **/
     
-    public static function Find(name:String, path:String, ?sorting:String):FileLibFindReturn;
+    static function Find(name:String, path:String, ?sorting:String):FileLibFindReturn;
     
     
     /**
@@ -103,7 +103,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Open(fileName:String, fileMode:String, path:String):File;
+    static function Open(fileName:String, fileMode:String, path:String):File;
     
     
     /**
@@ -124,7 +124,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Delete(name:String):Void;
+    static function Delete(name:String):Void;
     
     
     /**
@@ -151,7 +151,7 @@ package gmod.libs;
 		This is the content!Append!
     **/
     
-    public static function Append(name:String, content:String):Void;
+    static function Append(name:String, content:String):Void;
     
     
     /**
@@ -173,7 +173,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Write(fileName:String, content:String):Void;
+    static function Write(fileName:String, content:String):Void;
     
     
     /**
@@ -204,7 +204,7 @@ package gmod.libs;
 		A folder named "a" is created in the data folder, which contains the folder named "b", which contains a folder named "c", etc.
     **/
     
-    public static function CreateDir(name:String):Void;
+    static function CreateDir(name:String):Void;
     
     
     /**
@@ -231,7 +231,7 @@ package gmod.libs;
 		true
     **/
     
-    public static function Exists(name:String, path:String):Bool;
+    static function Exists(name:String, path:String):Bool;
     
     
     /**
@@ -258,7 +258,7 @@ package gmod.libs;
 		false
     **/
     
-    public static function IsDir(fileName:String, path:String):Bool;
+    static function IsDir(fileName:String, path:String):Bool;
     
     
     /**
@@ -283,7 +283,7 @@ package gmod.libs;
 		8
     **/
     
-    public static function Size(fileName:String, path:String):Void;
+    static function Size(fileName:String, path:String):Void;
     
     
     /**
@@ -300,7 +300,7 @@ package gmod.libs;
 		`**Returns:** True on success, false otherwise.
     **/
     
-    public static function Rename(orignalFileName:String, targetFileName:String):Bool;
+    static function Rename(orignalFileName:String, targetFileName:String):Bool;
     
     
     /**
@@ -329,7 +329,7 @@ package gmod.libs;
 		This is the content!
     **/
     
-    public static function Read(fileName:String, ?path:String):String;
+    static function Read(fileName:String, ?path:String):String;
     
     
 

@@ -42,7 +42,7 @@ extern class Vector {
 		2 3 4
     **/
     
-    public function Add(vector:Vector):Void;
+    function Add(vector:Vector):Void;
     
     #if client
     /**
@@ -57,7 +57,7 @@ extern class Vector {
 		`**Returns:** The created ToScreenData structure.
     **/
     
-    public function ToScreen():ToScreenData;
+    function ToScreen():ToScreenData;
     #end
     
     /**
@@ -88,7 +88,7 @@ extern class Vector {
 		true
     **/
     
-    public function DistToSqr(otherVec:Vector):Float;
+    function DistToSqr(otherVec:Vector):Float;
     
     
     /**
@@ -120,7 +120,7 @@ extern class Vector {
 		```
     **/
     
-    public function WithinAABox(boxStart:Vector, boxEnd:Vector):Bool;
+    function WithinAABox(boxStart:Vector, boxEnd:Vector):Bool;
     
     
     /**
@@ -141,7 +141,7 @@ extern class Vector {
 		0.7428 0.5571 0.3714.
     **/
     
-    public function Normalize():Void;
+    function Normalize():Void;
     
     
     /**
@@ -154,7 +154,7 @@ extern class Vector {
 		`z` | The z component
     **/
     
-    public function SetUnpacked(x:Float, y:Float, z:Float):Void;
+    function SetUnpacked(x:Float, y:Float, z:Float):Void;
     
     
     /**
@@ -181,7 +181,7 @@ extern class Vector {
 		1, 2, 3.
     **/
     
-    public function Set(vector:Vector):Void;
+    function Set(vector:Vector):Void;
     
     
     /**
@@ -192,7 +192,7 @@ extern class Vector {
 		`**Returns:** Normalized version of the vector.
     **/
     
-    public function GetNormalized():Vector;
+    function GetNormalized():Vector;
     
     
     /**
@@ -214,7 +214,7 @@ extern class Vector {
 		true
     **/
     
-    public function IsZero():Bool;
+    function IsZero():Bool;
     
     
     /**
@@ -225,7 +225,7 @@ extern class Vector {
 		`**Returns:** Squared length of the vector
     **/
     
-    public function LengthSqr():Float;
+    function LengthSqr():Float;
     
     
     /**
@@ -253,7 +253,7 @@ extern class Vector {
 		5.3851647377014
     **/
     
-    public function Distance(otherVector:Vector):Float;
+    function Distance(otherVector:Vector):Float;
     
     
     /**
@@ -264,7 +264,7 @@ extern class Vector {
 		`**Returns:** Normalized version of the vector.
     **/
     @:deprecated("Use Vector: GetNormalized instead.")
-    public function GetNormal():Vector;
+    function GetNormal():Vector;
     
     
     /**
@@ -324,7 +324,7 @@ extern class Vector {
 		Returns true if ply is looking at (or close to) the target.
     **/
     
-    public function Dot(otherVector:Vector):Float;
+    function Dot(otherVector:Vector):Float;
     
     
     /**
@@ -349,7 +349,7 @@ extern class Vector {
 		Prints the player color of Player1 in RGB instead of a Vector
     **/
     
-    public function ToColor():Color;
+    function ToColor():Color;
     
     
     /**
@@ -380,7 +380,7 @@ extern class Vector {
 		```
     **/
     
-    public function Sub(vector:Vector):Void;
+    function Sub(vector:Vector):Void;
     
     
     /**
@@ -396,7 +396,7 @@ extern class Vector {
 		`**Returns:** The cross product of the two vectors.
     **/
     
-    public function Cross(otherVector:Vector):Vector;
+    function Cross(otherVector:Vector):Vector;
     
     
     /**
@@ -427,7 +427,7 @@ extern class Vector {
 		```
     **/
     
-    public function Div(divisor:Float):Void;
+    function Div(divisor:Float):Void;
     
     
     /**
@@ -438,14 +438,14 @@ extern class Vector {
 		`rotation` | The angle to rotate the vector by.
     **/
     
-    public function Rotate(rotation:Angle):Void;
+    function Rotate(rotation:Angle):Void;
     
     
     /**
         Sets x, y and z to 0.
     **/
     
-    public function Zero():Void;
+    function Zero():Void;
     
     
     /**
@@ -471,7 +471,7 @@ extern class Vector {
 		Angle( -90.000, -0.000, 0.000 )
     **/
     
-    public function AngleEx(up:Vector):Angle;
+    function AngleEx(up:Vector):Angle;
     
     
     /**
@@ -480,7 +480,7 @@ extern class Vector {
 		`**Returns:** The table with elements 1 = x, 2 = y, 3 = z.
     **/
     
-    public function ToTable():AnyTable;
+    function ToTable():AnyTable;
     
     
     /**
@@ -489,7 +489,7 @@ extern class Vector {
 		`**Returns:** Length of the vector in two dimensions, √ x² + y²
     **/
     
-    public function Length2D():Float;
+    function Length2D():Float;
     
     
     /**
@@ -519,7 +519,7 @@ extern class Vector {
 		Returns true if ply is looking at (or close to) the target.
     **/
     @:deprecated("This is an alias of Vector: Dot. Use that instead.")
-    public function DotProduct(Vector:Vector):Float;
+    function DotProduct(Vector:Vector):Float;
     
     
     /**
@@ -532,7 +532,7 @@ extern class Vector {
 		`c` | z or Vector[3].
     **/
     
-    public function Unpack():VectorUnpackReturn;
+    function Unpack():VectorUnpackReturn;
     
     
     /**
@@ -541,7 +541,7 @@ extern class Vector {
 		`**Returns:** The angle/direction of the vector.
     **/
     
-    public function Angle():Angle;
+    function Angle():Angle;
     
     
     /**
@@ -552,7 +552,7 @@ extern class Vector {
 		`**Returns:** Squared length of the vector in two dimensions
     **/
     
-    public function Length2DSqr():Float;
+    function Length2DSqr():Float;
     
     
     /**
@@ -573,7 +573,7 @@ extern class Vector {
 		27.748874664307.
     **/
     
-    public function Length():Float;
+    function Length():Float;
     
     
     /**
@@ -588,7 +588,7 @@ extern class Vector {
 		`**Returns:** Are the vectors equal or not.
     **/
     
-    public function IsEqualTol(compare:Vector, tolerance:Float):Bool;
+    function IsEqualTol(compare:Vector, tolerance:Float):Bool;
     
     
     /**
@@ -619,7 +619,7 @@ extern class Vector {
 		```
     **/
     
-    public function Mul(multiplier:Float):Void;
+    function Mul(multiplier:Float):Void;
     
     
 }

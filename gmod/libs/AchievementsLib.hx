@@ -32,7 +32,7 @@ package gmod.libs;
 		Prints achievement descriptions for all of your achievements into console.
     **/
     
-    public static function GetDesc(achievementID:Float):String;
+    static function GetDesc(achievementID:Float):String;
     
     
     /**
@@ -41,7 +41,7 @@ package gmod.libs;
 		Adds one to the count of things removed. Once this count reaches 5000, the 'Destroyer' achievement is unlocked.
     **/
     @:deprecated("INTERNAL")
-    public static function Remover():Void;
+    static function Remover():Void;
     
     
     /**
@@ -50,7 +50,7 @@ package gmod.libs;
 		Adds one to the count of how many times the spawnmenu has been opened. Once this count reaches 100,000, the 'Menu User' achievement is unlocked.
     **/
     @:deprecated("INTERNAL")
-    public static function SpawnMenuOpen():Void;
+    static function SpawnMenuOpen():Void;
     
     
     /**
@@ -78,7 +78,7 @@ package gmod.libs;
 		Prints all achievement names into console
     **/
     
-    public static function GetName(achievementID:Float):String;
+    static function GetName(achievementID:Float):String;
     
     
     /**
@@ -87,7 +87,7 @@ package gmod.libs;
 		`**Returns:** The amount of achievements available.
     **/
     
-    public static function Count():Float;
+    static function Count():Float;
     
     
     /**
@@ -115,7 +115,7 @@ package gmod.libs;
 		Prints achievement progress and goals for all of your achievements into console.
     **/
     
-    public static function GetGoal(achievementID:Float):Float;
+    static function GetGoal(achievementID:Float):Float;
     
     
     /**
@@ -124,7 +124,7 @@ package gmod.libs;
 		Adds one to the count of balloons burst. Once this count reaches 1000, the 'Popper' achievement is unlocked.
     **/
     @:deprecated("INTERNAL")
-    public static function BalloonPopped():Void;
+    static function BalloonPopped():Void;
     
     
     /**
@@ -133,7 +133,7 @@ package gmod.libs;
 		Adds one to the count of innocent animals killed. Once this count reaches 1000, the 'Innocent Bystander' achievement is unlocked.
     **/
     @:deprecated("INTERNAL")
-    public static function IncBystander():Void;
+    static function IncBystander():Void;
     
     
     /**
@@ -159,7 +159,7 @@ package gmod.libs;
 		Prints achievement progress for all of your achievements into console. Note: Non-progress based achievements will have 0, even if they are completed
     **/
     
-    public static function GetCount(achievementID:Float):Void;
+    static function GetCount(achievementID:Float):Void;
     
     
     /**
@@ -185,7 +185,7 @@ package gmod.libs;
 		boolean true (assuming you have unlocked achievement 7)
     **/
     
-    public static function IsAchieved(AchievementID:Float):Bool;
+    static function IsAchieved(AchievementID:Float):Bool;
     
     
     /**
@@ -194,7 +194,7 @@ package gmod.libs;
 		Adds one to the count of balls eaten. Once this count reaches 200, the 'Ball Eater' achievement is unlocked.
     **/
     @:deprecated("INTERNAL")
-    public static function EatBall():Void;
+    static function EatBall():Void;
     
     
     /**
@@ -203,7 +203,7 @@ package gmod.libs;
 		Adds one to the count of baddies killed. Once this count reaches 1000, the 'War Zone' achievement is unlocked.
     **/
     @:deprecated("INTERNAL")
-    public static function IncBaddies():Void;
+    static function IncBaddies():Void;
     
     
     /**
@@ -212,7 +212,7 @@ package gmod.libs;
 		Adds one to the count of NPCs spawned. Once this count reaches 1000, the 'Procreator' achievement is unlocked.
     **/
     @:deprecated("INTERNAL")
-    public static function SpawnedNPC():Void;
+    static function SpawnedNPC():Void;
     
     
     /**
@@ -221,7 +221,7 @@ package gmod.libs;
 		Adds one to the count of ragdolls spawned. Once this count reaches 2000, the 'Dollhouse' achievement is unlocked.
     **/
     @:deprecated("INTERNAL")
-    public static function SpawnedRagdoll():Void;
+    static function SpawnedRagdoll():Void;
     
     
     /**
@@ -230,7 +230,7 @@ package gmod.libs;
 		Adds one to the count of friendly NPCs killed. Once this count reaches 1000, the 'Bad Friend' achievement is unlocked.
     **/
     @:deprecated("INTERNAL")
-    public static function IncGoodies():Void;
+    static function IncGoodies():Void;
     
     
     /**
@@ -239,7 +239,7 @@ package gmod.libs;
 		Adds one to the count of props spawned. Once this count reaches 5000, the 'Creator' achievement is unlocked.
     **/
     @:deprecated("INTERNAL")
-    public static function SpawnedProp():Void;
+    static function SpawnedProp():Void;
     
     
 

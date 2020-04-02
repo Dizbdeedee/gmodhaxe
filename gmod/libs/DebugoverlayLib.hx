@@ -24,7 +24,7 @@ package gmod.libs;
 		`color` | The color of the box. Uses the Color structure
     **/
     
-    public static function EntityTextAtPosition(pos:Vector, line:Float, text:String, ?lifetime:Float, ?color:Color):Void;
+    static function EntityTextAtPosition(pos:Vector, line:Float, text:String, ?lifetime:Float, ?color:Color):Void;
     
     
     /**
@@ -41,7 +41,7 @@ package gmod.libs;
 		`color` | The color of the box. Uses the Color structure
     **/
     
-    public static function ScreenText(x:Float, y:Float, text:String, ?lifetime:Float, ?color:Color):Void;
+    static function ScreenText(x:Float, y:Float, text:String, ?lifetime:Float, ?color:Color):Void;
     
     
     /**
@@ -58,7 +58,7 @@ package gmod.libs;
 		`ignoreZ` | If true, will draw on top of everything; ignoring the Z buffer
     **/
     
-    public static function Cross(position:Vector, size:Float, ?lifetime:Float, ?color:Color, ?ignoreZ:Bool):Void;
+    static function Cross(position:Vector, size:Float, ?lifetime:Float, ?color:Color, ?ignoreZ:Bool):Void;
     
     
     /**
@@ -75,7 +75,7 @@ package gmod.libs;
 		`ignoreZ` | If true, will draw on top of everything; ignoring the Z buffer
     **/
     
-    public static function Sphere(origin:Vector, size:Float, ?lifetime:Float, ?color:Color, ?ignoreZ:Bool):Void;
+    static function Sphere(origin:Vector, size:Float, ?lifetime:Float, ?color:Color, ?ignoreZ:Bool):Void;
     
     
     /**
@@ -92,7 +92,7 @@ package gmod.libs;
 		`color` | The color of the box. Uses the Color structure
     **/
     
-    public static function Box(origin:Vector, mins:Vector, maxs:Vector, ?lifetime:Float, ?color:Color):Void;
+    static function Box(origin:Vector, mins:Vector, maxs:Vector, ?lifetime:Float, ?color:Color):Void;
     
     
     /**
@@ -111,7 +111,7 @@ package gmod.libs;
 		`color` | The color of the box. Uses the Color structure
     **/
     
-    public static function SweptBox(vStart:Vector, vEnd:Vector, vMins:Vector, vMaxs:Vector, ang:Angle, ?lifetime:Float, ?color:Color):Void;
+    static function SweptBox(vStart:Vector, vEnd:Vector, vMins:Vector, vMaxs:Vector, ang:Angle, ?lifetime:Float, ?color:Color):Void;
     
     
     /**
@@ -129,7 +129,7 @@ package gmod.libs;
 		`color` | The color of the box. Uses the Color structure
     **/
     
-    public static function BoxAngles(pos:Vector, mins:Vector, maxs:Vector, ang:Angle, ?lifetime:Float, ?color:Color):Void;
+    static function BoxAngles(pos:Vector, mins:Vector, maxs:Vector, ang:Angle, ?lifetime:Float, ?color:Color):Void;
     
     
     /**
@@ -147,7 +147,7 @@ package gmod.libs;
 		`ignoreZ` | If true, will draw on top of everything; ignoring the Z buffer
     **/
     
-    public static function Triangle(pos1:Vector, pos2:Vector, pos3:Vector, ?lifetime:Float, ?color:Color, ?ignoreZ:Bool):Void;
+    static function Triangle(pos1:Vector, pos2:Vector, pos3:Vector, ?lifetime:Float, ?color:Color, ?ignoreZ:Bool):Void;
     
     
     /**
@@ -160,7 +160,7 @@ package gmod.libs;
 		`position` | 
     **/
     
-    public static function Grid(position:Vector):Void;
+    static function Grid(position:Vector):Void;
     
     
     /**
@@ -176,7 +176,7 @@ package gmod.libs;
 		`viewCheck` | Clip text that is obscured
     **/
     
-    public static function Text(origin:Vector, text:String, ?lifetime:Float, ?viewCheck:Bool):Void;
+    static function Text(origin:Vector, text:String, ?lifetime:Float, ?viewCheck:Bool):Void;
     
     
     /**
@@ -193,7 +193,7 @@ package gmod.libs;
 		`ignoreZ` | If true, will draw on top of everything; ignoring the Z buffer
     **/
     
-    public static function Line(pos1:Vector, pos2:Vector, ?lifetime:Float, ?color:Color, ?ignoreZ:Bool):Void;
+    static function Line(pos1:Vector, pos2:Vector, ?lifetime:Float, ?color:Color, ?ignoreZ:Bool):Void;
     
     
     /**
@@ -210,7 +210,7 @@ package gmod.libs;
 		`ignoreZ` | If true, will draw on top of everything; ignoring the Z buffer
     **/
     
-    public static function Axis(origin:Vector, ang:Angle, size:Float, ?lifetime:Float, ?ignoreZ:Bool):Void;
+    static function Axis(origin:Vector, ang:Angle, size:Float, ?lifetime:Float, ?ignoreZ:Bool):Void;
     
     
 

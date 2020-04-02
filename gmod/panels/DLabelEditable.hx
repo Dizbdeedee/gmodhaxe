@@ -21,7 +21,7 @@ extern class DLabelEditable extends DLabel {
     **/
     
     @:hook 
-    function OnLabelTextChanged(txt:String):String;
+    private function OnLabelTextChanged(txt:String):String;
     
 }
 

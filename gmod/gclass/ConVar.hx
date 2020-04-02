@@ -14,7 +14,7 @@ extern class ConVar {
 		`value` | Value to set the ConVar to.
     **/
     
-    public function SetBool(value:Bool):Void;
+    function SetBool(value:Bool):Void;
     
     
     /**
@@ -23,7 +23,7 @@ extern class ConVar {
 		`**Returns:** The help text
     **/
     
-    public function GetHelpText():String;
+    function GetHelpText():String;
     
     
     /**
@@ -32,7 +32,7 @@ extern class ConVar {
 		`**Returns:** The name of the console variable.
     **/
     
-    public function GetName():String;
+    function GetName():String;
     
     
     /**
@@ -41,7 +41,7 @@ extern class ConVar {
 		`**Returns:** The float value of the console variable. If the value cannot be converted to a float, it will return 0.
     **/
     
-    public function GetFloat():Float;
+    function GetFloat():Float;
     
     
     /**
@@ -50,7 +50,7 @@ extern class ConVar {
 		`**Returns:** The integer value of the console variable. If it fails to convert to an integer, it will return 0. All float/decimal values will be rounded down. ( With math. floor )
     **/
     
-    public function GetInt():Float;
+    function GetInt():Float;
     
     
     /**
@@ -61,7 +61,7 @@ extern class ConVar {
 		`value` | Value to set the ConVar to.
     **/
     
-    public function SetFloat(value:Float):Void;
+    function SetFloat(value:Float):Void;
     
     
     /**
@@ -84,7 +84,7 @@ extern class ConVar {
 		Gamemode is sandbox
     **/
     
-    public function GetString():String;
+    function GetString():String;
     
     
     /**
@@ -95,7 +95,7 @@ extern class ConVar {
 		`value` | Value to set the ConVar to.
     **/
     
-    public function SetInt(value:Float):Void;
+    function SetInt(value:Float):Void;
     
     
     /**
@@ -106,7 +106,7 @@ extern class ConVar {
 		`value` | Value to set the ConVar to.
     **/
     
-    public function SetString(value:String):Void;
+    function SetString(value:String):Void;
     
     
     /**
@@ -115,7 +115,7 @@ extern class ConVar {
 		`**Returns:** The boolean value of the console variable. If the variable is numeric and not 0, the result will be true. Otherwise the result will be false.
     **/
     
-    public function GetBool():Bool;
+    function GetBool():Bool;
     
     
     /**
@@ -124,7 +124,7 @@ extern class ConVar {
 		`**Returns:** The default value of the console variable.
     **/
     
-    public function GetDefault():String;
+    function GetDefault():String;
     
     
 }

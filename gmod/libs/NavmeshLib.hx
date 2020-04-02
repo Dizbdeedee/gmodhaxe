@@ -22,7 +22,7 @@ package gmod.libs;
 		`b` | The normal of the ground layer.
     **/
     
-    public static function GetGroundHeight(pos:Vector):NavmeshLibGetGroundHeightReturn;
+    static function GetGroundHeight(pos:Vector):NavmeshLibGetGroundHeightReturn;
     
     
     /**
@@ -31,7 +31,7 @@ package gmod.libs;
 		**Note:** This process is highly resource intensive and it's not wise to use during normal gameplay
     **/
     
-    public static function BeginGeneration():Void;
+    static function BeginGeneration():Void;
     
     
     /**
@@ -40,7 +40,7 @@ package gmod.libs;
 		`**Returns:** The classname of the spawn point entity. By default returns "info_player_start"
     **/
     
-    public static function GetPlayerSpawnName():String;
+    static function GetPlayerSpawnName():String;
     
     
     /**
@@ -51,7 +51,7 @@ package gmod.libs;
 		`area` | The CNavLadder to set as the marked ladder.
     **/
     
-    public static function SetMarkedLadder(area:CNavLadder):Void;
+    static function SetMarkedLadder(area:CNavLadder):Void;
     
     
     /**
@@ -60,7 +60,7 @@ package gmod.libs;
 		`**Returns:** Whether a navmesh has been loaded when loading the map.
     **/
     
-    public static function IsLoaded():Bool;
+    static function IsLoaded():Bool;
     
     
     /**
@@ -77,14 +77,14 @@ package gmod.libs;
 		`**Returns:** A table of CNavAreas
     **/
     
-    public static function Find(pos:Vector, radius:Float, stepdown:Float, stepup:Float):AnyTable;
+    static function Find(pos:Vector, radius:Float, stepdown:Float, stepup:Float):AnyTable;
     
     
     /**
         Clears all the walkable positions, used before calling navmesh.BeginGeneration.
     **/
     
-    public static function ClearWalkableSeeds():Void;
+    static function ClearWalkableSeeds():Void;
     
     
     /**
@@ -93,7 +93,7 @@ package gmod.libs;
 		`**Returns:** A table of all the CNavAreas on the current map.
     **/
     
-    public static function GetAllNavAreas():AnyTable;
+    static function GetAllNavAreas():AnyTable;
     
     
     /**
@@ -109,7 +109,7 @@ package gmod.libs;
 		`**Returns:** The CNavArea with given ID.
     **/
     
-    public static function GetNavAreaByID(id:Float):CNavArea;
+    static function GetNavAreaByID(id:Float):CNavArea;
     
     
     /**
@@ -118,21 +118,21 @@ package gmod.libs;
 		`**Returns:** The position of the edit cursor.
     **/
     
-    public static function GetEditCursorPosition():Vector;
+    static function GetEditCursorPosition():Vector;
     
     
     /**
         Deletes every CNavArea and CNavLadder on the map without saving the changes.
     **/
     
-    public static function Reset():Void;
+    static function Reset():Void;
     
     
     /**
         Saves any changes made to navmesh to the .nav file.
     **/
     
-    public static function Save():Void;
+    static function Save():Void;
     
     
     /**
@@ -143,7 +143,7 @@ package gmod.libs;
 		`spawnPointClass` | The classname of what the player uses to spawn, automatically adds it to the walkable positions during map generation.
     **/
     
-    public static function SetPlayerSpawnName(spawnPointClass:String):Void;
+    static function SetPlayerSpawnName(spawnPointClass:String):Void;
     
     
     /**
@@ -152,7 +152,7 @@ package gmod.libs;
 		`**Returns:** The currently marked CNavArea.
     **/
     
-    public static function GetMarkedArea():CNavArea;
+    static function GetMarkedArea():CNavArea;
     
     
     /**
@@ -163,7 +163,7 @@ package gmod.libs;
 		`area` | The CNavArea to set as the marked area.
     **/
     
-    public static function SetMarkedArea(area:CNavArea):Void;
+    static function SetMarkedArea(area:CNavArea):Void;
     
     
     /**
@@ -177,7 +177,7 @@ package gmod.libs;
 		`**Returns:** The CNavLadder with given ID.
     **/
     
-    public static function GetNavLadderByID(id:Float):CNavLadder;
+    static function GetNavLadderByID(id:Float):CNavLadder;
     
     
     /**
@@ -192,7 +192,7 @@ package gmod.libs;
 		`**Returns:** The new CNavArea or nil if we failed for some reason.
     **/
     
-    public static function CreateNavArea(corner:Vector, opposite_corner:Vector):CNavArea;
+    static function CreateNavArea(corner:Vector, opposite_corner:Vector):CNavArea;
     
     
     /**
@@ -201,7 +201,7 @@ package gmod.libs;
 		`**Returns:** The highest ID of all nav areas on the map.
     **/
     
-    public static function GetNavAreaCount():Float;
+    static function GetNavAreaCount():Float;
     
     
     /**
@@ -210,7 +210,7 @@ package gmod.libs;
 		`**Returns:** The currently marked CNavLadder.
     **/
     
-    public static function GetMarkedLadder():CNavLadder;
+    static function GetMarkedLadder():CNavLadder;
     
     
     /**
@@ -227,14 +227,14 @@ package gmod.libs;
 		`**Returns:** The nav area.
     **/
     
-    public static function GetNavArea(pos:Vector, beneathLimit:Float):CNavArea;
+    static function GetNavArea(pos:Vector, beneathLimit:Float):CNavArea;
     
     
     /**
         Loads a new navmesh from the .nav file for current map discarding any changes made to the navmesh previously.
     **/
     
-    public static function Load():Void;
+    static function Load():Void;
     
     
     /**
@@ -255,7 +255,7 @@ package gmod.libs;
 		`**Returns:** The closest CNavArea found with the given parameters.
     **/
     
-    public static function GetNearestNavArea(pos:Vector, ?anyZ:Bool, ?maxDist:Float, ?checkLOS:MASK, ?checkGround:Bool, ?team:Float):CNavArea;
+    static function GetNearestNavArea(pos:Vector, ?anyZ:Bool, ?maxDist:Float, ?checkLOS:MASK, ?checkGround:Bool, ?team:Float):CNavArea;
     
     
     /**
@@ -264,7 +264,7 @@ package gmod.libs;
 		`**Returns:** Whether we're generating a nav mesh or not.
     **/
     
-    public static function IsGenerating():Bool;
+    static function IsGenerating():Bool;
     
     
     /**
@@ -276,7 +276,7 @@ package gmod.libs;
 		`dir` | The normal of this terrain position.
     **/
     
-    public static function AddWalkableSeed(pos:Vector, dir:Vector):Void;
+    static function AddWalkableSeed(pos:Vector, dir:Vector):Void;
     
     
 

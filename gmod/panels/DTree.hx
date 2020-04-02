@@ -84,7 +84,7 @@ extern class DTree extends DScrollPanel {
     **/
     
     @:hook 
-    function DoClick():Void;
+    private function DoClick():Void;
     /**
         Returns whether or not the Silkicons next to each node of the DTree will be displayed. 
 		
@@ -185,7 +185,7 @@ extern class DTree extends DScrollPanel {
     **/
     
     @:hook 
-    function DoRightClick():Void;
+    private function DoRightClick():Void;
     /**
         Set the currently selected top-level node.
 		
@@ -233,7 +233,7 @@ extern class DTree extends DScrollPanel {
     **/
     
     @:hook 
-    function OnNodeSelected(node:Panel):Void;
+    private function OnNodeSelected(node:Panel):Void;
     
 }
 

@@ -10,7 +10,7 @@ package gmod.libs;
         Clears all cached panels so that they reassess which skin they should be using.
     **/
     
-    public static function RefreshSkins():Void;
+    static function RefreshSkins():Void;
     
     
     /**
@@ -19,7 +19,7 @@ package gmod.libs;
 		`**Returns:** Skin table
     **/
     
-    public static function GetDefaultSkin():AnyTable;
+    static function GetDefaultSkin():AnyTable;
     
     
     /**
@@ -32,7 +32,7 @@ package gmod.libs;
 		`default` | The default color in case of failure.
     **/
     
-    public static function Color(name:String, pnl:Panel, _default:AnyTable):Void;
+    static function Color(name:String, pnl:Panel, _default:AnyTable):Void;
     
     
     /**
@@ -50,7 +50,7 @@ package gmod.libs;
 		`**Returns:** The returned variable from the skin hook
     **/
     
-    public static function SkinHook(type:String, name:String, panel:Panel, w:Float, h:Float):Dynamic;
+    static function SkinHook(type:String, name:String, panel:Panel, w:Float, h:Float):Dynamic;
     
     
     /**
@@ -59,7 +59,7 @@ package gmod.libs;
 		`**Returns:** Amount of times derma. RefreshSkins has been called.
     **/
     
-    public static function SkinChangeIndex():Float;
+    static function SkinChangeIndex():Float;
     
     
     /**
@@ -68,7 +68,7 @@ package gmod.libs;
 		`**Returns:** A listing of all available derma-based controls. See derma. Controls for structure and contents.
     **/
     
-    public static function GetControlList():AnyTable;
+    static function GetControlList():AnyTable;
     
     
     /**
@@ -81,7 +81,7 @@ package gmod.libs;
 		`skin` | Table containing skin data
     **/
     
-    public static function DefineSkin(name:String, descriptions:String, skin:AnyTable):Void;
+    static function DefineSkin(name:String, descriptions:String, skin:AnyTable):Void;
     
     
     /**
@@ -95,7 +95,7 @@ package gmod.libs;
 		`**Returns:** Skin table
     **/
     
-    public static function GetNamedSkin(name:String):AnyTable;
+    static function GetNamedSkin(name:String):AnyTable;
     
     
     /**
@@ -129,7 +129,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DefineControl(name:String, description:String, tab:AnyTable, base:String):AnyTable;
+    static function DefineControl(name:String, description:String, tab:AnyTable, base:String):AnyTable;
     
     
     /**
@@ -145,7 +145,7 @@ package gmod.libs;
 		`**Returns:** A function that is created with the GWEN library to draw a texture.
     **/
     
-    public static function SkinTexture(name:String, pnl:Panel, ?fallback:Dynamic):Function;
+    static function SkinTexture(name:String, pnl:Panel, ?fallback:Dynamic):Function;
     
     
     /**
@@ -154,7 +154,7 @@ package gmod.libs;
 		`**Returns:** Table of every Derma skin
     **/
     
-    public static function GetSkinTable():AnyTable;
+    static function GetSkinTable():AnyTable;
     
     
 

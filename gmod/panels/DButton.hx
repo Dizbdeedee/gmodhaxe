@@ -79,7 +79,7 @@ extern class DButton extends DLabel {
     **/
     
     @:hook 
-    function DoClick():Void;
+    private function DoClick():Void;
     /**
         Sets a console command to be called when the button is clicked. 
 		
@@ -117,7 +117,7 @@ extern class DButton extends DLabel {
     **/
     
     @:hook 
-    function DoMiddleClick():Void;
+    private function DoMiddleClick():Void;
     /**
         Returns true if the DButton is currently depressed (a user is clicking on it).
 		

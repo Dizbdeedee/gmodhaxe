@@ -12,7 +12,7 @@ extern class IVideoWriter {
 		`**Returns:** width
     **/
     
-    public function Width():Float;
+    function Width():Float;
     
     
     /**
@@ -21,7 +21,7 @@ extern class IVideoWriter {
 		`**Returns:** height
     **/
     
-    public function Height():Float;
+    function Height():Float;
     
     
     /**
@@ -51,7 +51,7 @@ extern class IVideoWriter {
 		```
     **/
     
-    public function AddFrame(frameTime:Float, downsample:Bool):Void;
+    function AddFrame(frameTime:Float, downsample:Bool):Void;
     
     
     /**
@@ -62,14 +62,14 @@ extern class IVideoWriter {
 		`record` | Record.
     **/
     
-    public function SetRecordSound(record:Bool):Void;
+    function SetRecordSound(record:Bool):Void;
     
     
     /**
         Ends the video recording and dumps it to disk.
     **/
     
-    public function Finish():Void;
+    function Finish():Void;
     
     
 }

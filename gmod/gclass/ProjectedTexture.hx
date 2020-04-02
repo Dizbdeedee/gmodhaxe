@@ -16,7 +16,7 @@ extern class ProjectedTexture {
 		`farZ` | 
     **/
     
-    public function SetFarZ(farZ:Float):Void;
+    function SetFarZ(farZ:Float):Void;
     
     
     /**
@@ -25,14 +25,14 @@ extern class ProjectedTexture {
 		`**Returns:** The constant attenuation
     **/
     
-    public function GetConstantAttenuation():Float;
+    function GetConstantAttenuation():Float;
     
     
     /**
         Removes the projected texture. After calling this, ProjectedTexture:IsValid will return false, and any hooks with the projected texture as the identifier will be automatically deleted.
     **/
     
-    public function Remove():Void;
+    function Remove():Void;
     
     
     /**
@@ -45,7 +45,7 @@ extern class ProjectedTexture {
 		`brightness` | The brightness to give the projected texture.
     **/
     
-    public function SetBrightness(brightness:Float):Void;
+    function SetBrightness(brightness:Float):Void;
     
     
     /**
@@ -54,7 +54,7 @@ extern class ProjectedTexture {
 		`**Returns:** The angles of the ProjectedTexture.
     **/
     
-    public function GetAngles():Angle;
+    function GetAngles():Angle;
     
     
     /**
@@ -63,7 +63,7 @@ extern class ProjectedTexture {
 		`**Returns:** The linear attenuation.
     **/
     
-    public function GetLinearAttenuation():Float;
+    function GetLinearAttenuation():Float;
     
     
     /**
@@ -72,7 +72,7 @@ extern class ProjectedTexture {
 		`**Returns:** The position of the ProjectedTexture.
     **/
     
-    public function GetPos():Vector;
+    function GetPos():Vector;
     
     
     /**
@@ -85,7 +85,7 @@ extern class ProjectedTexture {
 		`fov` | Must be higher than 0 and lower than 180
     **/
     
-    public function SetFOV(fov:Float):Void;
+    function SetFOV(fov:Float):Void;
     
     
     /**
@@ -98,7 +98,7 @@ extern class ProjectedTexture {
 		`newState` | 
     **/
     
-    public function SetEnableShadows(newState:Bool):Void;
+    function SetEnableShadows(newState:Bool):Void;
     
     
     /**
@@ -107,7 +107,7 @@ extern class ProjectedTexture {
 		`**Returns:** NearZ of the ProjectedTexture.
     **/
     
-    public function GetNearZ():Float;
+    function GetNearZ():Float;
     
     
     /**
@@ -124,7 +124,7 @@ extern class ProjectedTexture {
 		`nearZ` | 
     **/
     
-    public function SetNearZ(nearZ:Float):Void;
+    function SetNearZ(nearZ:Float):Void;
     
     
     /**
@@ -133,14 +133,14 @@ extern class ProjectedTexture {
 		`**Returns:** Whether shadows are enabled.
     **/
     
-    public function GetEnableShadows():Bool;
+    function GetEnableShadows():Bool;
     
     
     /**
         Updates the Projected Light and applies all previously set parameters.
     **/
     
-    public function Update():Void;
+    function Update():Void;
     
     
     /**
@@ -153,7 +153,7 @@ extern class ProjectedTexture {
 		`vFOV` | The new vertical Field Of View for the projected texture. Must be in range between 0 and 180.
     **/
     
-    public function SetVerticalFOV(vFOV:Float):Void;
+    function SetVerticalFOV(vFOV:Float):Void;
     
     
     /**
@@ -162,7 +162,7 @@ extern class ProjectedTexture {
 		`**Returns:** The quadratic attenuation
     **/
     
-    public function GetQuadraticAttenuation():Float;
+    function GetQuadraticAttenuation():Float;
     
     
     /**
@@ -171,7 +171,7 @@ extern class ProjectedTexture {
 		`**Returns:** The texture of the ProjectedTexture.
     **/
     
-    public function GetTexture():ITexture;
+    function GetTexture():ITexture;
     
     
     /**
@@ -184,7 +184,7 @@ extern class ProjectedTexture {
 		`angle` | 
     **/
     
-    public function SetAngles(angle:Angle):Void;
+    function SetAngles(angle:Angle):Void;
     
     
     /**
@@ -193,7 +193,7 @@ extern class ProjectedTexture {
 		`**Returns:** The texture frame.
     **/
     
-    public function GetTextureFrame():Float;
+    function GetTextureFrame():Float;
     
     
     /**
@@ -206,7 +206,7 @@ extern class ProjectedTexture {
 		`frame` | The frame index to use.
     **/
     
-    public function SetTextureFrame(frame:Float):Void;
+    function SetTextureFrame(frame:Float):Void;
     
     
     /**
@@ -234,7 +234,7 @@ extern class ProjectedTexture {
 		```
     **/
     
-    public function SetOrthographic(orthographic:Bool, left:Float, top:Float, right:Float, bottom:Float):Void;
+    function SetOrthographic(orthographic:Bool, left:Float, top:Float, right:Float, bottom:Float):Void;
     
     
     /**
@@ -243,7 +243,7 @@ extern class ProjectedTexture {
 		`**Returns:** The brightness of the ProjectedTexture.
     **/
     
-    public function GetBrightness():Float;
+    function GetBrightness():Float;
     
     
     /**
@@ -252,7 +252,7 @@ extern class ProjectedTexture {
 		`**Returns:** The projection distance of the ProjectedTexture.
     **/
     
-    public function GetFarZ():Float;
+    function GetFarZ():Float;
     
     
     /**
@@ -265,7 +265,7 @@ extern class ProjectedTexture {
 		`texture` | The name of the texture. Can also be an ITexture.
     **/
     
-    public function SetTexture(texture:String):Void;
+    function SetTexture(texture:String):Void;
     
     
     /**
@@ -274,7 +274,7 @@ extern class ProjectedTexture {
 		`**Returns:** The vertical FOV of the ProjectedTexture.
     **/
     
-    public function GetVerticalFOV():Float;
+    function GetVerticalFOV():Float;
     
     
     /**
@@ -283,7 +283,7 @@ extern class ProjectedTexture {
 		`**Returns:** The horizontal FOV of the ProjectedTexture.
     **/
     
-    public function GetHorizontalFOV():Float;
+    function GetHorizontalFOV():Float;
     
     
     /**
@@ -298,7 +298,7 @@ extern class ProjectedTexture {
 		`constAtten` | 
     **/
     
-    public function SetConstantAttenuation(constAtten:Float):Void;
+    function SetConstantAttenuation(constAtten:Float):Void;
     
     
     /**
@@ -311,7 +311,7 @@ extern class ProjectedTexture {
 		`position` | 
     **/
     
-    public function SetPos(position:Vector):Void;
+    function SetPos(position:Vector):Void;
     
     
     /**
@@ -326,7 +326,7 @@ extern class ProjectedTexture {
 		`e` | bottom
     **/
     
-    public function GetOrthographic():ProjectedTextureGetOrthographicReturn;
+    function GetOrthographic():ProjectedTextureGetOrthographicReturn;
     
     
     /**
@@ -343,7 +343,7 @@ extern class ProjectedTexture {
 		`linearAtten` | 
     **/
     
-    public function SetLinearAttenuation(linearAtten:Float):Void;
+    function SetLinearAttenuation(linearAtten:Float):Void;
     
     
     /**
@@ -354,7 +354,7 @@ extern class ProjectedTexture {
 		`**Returns:** Color structure, the color of the ProjectedTexture.
     **/
     
-    public function GetColor():Color;
+    function GetColor():Color;
     
     
     /**
@@ -365,7 +365,7 @@ extern class ProjectedTexture {
 		`**Returns:** Whether the projected texture is valid.
     **/
     
-    public function IsValid():Bool;
+    function IsValid():Bool;
     
     
     /**
@@ -378,7 +378,7 @@ extern class ProjectedTexture {
 		`color` | Must be a Color structure. Unlike other projected textures, this color can only go up to 255.
     **/
     
-    public function SetColor(color:Color):Void;
+    function SetColor(color:Color):Void;
     
     
     /**
@@ -393,7 +393,7 @@ extern class ProjectedTexture {
 		`quadAtten` | 
     **/
     
-    public function SetQuadraticAttenuation(quadAtten:Float):Void;
+    function SetQuadraticAttenuation(quadAtten:Float):Void;
     
     
     /**
@@ -406,7 +406,7 @@ extern class ProjectedTexture {
 		`hFOV` | The new horizontal Field Of View for the projected texture. Must be in range between 0 and 180.
     **/
     
-    public function SetHorizontalFOV(hFOV:Float):Void;
+    function SetHorizontalFOV(hFOV:Float):Void;
     
     
 }

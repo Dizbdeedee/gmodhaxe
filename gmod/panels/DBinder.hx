@@ -34,7 +34,7 @@ extern class DBinder extends DButton {
     **/
     
     @:hook 
-    function OnChange(iNum:Float):Void;
+    private function OnChange(iNum:Float):Void;
     /**
         Gets the code of the key currently bound by the DBinder. Same as DBinder:GetSelectedNumber.
 		

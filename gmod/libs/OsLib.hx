@@ -29,7 +29,7 @@ package gmod.libs;
 		1574269694
     **/
     
-    public static function time(?dateData:DateData):Float;
+    static function time(?dateData:DateData):Float;
     
     
     /**
@@ -60,7 +60,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function date(format:DateData, time:Float):DateData;
+    static function date(format:DateData, time:Float):DateData;
     
     
     /**
@@ -83,7 +83,7 @@ package gmod.libs;
 		runtime
     **/
     
-    public static function clock():Float;
+    static function clock():Float;
     
     
     /**
@@ -98,7 +98,7 @@ package gmod.libs;
 		`**Returns:** diffTime
     **/
     
-    public static function difftime(timeA:Float, timeB:Float):Float;
+    static function difftime(timeA:Float, timeB:Float):Float;
     
     
 

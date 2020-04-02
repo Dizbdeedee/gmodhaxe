@@ -164,7 +164,7 @@ extern class DFrame extends EditablePanel {
     **/
     
     @:hook 
-    function OnClose():Void;
+    private function OnClose():Void;
     /**
         Determines if the frame or one of its children has the screen focus.
 		

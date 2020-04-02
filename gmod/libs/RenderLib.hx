@@ -59,7 +59,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetLightingMode(Mode:Float):Void;
+    static function SetLightingMode(Mode:Float):Void;
     
     
     /**
@@ -72,7 +72,7 @@ package gmod.libs;
 		`segmentCount` | Amount of beam segments that are about to be drawn.
     **/
     
-    public static function StartBeam(segmentCount:Float):Void;
+    static function StartBeam(segmentCount:Float):Void;
     
     
     /**
@@ -107,7 +107,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Spin():Void;
+    static function Spin():Void;
     
     
     /**
@@ -116,7 +116,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetBloomTex1():ITexture;
+    static function GetBloomTex1():ITexture;
     
     
     /**
@@ -127,7 +127,7 @@ package gmod.libs;
 		`material` | The material to use as override, use nil to disable.
     **/
     
-    public static function MaterialOverride(material:IMaterial):Void;
+    static function MaterialOverride(material:IMaterial):Void;
     
     
     /**
@@ -146,7 +146,7 @@ package gmod.libs;
 		`c` | b
     **/
     
-    public static function ReadPixel(x:Float, y:Float):RenderLibReadPixelReturn;
+    static function ReadPixel(x:Float, y:Float):RenderLibReadPixelReturn;
     
     
     /**
@@ -157,7 +157,7 @@ package gmod.libs;
 		`shadowDistance` | The new maximum shadow distance.
     **/
     
-    public static function SetShadowDistance(shadowDistance:Float):Void;
+    static function SetShadowDistance(shadowDistance:Float):Void;
     
     
     /**
@@ -211,7 +211,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetStencilZFailOperation(zFailOperation:STENCILOPERATION):Void;
+    static function SetStencilZFailOperation(zFailOperation:STENCILOPERATION):Void;
     
     
     /**
@@ -220,7 +220,7 @@ package gmod.libs;
 		`**Returns:** dxLevel
     **/
     
-    public static function GetDXLevel():Float;
+    static function GetDXLevel():Float;
     
     
     /**
@@ -231,7 +231,7 @@ package gmod.libs;
 		`**Returns:** Render target named "__rt_supertexture2"
     **/
     
-    public static function GetSuperFPTex2():ITexture;
+    static function GetSuperFPTex2():ITexture;
     
     
     /**
@@ -245,7 +245,7 @@ package gmod.libs;
 		`**Returns:** lightColor
     **/
     
-    public static function GetLightColor(position:Vector):Vector;
+    static function GetLightColor(position:Vector):Vector;
     
     
     /**
@@ -344,7 +344,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetLightmapTexture(tex:ITexture):Void;
+    static function SetLightmapTexture(tex:ITexture):Void;
     
     
     /**
@@ -357,7 +357,7 @@ package gmod.libs;
 		`lightingOrigin` | The position from which the light should be "emitted".
     **/
     
-    public static function SetLightingOrigin(lightingOrigin:Vector):Void;
+    static function SetLightingOrigin(lightingOrigin:Vector):Void;
     
     
     /**
@@ -366,7 +366,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetMorphTex1():ITexture;
+    static function GetMorphTex1():ITexture;
     
     
     /**
@@ -393,7 +393,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ModelMaterialOverride(material:IMaterial):Void;
+    static function ModelMaterialOverride(material:IMaterial):Void;
     
     
     /**
@@ -411,7 +411,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetColorMaterial():Void;
+    static function SetColorMaterial():Void;
     
     
     /**
@@ -464,7 +464,7 @@ package gmod.libs;
 		You should now have Image.jpg in your garrysmod/garrysmod/data folder, containing a screenshot.
     **/
     
-    public static function Capture(captureData:RenderCaptureData):String;
+    static function Capture(captureData:RenderCaptureData):String;
     
     
     /**
@@ -477,7 +477,7 @@ package gmod.libs;
 		`scale` | The value which should be used as multiplier.
     **/
     
-    public static function ResetToneMappingScale(scale:Float):Void;
+    static function ResetToneMappingScale(scale:Float):Void;
     
     
     /**
@@ -516,7 +516,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function RenderView(?view:ViewData):Void;
+    static function RenderView(?view:ViewData):Void;
     
     
     /**
@@ -560,7 +560,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawSphere(position:Vector, radius:Float, longitudeSteps:Float, latitudeSteps:Float, ?color:Color):Void;
+    static function DrawSphere(position:Vector, radius:Float, longitudeSteps:Float, latitudeSteps:Float, ?color:Color):Void;
     
     
     /**
@@ -569,7 +569,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetRefractTexture():ITexture;
+    static function GetRefractTexture():ITexture;
     
     
     /**
@@ -581,7 +581,7 @@ package gmod.libs;
 		`shouldWrite` | If the previous argument is true, sets whether the next rendering operations should write to the depth buffer or not. Has no effect if the previous argument is false.
     **/
     
-    public static function OverrideDepthEnable(enable:Bool, shouldWrite:Bool):Void;
+    static function OverrideDepthEnable(enable:Bool, shouldWrite:Bool):Void;
     
     
     /**
@@ -590,7 +590,7 @@ package gmod.libs;
 		`**Returns:** Returns render. GetPowerOfTwoTexture.
     **/
     
-    public static function UpdatePowerOfTwoTexture():ITexture;
+    static function UpdatePowerOfTwoTexture():ITexture;
     
     
     /**
@@ -602,7 +602,7 @@ package gmod.libs;
 		`texture_to` | 
     **/
     
-    public static function CopyTexture(texture_from:ITexture, texture_to:ITexture):Void;
+    static function CopyTexture(texture_from:ITexture, texture_to:ITexture):Void;
     
     
     /**
@@ -615,7 +615,7 @@ package gmod.libs;
 		`c` | Fog Z distance set by render. SetFogZ
     **/
     
-    public static function GetFogDistances():RenderLibGetFogDistancesReturn;
+    static function GetFogDistances():RenderLibGetFogDistancesReturn;
     
     
     /**
@@ -632,7 +632,7 @@ package gmod.libs;
 		`mat` | The material to be used.
     **/
     
-    public static function SetMaterial(mat:IMaterial):Void;
+    static function SetMaterial(mat:IMaterial):Void;
     
     
     /**
@@ -648,7 +648,7 @@ package gmod.libs;
 		`blue` | The blue component of the light color.
     **/
     
-    public static function SetModelLighting(lightDirection:BOX, red:Float, green:Float, blue:Float):Void;
+    static function SetModelLighting(lightDirection:BOX, red:Float, green:Float, blue:Float):Void;
     
     
     /**
@@ -661,7 +661,7 @@ package gmod.libs;
 		`mat` | 
     **/
     
-    public static function BrushMaterialOverride(?mat:IMaterial):Void;
+    static function BrushMaterialOverride(?mat:IMaterial):Void;
     
     
     /**
@@ -670,7 +670,7 @@ package gmod.libs;
 		`**Returns:** Whether Pixel Shaders 2.0 are supported or not.
     **/
     
-    public static function SupportsPixelShaders_2_0():Bool;
+    static function SupportsPixelShaders_2_0():Bool;
     
     
     /**
@@ -733,7 +733,7 @@ package gmod.libs;
 		```
     **/
     @:deprecated("Use render. OverrideBlend instead.")
-    public static function OverrideBlendFunc(enabled:Bool, srcBlend:BLEND, destBlend:Float, ?srcBlendAlpha:BLEND, ?destBlendAlpha:Float):Void;
+    static function OverrideBlendFunc(enabled:Bool, srcBlend:BLEND, destBlend:Float, ?srcBlendAlpha:BLEND, ?destBlendAlpha:Float):Void;
     
     
     /**
@@ -765,7 +765,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawScreenQuadEx(startX:Float, startY:Float, width:Float, height:Float):Void;
+    static function DrawScreenQuadEx(startX:Float, startY:Float, width:Float, height:Float):Void;
     
     
     /**
@@ -877,14 +877,14 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawSprite(position:Vector, width:Float, height:Float, ?color:Color):Void;
+    static function DrawSprite(position:Vector, width:Float, height:Float, ?color:Color):Void;
     
     
     /**
         Enables HDR tone mapping which influences the brightness.
     **/
     
-    public static function TurnOnToneMapping():Void;
+    static function TurnOnToneMapping():Void;
     
     
     /**
@@ -897,7 +897,7 @@ package gmod.libs;
 		`lights` | A table containing up to 4 tables for each light source that should be set up. Each of these tables should contain the properties of its associated light source, see LocalLight structure.
     **/
     
-    public static function SetLocalModelLights(?lights:LocalLight):Void;
+    static function SetLocalModelLights(?lights:LocalLight):Void;
     
     
     /**
@@ -943,7 +943,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawWireframeSphere(position:Vector, radius:Float, longitudeSteps:Float, latitudeSteps:Float, ?color:Color, ?writeZ:Bool):Void;
+    static function DrawWireframeSphere(position:Vector, radius:Float, longitudeSteps:Float, latitudeSteps:Float, ?color:Color, ?writeZ:Bool):Void;
     
     
     /**
@@ -952,7 +952,7 @@ package gmod.libs;
 		`**Returns:** color
     **/
     
-    public static function GetAmbientLightColor():Vector;
+    static function GetAmbientLightColor():Vector;
     
     
     /**
@@ -961,7 +961,7 @@ package gmod.libs;
 		`**Returns:** The vector representing linear tone mapping scale.
     **/
     
-    public static function GetToneMappingScaleLinear():Vector;
+    static function GetToneMappingScaleLinear():Vector;
     
     
     /**
@@ -972,14 +972,14 @@ package gmod.libs;
 		`shadowDirections` | The new shadow direction.
     **/
     
-    public static function SetShadowDirection(shadowDirections:Vector):Void;
+    static function SetShadowDirection(shadowDirections:Vector):Void;
     
     
     /**
         Copies the entire screen to the screen effect texture, which can be acquired via render.GetScreenEffectTexture. This function is mainly intended to be used in GM:RenderScreenspaceEffects
     **/
     
-    public static function UpdateScreenEffectTexture():Void;
+    static function UpdateScreenEffectTexture():Void;
     
     
     /**
@@ -988,7 +988,7 @@ package gmod.libs;
 		`**Returns:** The bloom texture
     **/
     
-    public static function GetBloomTex0():ITexture;
+    static function GetBloomTex0():ITexture;
     
     
     /**
@@ -999,7 +999,7 @@ package gmod.libs;
 		`referenceValue` | Reference value.
     **/
     
-    public static function SetStencilReferenceValue(referenceValue:Float):Void;
+    static function SetStencilReferenceValue(referenceValue:Float):Void;
     
     
     /**
@@ -1017,7 +1017,7 @@ package gmod.libs;
 		`writeZ` | Sets whenever to write to the zBuffer.
     **/
     
-    public static function DrawWireframeBox(position:Vector, angle:Angle, mins:Vector, maxs:Vector, ?color:Color, ?writeZ:Bool):Void;
+    static function DrawWireframeBox(position:Vector, angle:Angle, mins:Vector, maxs:Vector, ?color:Color, ?writeZ:Bool):Void;
     
     
     /**
@@ -1030,7 +1030,7 @@ package gmod.libs;
 		`scale` | The target scale.
     **/
     
-    public static function SetGoalToneMappingScale(scale:Float):Void;
+    static function SetGoalToneMappingScale(scale:Float):Void;
     
     
     /**
@@ -1043,7 +1043,7 @@ package gmod.libs;
 		`blending` | Blending value from 0-1.
     **/
     
-    public static function SetBlend(blending:Float):Void;
+    static function SetBlend(blending:Float):Void;
     
     
     /**
@@ -1052,7 +1052,7 @@ package gmod.libs;
 		See render.PushFilterMag
     **/
     
-    public static function PopFilterMag():Void;
+    static function PopFilterMag():Void;
     
     
     /**
@@ -1061,7 +1061,7 @@ package gmod.libs;
 		`**Returns:** maxTextureWidth
     **/
     
-    public static function MaxTextureWidth():Float;
+    static function MaxTextureWidth():Float;
     
     
     /**
@@ -1094,7 +1094,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawQuad(vert1:Vector, vert2:Vector, vert3:Vector, vert4:Vector, ?color:AnyTable):Void;
+    static function DrawQuad(vert1:Vector, vert2:Vector, vert3:Vector, vert4:Vector, ?color:AnyTable):Void;
     
     
     /**
@@ -1103,7 +1103,7 @@ package gmod.libs;
 		`**Returns:** blend
     **/
     
-    public static function GetBlend():Float;
+    static function GetBlend():Float;
     
     
     /**
@@ -1116,7 +1116,7 @@ package gmod.libs;
 		`b` | The blue part of the color, 0-1.
     **/
     
-    public static function SetAmbientLight(r:Float, g:Float, b:Float):Void;
+    static function SetAmbientLight(r:Float, g:Float, b:Float):Void;
     
     
     /**
@@ -1125,7 +1125,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetMoBlurTex0():ITexture;
+    static function GetMoBlurTex0():ITexture;
     
     
     /**
@@ -1138,7 +1138,7 @@ package gmod.libs;
 		`fogStart` | The distance at which the fog starts showing up. NOTE If used in GM:SetupSkyboxFog, this value must be scaled by the first argument of the hook
     **/
     
-    public static function FogStart(fogStart:Float):Void;
+    static function FogStart(fogStart:Float):Void;
     
     
     /**
@@ -1153,7 +1153,7 @@ package gmod.libs;
 		`b` | The blue part of the color, 0-1
     **/
     
-    public static function ResetModelLighting(r:Float, g:Float, b:Float):Void;
+    static function ResetModelLighting(r:Float, g:Float, b:Float):Void;
     
     
     /**
@@ -1165,7 +1165,7 @@ package gmod.libs;
 		`texture` | The new render target to be used.
     **/
     
-    public static function SetRenderTargetEx(rtIndex:Float, texture:ITexture):Void;
+    static function SetRenderTargetEx(rtIndex:Float, texture:ITexture):Void;
     
     
     /**
@@ -1176,7 +1176,7 @@ package gmod.libs;
 		`maxDensity` | The maximum density of the fog, 0-1.
     **/
     
-    public static function FogMaxDensity(maxDensity:Float):Void;
+    static function FogMaxDensity(maxDensity:Float):Void;
     
     
     /**
@@ -1185,7 +1185,7 @@ package gmod.libs;
 		`**Returns:** Whether Vertex Shaders 2.0 are supported or not.
     **/
     
-    public static function SupportsVertexShaders_2_0():Bool;
+    static function SupportsVertexShaders_2_0():Bool;
     
     
     /**
@@ -1212,7 +1212,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PushFilterMin(texFilterType:TEXFILTER):Void;
+    static function PushFilterMin(texFilterType:TEXFILTER):Void;
     
     
     /**
@@ -1223,7 +1223,7 @@ package gmod.libs;
 		`texture` | The new render target to be used.
     **/
     
-    public static function SetRenderTarget(texture:ITexture):Void;
+    static function SetRenderTarget(texture:ITexture):Void;
     
     
     /**
@@ -1252,7 +1252,7 @@ package gmod.libs;
 		_rt_fullframefb _rt_fullframefb1
     **/
     
-    public static function GetScreenEffectTexture(?textureIndex:Float):ITexture;
+    static function GetScreenEffectTexture(?textureIndex:Float):ITexture;
     
     
     /**
@@ -1279,7 +1279,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetScissorRect(startX:Float, startY:Float, endX:Float, endY:Float, enable:Bool):Void;
+    static function SetScissorRect(startX:Float, startY:Float, endX:Float, endY:Float, enable:Bool):Void;
     
     
     /**
@@ -1290,7 +1290,7 @@ package gmod.libs;
 		`fogZ` | The fog Z.
     **/
     
-    public static function SetFogZ(fogZ:Float):Void;
+    static function SetFogZ(fogZ:Float):Void;
     
     
     /**
@@ -1303,7 +1303,7 @@ package gmod.libs;
 		`blue` | The blue channel of the shadow color.
     **/
     
-    public static function SetShadowColor(red:Float, green:Float, blue:Float):Void;
+    static function SetShadowColor(red:Float, green:Float, blue:Float):Void;
     
     
     /**
@@ -1312,7 +1312,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetResolvedFullFrameDepth():ITexture;
+    static function GetResolvedFullFrameDepth():ITexture;
     
     
     /**
@@ -1328,14 +1328,14 @@ package gmod.libs;
 		`ent` | If provided, this entity will be reused instead of creating a new one with ClientsideModel. Note that the ent's model, position and angles will be changed, and Entity: SetNoDraw will be set to true.
     **/
     
-    public static function Model(settings:AnyTable, ?ent:CSEnt):Void;
+    static function Model(settings:AnyTable, ?ent:CSEnt):Void;
     
     
     /**
         Ends the beam mesh of a beam started with render.StartBeam.
     **/
     
-    public static function EndBeam():Void;
+    static function EndBeam():Void;
     
     
     /**
@@ -1413,7 +1413,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PushRenderTarget(texture:ITexture, ?x:Float, ?y:Float, ?w:Float, ?h:Float):Void;
+    static function PushRenderTarget(texture:ITexture, ?x:Float, ?y:Float, ?w:Float, ?h:Float):Void;
     
     
     /**
@@ -1422,7 +1422,7 @@ package gmod.libs;
 		`**Returns:** r
     **/
     
-    public static function GetColorModulation():Float;
+    static function GetColorModulation():Float;
     
     
     /**
@@ -1433,7 +1433,7 @@ package gmod.libs;
 		`texFilterType` | The texture filter type, see TEXFILTER_ Enums
     **/
     
-    public static function PushFilterMag(texFilterType:TEXFILTER):Void;
+    static function PushFilterMag(texFilterType:TEXFILTER):Void;
     
     
     /**
@@ -1484,14 +1484,14 @@ package gmod.libs;
 		```
     **/
     
-    public static function EnableClipping(state:Bool):Bool;
+    static function EnableClipping(state:Bool):Bool;
     
     
     /**
         Pops the current flashlight mode from the flashlight mode stack.
     **/
     
-    public static function PopFlashlightMode():Void;
+    static function PopFlashlightMode():Void;
     
     
     /**
@@ -1527,7 +1527,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetViewPort(x:Float, y:Float, w:Float, h:Float):Void;
+    static function SetViewPort(x:Float, y:Float, w:Float, h:Float):Void;
     
     
     /**
@@ -1552,7 +1552,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawScreenQuad():Void;
+    static function DrawScreenQuad():Void;
     
     
     /**
@@ -1607,7 +1607,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ClearBuffersObeyStencil(r:Float, g:Float, b:Float, a:Float, depth:Bool):Void;
+    static function ClearBuffersObeyStencil(r:Float, g:Float, b:Float, a:Float, depth:Bool):Void;
     
     
     /**
@@ -1622,7 +1622,7 @@ package gmod.libs;
 		`compareFunction` | Compare function, see STENCILCOMPARISONFUNCTION_ Enums, and STENCIL_ Enums for short.
     **/
     
-    public static function SetStencilCompareFunction(compareFunction:STENCILCOMPARISONFUNCTION):Void;
+    static function SetStencilCompareFunction(compareFunction:STENCILCOMPARISONFUNCTION):Void;
     
     
     /**
@@ -1635,14 +1635,14 @@ package gmod.libs;
 		`b` | The blue channel multiplier normal ranging from 0-1.
     **/
     
-    public static function SetColorModulation(r:Float, g:Float, b:Float):Void;
+    static function SetColorModulation(r:Float, g:Float, b:Float):Void;
     
     
     /**
         Dumps the current render target and allows the pixels to be accessed by render.ReadPixel.
     **/
     
-    public static function CapturePixels():Void;
+    static function CapturePixels():Void;
     
     
     /**
@@ -1677,7 +1677,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function PushCustomClipPlane(normal:Vector, distance:Float):Void;
+    static function PushCustomClipPlane(normal:Vector, distance:Float):Void;
     
     
     /**
@@ -1694,7 +1694,7 @@ package gmod.libs;
 		`height` | The height of the rectangle to draw.
     **/
     
-    public static function DrawTextureToScreenRect(tex:ITexture, x:Float, y:Float, width:Float, height:Float):Void;
+    static function DrawTextureToScreenRect(tex:ITexture, x:Float, y:Float, width:Float, height:Float):Void;
     
     
     /**
@@ -1703,7 +1703,7 @@ package gmod.libs;
 		**Bug:** BUG This function also clears the stencil buffer. Use render.Clear in the meantime. Issue Tracker: #3317
     **/
     
-    public static function ClearDepth():Void;
+    static function ClearDepth():Void;
     
     
     /**
@@ -1756,7 +1756,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetStencilPassOperation(passOperation:STENCILOPERATION):Void;
+    static function SetStencilPassOperation(passOperation:STENCILOPERATION):Void;
     
     
     /**
@@ -1810,7 +1810,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetStencilEnable(newState:Bool):Void;
+    static function SetStencilEnable(newState:Bool):Void;
     
     
     /**
@@ -1821,7 +1821,7 @@ package gmod.libs;
 		`vec` | 
     **/
     
-    public static function SetToneMappingScaleLinear(vec:Vector):Void;
+    static function SetToneMappingScaleLinear(vec:Vector):Void;
     
     
     /**
@@ -1830,7 +1830,7 @@ package gmod.libs;
 		`**Returns:** Whether Pixel Shaders 1.4 are supported or not.
     **/
     
-    public static function SupportsPixelShaders_1_4():Bool;
+    static function SupportsPixelShaders_1_4():Bool;
     
     
     /**
@@ -1847,7 +1847,7 @@ package gmod.libs;
 		`color` | The color of the box. Uses the Color structure.
     **/
     
-    public static function DrawBox(position:Vector, angles:Angle, mins:Vector, maxs:Vector, ?color:Color):Void;
+    static function DrawBox(position:Vector, angles:Angle, mins:Vector, maxs:Vector, ?color:Color):Void;
     
     
     /**
@@ -1858,7 +1858,7 @@ package gmod.libs;
 		`DoStaticProps` | When true, this will also apply lighting changes to static props. This is really slow on large maps.
     **/
     
-    public static function RedownloadAllLightmaps(?DoStaticProps:Bool):Void;
+    static function RedownloadAllLightmaps(?DoStaticProps:Bool):Void;
     
     
     /**
@@ -1876,7 +1876,7 @@ package gmod.libs;
 		`color` | The color to be used. Uses the Color structure.
     **/
     
-    public static function DrawBeam(startPos:Vector, endPos:Vector, width:Float, textureStart:Float, textureEnd:Float, ?color:Color):Void;
+    static function DrawBeam(startPos:Vector, endPos:Vector, width:Float, textureStart:Float, textureEnd:Float, ?color:Color):Void;
     
     
     /**
@@ -1885,7 +1885,7 @@ package gmod.libs;
 		See render.PushFilterMin
     **/
     
-    public static function PopFilterMin():Void;
+    static function PopFilterMin():Void;
     
     
     /**
@@ -1898,7 +1898,7 @@ package gmod.libs;
 		`distance` | The distance at which the fog reaches its max density. NOTE If used in GM:SetupSkyboxFog, this value must be scaled by the first argument of the hook
     **/
     
-    public static function FogEnd(distance:Float):Void;
+    static function FogEnd(distance:Float):Void;
     
     
     /**
@@ -1931,14 +1931,14 @@ package gmod.libs;
 		```
     **/
     
-    public static function OverrideAlphaWriteEnable(enable:Bool, shouldWrite:Bool):Void;
+    static function OverrideAlphaWriteEnable(enable:Bool, shouldWrite:Bool):Void;
     
     
     /**
         Removes the current active clipping plane from the clip plane stack.
     **/
     
-    public static function PopCustomClipPlane():Void;
+    static function PopCustomClipPlane():Void;
     
     
     /**
@@ -1992,7 +1992,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetStencilFailOperation(failOperation:STENCILOPERATION):Void;
+    static function SetStencilFailOperation(failOperation:STENCILOPERATION):Void;
     
     
     /**
@@ -2006,7 +2006,7 @@ package gmod.libs;
 		`passes` | Amount of passes to go through
     **/
     
-    public static function BlurRenderTarget(rendertarget:ITexture, blurx:Float, blury:Float, passes:Float):Void;
+    static function BlurRenderTarget(rendertarget:ITexture, blurx:Float, blury:Float, passes:Float):Void;
     
     
     /**
@@ -2017,7 +2017,7 @@ package gmod.libs;
 		`cullMode` | Cullmode, see MATERIAL_CULLMODE_ Enums
     **/
     
-    public static function CullMode(cullMode:MATERIAL_CULLMODE):Void;
+    static function CullMode(cullMode:MATERIAL_CULLMODE):Void;
     
     
     /**
@@ -2125,7 +2125,7 @@ package gmod.libs;
 		File:DepthRange example.webm
     **/
     
-    public static function DepthRange(depthmin:Float, depthmax:Float):Void;
+    static function DepthRange(depthmin:Float, depthmax:Float):Void;
     
     
     /**
@@ -2134,7 +2134,7 @@ package gmod.libs;
 		`**Returns:** Fog mode, see MATERIAL_FOG_ Enums
     **/
     
-    public static function GetFogMode():MATERIAL_FOG;
+    static function GetFogMode():MATERIAL_FOG;
     
     
     /**
@@ -2145,7 +2145,7 @@ package gmod.libs;
 		`fogMode` | Fog mode, see MATERIAL_FOG_ Enums.
     **/
     
-    public static function FogMode(fogMode:MATERIAL_FOG):Void;
+    static function FogMode(fogMode:MATERIAL_FOG):Void;
     
     
     /**
@@ -2154,7 +2154,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetMorphTex0():ITexture;
+    static function GetMorphTex0():ITexture;
     
     
     /**
@@ -2163,7 +2163,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetFullScreenDepthTexture():ITexture;
+    static function GetFullScreenDepthTexture():ITexture;
     
     
     /**
@@ -2175,7 +2175,7 @@ package gmod.libs;
 		`shouldWrite` | If the previous argument is true, sets whether the next rendering operations should write to the color channel or not. Has no effect if the previous argument is false.
     **/
     
-    public static function OverrideColorWriteEnable(enable:Bool, shouldWrite:Bool):Void;
+    static function OverrideColorWriteEnable(enable:Bool, shouldWrite:Bool):Void;
     
     
     /**
@@ -2218,7 +2218,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ClearStencil():Void;
+    static function ClearStencil():Void;
     
     
     /**
@@ -2227,7 +2227,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetSmallTex1():ITexture;
+    static function GetSmallTex1():ITexture;
     
     
     /**
@@ -2257,7 +2257,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function CopyRenderTargetToTexture(Target:ITexture):Void;
+    static function CopyRenderTargetToTexture(Target:ITexture):Void;
     
     
     /**
@@ -2306,7 +2306,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function DrawQuadEasy(position:Vector, normal:Vector, width:Float, height:Float, color:Color, ?rotation:Float):Void;
+    static function DrawQuadEasy(position:Vector, normal:Vector, width:Float, height:Float, color:Color, ?rotation:Float):Void;
     
     
     /**
@@ -2315,7 +2315,7 @@ package gmod.libs;
 		`**Returns:** maxTextureHeight
     **/
     
-    public static function MaxTextureHeight():Float;
+    static function MaxTextureHeight():Float;
     
     
     /**
@@ -2333,7 +2333,7 @@ package gmod.libs;
 		`clearStencil` | Clear the stencil.
     **/
     
-    public static function Clear(r:Float, g:Float, b:Float, a:Float, ?clearDepth:Bool, ?clearStencil:Bool):Void;
+    static function Clear(r:Float, g:Float, b:Float, a:Float, ?clearDepth:Bool, ?clearStencil:Bool):Void;
     
     
     /**
@@ -2351,7 +2351,7 @@ package gmod.libs;
 		`writeZ` | Whether or not to consider the Z buffer. If false, the line will be drawn over everything currently drawn, if true, the line will be drawn with depth considered, as if it were a regular object in 3D space. BUG Enabling this option will cause the line to ignore the color's alpha. Issue Tracker: #1086
     **/
     
-    public static function DrawLine(startPos:Vector, endPos:Vector, ?color:Color, ?writeZ:Bool):Void;
+    static function DrawLine(startPos:Vector, endPos:Vector, ?color:Color, ?writeZ:Bool):Void;
     
     
     /**
@@ -2366,7 +2366,7 @@ package gmod.libs;
 		`**Returns:** A vector representing the light at that point.
     **/
     
-    public static function ComputeLighting(position:Vector, normal:Vector):Vector;
+    static function ComputeLighting(position:Vector, normal:Vector):Vector;
     
     
     /**
@@ -2377,7 +2377,7 @@ package gmod.libs;
 		`enable` | 
     **/
     
-    public static function SetWriteDepthToDestAlpha(enable:Bool):Void;
+    static function SetWriteDepthToDestAlpha(enable:Bool):Void;
     
     
     /**
@@ -2390,7 +2390,7 @@ package gmod.libs;
 		`suppressLighting` | True to suppress false to enable.
     **/
     
-    public static function SuppressEngineLighting(suppressLighting:Bool):Void;
+    static function SuppressEngineLighting(suppressLighting:Bool):Void;
     
     
     /**
@@ -2401,7 +2401,7 @@ package gmod.libs;
 		`newState` | 
     **/
     
-    public static function SetShadowsDisabled(newState:Bool):Void;
+    static function SetShadowsDisabled(newState:Bool):Void;
     
     
     /**
@@ -2437,7 +2437,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function GetRenderTarget():ITexture;
+    static function GetRenderTarget():ITexture;
     
     
     /**
@@ -2573,7 +2573,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetStencilWriteMask(mask:Float):Void;
+    static function SetStencilWriteMask(mask:Float):Void;
     
     
     /**
@@ -2586,7 +2586,7 @@ package gmod.libs;
 		`blue` | Blue channel of the fog color, 0 - 255.
     **/
     
-    public static function FogColor(red:Float, green:Float, blue:Float):Void;
+    static function FogColor(red:Float, green:Float, blue:Float):Void;
     
     
     /**
@@ -2599,7 +2599,7 @@ package gmod.libs;
 		`tex` | The texture to draw
     **/
     
-    public static function DrawTextureToScreen(tex:ITexture):Void;
+    static function DrawTextureToScreen(tex:ITexture):Void;
     
     
     /**
@@ -2608,7 +2608,7 @@ package gmod.libs;
 		`**Returns:** The power of two texture, which is _rt_poweroftwofb by default.
     **/
     
-    public static function GetPowerOfTwoTexture():ITexture;
+    static function GetPowerOfTwoTexture():ITexture;
     
     
     /**
@@ -2617,14 +2617,14 @@ package gmod.libs;
 		Silently fails if render.SupportsPixelShaders_2_0 returns false.
     **/
     
-    public static function UpdateFullScreenDepthTexture():Void;
+    static function UpdateFullScreenDepthTexture():Void;
     
     
     /**
         Pretty much alias of render.UpdatePowerOfTwoTexture but does not return the texture.
     **/
     
-    public static function UpdateRefractTexture():Void;
+    static function UpdateRefractTexture():Void;
     
     
     /**
@@ -2760,7 +2760,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetStencilTestMask(mask:Float):Void;
+    static function SetStencilTestMask(mask:Float):Void;
     
     
     /**
@@ -2773,7 +2773,7 @@ package gmod.libs;
 		`enable` | Whether the flashlight mode should be enabled or disabled.
     **/
     
-    public static function PushFlashlightMode(?enable:Bool):Void;
+    static function PushFlashlightMode(?enable:Bool):Void;
     
     
     /**
@@ -2794,7 +2794,7 @@ package gmod.libs;
 		`blendFuncAlpha` | The blend mode used for drawing the alpha layer BLENDFUNC_ Enums.
     **/
     
-    public static function OverrideBlend(enabled:Bool, srcBlend:BLEND, destBlend:BLEND, blendFunc:BLENDFUNC, ?srcBlendAlpha:BLEND, ?destBlendAlpha:BLEND, ?blendFuncAlpha:BLENDFUNC):Void;
+    static function OverrideBlend(enabled:Bool, srcBlend:BLEND, destBlend:BLEND, blendFunc:BLENDFUNC, ?srcBlendAlpha:BLEND, ?destBlendAlpha:BLEND, ?blendFuncAlpha:BLENDFUNC):Void;
     
     
     /**
@@ -2803,7 +2803,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetMoBlurTex1():ITexture;
+    static function GetMoBlurTex1():ITexture;
     
     
     /**
@@ -2817,7 +2817,7 @@ package gmod.libs;
 		`material` | The material to override with
     **/
     
-    public static function MaterialOverrideByIndex(index:Float, material:IMaterial):Void;
+    static function MaterialOverrideByIndex(index:Float, material:IMaterial):Void;
     
     
     /**
@@ -2826,7 +2826,7 @@ package gmod.libs;
 		`**Returns:** 
     **/
     
-    public static function GetSmallTex0():ITexture;
+    static function GetSmallTex0():ITexture;
     
     
     /**
@@ -2844,7 +2844,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function SetColorMaterialIgnoreZ():Void;
+    static function SetColorMaterialIgnoreZ():Void;
     
     
     /**
@@ -2857,7 +2857,7 @@ package gmod.libs;
 		`c` | Blue part of the color
     **/
     
-    public static function GetFogColor():RenderLibGetFogColorReturn;
+    static function GetFogColor():RenderLibGetFogColorReturn;
     
     
     /**
@@ -2868,7 +2868,7 @@ package gmod.libs;
 		`**Returns:** Render target named "__rt_supertexture1"
     **/
     
-    public static function GetSuperFPTex():ITexture;
+    static function GetSuperFPTex():ITexture;
     
     
     /**
@@ -2926,7 +2926,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function ClearStencilBufferRectangle(originX:Float, originY:Float, endX:Float, endY:Float, stencilValue:Float):Void;
+    static function ClearStencilBufferRectangle(originX:Float, originY:Float, endX:Float, endY:Float, stencilValue:Float):Void;
     
     
     /**
@@ -2940,7 +2940,7 @@ package gmod.libs;
 		`color` | The color, see Color structure
     **/
     
-    public static function ClearRenderTarget(texture:ITexture, color:Color):Void;
+    static function ClearRenderTarget(texture:ITexture, color:Color):Void;
     
     
     /**
@@ -2949,7 +2949,7 @@ package gmod.libs;
 		`**Returns:** supportsHDR
     **/
     
-    public static function SupportsHDR():Bool;
+    static function SupportsHDR():Bool;
     
     
     /**
@@ -2964,7 +2964,7 @@ package gmod.libs;
 		`**Returns:** A vector representing the light at that point.
     **/
     
-    public static function ComputeDynamicLighting(position:Vector, normal:Vector):Vector;
+    static function ComputeDynamicLighting(position:Vector, normal:Vector):Vector;
     
     
     /**
@@ -2973,7 +2973,7 @@ package gmod.libs;
 		This is should be called to restore the previous render target and viewport after a call to render.PushRenderTarget.
     **/
     
-    public static function PopRenderTarget():Void;
+    static function PopRenderTarget():Void;
     
     
     /**
@@ -2988,7 +2988,7 @@ package gmod.libs;
 		`**Returns:** color
     **/
     
-    public static function GetSurfaceColor(startPos:Vector, endPos:Vector):Vector;
+    static function GetSurfaceColor(startPos:Vector, endPos:Vector):Vector;
     
     
     /**
@@ -3002,7 +3002,7 @@ package gmod.libs;
 		`h` | Height of the HUD draw.
     **/
     
-    public static function RenderHUD(x:Float, y:Float, w:Float, h:Float):Void;
+    static function RenderHUD(x:Float, y:Float, w:Float, h:Float):Void;
     
     
     /**
@@ -3016,14 +3016,14 @@ package gmod.libs;
 		`color` | The color to be used. Uses the Color structure.
     **/
     
-    public static function AddBeam(startPos:Vector, width:Float, textureEnd:Float, color:Color):Void;
+    static function AddBeam(startPos:Vector, width:Float, textureEnd:Float, color:Color):Void;
     
     
     /**
         
     **/
     
-    public static function PerformFullScreenStencilOperation():Void;
+    static function PerformFullScreenStencilOperation():Void;
     
     
 

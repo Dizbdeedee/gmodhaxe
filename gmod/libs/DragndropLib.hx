@@ -12,14 +12,14 @@ package gmod.libs;
 		Starts the drag'n'drop.
     **/
     @:deprecated("INTERNAL")
-    public static function StartDragging():Void;
+    static function StartDragging():Void;
     
     
     /**
         Stops the drag'n'drop and calls dragndrop.Clear.
     **/
     
-    public static function StopDragging():Void;
+    static function StopDragging():Void;
     
     
     /**
@@ -28,7 +28,7 @@ package gmod.libs;
 		Handles the drop action of drag'n'drop library.
     **/
     @:deprecated("INTERNAL")
-    public static function Drop():Void;
+    static function Drop():Void;
     
     
     /**
@@ -37,14 +37,14 @@ package gmod.libs;
 		Updates the receiver to drop the panels onto. Called from dragndrop.Think.
     **/
     @:deprecated("INTERNAL")
-    public static function UpdateReceiver():Void;
+    static function UpdateReceiver():Void;
     
     
     /**
         If returns true, calls dragndrop.StopDragging in dragndrop.Drop. Seems to be broken and does nothing. Is it for override?
     **/
     
-    public static function HandleDroppedInGame():Void;
+    static function HandleDroppedInGame():Void;
     
     
     /**
@@ -60,7 +60,7 @@ package gmod.libs;
 		`my` | The local to the panel mouse cursor Y position when the click happened.
     **/
     @:deprecated("INTERNAL")
-    public static function CallReceiverFunction(bDoDrop:Bool, command:Float, mx:Float, my:Float):Void;
+    static function CallReceiverFunction(bDoDrop:Bool, command:Float, mx:Float, my:Float):Void;
     
     
     /**
@@ -69,14 +69,14 @@ package gmod.libs;
 		Handles all the drag'n'drop processes. Calls dragndrop.UpdateReceiver and dragndrop.HoverThink.
     **/
     @:deprecated("INTERNAL")
-    public static function Think():Void;
+    static function Think():Void;
     
     
     /**
         Clears all the internal drag'n'drop variables.
     **/
     
-    public static function Clear():Void;
+    static function Clear():Void;
     
     
     /**
@@ -85,7 +85,7 @@ package gmod.libs;
 		`**Returns:** True if the user is dragging something with the drag'n'drop system.
     **/
     
-    public static function IsDragging():Bool;
+    static function IsDragging():Bool;
     
     
     /**
@@ -94,7 +94,7 @@ package gmod.libs;
 		Handles the hover think. Called from dragndrop.Think.
     **/
     @:deprecated("INTERNAL")
-    public static function HoverThink():Void;
+    static function HoverThink():Void;
     
     
     /**
@@ -108,7 +108,7 @@ package gmod.libs;
 		`**Returns:** A table of all panels that are being currently dragged, if any.
     **/
     
-    public static function GetDroppable(?name:String):AnyTable;
+    static function GetDroppable(?name:String):AnyTable;
     
     
 

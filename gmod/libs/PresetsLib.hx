@@ -15,7 +15,7 @@ package gmod.libs;
 		`name` | Name of preset to remove
     **/
     
-    public static function Remove(groupname:String, name:String):Void;
+    static function Remove(groupname:String, name:String):Void;
     
     
     /**
@@ -49,7 +49,7 @@ package gmod.libs;
 		```
     **/
     
-    public static function Add(groupname:String, name:String, values:AnyTable):Void;
+    static function Add(groupname:String, name:String, values:AnyTable):Void;
     
     
     /**
@@ -62,7 +62,7 @@ package gmod.libs;
 		`callback` | 
     **/
     @:deprecated("INTERNAL")
-    public static function OverwritePresetPrompt(callback:Function):Void;
+    static function OverwritePresetPrompt(callback:Function):Void;
     
     
     /**
@@ -71,7 +71,7 @@ package gmod.libs;
 		Used internally to tell the player that the name they tried to use in their preset is not acceptable.
     **/
     @:deprecated("INTERNAL")
-    public static function BadNameAlert():Void;
+    static function BadNameAlert():Void;
     
     
     /**
@@ -85,7 +85,7 @@ package gmod.libs;
 		`**Returns:** All presets in specified group.
     **/
     
-    public static function GetTable(groupname:String):AnyTable;
+    static function GetTable(groupname:String):AnyTable;
     
     
     /**
@@ -100,7 +100,7 @@ package gmod.libs;
 		`**Returns:** true if the preset does exist
     **/
     
-    public static function Exists(type:String, name:String):Bool;
+    static function Exists(type:String, name:String):Bool;
     
     
     /**
@@ -113,7 +113,7 @@ package gmod.libs;
 		`newname` | New preset name
     **/
     
-    public static function Rename(groupname:String, oldname:String, newname:String):Void;
+    static function Rename(groupname:String, oldname:String, newname:String):Void;
     
     
 
