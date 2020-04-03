@@ -1,7 +1,0 @@
--cp src
--D lua-5.1
--D luajit
--D lua-vanilla
--main Main
---lua lua/shared.lua
---no-output
