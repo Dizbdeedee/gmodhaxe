@@ -1,0 +1,12 @@
+{
+    "name": "gmodhaxe",
+    "url" : "https://github.com/ponobodod/gmodhaxe/",
+    "license": "MIT",
+    "tags": ["lua", "gmod","extern"],
+    "description": "Externs + macros for gmod development",
+    "version": "0.1.0",
+    "classPath": "src",
+    "releasenote": "Initial release, everything is working correctly.",
+    "contributors": ["ponobodod"],
+    "main": "gmod.macros.Run"
+}
