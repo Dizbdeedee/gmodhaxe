@@ -42,6 +42,10 @@ class Networking {
             public function sendFilter(data:$complexAnon,recv:gmod.gclass.CRecipientFilter,?unreliable=false) {
 
             }
+
+            public function broadcast(data:$complexAnon,?unreliable=false) {
+
+            }
             #end
             #if client
             #if tink_core
@@ -79,6 +83,7 @@ class Networking {
         (cls.fields[0].kind.getParameters()[0]:Function).expr = sendExpr;
         (cls.fields[1].kind.getParameters()[0]:Function).expr = sendExpr;
         (cls.fields[2].kind.getParameters()[0]:Function).expr = sendExpr;
+        (cls.fields[3].kind.getParameters()[0]:Function).expr = genSendExpr(anon,netName,fields,true);
         #end
         #if client
         #if tink_core
@@ -92,7 +97,78 @@ class Networking {
         return TPath({name : clsName,pack: []});
     }
 
-    static function genSendExpr(anon:haxe.macro.Type,name:String,fields:Array<ClassField>):Expr {
+    public static function buildclient():ComplexType {
+        var type = Context.getLocalType();
+        var netName:String;
+        var anon:haxe.macro.Type;
+        var fields:Array<ClassField>;
+        
+        switch (type) {
+            case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), tdef = _.follow() => a = TAnonymous(_.get() => b = {fields : f})]):
+                netName = s;
+                fields = f;
+                anon = tdef;
+                
+            default:
+                trace("Could not generate net message");
+                return null;
+        }
+        var complexAnon = Context.toComplexType(anon);
+        var clsName = 'NETMESSAGECL_$netName';
+        var cls = macro class $clsName {
+            
+            #if client
+
+            public function send(data:$complexAnon,?unreliable=false) {
+
+            }
+            #end
+            #if server
+            #if tink_core
+            public var signal(default,never):tink.CoreApi.Signal<$complexAnon>;
+
+            var signalTrigger = new tink.CoreApi.SignalTrigger<$complexAnon>();
+            #else
+            var recievers:Map<String,(data:$complexAnon) -> Void> = new Map();
+
+            public function addReceiver(ident:String,recv:(data:$complexAnon) -> Void) {
+                recievers.set(ident,recv);
+            }
+
+            public function removeReceiver(ident:String) {
+                recievers.remove(ident);
+            }
+            #end
+            function receive(len:Int,plyrSent:gmod.gclass.Player) {
+
+            }
+            #end
+            public function new() {
+                #if server
+                untyped signal = signalTrigger.asSignal();
+                gmod.libs.NetLib.Receive($v{netName},receive);
+                gmod.libs.UtilLib.AddNetworkString($v{netName});
+                #end
+            }
+        }
+        
+        #if client
+        var sendExpr = genSendExpr(anon,netName,fields,false,true);
+        (cls.fields[0].kind.getParameters()[0]:Function).expr = sendExpr;
+        #end
+        #if server
+        #if tink_core
+        (cls.fields[2].kind.getParameters()[0]:Function).expr = genRecvExpr(anon,fields,true);
+        #else
+        (cls.fields[3].kind.getParameters()[0]:Function).expr = genRecvExpr(anon,fields,true);
+        #end
+        #end
+        Context.defineType(cls);
+        
+        return TPath({name : clsName,pack: []});
+    }
+
+    static function genSendExpr(anon:haxe.macro.Type,name:String,fields:Array<ClassField>,?broadcast=false,?client=false):Expr {
         var macArray:Array<Expr> = [];
         macArray.push(macro gmod.libs.NetLib.Start($v{name},unreliable));
         var entity = Context.resolveType((macro : gmod.gclass.Entity),Context.currentPos());
@@ -129,11 +205,17 @@ class Networking {
                     trace(field.type.toString());
             }
         }
-        macArray.push(macro gmod.libs.NetLib.Send(recv));
+        if (broadcast) {
+            macArray.push(macro gmod.libs.NetLib.Broadcast());
+        } else if (client) {
+            macArray.push(macro gmod.libs.NetLib.SendToServer());
+        } else {
+            macArray.push(macro gmod.libs.NetLib.Send(recv));
+        }
         return macro $b{macArray};
     }
 
-    static function genRecvExpr(anon:haxe.macro.Type,fields:Array<ClassField>):Expr { 
+    static function genRecvExpr(anon:haxe.macro.Type,fields:Array<ClassField>,?client=false):Expr { 
         var recvAnon:Array<ObjectField> = [];
         var entity = Context.resolveType((macro : gmod.gclass.Entity),Context.currentPos());
         var string = Context.resolveType((macro : String),Context.currentPos());
@@ -148,6 +230,7 @@ class Networking {
     
         for (field in fields) {
             var name = field.name;
+            if (name == "sentPlayer") continue;
             //trace(name);
             switch (field.type) {
                 case twoWayUni(_,int) => true:
@@ -170,6 +253,10 @@ class Networking {
                     trace('could not generate reciever field:${field.name}');
                     trace(field.type.toString());
             }
+        }
+        if (client) {
+
+            recvAnon.push({field : "sentPlayer", expr : macro plyrSent});
         }
         var objdel:Expr = {
             expr : EObjectDecl(recvAnon),

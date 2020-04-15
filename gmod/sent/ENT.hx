@@ -1,7 +1,10 @@
 package gmod.sent;
 
-class ENT {
-    /**
+class ENT<T:Entity> {
+	
+	var self(default,never):T;
+	var Base:String;
+	/**
         Called when the entity is created. This is called when you Entity:Spawn the custom entity. 
 		
 		This is called after ENTITY:SetupDataTables and GM:OnEntityCreated. 

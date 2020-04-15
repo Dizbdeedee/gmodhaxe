@@ -1,4 +1,5 @@
-package gmod.net;
+package gmod;
+
 
 /**
     Generate a net message by adding a variable to any class
@@ -9,7 +10,7 @@ package gmod.net;
     ```
 **/
 @:genericBuild(gmod.macros.Networking.build())
-extern class NET_Server<Const,Data> {
+extern class NET_Server<Const:String,Data> {
 }
 
 
