@@ -1,5 +1,4 @@
-package gmod;
-
+package gmod.macros;
 
 #if client
 

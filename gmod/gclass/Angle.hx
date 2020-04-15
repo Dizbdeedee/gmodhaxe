@@ -7,10 +7,29 @@ package gmod.gclass;
 	Created by Angle & many more functions.
 **/
 extern class Angle {
-    
-    public var p:Float;
-    public var y:Float;
-    public var r:Float;
+    /**
+        The pitch component of the angle
+    **/
+    var p:Float;
+    /**
+        The yaw component of the angle
+    **/
+    var y:Float;
+    /**
+        The roll component of the angle
+    **/
+    var r:Float;
+
+    @:noCompletion
+    var pitch:Float;
+    @:noCompletion
+    var yaw:Float;
+    @:noCompletion
+    var roll:Float;    
+    @:noCompletion
+    var x:Float;
+    @:noCompletion
+    var z:Float;
 
     /**
         Adds the values of the argument angle to the orignal angle. This functions the same as angle1 + angle2 without creating a new angle object, skipping object construction and garbage collection.

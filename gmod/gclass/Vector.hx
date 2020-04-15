@@ -7,7 +7,18 @@ package gmod.gclass;
 	Created by Vector & many more functions.
 **/
 extern class Vector {
-    
+	/**
+		The X component of the vector.
+	**/
+	var x:Float;
+	/**
+		The Y component of the vector.
+	**/
+	var y:Float;
+	/**
+		The Z component of the vector.
+	**/
+	var z:Float;
     /**
         Adds the values of the argument vector to the orignal vector. This functions the same as vector1 + vector2 without creating a new vector object, skipping object construction and garbage collection.
 		
