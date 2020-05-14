@@ -8,45 +8,37 @@ class Run {
 
     static var client = 
 "-cp src
--D lua-5.1
--D lua-vanilla
--D luajit
 -D client
 
 #Use this to generate a folder structure for an addon
 -D addonName=myaddon 
 #Use this + above to generate a folder structure for a gamemode
 -D gamemode=myaddon 
-
 -D generateLuaInit
+
 #A fully qualified path to your addon folder. Will automatically copy everything inside generated to it
-#-D gmodAddonFolder= 
---macro gmod.macros.InitMacro.init()
+#-D gmodAddonFolder=
+
+-lib gmodhaxe
 -main Main
 --lua lua/client.lua";
 
     static var server =
 "-cp src
--D lua-5.1
--D lua-vanilla
--D luajit
 -D server
 
 #Use this to generate a folder structure for an addon
 -D addonName=myaddon 
 #Use this + above to generate a folder structure for a gamemode
 -D gamemode=myaddon 
-
 -D generateLuaInit
---macro gmod.macros.InitMacro.init()
+
 -main Main
+-lib gmodhaxe
 --lua lua/server.lua";
 
     static var shared =
 "-cp src
--D lua-5.1
--D luajit
--D lua-vanilla
 -main Main
 --lua lua/shared.lua
 --no-output
@@ -71,7 +63,7 @@ class Main {
         }
         trace(\"Hello world!\");
     }
-";
+}";
 
     static var exampleent =
 "import gmod.sent.SentBuild;
@@ -100,16 +92,77 @@ class ExampleGMOverride implements BuildOverrides extends gmod.gamemode.GM {
     
 }
 ";
+    static var settingjson = 
+"{
+    \"haxe.configurations\": [
+        [\"server.hxml\"],
+        [\"client.hxml\"],
+        [\"shared_view.hxml\"]
+    ],
+}
+";
+    static var tasksjson = 
+"{
+	\"version\": \"2.0.0\",
+	\"tasks\": [
+        {
 
-    public static function init(dir:String) {
+            \"type\": \"hxml\",
+            \"file\": \"build.hxml\",
+            \"problemMatcher\": [
+                \"$haxe-absolute\",
+                \"$haxe\",
+                \"$haxe-error\",
+                \"$haxe-trace\"
+            ],
+            
+            \"group\": {
+                \"kind\": \"build\",
+                \"isDefault\": true
+            },
+            \"label\": \"gmodhaxe: build server + client\"
+        },
+        {
+            \"type\": \"hxml\",
+            \"file\": \"server.hxml\",
+            \"problemMatcher\": [
+                \"$haxe-absolute\",
+                \"$haxe\",
+                \"$haxe-error\",
+                \"$haxe-trace\"
+            ],
+            
+            \"group\": \"build\",
+            \"label\": \"gmodhaxe: build server\"
+        },
+        {
+            \"type\": \"hxml\",
+            \"file\": \"client.hxml\",
+            \"problemMatcher\": [
+                \"$haxe-absolute\",
+                \"$haxe\",
+                \"$haxe-error\",
+                \"$haxe-trace\"
+            ],
+            \"group\": \"build\",
+            \"label\": \"gmodhaxe: build client\"
+        }
+    ]
+}";
+
+    public static function main() {
+        var dir = Sys.args()[0];
         File.saveContent(Path.join([dir,"client.hxml"]),client);
         File.saveContent(Path.join([dir,"server.hxml"]),server);
         File.saveContent(Path.join([dir,"shared_view.hxml"]),shared);
-        File.saveContent(Path.join([dir,"full_compile.hxml"]),full);
+        File.saveContent(Path.join([dir,"build.hxml"]),full);
         FileSystem.createDirectory(Path.join([dir,"src"]));
         File.saveContent(Path.join([dir,"src","Main.hx"]),_main);
         FileSystem.createDirectory(Path.join([dir,"examples"]));
-        File.saveContent(Path.join([dir,"examples","ExampleEntity"]),exampleent);
-        File.saveContent(Path.join([dir,"examples","ExampleGMOverride"]),exampleGM);
+        File.saveContent(Path.join([dir,"examples","ExampleEntity.hx"]),exampleent);
+        File.saveContent(Path.join([dir,"examples","ExampleGMOverride.hx"]),exampleGM);
+        FileSystem.createDirectory(Path.join([dir,".vscode"]));
+        File.saveContent(Path.join([dir,".vscode","settings.json"]),settingjson);
+        File.saveContent(Path.join([dir,".vscode","tasks.json"]),tasksjson);
     }
 }
