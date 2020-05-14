@@ -11,20 +11,28 @@ import haxe.macro.Context;
 import haxe.macro.Expr.TypeDefinition;
 using haxe.macro.TypeTools;
 using StringTools;
-
 #end
 class InitMacro {
     public static var baseEntFolder:String;
     public static var exportName:String;
     #if macro
     static public function init() {
-        
-        #if (!display)
+        Compiler.include("gmod.macros.include",true,null,null,true);
+        Compiler.keep("gmod.macros.include",null,true);
         Compiler.addMetadata("@:extern","lua.Boot","__string_rec",true);
-        Compiler.include("gmod.Patch");
-        Compiler.keep("gmod.Patch");
+        // trace(Context.getClassPath());
+        // trace(Context.resolvePath("Patch.hx"));
+        // trace(Sys.programPath());
+        // trace(Context.getLocalModule());
+        // trace(Context.getClassPath());
+        // trace(Sys.environment());
+        // trace(Context.getPosInfos(Context.currentPos()).file);
+        
+        // Compiler.include("gmod.Patch",true,null,null,true);
+        Compiler.keep("gmod.Patch",null,true);
+        
         var addonName:String;
-         
+        #if (!display) 
         Context.onAfterGenerate(supressBootWarning);
         if (!Context.defined("lua") || Context.defined("display_details") ) {
             return;

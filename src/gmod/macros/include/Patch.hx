@@ -1,10 +1,11 @@
-package gmod;
+package gmod.macros.include;
 
 import gmod.Gmod;
 
 
 @:native("__lua_Boot")
 @:noCompletion
+@:keep
 class Patch {
 
     /**
@@ -12,6 +13,7 @@ class Patch {
         @see lua.Boot
     **/
     @:access(lua.Boot)
+    @:keep
     static function __string_rec(o:Dynamic,s:String = "") {
         if (s.length >= 5)
             return "<...>";
