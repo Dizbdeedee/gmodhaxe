@@ -1,5 +1,5 @@
 package gmod;
-#if !macro
+#if (!macro && !eval)
 import lua.Table.AnyTable;
 import haxe.extern.Rest;
 import haxe.Constraints.Function;
