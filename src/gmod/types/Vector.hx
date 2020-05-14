@@ -1,11 +1,11 @@
 package gmod.types;
-import gmod.libs.GlobalLib;
+import gmod.Gmod;
 import gmod.gclass.Vector as GVec;
 @:forward
 extern abstract Vector(GVec) from GVec to GVec {
 
     public inline function new(?x:Float,?y:Float,?z:Float) {
-        this = GlobalLib.Vector(x,y,z);
+        this = Gmod.Vector(x,y,z);
     }
 
     @:op(A + B)

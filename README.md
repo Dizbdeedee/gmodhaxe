@@ -13,36 +13,17 @@ Externs have been generated from scraped info from gmod wiki. Things may be impr
 
 Install [vscode](https://code.visualstudio.com/) + [vshaxe](https://marketplace.visualstudio.com/items?itemName=nadako.vshaxe) (highly recommended) 
 
-Create a new project in vscode, and build using full_compile.hxml
+Install gmodhaxe by running the following command
+`haxelib install gmodhaxe`
 
-If all goes well, upon a successful build you should see a new folder `generated` with the following structure
+Run this command in an empty folder to get started
+`haxelib run gmodhaxe`
 
-```
-generated
-  myaddon
-    gamemodes
-      myaddon
-        entities
-          ...
-        gamemode
-          init.lua
-          haxe_cl_init.lua
-          haxe_init.lua
-          cl_init.lua
-```
-
-Currently, you'll have to make your own gamemode.txt file
-
-If the stars align, then if you include/run this code from gmod, it should print to console
-
-```
-src/Main.hx:34: Hello name
-```
 ## Basic usage
 
-Switch configuration between `client.hxml` and `server.hxml` (and `shared_view.hxml`) in vscode to set the autocompletion context
+Switch between developing for the server/client/both by switching the autocompletion context to `server.hxml` and `client.hxml`.
 
-Build in both contexts at once using `full_compile.hxml`.
+Build your project using `build.hxml`
 
 If you want to change between building for an addon/gamemode, or if you want to change the addons name, change the following lines in `client.hxml` and `server.hxml`
 
@@ -50,9 +31,9 @@ If you want to change between building for an addon/gamemode, or if you want to 
 
 `-D gamemode=myaddon`
 
-Remove gamemode to develop for just an addon only. Haven't tested this much
+Remove `-D gamemode` if you are developing an addon rather than a gamemode
 
-If you want to automatically copy files on a successful build, head into `client.hxml` and uncomment this line
+If you want to automatically copy files on a successful build, head into `client.hxml` and uncomment this line and replace with your garrysmod addon directory
 
 `#-D gmodAddonFolder=C:/steam/garrysmod/addons`
 
@@ -102,7 +83,7 @@ for (index => player in PlayerLib.GetAll()) {
 
 class Test {
   
-  @:expose("funky")
+  @:expose("func")
   static function exposedFuncShort() {
   }
   
@@ -116,7 +97,7 @@ class Test {
 In lua...
 
 ```lua
-myaddon_HAXE_EXPORT.funky()
+myaddon_HAXE_EXPORT.func()
 myaddon_HAXE_EXPORT.Test.exposedFuncLong()
 ```
 
