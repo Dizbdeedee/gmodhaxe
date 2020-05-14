@@ -4,6 +4,7 @@ import gmod.Gmod;
 
 
 @:native("__lua_Boot")
+@:noCompletion
 class Patch {
 
     /**
