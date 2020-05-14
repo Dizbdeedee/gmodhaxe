@@ -1,6 +1,6 @@
 package gmod;
 
-import gmod.libs.GlobalLib;
+import gmod.Gmod;
 
 
 @:native("__lua_Boot")
@@ -70,7 +70,7 @@ class Patch {
                     }
                 };
             default:
-                switch (GlobalLib.TypeID(o)) {
+                switch (Gmod.TypeID(o)) {
                     case TYPE_NONE:
                         throw "Invalid type";
                     case _:
