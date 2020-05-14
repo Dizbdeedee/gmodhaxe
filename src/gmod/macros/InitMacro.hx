@@ -18,12 +18,13 @@ class InitMacro {
     public static var exportName:String;
     #if macro
     static public function init() {
+        
         #if (!display)
         Compiler.addMetadata("@:extern","lua.Boot","__string_rec",true);
         Compiler.include("gmod.Patch");
         Compiler.keep("gmod.Patch");
         var addonName:String;
-        
+         
         Context.onAfterGenerate(supressBootWarning);
         if (!Context.defined("lua") || Context.defined("display_details") ) {
             return;
