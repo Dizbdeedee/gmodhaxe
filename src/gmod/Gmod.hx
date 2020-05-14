@@ -1,10 +1,10 @@
-package gmod.libs;
+package gmod;
 
 
 /**
     This is the list of global functions.
 **/
-@:native("_G")extern class GlobalLib {
+@:native("_G")extern class Gmod {
     
     /**
         ***INTERNAL** 
