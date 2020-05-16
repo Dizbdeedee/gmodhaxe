@@ -81,7 +81,6 @@ class InitMacro {
             }
             if (Context.defined("client")) {
                 trace("generated non gamemode client.lua");
-                //Compiler.includeFile('');
                 Compiler.setOutput('generated/$addonName/lua/$addonName/$clientName.lua');
             } else if (Context.defined("server")) {
                 trace("generated non gamemode server.lua");
