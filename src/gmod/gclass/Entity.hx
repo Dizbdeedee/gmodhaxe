@@ -831,7 +831,7 @@ extern class Entity {
 		1: id = 1 name = eyes 2: id = 2 name = lefteye 3: id = 3 name = righteye 4: id = 4 name = nose 5: id = 5 name = mouth 6: id = 6 name = tie 7: id = 7 name = pen 8: id = 8 name = chest 9: id = 9 name = hips 10: id = 10 name = lefthand 11: id = 11 name = righthand 12: id = 12 name = forward 13: id = 13 name = anim_attachment_RH 14: id = 14 name = anim_attachment_LH 15: id = 15 name = anim_attachment_head
     **/
     
-    function GetAttachments():AttachmentData;
+    function GetAttachments():Table<Int,AttachmentData>;
     
     
     /**
@@ -1974,7 +1974,7 @@ extern class Entity {
 		The amount of bones in player 1, which normally would be 68.
     **/
     
-    function GetBoneCount():Float;
+    function GetBoneCount():Int;
     
     
     /**
@@ -3051,7 +3051,7 @@ extern class Entity {
 		```
     **/
     
-    function GetPhysicsObjectCount():Float;
+    function GetPhysicsObjectCount():Int;
     
     
     /**

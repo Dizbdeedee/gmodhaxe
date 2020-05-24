@@ -66,7 +66,7 @@ typedef ENT = {
     /**
         (Serverside) If set, the entity will not be duplicated via the built-in duplicator system.
     **/
-    var DoNotDuplicate : Bool;
+    var ?DoNotDuplicate : Bool;
     /**
         Type of the entity. This must be one of these:
     **/

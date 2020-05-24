@@ -344,7 +344,7 @@ extern class Weapon extends Entity {
 		`**Returns:** The ammo type ID, or -1 if not found.
     **/
     
-    function GetPrimaryAmmoType():Float;
+    function GetPrimaryAmmoType():Int;
     
     
     /**

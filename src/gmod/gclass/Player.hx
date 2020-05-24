@@ -1294,7 +1294,7 @@ extern class Player extends Entity {
 		`**Returns:** The player's user ID
     **/
     
-    function UserID():Float;
+    function UserID():Int;
     
     
     /**
@@ -3522,7 +3522,7 @@ extern class Player extends Entity {
 		The number of weapons the player has (e.g. 5).
     **/
     
-    function GetWeapons():AnyTable;
+    function GetWeapons():Table<Int,Weapon>;
     
     
     /**
@@ -3726,7 +3726,7 @@ extern class Player extends Entity {
 		```
     **/
     
-    function GiveAmmo(amount:Float, type:String, ?hidePopup:Bool):Float;
+    function GiveAmmo(amount:Float, type:haxe.extern.EitherType<Int,String>, ?hidePopup:Bool):Float;
     #end
     
     /**

@@ -535,7 +535,7 @@ package gmod.libs;
 		`**Returns:** The unsigned integer read, or 0 if the integer could not be read.
     **/
     
-    static function ReadUInt(numberOfBits:Float):Float;
+    static function ReadUInt(numberOfBits:Int):Int;
     
     
     /**
@@ -720,8 +720,7 @@ package gmod.libs;
 		--- | ---
 		`ply` | The player(s) to send the message to. Can be a table of players or a CRecipientFilter.
     **/
-    
-    static function Send(ply:Player):Void;
+    static function Send(ply:haxe.extern.EitherType<Player,haxe.extern.EitherType<CRecipientFilter,Table<Dynamic,Player>>>):Void;
     #end
     
 

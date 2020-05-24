@@ -4,7 +4,7 @@ package gmod.enums;
 	**Warning:** These enumerations do not exist in the game and are listed here purely for reference purposes only.
 **/
 @:native("_G")
-extern enum abstract SNDLVL(Int) {
+extern enum abstract SNDLVL(Int) from Int to Int {
     /**
         Refrigerator
     **/

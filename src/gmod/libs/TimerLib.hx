@@ -91,7 +91,7 @@ package gmod.libs;
 		--11 seconds into game 1st zombie disappears --12 seconds into game 2nd zombie disappears etc.
     **/
     
-    static function Simple(delay:Float, func:Function):Void;
+    static function Simple(delay:Float, func:() -> Void):Void;
     
     
     /**
@@ -176,7 +176,7 @@ package gmod.libs;
 		Timer Iteration #1 had a delay of 0.014999389648438 Timer Iteration #2 had a delay of 0.014999389648438 Timer Iteration #3 had a delay of 0.014999389648438 Timer Iteration #4 had a delay of 0.0150146484375 Timer Iteration #5 had a delay of 0.014999389648438 Timer Iteration #6 had a delay of 0.014999389648438 Timer Iteration #7 had a delay of 0.014999389648438 Timer Iteration #8 had a delay of 0.014999389648438 Timer Iteration #9 had a delay of 0.014999389648438
     **/
     
-    static function Create(identifier:String, delay:Float, repetitions:Float, func:Function):Void;
+    static function Create(identifier:String, delay:Float, repetitions:Float, func:() -> Void):Void;
     
     
     /**

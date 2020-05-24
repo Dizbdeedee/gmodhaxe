@@ -42,7 +42,7 @@ extern class DAlphaBar extends DPanel {
     **/
     
     @:hook 
-    private function OnChange(alpha:Float):Void;
+    function OnChange(alpha:Float):Void;
     /**
         Returns the alpha value of the alpha bar.
 		
