@@ -1,6 +1,5 @@
 package gmod;
 
-
 /**
     This is the list of global functions.
 **/

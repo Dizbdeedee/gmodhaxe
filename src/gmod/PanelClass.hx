@@ -11,5 +11,6 @@ enum abstract PanelClass<T:Panel>(Dynamic) from String to String {
 
 enum abstract GMPanels<T:Panel>(PanelClass<T>) to String to PanelClass<T> {
     var DModelPanel:GMPanels<DModelPanel>;
+    var DPropertySheet:GMPanels<DPropertySheet>;
 }
 #end
