@@ -3,9 +3,8 @@ package gmod.macros.include;
 import gmod.Gmod;
 
 
+#if (haxe < "4.1.0")
 @:native("__lua_Boot")
-@:noCompletion
-@:keep
 class Patch {
 
     /**
@@ -82,3 +81,4 @@ class Patch {
         }
     }
 }
+#end
