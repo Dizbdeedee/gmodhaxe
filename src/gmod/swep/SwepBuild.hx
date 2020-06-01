@@ -2,7 +2,6 @@ package gmod.swep;
 
 
 typedef SwepFields = {
-
     /**
         (Clientside) Sets the spawnmenu content icon type for the entity, used by spawnmenu in the Sandbox-derived gamemodes. See spawnmenu.AddContentType for more information. 
 		
@@ -233,9 +232,14 @@ typedef SwepFields = {
 		Default: ""
     **/
     var ?Author : String;
+
 }
 
-@:autoBuild(gmod.macros.SentMacro.build(true,false))
-interface SwepBuild {
-    private final properties:SwepFields;
+@:genericBuild(gmod.macros.PanelMacro.buildSwep())
+class SwepBuild<T:gmod.swep.SWEP> {
+
 }
+
+// interface SwepBuild {
+//     private final properties:SwepFields;
+// }

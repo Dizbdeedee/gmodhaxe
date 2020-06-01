@@ -30,7 +30,12 @@ class GamemodeMacro {
                 default:
             }
         }
-        exprBuffer.push(macro untyped self = untyped __lua__("GM"));
+        var superClass = cls.superClass.t.get();
+        if (superClass.meta.has("gamemodeName")) {
+            var supername = superClass.meta.extract("gamemodeName")[0].params[0].getValue();
+            exprBuffer.push(macro Gmod.DeriveGamemode($v{supername}));
+        }
+        exprBuffer.push(macro self = untyped __lua__("GM"));
         exprBuffer.push(macro untyped instance = this);
         var constructer:Function = {
             args : [],
@@ -46,8 +51,8 @@ class GamemodeMacro {
         fields.push(newField);
         var self:Field = {
             name : "self",
-            access:[],
-            kind :FieldType.FProp("default","never",superType),
+            access:[Access.AFinal],
+            kind : FieldType.FVar(superType),
             pos : Context.currentPos(),
             doc : "Underlying gamemode table"
         }

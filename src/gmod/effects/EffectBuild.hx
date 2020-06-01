@@ -1,7 +1,6 @@
 package gmod.effects;
 
-@:remove
-@:autoBuild(gmod.macros.SentMacro.build(false,true))
-interface EffectBuild {
+@:genericBuild(gmod.macros.PanelMacro.buildEffect())
+class EffectBuild<T:gmod.effects.EFFECT> {
 
 }

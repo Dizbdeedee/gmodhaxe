@@ -7,3 +7,4 @@ lua
 client_tests.hxml
 server_tests.hxml
 
+/build.hxml

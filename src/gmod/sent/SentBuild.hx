@@ -89,13 +89,20 @@ typedef EntFields = {
     **/
     var ?Author : String;
 }
-@:autoBuild(gmod.macros.SentMacro.build())
-@:remove
-/**
-    Build your custom scripted entity using this interface.
-    Don't forget to import the file as well
-**/
-interface SentBuild {
-    private final properties:EntFields;
-    private final TYPE:String;
+
+@:genericBuild(gmod.macros.PanelMacro.buildSent())
+class SentBuild<T:gmod.sent.ENT> {
+
 }
+
+
+// @:autoBuild(gmod.macros.SentMacro.build())
+// @:remove
+// /**
+//     Build your custom scripted entity using this interface.
+//     Don't forget to import the file as well
+// **/
+// interface SentBuild {
+//     private final properties:EntFields;
+//     private final TYPE:String;
+// }

@@ -1,9 +1,8 @@
 package gmod.sent;
 
-class ENT_ANIM extends gmod.sent.ENT<Entity> {
+extern class ENT_ANIM extends gmod.sent.ENT {
 	
-	public final TYPE = "anim";
-	// var self(default,never):gmod.gclass.Entity;
+	public static inline final TYPE = "anim";
     #if server
     /**
         Called when the entity is blocked. 
@@ -18,7 +17,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function Blocked(other:Entity):Void {}
+    function Blocked(other:Entity):Void;
     #end
     #if client
     /**
@@ -78,7 +77,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function Draw(flags:Float):Void {}
+    function Draw(flags:Float):Void;
     #end
 
     #if client
@@ -111,7 +110,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function DrawTranslucent(flags:Float):Void {}
+    function DrawTranslucent(flags:Float):Void;
     #end
 
     #if server
@@ -128,7 +127,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function EndTouch(entity:Entity):Void {}
+    function EndTouch(entity:Entity):Void;
     #end
 
     #if client
@@ -163,7 +162,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function ImpactTrace(traceResult:AnyTable, damageType:Float, ?customImpactName:String):Bool {return null;}
+    function ImpactTrace(traceResult:AnyTable, damageType:Float, ?customImpactName:String):Bool;
     #end
 
     #if server
@@ -197,7 +196,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function OnTakeDamage(damage:CTakeDamageInfo):Void {}
+    function OnTakeDamage(damage:CTakeDamageInfo):Void;
     #end
     #if server
     /**
@@ -225,7 +224,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function PhysicsCollide(colData:AnyTable, collider:PhysObj):Void {}
+    function PhysicsCollide(colData:AnyTable, collider:PhysObj):Void;
     #end
     /**
         Called from the Entity's motion controller to simulate physics. 
@@ -250,7 +249,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function PhysicsSimulate(phys:PhysObj, deltaTime:Float):Dynamic {return null;} //EntPhysicsSimulateReturn
+    function PhysicsSimulate(phys:PhysObj, deltaTime:Float):EntPhysicsSimulateReturn;
 
     /**
         Called whenever the physics of the entity are updated. 
@@ -265,7 +264,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function PhysicsUpdate(phys:PhysObj):Void {}
+    function PhysicsUpdate(phys:PhysObj):Void;
 
     #if server
     /**
@@ -281,7 +280,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function StartTouch(entity:Entity):Void {}
+    function StartTouch(entity:Entity):Void;
     #end
 
     /**
@@ -325,7 +324,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function TestCollision(startpos:Vector, delta:Vector, isbox:Bool, extents:Vector, mask:Float):gmod.structs.TestCollisionData {return null;}
+    function TestCollision(startpos:Vector, delta:Vector, isbox:Bool, extents:Vector, mask:Float):gmod.structs.TestCollisionData;
 
     #if server
     /**
@@ -355,7 +354,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function Touch(entity:Entity):Void {}
+    function Touch(entity:Entity):Void;
     #end
     #if server
     /**
@@ -397,7 +396,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function UpdateTransmitState():Float {return null;}
+    function UpdateTransmitState():Float;
     #end
 
     #if server
@@ -436,7 +435,7 @@ class ENT_ANIM extends gmod.sent.ENT<Entity> {
     **/
     
     @:hook
-    function Use(activator:Entity, caller:Entity, useType:Float, value:Float):Void {}
+    function Use(activator:Entity, caller:Entity, useType:Float, value:Float):Void;
     #end
 
 

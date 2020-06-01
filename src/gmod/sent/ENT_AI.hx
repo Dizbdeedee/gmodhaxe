@@ -1,9 +1,9 @@
 package gmod.sent;
 #if server
-class ENT_AI extends gmod.sent.ENT<NPC> {
+
+extern class ENT_AI extends gmod.macros.ENTFix<NPC> {
     
-    // var self(default,never):gmod.gclass.NPC;
-	public final TYPE = "ai";
+	public static inline final TYPE = "ai";
 
     /**
         ***INTERNAL:**  
@@ -13,7 +13,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     @:deprecated
     @:hook
-    function CreateSchedulesInternal():Void {}
+    function CreateSchedulesInternal():Void;
 
     /**
         Called whenever an engine schedule is being ran. 
@@ -23,7 +23,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function DoingEngineSchedule():Void {}
+    function DoingEngineSchedule():Void;
     
    
     /**
@@ -39,7 +39,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function DoSchedule(sched:AnyTable):Void {}
+    function DoSchedule(sched:AnyTable):Void;
 
     /**
         Called when the entity stops touching another entity. 
@@ -53,8 +53,8 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
 		
         **/
         
-        @:hook
-    function EndTouch(entity:Entity):Void {}
+    @:hook
+    function EndTouch(entity:Entity):Void;
 
     /**
         Called whenever an engine schedule is finished. 
@@ -64,7 +64,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function EngineScheduleFinish():Void {}
+    function EngineScheduleFinish():Void;
 
      /**
         Called when an NPC's expression has finished.   
@@ -77,7 +77,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
         
     @:hook
-    function ExpressionFinished(strExp:String):Void {}
+    function ExpressionFinished(strExp:String):Void;
 
     /**
         Called to determine how good an NPC is at using a particular weapon. 
@@ -95,7 +95,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function GetAttackSpread(wep:Entity, target:Entity):Float {return null;}
+    function GetAttackSpread(wep:Entity, target:Entity):Float;
 
     /**
         Called when scripted NPC needs to check how he "feels" against another entity, such as when NPC:Disposition is called. 
@@ -112,7 +112,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function GetRelationship(ent:Entity):Float {return null;}
+    function GetRelationship(ent:Entity):Float;
 
     /**
         Start the next task in specific schedule. 
@@ -127,7 +127,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function NextTask(sched:AnyTable):Void {}
+    function NextTask(sched:AnyTable):Void;
 
     /**
         Called each time the NPC updates its condition. 
@@ -142,7 +142,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function OnCondition(conditionID:Float):Void {}
+    function OnCondition(conditionID:Float):Void;
 
     /**
         Called when the entity is taking damage. 
@@ -174,7 +174,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function OnTakeDamage(damage:CTakeDamageInfo):Void {}
+    function OnTakeDamage(damage:CTakeDamageInfo):Void;
 
      /**
         Called from the engine when TaskComplete is called. This allows us to move onto the next task - even when TaskComplete was called from an engine side task. 
@@ -184,7 +184,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function OnTaskComplete():Void {}
+    function OnTaskComplete():Void;
 
     /**
         Called from the engine every 0.1 seconds. 
@@ -194,7 +194,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function RunAI():Void {}
+    function RunAI():Void;
 
     /**
         Called when an engine task is ran on the entity. 
@@ -212,7 +212,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function RunEngineTask(taskID:Float, taskData:Float):Bool {return null;}
+    function RunEngineTask(taskID:Float, taskData:Float):Bool;
 
     /**
         Called every think on running task. The actual task function should tell us when the task is finished. 
@@ -227,7 +227,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function RunTask(task:AnyTable):Void {}
+    function RunTask(task:AnyTable):Void;
 
     /**
         Called whenever a schedule is finished. 
@@ -237,7 +237,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function ScheduleFinished():Void {}
+    function ScheduleFinished():Void;
 
     /**
         Set the schedule we should be playing right now. 
@@ -275,7 +275,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function SelectSchedule(iNPCState:Float):Void {}
+    function SelectSchedule(iNPCState:Float):Void;
 
     /**
         Sets the current task. 
@@ -290,7 +290,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function SetTask(task:AnyTable):Void {}
+    function SetTask(task:AnyTable):Void;
 
     /**
         Starts an engine schedule. 
@@ -305,7 +305,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function StartEngineSchedule(scheduleID:Float):Void {}
+    function StartEngineSchedule(scheduleID:Float):Void;
 
     /**
         Called when an engine task has been started on the entity. 
@@ -323,7 +323,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function StartEngineTask(taskID:Float, TaskData:Float):Bool {return null;}
+    function StartEngineTask(taskID:Float, TaskData:Float):Bool;
 
     /**
         Starts a schedule previously created by ai_schedule.New. 
@@ -340,7 +340,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function StartSchedule(sched:Schedule):Void {}
+    function StartSchedule(sched:Schedule):Void;
 
     /**
         Called once on starting task. 
@@ -366,7 +366,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function StartTask(task:Task):Void {}
+    function StartTask(task:Task):Void;
 
     /**
         Called when the entity starts touching another entity. 
@@ -381,7 +381,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function StartTouch(entity:Entity):Void {}
+    function StartTouch(entity:Entity):Void;
 
     /**
         Returns true if the current running Task is finished. 
@@ -393,7 +393,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function TaskFinished():Bool {return null;}
+    function TaskFinished():Bool;
 
     /**
         Returns how many seconds we've been doing this current task 
@@ -405,7 +405,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function TaskTime():Float {return null;}
+    function TaskTime():Float;
 
     /**
         Called every tick for every entity being "touched". 
@@ -434,7 +434,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function Touch(entity:Entity):Void {}
+    function Touch(entity:Entity):Void;
 
     /**
         Called whenever the transmit state should be updated. 
@@ -475,7 +475,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function UpdateTransmitState():Float {return null;}
+    function UpdateTransmitState():Float;
 
     /**
         Called when another entity uses this entity, example would be a player pressing "+use" this entity. 
@@ -512,7 +512,7 @@ class ENT_AI extends gmod.sent.ENT<NPC> {
     **/
     
     @:hook
-    function Use(activator:Entity, caller:Entity, useType:Float, value:Float):Void {}
+    function Use(activator:Entity, caller:Entity, useType:Float, value:Float):Void;
 
     
     

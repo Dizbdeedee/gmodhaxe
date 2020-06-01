@@ -6,10 +6,14 @@ package gmod.swep;
 	
 	You can find all available SWEP fields here: SWEP structure
 **/
-class SWEP {
+extern class SWEP extends Weapon {
 
-	var self(default,never):gmod.gclass.Weapon;
+    public static inline final gclass = "base_weapon";
+
+    public final Owner:Null<Entity>;
+
     #if client
+
     /**
         Called after the view model has been drawn while the weapon in use. This hook is called from the default implementation of GM:PostDrawViewModel, and as such, will not occur if it has been overridden. 
 		
@@ -23,7 +27,7 @@ class SWEP {
     **/
     
     @:hook
-    function PostDrawViewModel(vm:Entity, weapon:Weapon, ply:Player):Void {}
+    function PostDrawViewModel(vm:Entity, weapon:Weapon, ply:Player):Void;
     #end
     
     /**
@@ -35,7 +39,7 @@ class SWEP {
     **/
     
     @:hook
-    function Deploy():Bool {return null;}
+    function Deploy():Bool;
     
     #if client
     /**
@@ -90,7 +94,7 @@ class SWEP {
     **/
     
     @:hook
-    function GetViewModelPosition(EyePos:Vector, EyeAng:Angle):Dynamic {return null;}
+    function GetViewModelPosition(EyePos:Vector, EyeAng:Angle):SwepGetViewModelPositionReturn;
     #end
     
     /**
@@ -125,7 +129,7 @@ class SWEP {
     **/
     
     @:hook
-    function TakePrimaryAmmo(amount:Float):Void {}
+    function TakePrimaryAmmo(amount:Float):Void;
     
     #if client
     /**
@@ -139,7 +143,7 @@ class SWEP {
     **/
     
     @:hook
-    function PreDrawViewModel(vm:Entity, weapon:Weapon, ply:Player):Void {}
+    function PreDrawViewModel(vm:Entity, weapon:Weapon, ply:Player):Void;
     #end
     
     /**
@@ -170,7 +174,7 @@ class SWEP {
     **/
     
     @:hook
-    function CanSecondaryAttack():Bool {return null;}
+    function CanSecondaryAttack():Bool;
     
     #if client
     /**
@@ -229,7 +233,7 @@ class SWEP {
     **/
     
     @:hook
-    function DrawHUD():Void {}
+    function DrawHUD():Void;
     #end
     
     /**
@@ -267,7 +271,7 @@ class SWEP {
     **/
     
     @:hook
-    function SecondaryAttack():Void {}
+    function SecondaryAttack():Void;
     
     #if client
     /**
@@ -317,7 +321,7 @@ class SWEP {
     **/
     
     @:hook
-    function DrawWeaponSelection(x:Float, y:Float, width:Float, height:Float, alpha:Float):Void {}
+    function DrawWeaponSelection(x:Float, y:Float, width:Float, height:Float, alpha:Float):Void;
     #end
     #if client
     /**
@@ -368,7 +372,7 @@ class SWEP {
     **/
     
     @:hook
-    function PrintWeaponInfo(x:Float, y:Float, alpha:Float):Void {}
+    function PrintWeaponInfo(x:Float, y:Float, alpha:Float):Void;
     #end
     
     /**
@@ -402,7 +406,7 @@ class SWEP {
     **/
     
     @:hook
-    function DoImpactEffect(tr:TraceResult, damageType:DMG):Bool {return null;}
+    function DoImpactEffect(tr:TraceResult, damageType:DMG):Bool;
     
     #if server
     /**
@@ -420,7 +424,7 @@ class SWEP {
     **/
     
     @:hook
-    function KeyValue(key:String, value:String):Bool {return null;}
+    function KeyValue(key:String, value:String):Bool;
     #end
     
     /**
@@ -451,7 +455,7 @@ class SWEP {
     **/
     
     @:hook
-    function TranslateFOV(fov:Float):Float {return null;}
+    function TranslateFOV(fov:Float):Float;
     
     #if client
     /**
@@ -463,7 +467,7 @@ class SWEP {
     **/
     
     @:hook
-    function RenderScreen():Void {}
+    function RenderScreen():Void;
     #end
     #if client
     /**
@@ -478,7 +482,7 @@ class SWEP {
     **/
     
     @:hook
-    function HUDShouldDraw(element:String):Bool {return null;}
+    function HUDShouldDraw(element:String):Bool;
     #end
     #if server
     /**
@@ -488,7 +492,7 @@ class SWEP {
     **/
     
     @:hook
-    function CanBePickedUpByNPCs():Bool {return null;}
+    function CanBePickedUpByNPCs():Bool;
     #end
     #if server
     /**
@@ -501,7 +505,7 @@ class SWEP {
     **/
     
     @:hook
-    function GetNPCRestTimes():Dynamic {return null;}
+    function GetNPCRestTimes():SwepGetNPCRestTimesReturn;
     #end
     #if server
     /**
@@ -518,7 +522,7 @@ class SWEP {
     **/
     
     @:hook
-    function GetNPCBulletSpread(proficiency:WEAPON_PROFICIENCY):Float {return null;}
+    function GetNPCBulletSpread(proficiency:WEAPON_PROFICIENCY):Float;
     #end
     #if client
     /**
@@ -537,7 +541,7 @@ class SWEP {
     **/
     
     @:hook
-    function DrawWorldModelTranslucent():Void {}
+    function DrawWorldModelTranslucent():Void;
     #end
     #if server
     /**
@@ -560,7 +564,7 @@ class SWEP {
     **/
     
     @:hook
-    function GetCapabilities():CAP {return null;}
+    function GetCapabilities():CAP;
     #end
     
     /**
@@ -581,7 +585,7 @@ class SWEP {
     **/
     
     @:hook
-    function Ammo2():Float {return null;}
+    function Ammo2():Float;
     
     
     /**
@@ -604,7 +608,7 @@ class SWEP {
     **/
     
     @:hook
-    function ShootEffects():Void {}
+    function ShootEffects():Void;
     
     
     /**
@@ -639,7 +643,7 @@ class SWEP {
     **/
     
     @:hook
-    function TakeSecondaryAmmo(amount:Float):Void {}
+    function TakeSecondaryAmmo(amount:Float):Void;
     
     
     /**
@@ -671,7 +675,7 @@ class SWEP {
     **/
     
     @:hook
-    function CanPrimaryAttack():Bool {return null;}
+    function CanPrimaryAttack():Bool;
     
     
     /**
@@ -681,7 +685,7 @@ class SWEP {
     **/
     
     @:hook
-    function Reload():Void {}
+    function Reload():Void;
     
     
     /**
@@ -698,7 +702,7 @@ class SWEP {
     **/
     
     @:hook
-    function ShootBullet(damage:Float, num_bullets:Float, aimcone:Float, ?ammo_type:String, ?force:Float, ?tracer:Float):Void {}
+    function ShootBullet(damage:Float, num_bullets:Float, aimcone:Float, ?ammo_type:String, ?force:Float, ?tracer:Float):Void;
     
     #if server
     /**
@@ -738,7 +742,7 @@ class SWEP {
     **/
     
     @:hook
-    function AcceptInput(inputName:String, activator:Entity, called:Entity, data:String):Bool {return null;}
+    function AcceptInput(inputName:String, activator:Entity, called:Entity, data:String):Bool;
     #end
     #if client
     /**
@@ -759,7 +763,7 @@ class SWEP {
     **/
     
     @:hook
-    function AdjustMouseSensitivity():Float {return null;}
+    function AdjustMouseSensitivity():Float;
     #end
     #if client
     /**
@@ -794,7 +798,7 @@ class SWEP {
     **/
     
     @:hook
-    function CustomAmmoDisplay():AnyTable {return null;}
+    function CustomAmmoDisplay():AnyTable;
     #end
     
     /**
@@ -802,7 +806,7 @@ class SWEP {
     **/
     
     @:hook
-    function OnRemove():Void {}
+    function OnRemove():Void;
     
     
     /**
@@ -812,7 +816,7 @@ class SWEP {
     **/
     
     @:hook
-    function OwnerChanged():Void {}
+    function OwnerChanged():Void;
     
     
     /**
@@ -858,7 +862,7 @@ class SWEP {
     **/
     
     @:hook
-    function Initialize():Void {}
+    function Initialize():Void;
     
     #if server
     /**
@@ -870,7 +874,7 @@ class SWEP {
     **/
     
     @:hook
-    function EquipAmmo(ply:Player):Void {}
+    function EquipAmmo(ply:Player):Void;
     #end
     #if client
     /**
@@ -908,7 +912,7 @@ class SWEP {
     **/
     
     @:hook
-    function CalcViewModelView(ViewModel:Entity, OldEyePos:Vector, OldEyeAng:Angle, EyePos:Vector, EyeAng:Angle):Dynamic {return null;}
+    function CalcViewModelView(ViewModel:Entity, OldEyePos:Vector, OldEyeAng:Angle, EyePos:Vector, EyeAng:Angle):SwepCalcViewModelViewReturn;
     #end
     #if client
     /**
@@ -918,7 +922,7 @@ class SWEP {
     **/
     
     @:hook
-    function GetTracerOrigin():Vector {return null;}
+    function GetTracerOrigin():Vector;
     #end
     #if client
     /**
@@ -944,7 +948,7 @@ class SWEP {
     **/
     
     @:hook
-    function CalcView(ply:Player, pos:Vector, ang:Angle, fov:Float):Dynamic {return null;}
+    function CalcView(ply:Player, pos:Vector, ang:Angle, fov:Float):SwepCalcViewReturn;
     #end
     
     /**
@@ -985,7 +989,7 @@ class SWEP {
     **/
     
     @:hook
-    function TranslateActivity(act:Float):Float {return null;}
+    function TranslateActivity(act:Float):Float;
     
     
     /**
@@ -1021,7 +1025,7 @@ class SWEP {
     **/
     
     @:hook
-    function Holster(weapon:Entity):Bool {return null;}
+    function Holster(weapon:Entity):Bool;
     
     
     /**
@@ -1045,7 +1049,7 @@ class SWEP {
     **/
     
     @:hook
-    function SetDeploySpeed(speed:Float):Void {}
+    function SetDeploySpeed(speed:Float):Void;
     
     
     /**
@@ -1061,7 +1065,7 @@ class SWEP {
     **/
     
     @:hook
-    function Think():Void {}
+    function Think():Void;
     
     
     /**
@@ -1127,7 +1131,7 @@ class SWEP {
     **/
     
     @:hook
-    function FireAnimationEvent(pos:Vector, ang:Angle, event:Float, options:String):Bool {return null;}
+    function FireAnimationEvent(pos:Vector, ang:Angle, event:Float, options:String):Bool;
     
     #if client
     /**
@@ -1193,7 +1197,7 @@ class SWEP {
     **/
     
     @:hook
-    function DrawWorldModel():Void {}
+    function DrawWorldModel():Void;
     #end
     
     /**
@@ -1213,7 +1217,7 @@ class SWEP {
     **/
     
     @:hook
-    function SetupDataTables():Void {}
+    function SetupDataTables():Void;
     
     
     /**
@@ -1253,7 +1257,7 @@ class SWEP {
     **/
     
     @:hook
-    function PrimaryAttack():Void {}
+    function PrimaryAttack():Void;
     
     #if client
     /**
@@ -1265,7 +1269,7 @@ class SWEP {
     **/
     
     @:hook
-    function ViewModelDrawn(ViewModel:Entity):Void {}
+    function ViewModelDrawn(ViewModel:Entity):Void;
     #end
     
     /**
@@ -1286,7 +1290,7 @@ class SWEP {
     **/
     
     @:hook
-    function Ammo1():Float {return null;}
+    function Ammo1():Float;
     
     #if server
     /**
@@ -1296,7 +1300,7 @@ class SWEP {
     **/
     
     @:hook
-    function OnDrop():Void {}
+    function OnDrop():Void;
     #end
     #if server
     /**
@@ -1308,7 +1312,7 @@ class SWEP {
     **/
     
     @:hook
-    function ShouldDropOnDie():Bool {return null;}
+    function ShouldDropOnDie():Bool;
     #end
     #if client
     /**
@@ -1343,7 +1347,7 @@ class SWEP {
     **/
     
     @:hook
-    function DoDrawCrosshair(x:Float, y:Float):Bool {return null;}
+    function DoDrawCrosshair(x:Float, y:Float):Bool;
     #end
     #if server
     /**
@@ -1357,7 +1361,7 @@ class SWEP {
     **/
     
     @:hook
-    function GetNPCBurstSettings():Dynamic {return null;}
+    function GetNPCBurstSettings():SwepGetNPCBurstSettingsReturn;
     #end
     #if client
     /**
@@ -1367,7 +1371,7 @@ class SWEP {
     **/
     
     @:hook
-    function ShouldDrawViewModel():Bool {return null;}
+    function ShouldDrawViewModel():Bool;
     #end
     
     /**
@@ -1379,7 +1383,7 @@ class SWEP {
     **/
     
     @:hook
-    function OnRestore():Void {}
+    function OnRestore():Void;
     
     
     /**
@@ -1387,7 +1391,7 @@ class SWEP {
     **/
     
     @:hook
-    function OnReloaded():Void {}
+    function OnReloaded():Void;
     
     #if client
     /**
@@ -1399,7 +1403,7 @@ class SWEP {
     **/
     
     @:hook
-    function FreezeMovement():Bool {return null;}
+    function FreezeMovement():Bool;
     #end
     #if server
     /**
@@ -1411,7 +1415,7 @@ class SWEP {
     **/
     
     @:hook
-    function Equip(NewOwner:Entity):Void {}
+    function Equip(NewOwner:Entity):Void;
     #end
     
     /**
@@ -1425,7 +1429,7 @@ class SWEP {
     **/
     
     @:hook
-    function SetWeaponHoldType(name:String):Void {}
+    function SetWeaponHoldType(name:String):Void;
     
     #if client
     /**
@@ -1433,7 +1437,7 @@ class SWEP {
     **/
     
     @:hook
-    function DrawHUDBackground():Void {}
+    function DrawHUDBackground():Void;
     #end
     
 }

@@ -10,16 +10,14 @@ package gmod.effects;
 	
 	 An EFFECT is made using either a combination of the EFFECT:Init, EFFECT:Render and optionally the EFFECT:Think hook. Another way is to create all particles in one go in the Init hook and don't use the other hooks at all.
 **/
-class EFFECT {
-    
-    var self(default,never):gmod.gclass.Entity;
+extern class EFFECT extends Entity {
     
     /**
         
     **/
     
     @:hook
-    function EndTouch():Void {}
+    function EndTouch():Void;
     
     
     /**
@@ -32,7 +30,7 @@ class EFFECT {
     **/
     
     @:hook
-    function PhysicsCollide(colData:CollisionData, collider:PhysObj):Void {}
+    function PhysicsCollide(colData:CollisionData, collider:PhysObj):Void;
     
     
     /**
@@ -40,7 +38,7 @@ class EFFECT {
     **/
     
     @:hook
-    function Touch():Void {}
+    function Touch():Void;
     
     
     /**
@@ -50,7 +48,7 @@ class EFFECT {
     **/
     
     @:hook
-    function Think():Bool {return null;}
+    function Think():Bool;
     
     
     /**
@@ -58,7 +56,7 @@ class EFFECT {
     **/
     
     @:hook
-    function StartTouch():Void {}
+    function StartTouch():Void;
     
     
     /**
@@ -70,7 +68,7 @@ class EFFECT {
     **/
     
     @:hook
-    function Init(effectData:CEffectData):Void {}
+    function Init(effectData:CEffectData):Void;
     
     
     /**
@@ -78,7 +76,7 @@ class EFFECT {
     **/
     
     @:hook
-    function Render():Void {}
+    function Render():Void;
     
     
     /**
@@ -99,7 +97,7 @@ class EFFECT {
     **/
     
     @:hook
-    function GetTracerShootPos(pos:Vector, ent:Weapon, attachment:Float):Vector {return null;}
+    function GetTracerShootPos(pos:Vector, ent:Weapon, attachment:Float):Vector;
     
     
 }
