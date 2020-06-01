@@ -93,7 +93,6 @@ class Networking {
         #end
         #end
         Context.defineType(cls);
-        
         return TPath({name : clsName,pack: []});
     }
 
@@ -102,13 +101,11 @@ class Networking {
         var netName:String;
         var anon:haxe.macro.Type;
         var fields:Array<ClassField>;
-        
         switch (type) {
             case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), tdef = _.follow() => a = TAnonymous(_.get() => b = {fields : f})]):
                 netName = s;
                 fields = f;
                 anon = tdef;
-                
             default:
                 trace("Could not generate net message");
                 return null;
@@ -116,9 +113,7 @@ class Networking {
         var complexAnon = Context.toComplexType(anon);
         var clsName = 'NETMESSAGECL_$netName';
         var cls = macro class $clsName {
-            
             #if client
-
             public function send(data:$complexAnon,?unreliable=false) {
 
             }
@@ -164,7 +159,6 @@ class Networking {
         #end
         #end
         Context.defineType(cls);
-        
         return TPath({name : clsName,pack: []});
     }
 
@@ -185,8 +179,6 @@ class Networking {
             switch (field.type) {
                 case twoWayUni(_,entity) => true:
                     macArray.push(macro gmod.libs.NetLib.WriteEntity(data.$name));
-                case twoWayUni(_,string) => true:
-                    macArray.push(macro gmod.libs.NetLib.WriteString(data.$name));
                 case twoWayUni(_,int) => true:
                     macArray.push(macro gmod.libs.NetLib.WriteInt(data.$name,32));
                 //NOTE Only one way checked, assumes writetable will be able to handle whatevers put in
@@ -200,6 +192,8 @@ class Networking {
                     macArray.push(macro gmod.libs.NetLib.WriteAngle(data.$name));
                 case twoWayUni(_,bool) => true:
                     macArray.push(macro gmod.libs.NetLib.WriteBool(data.$name));
+                case twoWayUni(_,string) => true:
+                    macArray.push(macro gmod.libs.NetLib.WriteString(data.$name));
                 default:
                     trace('could not generate constructer field:${field.name}');
                     trace(field.type.toString());
@@ -235,8 +229,6 @@ class Networking {
             switch (field.type) {
                 case twoWayUni(_,int) => true:
                     recvAnon.push({field : name, expr : macro gmod.libs.NetLib.ReadInt(32)});
-                case twoWayUni(_,string) => true:
-                    recvAnon.push({field : name, expr : macro gmod.libs.NetLib.ReadString()});
                 case _.unify(table) => true:
                     recvAnon.push({field : name, expr : macro cast gmod.libs.NetLib.ReadTable()});
                 case twoWayUni(_,float) => true:
@@ -249,14 +241,15 @@ class Networking {
                     recvAnon.push({field : name, expr : macro gmod.libs.NetLib.ReadBool()});
                 case twoWayUni(_,entity) => true:
                     recvAnon.push({field : name, expr : macro gmod.libs.NetLib.ReadEntity()});
+                case twoWayUni(_,string) => true:
+                    recvAnon.push({field : name, expr : macro gmod.libs.NetLib.ReadString()});
                 default:
                     trace('could not generate reciever field:${field.name}');
                     trace(field.type.toString());
             }
         }
         if (client) {
-
-            recvAnon.push({field : "sentPlayer", expr : macro plyrSent});
+            recvAnon.push({field : "_sentPlayer", expr : macro plyrSent});
         }
         var objdel:Expr = {
             expr : EObjectDecl(recvAnon),

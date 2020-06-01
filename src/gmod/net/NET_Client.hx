@@ -8,7 +8,7 @@ typedef NET_CL_Message = {
     /**
         The player who sent the message
     **/
-    var sentPlayer:gmod.gclass.Player;
+    var _sentPlayer:gmod.gclass.Player;
     #end
 }
 
