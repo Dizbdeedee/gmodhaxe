@@ -6,35 +6,32 @@ import sys.io.File;
 
 class Run {
 
-    static var client = 
+    static var args =
 "-cp src
--D client
-
 #Use this to generate a folder structure for an addon
--D addonName=myaddon 
+-D addonName=myaddon
 #Use this + above to generate a folder structure for a gamemode
--D gamemode=myaddon 
+-D gamemode=myaddon
 -D generateLuaInit
 
 #A fully qualified path to your addon folder. Will automatically copy everything inside generated to it
-#-D gmodAddonFolder=
-
--lib gmodhaxe
+#-D gmodAddonFolder=C:/steamapps/ect/my/gmod/addon/folder
+#comment below if you want seperate entry points for the server/client
 -main Main
+-lib gmodhaxe
+--macro gmod.macros.InitMacro.init()
+";
+
+    static var client = 
+"args.hxml
+-D client
+
 --lua lua/client.lua";
 
     static var server =
-"-cp src
+"args.hxml
 -D server
 
-#Use this to generate a folder structure for an addon
--D addonName=myaddon 
-#Use this + above to generate a folder structure for a gamemode
--D gamemode=myaddon 
--D generateLuaInit
-
--main Main
--lib gmodhaxe
 --lua lua/server.lua";
 
     static var shared =
@@ -68,7 +65,7 @@ class Main {
     static var exampleent =
 "import gmod.sent.SentBuild;
 
-class ExampleEnt extends gmod.sent.ENT_ANIM implements SentBuild {
+class ExampleEnt extends gmod.sent.SentBuild<gmod.sent.ENT_ANIM> {
 
     final properties:EntFields = {
         Base : \"base_entity\"
@@ -82,9 +79,9 @@ class ExampleEnt extends gmod.sent.ENT_ANIM implements SentBuild {
 ";
 
     static var exampleGM =
-"import gmod.gamemode.BuildOverrides;
+"import gmod.gamemode.GMBuild;
 
-class ExampleGMOverride implements BuildOverrides extends gmod.gamemode.GM {
+class ExampleGMOverride extends gmod.gamemode.GMBuild<gmod.gamemode.GM> {
 
     override function Initialize() {
         trace('Example GM override!');
@@ -164,5 +161,6 @@ class ExampleGMOverride implements BuildOverrides extends gmod.gamemode.GM {
         FileSystem.createDirectory(Path.join([dir,".vscode"]));
         File.saveContent(Path.join([dir,".vscode","settings.json"]),settingjson);
         File.saveContent(Path.join([dir,".vscode","tasks.json"]),tasksjson);
+        File.saveContent(Path.join([dir,"args.hxml"]),args);
     }
 }

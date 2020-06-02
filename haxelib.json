@@ -8,5 +8,9 @@
     "classPath": "src",
     "releasenote": "Updated to 4.1. Added panel support, redid sent/swep/effect macros",
     "contributors": ["ponobodod"],
-    "main": "gmod.macros.Run"
+    "main": "gmod.macros.Run",
+    "dependencies" : {
+        "no-spoon": ""
+
+    }
 }

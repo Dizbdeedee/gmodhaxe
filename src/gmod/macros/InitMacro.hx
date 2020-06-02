@@ -93,7 +93,7 @@ class InitMacro {
                 Compiler.setOutput('generated/$addonName/lua/$addonName/$serverName.lua');
             }
         }
-        if (Context.defined("gmodAddonFolder")) {
+        if (Context.defined("gmodAddonFolder") && Context.defined("client")) {
             Context.onAfterGenerate(updateAddonFolder);
         }
         #end
