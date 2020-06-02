@@ -14,8 +14,6 @@ using gmod.PairTools;
 /**
    To use hxbit functionality, create a new instance on both the server and client.
    This is very wip
-   
-   **WARNING** this will bloat your filesize. Consider using the networking macro if you want a more gmod native solution
 **/
 class GmodNetHost extends NetworkHost {
 
