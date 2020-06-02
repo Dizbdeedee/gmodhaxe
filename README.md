@@ -51,7 +51,7 @@ becomes
 ... 
 #end
 ```
-You can use this with variables and classes too, to have clientside/serverside only variables/classes. Otherwise everything is shared.
+You can use this with variables and classes too, to have clientside/serverside only variables/classes. Otherwise, everything is shared.
 
 See https://haxe.org/manual/lf-condition-compilation.html
 
@@ -77,8 +77,8 @@ for (index => player in PlayerLib.GetAll()) {
 }
 ```
 
+Ipairs versions are also avaliable from gmod.PairTools
 #### Exposing to lua
-
 ```haxe
 
 class Test {
@@ -110,7 +110,7 @@ See https://haxe.org/manual/target-javascript-expose.html (for javascript but sa
 Create a class like so
 
 ```haxe
-class MyGamemodeHooks implements gmod.gamemode.BuildOverrides extends gmod.gamemode.GM {
+class MyGamemodeHooks extends gmod.gamemode.GMBuild<gmod.gamemode.GM> {
 
   override function Think() {
     trace("Thinking...");
@@ -135,7 +135,7 @@ Functions aren't automatically overridden, so you must create a new instance of 
 #### Custom sent
 
 ```haxe
-class MyCoolEntity implements gmod.sent.SentBuild extends gmod.sent.ENT_ANIM {
+class MyCoolEntity extends gmod.sent.SentBuild<gmod.sent.ENT_ANIM> {
   
   //required to generate files
   final properties:EntFields = {
@@ -158,14 +158,22 @@ class MyCoolEntity implements gmod.sent.SentBuild extends gmod.sent.ENT_ANIM {
 ```
 Because this relies on generated files, all functions will be automatically overridden, no need to call any functions.
 
+#### Custom panel
+
+Extend from `gmod.cpanel.PanelBuild<panel here>`
+
+Register your custom panel by calling .register() on your custom panel class.
+
+To create a new custom panel, use VguiLib.Create(`gclass`) where `gclass` is located on your panel class or alternatively use the name of your custom panel class.
+
 #### Custom swep/effect
 
-Same as custom sent
+Same as entity, `extends gmod.swep.SwepBuild` and `extends gmod.effects.EffectBuild`
 
 ### Networking
 
-This is mostly for convience, and adds some overhead
-
+#### NET_Server/NET_Client
+Automatically builds net messages from a given typedef, with the ability to add more than one reciever. Probably adds some overhead.
 ```haxe
 typedef MyTestMessage = {
   name : String,
@@ -200,4 +208,8 @@ class MyClass {
 
 }
 ```
+#### hxbit
 
+Hxbit is a full networking library intended for full games, so is a bit overkill, and will bloat your filesize. However, it comes with full support for haxe types, and may be useful if you want to take advantage of the fact that haxe is cross platform. This is very wip.
+
+See https://github.com/HeapsIO/hxbit
