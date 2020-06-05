@@ -4,7 +4,7 @@ package gmod.panels;
 /**
     A panel similar to Label used by DLabelURL.
 **/
-extern class URLLabel {
+extern class URLLabel extends Panel { //FIXME don't know what it actually extends
     /**
         Sets the URL of a link-based panel such as [DLabelURL](https://wiki.garrysmod.com/page/Category:DLabelURL).
 		

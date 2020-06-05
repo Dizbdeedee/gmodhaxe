@@ -78,12 +78,10 @@ class GmodNetHost extends NetworkHost {
 
 class GmodNetworkInput extends haxe.io.Input {
     override function readInt32():Int {
-        var len = NetLib.ReadUInt(32);
-        return len;
+        return NetLib.ReadUInt(32);
     }
     override function readByte():Int {
-        var len = NetLib.ReadUInt(8);
-        return len;
+        return NetLib.ReadUInt(8);
     }
 
     public function new() {

@@ -4,7 +4,7 @@ package gmod.panels;
 /**
     Panel used to display models, used by [SpawnIcon](https://wiki.garrysmod.com/page/Category:SpawnIcon).
 **/
-extern class ModelImage {
+extern class ModelImage extends Panel { //FIXME don't know what it actually extends
     /**
         Causes a SpawnIcon to rebuild its model image.
     **/

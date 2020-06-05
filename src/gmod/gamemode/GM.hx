@@ -7,7 +7,6 @@ package gmod.gamemode;
 	See also: GM structure
 **/
 extern class GM {
-    #if server
     /**
         Executes when a player connects to the server. Called before the player has been assigned a UserID and entity. See the player_connect gameevent for a version of this hook called after the player entity has been created.
 		
@@ -39,37 +38,7 @@ extern class GM {
     **/
     
     @:hook
-    function PlayerConnect(name:String, ip:String):Void;
-	#elseif client
-	/**
-        Executes when a player connects to the server. Called before the player has been assigned a UserID and entity. See the player_connect gameevent for a version of this hook called after the player entity has been created.
-		
-		**Note:** This is only called clientside for listen server hosts.
-		
-		**Note:** This is not called clientside for the local player.
-		
-		Name | Description
-		--- | ---
-		`name` | The player's name.
-		
-		
-		
-		___
-		### Lua Examples
-		#### Example 1
-		prints a message to the chatbox when a player joins the game
-		
-		```lua 
-		function GM:PlayerConnect( name)
-		    PrintMessage( HUD_PRINTTALK, name .. " has joined the game." )
-		end
-		```
-		**Output:**
-		
-		Player1 has joined the game.
-    **/
-	function PlayerConnect(name:String):Void;
-	#end
+    function PlayerConnect(name:String #if server ,ip:String #end):Void;
     #if server
     /**
         Check if a player can spawn at a certain spawnpoint.

@@ -4,8 +4,7 @@ package gmod.panels;
 /**
     Engine checkbox
 **/
-extern class CheckButton {
-    
+extern class CheckButton extends Panel { //FIXME don't know what it actually extends
 }
 
 
