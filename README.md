@@ -25,7 +25,7 @@ Switch between developing for the server/client/both by switching the autocomple
 
 Build your project using `build.hxml`
 
-If you want to change between building for an addon/gamemode, or if you want to change the addons name, change the following lines in `client.hxml` and `server.hxml`
+If you want to change between building for an addon/gamemode, or if you want to change the addons name, change the following lines in `args.hxml`
 
 `-D addonname=myaddon`
 
@@ -33,7 +33,7 @@ If you want to change between building for an addon/gamemode, or if you want to 
 
 Remove `-D gamemode` if you are developing an addon rather than a gamemode
 
-If you want to automatically copy files on a successful build, head into `client.hxml` and uncomment this line and replace with your garrysmod addon directory
+If you want to automatically copy files on a successful build, uncomment this line and replace with your garrysmod addon directory
 
 `#-D gmodAddonFolder=C:/steam/garrysmod/addons`
 
@@ -156,7 +156,7 @@ class MyCoolEntity extends gmod.sent.SentBuild<gmod.sent.ENT_ANIM> {
   }
 }
 ```
-Because this relies on generated files, all functions will be automatically overridden, no need to call any functions.
+Because this relies on generated files, all functions will be automatically overridden, no need to call any functions. Make sure to import it somewhere in your code, otherwise it won't generate.
 
 #### Custom panel
 
