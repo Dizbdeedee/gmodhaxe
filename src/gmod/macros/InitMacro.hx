@@ -17,25 +17,30 @@ class InitMacro {
     public static var baseEntFolder:String;
 
     public static var exportName:String;
+
+    public static final serverName = "haxe_init";
+
+    public static final clientName = "haxe_cl_init";
+
     #if macro
 
     static public function init() {
         Compiler.include("gmod.macros.include",true,null,null,true);
         Compiler.keep("gmod.macros.include",null,true);
-        #if (haxe >= "4.1.0")
-        Compiler.includeFile("gmod/macros/include/LuaPatch.lua");
-        #end
+
         no.Spoon.bend("Sys",macro class {
             public static function time():Float {
                 return gmod.Gmod.SysTime();
             }
         });
-        var addonName:String;
+        #if (haxe >= "4.1.0")
+            Compiler.includeFile("gmod/macros/include/LuaPatch.lua");
+        #end
         #if (!display)
-        Context.onAfterGenerate(supressBootWarning);
         if (!Context.defined("lua") || Context.defined("display_details") ) {
             return;
         }
+        var addonName:String;
         if (Context.defined("addonName")) {
             addonName = Context.definedValue("addonName").toLowerCase();
             FileSystem.createDirectory('generated/${addonName}');
@@ -43,57 +48,12 @@ class InitMacro {
             Context.warning("InitMacro : No \"-D addonName=your_addon_name_here\" defined in .hxml file. Will not generate folder structure",Context.currentPos());
             return;
         }
-        var serverName = "haxe_init";
-        var clientName = "haxe_cl_init";
         if (Context.defined("gamemode")) {
-            var gamemodeName = Context.definedValue("gamemode").toLowerCase();
-            exportName = '${gamemodeName.toLowerCase()}_HAXE_EXPORT';
-            var game = 'generated/$addonName/gamemodes/$gamemodeName';
-            baseEntFolder = '$game/entities';
-            var gmfolder = '$game/gamemode';
-            if (!FileSystem.exists('$baseEntFolder/entities')) {
-                FileSystem.createDirectory('$baseEntFolder/entities');
-                FileSystem.createDirectory('$baseEntFolder/effects');
-                FileSystem.createDirectory('$baseEntFolder/weapons');
-            }
-            if (!FileSystem.exists(gmfolder)) FileSystem.createDirectory(gmfolder);
-            if (Context.defined("client")) {
-                if (Context.defined("generateLuaInit")) {
-                    File.saveContent('$gmfolder/cl_init.lua',
-                    '$exportName = include("$clientName.lua")');
-                }
-                trace("generated client.lua");
-                Compiler.setOutput('$gmfolder/$clientName.lua');
-            } else if (Context.defined("server")) {
-                if (Context.defined("generateLuaInit")) {
-                    File.saveContent('$gmfolder/init.lua',
-                    'AddCSLuaFile("$clientName.lua")\n$exportName = include("$serverName.lua")');
-                }
-                trace("generated server.lua");
-                Compiler.setOutput('$gmfolder/$serverName.lua');
-            }
-            
+            generateGamemodeFiles(addonName);
         } else {
-            exportName = '${addonName}_HAXE_EXPORT';
-            baseEntFolder = 'generated/$addonName/lua';
-            if (!FileSystem.exists('generated/$addonName/lua/autorun')) {
-
-            }
-            FileSystem.createDirectory('generated/$addonName/lua/$addonName');
-            if (Context.defined("generateLuaInit")) {
-                var haxe_init:String = 'if SERVER then AddCSLuaFile("$addonName/$clientName.lua") $exportName = include("$addonName/$serverName.lua") end\nif CLIENT then $exportName = include("$addonName/$clientName.lua") end';
-                FileSystem.createDirectory('generated/$addonName/lua/autorun/');
-                File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',haxe_init);
-            }
-            if (Context.defined("client")) {
-                trace("generated non gamemode client.lua");
-                Compiler.setOutput('generated/$addonName/lua/$addonName/$clientName.lua');
-            } else if (Context.defined("server")) {
-                trace("generated non gamemode server.lua");
-                Compiler.setOutput('generated/$addonName/lua/$addonName/$serverName.lua');
-            }
+            generateNonGamemodeFiles(addonName);
         }
-        if (Context.defined("gmodAddonFolder") && Context.defined("client")) {
+        if (Context.defined("gmodAddonFolder") && (Context.defined("client") || Context.defined("loner"))) {
             Context.onAfterGenerate(updateAddonFolder);
         }
         #end
@@ -117,6 +77,9 @@ class InitMacro {
         #end
     }
 
+    static function luaPatch(?addonName:String) {
+    }
+
     static function recurseCopy(curFolder:String,output:String) {
         #if !display
         for (name in FileSystem.readDirectory(curFolder)) {
@@ -132,15 +95,78 @@ class InitMacro {
         #end
     }
 
-    static function supressBootWarning() {
-        Context.filterMessages(function (message) {
-            return switch (message) {
-                case Warning(msg, pos):
-                    msg.contains("Boot.hx");
-                default:
-                    false;
+
+    static function generateGamemodeFiles(addonName:String) {
+        final gamemodeName = Context.definedValue("gamemode").toLowerCase();
+        final game = 'generated/$addonName/gamemodes/$gamemodeName';
+        exportName = '${gamemodeName}_HAXE_EXPORT';
+        baseEntFolder = '$game/entities';
+        final gmfolder = '$game/gamemode';
+        if (!FileSystem.exists('$baseEntFolder/entities')) {
+            FileSystem.createDirectory('$baseEntFolder/entities');
+            FileSystem.createDirectory('$baseEntFolder/effects');
+            FileSystem.createDirectory('$baseEntFolder/weapons');
+        }
+        if (!FileSystem.exists(gmfolder)) FileSystem.createDirectory(gmfolder);
+        if (Context.defined("client")) {
+            if (Context.defined("generateLuaInit")) {
+                File.saveContent('$gmfolder/cl_init.lua',
+                'local exports = include("$clientName.lua")
+${gamemodeName}_HAXE = exports.__env
+for i,p in pairs(exports) do
+    if i ~= "__env" then
+        _G[i] = p
+    end
+end');
             }
-        });
+            Compiler.setOutput('$gmfolder/$clientName.lua');
+            trace("generated client.lua");
+        } else if (Context.defined("server")) {
+            if (Context.defined("generateLuaInit")) {
+                File.saveContent('$gmfolder/init.lua',
+                'AddCSLuaFile("$clientName.lua")\nlocal exports = include("$serverName.lua")
+${gamemodeName}_HAXE = exports.__env
+for i,p in pairs(exports) do
+    if i ~= "__env" then
+        _G[i] = p
+    end
+end');
+            }
+            Compiler.setOutput('$gmfolder/$serverName.lua');
+            trace("generated server.lua");
+        }
     }
+
+    static function generateNonGamemodeFiles(addonName:String) {
+        exportName = '${addonName}_HAXE_EXPORT';
+        baseEntFolder = 'generated/$addonName/lua';
+        FileSystem.createDirectory('generated/$addonName/lua/$addonName');
+        if (Context.defined("generateLuaInit")) {
+            final initFile:String = 'if SERVER then AddCSLuaFile("$addonName/$clientName.lua") exports = include("$addonName/$serverName.lua") end
+if CLIENT then local exports = include("$addonName/$clientName.lua") end
+if exports.toGlobalTable ~= nil then
+    for i,p in pairs(exports.toGlobalTable) do
+        _G[i] = p
+    end
+end
+${addonName}_HAXE = exports.__env
+for i,p in pairs(exports) do
+    if i ~= "__env" and i ~= "toGlobalTable" then
+        _G[i] = p
+    end
+end
+';
+            FileSystem.createDirectory('generated/$addonName/lua/autorun/');
+            File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',initFile);
+        }
+        if (Context.defined("client")) {
+            trace("generated non gamemode client.lua");
+            Compiler.setOutput('generated/$addonName/lua/$addonName/$clientName.lua');
+        } else if (Context.defined("server")) {
+            trace("generated non gamemode server.lua");
+            Compiler.setOutput('generated/$addonName/lua/$addonName/$serverName.lua');
+        }
+    }
+
 #end
 }

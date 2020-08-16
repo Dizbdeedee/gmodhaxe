@@ -402,7 +402,7 @@ package gmod.libs;
 				3	=	variable
     **/
     
-    static function getupvalue(func:Function, index:DebugInfo):DebugLibGetupvalueReturn;
+    static function getupvalue(func:Function, index:Int):DebugLibGetupvalueReturn;
     
     
     /**
@@ -479,8 +479,8 @@ package gmod.libs;
 		name
 		func
     **/
-    
-    static function getlocal(?thread:Thread, level:Float, index:Float):DebugLibGetlocalReturn;
+    @:overload(function(thread:Thread,level:Int,index:Int):DebugLibGetlocalReturn {})
+    static function getlocal(level:Int, index:Int):DebugLibGetlocalReturn;
     
     
     /**
@@ -525,7 +525,7 @@ package gmod.libs;
 		```
     **/
     
-    static function getinfo(funcOrStackLevel:Function, ?fields:String):DebugInfo;
+    static function getinfo(funcOrStackLevel:EitherType<Int,haxe.Constraints.Function>, ?fields:String):DebugInfo; //TODO make nullable
     
     
 

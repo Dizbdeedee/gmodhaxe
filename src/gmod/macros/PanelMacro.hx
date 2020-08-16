@@ -64,7 +64,7 @@ class PanelMacro {
         var complextype = TPath({pack : ["gmod"],name : "HaxeMultiReturn",
                     params : [TPType(TPath({pack : [],name : 'A_$name'})) ]});
         multireturnMap.set(cls.name,complextype);
-        Context.defineType(anon);
+        generates.set('A_$name',anon);
         return complextype;
     }
 

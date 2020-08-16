@@ -20,8 +20,8 @@ class GamemodeMacro {
         for (field in fields) {
             switch (field.kind) {
                 case FFun(f):
-                    if (field.access.indexOf(Access.AOverride) > -1 ||
-                        field.meta.filter(f -> f.name == "exposeGM").length > 0
+                    if (field.access.indexOf(Access.AOverride) > -1
+                        || field.meta.filter(f -> f.name == ":exposeGM").length > 0
                         ) {
                         var name = field.name;
                         var str = 'GM.$name = function(GM,...) return {0}:$name(...) end';

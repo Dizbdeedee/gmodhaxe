@@ -1,6 +1,7 @@
 package gmod.libs;
 
 
+
 /**
     The file library provides functions for finding, reading and writing to files. The following path values are most commonly used:
 **/
@@ -74,7 +75,7 @@ package gmod.libs;
 		File: helloworld.txt Folder: ctp
     **/
     
-    static function Find(name:String, path:String, ?sorting:String):FileLibFindReturn;
+    static function Find(name:String, path:Path, ?sorting:FindSorting):FileLibFindReturn;
     
     
     /**
@@ -103,7 +104,7 @@ package gmod.libs;
 		```
     **/
     
-    static function Open(fileName:String, fileMode:String, path:String):File;
+    static function Open(fileName:String, fileMode:FileOpenMode, path:Path):Null<File>;
     
     
     /**
@@ -231,7 +232,7 @@ package gmod.libs;
 		true
     **/
     
-    static function Exists(name:String, path:String):Bool;
+    static function Exists(name:String, path:Path):Bool;
     
     
     /**
@@ -258,7 +259,7 @@ package gmod.libs;
 		false
     **/
     
-    static function IsDir(fileName:String, path:String):Bool;
+    static function IsDir(fileName:String, path:Path):Bool;
     
     
     /**
@@ -283,7 +284,7 @@ package gmod.libs;
 		8
     **/
     
-    static function Size(fileName:String, path:String):Void;
+    static function Size(fileName:String, path:Path):Void;
     
     
     /**
@@ -329,7 +330,7 @@ package gmod.libs;
 		This is the content!
     **/
     
-    static function Read(fileName:String, ?path:String):String;
+    static function Read(fileName:String, ?path:Path):Null<String>;
     
     
 
@@ -337,8 +338,81 @@ package gmod.libs;
 
 
 @:multiReturn extern class FileLibFindReturn {
-var a:AnyTable;
-var b:AnyTable;
+/**
+	A table of found files, or nil if the path is invalid
+**/	
+var files:Null<Table<Int,String>>;
+/**
+	A table of found directories, or nil if the path is invalid
+**/
+var directories:Null<Table<Int,String>>;
 
 }
 
+/**
+	The path of where to look for the file.
+**/
+enum abstract Path(String) {
+	/**
+		Data folder (garrysmod/data)
+	**/
+	var DATA;
+	/**
+		All Lua folders (lua/) including gamesmodes and addons
+	**/
+	var LUA;
+	/**
+		Structured like base folder (garrysmod/), searches all the mounted content (main folder, addons, mounted games etc)
+	**/
+	var GAME;
+	/**
+		Strictly the game folder (garrysmod/), ignores mounting.
+	**/
+	var MOD;
+}
+
+enum abstract FileOpenMode(String) {
+	/**
+		read mode
+	**/
+	var read = "r";
+	/**
+		write mode
+	**/
+	var write = "w";
+	/**
+		append mode
+	**/
+	var append = "a";
+	/**
+		binary read mode
+	**/
+	var bin_read = "rb";
+	/**
+		binary write mode
+	**/
+	var bin_write = "wb";
+	/**
+		binary append mode
+	**/
+	var bin_append = "ab";
+}
+
+enum abstract FindSorting(String) {
+	/**
+		sort the files ascending by name
+	**/
+	var nameasc;
+	/**
+		sort the files descending by name
+	**/
+	var namedesc;
+	/**
+		sort the files ascending by date
+	**/
+	var dateasc;
+	/**
+		sort the files descending by date 
+	**/
+	var datedesc;
+}

@@ -125,7 +125,7 @@ package gmod.libs;
 		`**Returns:** A table of all entities in the following format: (table keys are the classnames) table t - The ENT structure associated with the entity boolean isBaseType - Always true string Base - The entity base (note capital B in the key name) string type - The entity type
     **/
     
-    static function GetList():ENT;
+    static function GetList():Table<String,ScriptedEntList>;
     
     
     /**
@@ -191,3 +191,24 @@ package gmod.libs;
 
 
 
+typedef ScriptedEntList = {
+    /**
+       The ENT associated with the entitiy
+    **/
+    var t:ENT;
+
+    /**
+       Always true
+    **/
+    var isBaseType:Bool;
+
+    /**
+       The entity base (note capital B in the key name)
+    **/
+    var Base:String;
+
+    /**
+       The entity type
+    **/
+    var type:String;
+}

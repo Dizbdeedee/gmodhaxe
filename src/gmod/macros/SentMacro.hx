@@ -67,7 +67,12 @@ class SentMacro {
                     case "Think":
                         overridenThink = true;
                     }
+                    field.meta.push({
+	name: ":engineHook",
+	pos: Context.currentPos()
+});
                     fOverride.push(field);
+
                 default:
                     if (field.meta.filter((f) -> return f.name == ":entExpose").length > 0) {
                         fOverride.push(field);
@@ -94,11 +99,13 @@ class SentMacro {
             var type = cls.findField("TYPE",true);
             switch (type) {
                 case null:
-                    throw "no TYPE for ENT definition";
+                    trace("no TYPE for ENT definition");
+                    return null;
                 case _.expr() => {expr : TConst(TString(s))}:
                     s;
                 default:
-                    throw "no TYPE for ENT definition";
+                    trace("no TYPE for ENT definition");
+                    return null;
             }
         default:
             null;
@@ -168,6 +175,7 @@ class SentMacro {
         }
         var exportName = InitMacro.exportName;
         for (gen in generate) {
+            trace(gen.genName);
             var baseIdent:String;
             var _baseStorage:String;
             switch gen.esent {

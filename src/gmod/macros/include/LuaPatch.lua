@@ -1,3 +1,23 @@
+--gmodhaxe overrides
+local haxeEnv = {}
+setmetatable(haxeEnv,{__index = _G})
+setfenv(1,haxeEnv) --if using more than one project + dce, global collisions and missing indexes will ensue. don't want that 
+_hx_exports = {__env = haxeEnv}
+
+_hx_print_2 = function(str)
+    local len = #str
+    if (len > 1000) then
+        --print("splitting")
+        for i=0,len - 1,1000 do
+            local p = math.min(i + 1000,len)
+            print(string.sub(str,i + 1,p))
+        end
+    else
+        ---print("not splitting")
+        print(str)
+    end
+end or (function() end)
+debug.setmetatable(_hx_print_2,{printHandler = true}) -- TODO remove
 
 function _hx_print_class(obj, depth)
     local first = true
@@ -87,4 +107,11 @@ function _hx_tostring(obj, depth)
     end
 end
 
+if not _G._oldRequire then
+    _G._oldRequire = _G.require
+end
+
+_G.require = function (str) local val,rtn = xpcall(_G._oldRequire,function (err) print("Failed to load module:" .. str .. " but did not halt" ) end,str) if val then print("loaded :)" .. str) return _G[str] end end
+
 local _hx_obj_mt = {__newindex=_hx_obj_newindex, __tostring=_hx_tostring}
+--end

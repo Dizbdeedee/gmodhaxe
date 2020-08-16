@@ -4095,7 +4095,7 @@ package gmod;
 		1   2
     **/
     
-    static function CompileString(code:String, identifier:String, ?HandleError:Bool):GlobalLibCompileStringReturn;
+    static function CompileString(code:String, identifier:String, ?HandleError:Bool):haxe.extern.EitherType<Function,String>;
     
     
     /**
@@ -5993,8 +5993,15 @@ var c:Panel;
 }
 #end
 @:multiReturn extern class GlobalLibCompileStringReturn {
-var a:Function;
-var b:String;
+
+	/**
+		A function that, when called, will execute the given code. Returns nil if there was an error.
+	**/
+	var func:Null<Function>;
+	/**
+		The error string. Will be nil if there were no errors or the function handles errors (third argument is true).
+	**/
+	var errorString:Null<String>;
 
 }
 @:multiReturn extern class GlobalLibColorToHSVReturn {

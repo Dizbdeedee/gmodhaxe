@@ -208,7 +208,7 @@ import gmod.Hook;
 		```
     **/
     
-    static function GetTable():AnyTable;
+    static function GetTable():Table<String,Table<String,Function>>;
     
     
     /**

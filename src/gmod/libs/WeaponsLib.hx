@@ -85,7 +85,7 @@ package gmod.libs;
 			-- The rest of the SWEP table
     **/
     
-    static function GetList():AnyTable;
+    static function GetList():Table<Int,Dynamic>;
     
     
     /**

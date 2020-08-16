@@ -41,7 +41,7 @@ extern class File {
 		`**Returns:** The unsigned 8-bit integer from the file.
     **/
     
-    function ReadByte():Float;
+    function ReadByte():Int;
     
     
     /**
@@ -224,7 +224,7 @@ extern class File {
 		`pos` | Pointer position.
     **/
     
-    function Seek(pos:Float):Void;
+    function Seek(pos:Int):Void;
     
     
     /**
@@ -259,7 +259,7 @@ extern class File {
 		`**Returns:** size
     **/
     
-    function Size():Float;
+    function Size():Int;
     
     
     /**
@@ -291,7 +291,7 @@ extern class File {
 		```
     **/
     
-    function Read(length:Float):String;
+    function Read(length:Float):Null<String>;
     
     
 }

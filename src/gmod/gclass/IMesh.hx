@@ -25,7 +25,7 @@ extern class IMesh {
 		`vertexes` | A table consisting of MeshVertex structures.
     **/
     
-    function BuildFromTriangles(vertexes:MeshVertex):Void;
+    function BuildFromTriangles(vertexes:Table<Int,MeshVertex>):Void;
     
     
     /**

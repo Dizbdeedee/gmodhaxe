@@ -10,13 +10,13 @@ typedef DebugInfo = {
 		
 		Option: S
     **/
-    var linedefined : Float;
+    var linedefined : Int;
     /**
         The number of arguments the function uses excluding varargs. 
 		
 		Option: u
     **/
-    var nparams : Float;
+    var nparams : Int;
     /**
         The function name. This will be nil if the name cannot be found. Only works if stack level is passed rather than function pointer. 
 		
@@ -28,13 +28,13 @@ typedef DebugInfo = {
 		
 		Option: l (lowercase L)
     **/
-    var currentline : Float;
+    var currentline : Int;
     /**
         Upvalue count. Max index that can be used with debug.getupvalue. C functions can have upvalues but they cannot be accessed from Lua. 
 		
 		Option: u
     **/
-    var nups : Float;
+    var nups : Int;
     /**
         Whether the function is variadic (has a ... argument). 
 		
@@ -46,7 +46,7 @@ typedef DebugInfo = {
 		
 		Option: S
     **/
-    var lastlinedefined : Float;
+    var lastlinedefined : Int;
     /**
         A table of all the active lines in the function - that is, lines with code that actually does something (not blank lines or lines with comments only). 
 		
@@ -56,7 +56,7 @@ typedef DebugInfo = {
 		
 		Option: L
     **/
-    var activelines : AnyTable;
+    var activelines : lua.Table<Int,Bool>;
     /**
         The path to the file where the passed function is defined prepended by an @ (ex. "@lua/autorun/mytestfile.lua"). This will be the CompileString or RunString identifier if the function wasn't defined in a file, also prepended by an @. 
 		
@@ -68,13 +68,13 @@ typedef DebugInfo = {
 		
 		Option: S
     **/
-    var what : String;
+    var what : What;
     /**
         The function "type". This will be "global", "local", "method", "field". Can also be an empty string if the function name could not be found. Only works if stack level is passed rather than function pointer. 
 		
 		Option: n
     **/
-    var namewhat : String;
+    var namewhat : NameWhat;
     /**
         The shortened name of the source (without the @). May be truncated if the source path is long. 
 		
@@ -88,4 +88,18 @@ typedef DebugInfo = {
     **/
     var func : Function;
     
+}
+
+enum abstract What(String) {
+    var Lua;
+    var C;
+}
+
+enum abstract NameWhat(String) {
+    var NOT_FOUND = "";
+    var global;
+    var local;
+    var method;
+    var field;
+
 }
