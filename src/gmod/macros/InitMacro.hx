@@ -99,7 +99,7 @@ class InitMacro {
     static function generateGamemodeFiles(addonName:String) {
         final gamemodeName = Context.definedValue("gamemode").toLowerCase();
         final game = 'generated/$addonName/gamemodes/$gamemodeName';
-        exportName = '${gamemodeName}_HAXE_EXPORT';
+        exportName = '${gamemodeName}';
         baseEntFolder = '$game/entities';
         final gmfolder = '$game/gamemode';
         if (!FileSystem.exists('$baseEntFolder/entities')) {
@@ -138,12 +138,12 @@ end');
     }
 
     static function generateNonGamemodeFiles(addonName:String) {
-        exportName = '${addonName}_HAXE_EXPORT';
+        exportName = '${addonName}';
         baseEntFolder = 'generated/$addonName/lua';
         FileSystem.createDirectory('generated/$addonName/lua/$addonName');
         if (Context.defined("generateLuaInit")) {
-            final initFile:String = 'if SERVER then AddCSLuaFile("$addonName/$clientName.lua") exports = include("$addonName/$serverName.lua") end
-if CLIENT then local exports = include("$addonName/$clientName.lua") end
+            final initFile:String = 'local exports if SERVER then AddCSLuaFile("$addonName/$clientName.lua") exports = include("$addonName/$serverName.lua") end
+if CLIENT then exports = include("$addonName/$clientName.lua") end
 if exports.toGlobalTable ~= nil then
     for i,p in pairs(exports.toGlobalTable) do
         _G[i] = p
