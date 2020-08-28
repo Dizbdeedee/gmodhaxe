@@ -34,7 +34,7 @@ class InitMacro {
             }
         });
         #if (haxe >= "4.1.0")
-            Compiler.includeFile("gmod/macros/include/LuaPatch.lua");
+            Compiler.includeFile("gmod/macros/include/PrintPatch.lua");
         #end
         #if (!display)
         if (!Context.defined("lua") || Context.defined("display_details") ) {
@@ -56,6 +56,7 @@ class InitMacro {
         if (Context.defined("gmodAddonFolder") && (Context.defined("client") || Context.defined("loner"))) {
             Context.onAfterGenerate(updateAddonFolder);
         }
+        Context.onAfterGenerate(envPatch);
         #end
     }
     static function updateAddonFolder() {
@@ -77,7 +78,13 @@ class InitMacro {
         #end
     }
 
-    static function luaPatch(?addonName:String) {
+    static function envPatch() {
+        final curoutput = File.getBytes(Compiler.getOutput());
+        File.copy(Context.resolvePath("gmod/macros/include/EnvPatch.lua"),Compiler.getOutput());
+        final fl = File.append(Compiler.getOutput());
+        fl.write(curoutput);
+        fl.close();
+
     }
 
     static function recurseCopy(curFolder:String,output:String) {

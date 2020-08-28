@@ -4025,7 +4025,8 @@ package gmod;
     #end
     
     /**
-        This function will compile the code argument as lua code and return a function that will execute that code. 
+        Ignore docs, was updated
+        This function will compile the code argument as lua code and return a function that will execute that code.
 		
 		Please note that this function will not automatically execute the given code after compiling it.
 		
@@ -4096,7 +4097,7 @@ package gmod;
     **/
     
     static function CompileString(code:String, identifier:String, ?HandleError:Bool):haxe.extern.EitherType<Function,String>;
-    
+
     
     /**
         Empties the pool of main menu background images.

@@ -1,8 +1,4 @@
---gmodhaxe overrides
-local haxeEnv = {}
-setmetatable(haxeEnv,{__index = _G})
-setfenv(1,haxeEnv) --if using more than one project + dce, global collisions and missing indexes will ensue. don't want that 
-_hx_exports = {__env = haxeEnv}
+--gmodhaxe print patch
 
 _hx_print_2 = function(str)
     local len = #str
@@ -111,6 +107,8 @@ if not _G._oldRequire then
     _G._oldRequire = _G.require
 end
 
+-- haxe is a little too eager to require modules sometimes, so this prevents script shutdown
+-- TODO figure out a way to make this not affect global workspace
 _G.require = function (str) local val,rtn = xpcall(_G._oldRequire,function (err) print("Failed to load module:" .. str .. " but did not halt" ) end,str) if val then print("loaded :)" .. str) return _G[str] end end
 
 local _hx_obj_mt = {__newindex=_hx_obj_newindex, __tostring=_hx_tostring}

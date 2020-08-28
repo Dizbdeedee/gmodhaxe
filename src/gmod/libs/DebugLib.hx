@@ -35,7 +35,7 @@ package gmod.libs;
 		`**Returns:** Environment
     **/
     
-    static function getfenv(object:AnyTable):AnyTable;
+    static function getfenv(object:Dynamic):AnyTable;
     
     
     /**
@@ -51,7 +51,9 @@ package gmod.libs;
 		`count` | How often to call the hook (in instructions). 0 for every instruction
     **/
     
-    static function sethook(thread:Thread, hook:Function, mask:String, count:Float):Void;
+    @:overload(function ():Void {})
+    @:overload(function (hook:(?cur:HookState,?currentLineorInstr:Int) -> Void,mask:String,?count:Int):Void {})
+    static function sethook(thread:Thread, hook:(?cur:HookState,?currentLineorInstr:Int) -> Void, mask:String, ?count:Int):Void;
     
     
     /**
@@ -531,6 +533,11 @@ package gmod.libs;
 
 }
 
+enum abstract HookState(String) {
+    var Call = "call";
+    var Line = "line";
+    var _Return = "return";
+}
 
 @:multiReturn extern class DebugLibGetupvalueReturn {
 var a:String;
