@@ -70,7 +70,7 @@ package gmod.libs;
 		`client` | The player that sent the message. This will be nil in the client state.
     **/
     @:deprecated("INTERNAL: You may be looking for net. Receive.")
-    static function Incoming(length:Float, client:Player):Void;
+    static function Incoming(length:Int, client:Player):Void;
     
     
     /**
@@ -96,7 +96,7 @@ package gmod.libs;
 		`numberOfBits` | The size of the integer to be sent, in bits. Acceptable values range from any number 1 to 32 inclusive. For reference, 1 = bit, 4 = nibble, 8 = byte, 16 = short, 32 = long.
     **/
     
-    static function WriteUInt(unsignedInteger:Float, numberOfBits:Float):Void;
+    static function WriteUInt(unsignedInteger:Int, numberOfBits:Int):Void;
     
     
     /**
@@ -229,7 +229,7 @@ package gmod.libs;
 		`length` | The length of the binary data to be sent, in bytes.
     **/
     
-    static function WriteData(binaryData:String, length:Float):Void;
+    static function WriteData(binaryData:String, length:Int):Void;
     
     
     /**

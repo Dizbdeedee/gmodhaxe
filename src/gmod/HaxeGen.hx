@@ -4,22 +4,22 @@ typedef HaxeExtend<T,X:HaxeExtend<T,X>> = {
     final self:HaxeGen<T,X>;
 }
 @:forward
-abstract HaxeGen<T,X:HaxeExtend<T,X>>(T) from T to T {
+abstract HaxeGen<ENT,HAXE:HaxeExtend<ENT,HAXE>>(ENT) from ENT to ENT {
 
-    public var haxeGen(get,never):X;
+    public var haxeGen(get,never):HAXE;
     
     @:noCompletion
-    extern inline function get_haxeGen():X {
+    extern inline function get_haxeGen():HAXE {
         return untyped this._gHaxeBurrow;
     }
 
     @:to
-    public extern inline function to():X {
+    public extern inline function toHaxe():HAXE {
         return untyped this._gHaxeBurrow;
     }
 
     @:from
-    public inline static function from<T,X:HaxeExtend<T,X>>(x:X):HaxeGen<T,X> {
+    public inline static function fromHaxe<ENT,HAXE:HaxeExtend<ENT,HAXE>>(x:HAXE):HaxeGen<ENT,HAXE> {
         return x.self;
     }
 

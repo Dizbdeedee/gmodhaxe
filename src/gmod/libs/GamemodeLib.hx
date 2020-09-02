@@ -1,5 +1,7 @@
 package gmod.libs;
 
+import gmod.Gmod.AnyMultiReturn;
+
 
 /**
     The gamemode library provides functions relating to the gamemode system in Garry's Mod.
@@ -48,7 +50,7 @@ package gmod.libs;
 		```
     **/
     
-    static function Call(name:String, args:Rest<Dynamic>):Dynamic;
+    static function Call(name:String, args:Rest<Dynamic>):AnyMultiReturn;
     
     
     /**

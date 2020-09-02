@@ -764,6 +764,7 @@ extern class ENT extends Entity {
 	function SetupDataTables():Void;
 	
 }
+
 @:multiReturn extern class EntCalcAbsolutePositionReturn {
 	var a:Vector;
 	var b:Angle;

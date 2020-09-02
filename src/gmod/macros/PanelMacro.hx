@@ -13,6 +13,7 @@ using haxe.macro.TypeTools;
 using haxe.macro.ExprTools.ExprArrayTools;
 using haxe.macro.MacroStringTools;
 using haxe.macro.Tools;
+using Lambda;
 
 private typedef Generate = {
     genName : String,
@@ -31,6 +32,7 @@ private enum MType {
 
 class PanelMacro {
     #if macro
+
     static var generate:Map<String,Bool> = [];
 
     static var onGenerate = false;
@@ -47,51 +49,22 @@ class PanelMacro {
     }
 
     static function generateMultiReturn(cls:ClassType):ComplexType {
-        var name = cls.name;
+        final name = cls.name;
         if (multireturnMap.exists(name)) return multireturnMap.get(name);
-        var anon:TypeDefinition = {
-        pack: [],
-        name: 'A_$name',
-        pos: Context.currentPos(),
-        kind: TypeDefKind.TDStructure,
-        fields : []
+        final anon:TypeDefinition = {
+            pack: [],
+            name: 'A_$name',
+            pos: Context.currentPos(),
+            kind: TypeDefKind.TDStructure,
+            fields : []
         }
-        var fieldArray = [];
-        for (clsfield in cls.fields.get()) {
-            fieldArray.push(classFieldToField(clsfield));
-        }
+        final fieldArray = cls.fields.get().map(classFieldToField);
         anon.fields = fieldArray;
         var complextype = TPath({pack : ["gmod"],name : "HaxeMultiReturn",
                     params : [TPType(TPath({pack : [],name : 'A_$name'})) ]});
         multireturnMap.set(cls.name,complextype);
         generates.set('A_$name',anon);
         return complextype;
-    }
-
-    @:allow(PanelMacroOverride)
-    static function getSuperFields2(c:ClassType):Map<String,ClassField> {
-        var superFields = [];
-        var curClass = c;
-        var map:Map<String,ClassField> = [];
-        for (i in 0...10) {
-            var superC = curClass.superClass;
-            var fields = curClass.fields.get();
-            superFields.push(fields);
-            if (superC != null) {
-                curClass = superC.t.get();
-            } else {
-                break;
-            }
-        }
-        for (fieldAr in superFields) {
-            for (field in fieldAr) {
-                if (!map.exists(field.name)) {
-                    map.set(field.name,field);
-                }
-            }
-        }
-        return map;
-
     }
 
     static function argToFuncArg(x:{name: String,opt : Bool,t: haxe.macro.Type}):FunctionArg {
@@ -134,85 +107,66 @@ class PanelMacro {
     }
     static function classVarToField(x:ClassField):Field {
         return switch (x.expr()) {
-        case null:
-            null;
-        case {expr : TConst(TString(s))}:
-            {
-            name : x.name,
-            kind : FVar(x.type.toComplexType(),macro $v{s}),
-            pos : Context.currentPos(),
-            access : [Access.AStatic,Access.AInline]
-            };
-        default:
-            throw "hmm";
+            case null:
+                null;
+            case {expr : TConst(TString(s))}:
+                {
+                    name : x.name,
+                    kind : FVar(x.type.toComplexType(),macro $v{s}),
+                    pos : Context.currentPos(),
+                    access : [Access.AStatic,Access.AInline]
+                };
+            default:
+                throw "hmm";
         };
     }
-    static function classFuncToField(x:ClassField):Field {
-        var _args:Array<FunctionArg> = [];
+
+    static function classFuncToField(classField:ClassField):Field {
+        var funcArgs:Array<FunctionArg> = [];
         var exprArgs = [];
-        var _ret:haxe.macro.Type;
-        switch x.type {
+        var funcReturn:haxe.macro.Type;
+        switch classField.type {
             case TFun(args, ret):
                 exprArgs = [];    
-                for (arg in args) {
-                    _args.push(argToFuncArg(arg));
-                    exprArgs.push(macro $i{arg.name});
-                }
-                _ret = ret;
+                funcArgs = args.map(argToFuncArg);
+                exprArgs = args.map((arg) -> macro $i{arg.name});
+                funcReturn = ret;
             case y:
-                trace(x);
+                trace(classField);
                 throw "unhandled yet...";
         }
-        var name = x.name;
-        var isHook = x.meta.has(":hook");
-        var func:Function = switch (_ret) {
-            case TAbstract(_.get().name => "Void", params):
-                var expr;    
-                if (isHook) {
-                    expr = null;  // macro {}
-                } else {
-                    return null;
-                }
-                {   
-                    args : _args,
-                    ret :  Context.toComplexType(_ret),
-                    expr : expr
-                };
-            case TInst(_.get() => luaMR = {name : n} , _) if (isHook && n.endsWith("Return")):
+        final name = classField.name;
+        final isHook = classField.meta.has(":hook");
+        if (!isHook) return null;
+        final func:Function = switch (funcReturn) {
+            case TInst(_.get() => luaMR = {name : n} , _) if (n.endsWith("Return")):
                 {
-                    args : _args,
+                    args : funcArgs,
                     ret : generateMultiReturn(luaMR),
                     expr :null
                 }
-            default:
-                var expr;    
-                if (isHook) {
-                    expr = null; //macro return null
-                } else {
-                    return null;
-                }
+            case ret:
                 {
-                    args : _args,
-                    ret :  Context.toComplexType(_ret),
-                    expr : expr
+                    args : funcArgs,
+                    ret :  Context.toComplexType(ret),
+                    expr : null
                 };
         }
-        var access:Array<Access> = switch (isHook) {
+        final access:Array<Access> = switch (isHook) {
             case false:
                 [Access.AFinal,Access.APublic]; //add override here if we revert...
             default:
                 [];
         }
-        var field:Field = {
+        return {
             kind : FieldType.FFun(func),
-            name : x.name,
+            name : classField.name,
             pos : Context.currentPos(),
-            doc : x.doc,
+            doc : classField.doc,
             access: access
-        }
-        return field;
+        };
     }
-    static var x = 0;
+
     static function generateNewClass(cls:ClassType,mType:MType,first=false) {
         var super;
         var extendname;
@@ -240,10 +194,7 @@ class PanelMacro {
         newCls.isExtern = true;
         var rpPack = cls.pack.copy();
         rpPack.push(cls.name);
-        var newarray = [];
-        for (str in rpPack) {
-           newarray.push(macro $v{str});
-        }
+        var newarray = rpPack.map((str) -> macro $v{str});
         newCls.meta.push({
             name: ":RealPanel",
             pos: Context.currentPos(),

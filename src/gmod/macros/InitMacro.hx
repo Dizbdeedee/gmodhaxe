@@ -27,12 +27,12 @@ class InitMacro {
     static public function init() {
         Compiler.include("gmod.macros.include",true,null,null,true);
         Compiler.keep("gmod.macros.include",null,true);
-
         no.Spoon.bend("Sys",macro class {
             public static function time():Float {
                 return gmod.Gmod.SysTime();
             }
         });
+
         #if (haxe >= "4.1.0")
             Compiler.includeFile("gmod/macros/include/PrintPatch.lua");
         #end
@@ -127,7 +127,6 @@ for i,p in pairs(exports) do
 end');
             }
             Compiler.setOutput('$gmfolder/$clientName.lua');
-            trace("generated client.lua");
         } else if (Context.defined("server")) {
             if (Context.defined("generateLuaInit")) {
                 File.saveContent('$gmfolder/init.lua',
@@ -140,7 +139,6 @@ for i,p in pairs(exports) do
 end');
             }
             Compiler.setOutput('$gmfolder/$serverName.lua');
-            trace("generated server.lua");
         }
     }
 

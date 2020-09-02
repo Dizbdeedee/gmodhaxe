@@ -1,6 +1,7 @@
 package gmod.libs;
 
 
+import gmod.Gmod.AnyMultiReturn;
 import gmod.Hook;
 
 /**
@@ -190,7 +191,7 @@ import gmod.Hook;
 		Hello Hey
     **/
     
-    static function Call<T:Function>(eventName:Hook<T>, gamemodeTable:AnyTable, args:Rest<Dynamic>):Rest<Dynamic>;
+    static function Call<T:Function>(eventName:Hook<T>, gamemodeTable:AnyTable, args:Rest<Dynamic>):AnyMultiReturn;
     
     
     /**

@@ -68,11 +68,10 @@ class SentMacro {
                         overridenThink = true;
                     }
                     field.meta.push({
-	name: ":engineHook",
-	pos: Context.currentPos()
-});
+                        name: ":engineHook",
+                        pos: Context.currentPos()
+                    });
                     fOverride.push(field);
-
                 default:
                     if (field.meta.filter((f) -> return f.name == ":entExpose").length > 0) {
                         fOverride.push(field);
@@ -175,7 +174,6 @@ class SentMacro {
         }
         var exportName = InitMacro.exportName;
         for (gen in generate) {
-            trace(gen.genName);
             var baseIdent:String;
             var _baseStorage:String;
             switch gen.esent {

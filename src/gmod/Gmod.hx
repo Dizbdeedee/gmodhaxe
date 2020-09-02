@@ -3119,7 +3119,7 @@ package gmod;
 		false attempt to call global 'aisj' (a nil value)
     **/
     
-    static function pcall(func:Function, arguments:Rest<Dynamic>):GlobalLibPcallReturn;
+    static function pcall(func:Function, args:Rest<Dynamic>):GlobalLibPcallReturn;
     
     
     /**
@@ -3974,7 +3974,7 @@ package gmod;
 		```
     **/
     
-    static function include(fileName:String):Rest<Dynamic>;
+    static function include(fileName:String):Dynamic;
     
     
     /**
@@ -4264,7 +4264,7 @@ package gmod;
 		`**Returns:** The numeric representation of the value with the given base, or nil if the conversion failed.
     **/
     
-    static function tonumber(value:Dynamic, ?base:Float):Float;
+    static function tonumber(value:EitherType<String,Float>, ?base:Float):Float;
     
     #if server
     /**
@@ -5121,7 +5121,7 @@ package gmod;
 		```
     **/
     
-    static function assert(expression:Dynamic, ?errorMessage:String, returns:Rest<Dynamic>):GlobalLibAssertReturn;
+    static function assert<X>(expression:X, ?errorMessage:String, returns:Rest<Dynamic>):GlobalLibAssertReturn<X>;
     
     
     /**
@@ -5863,7 +5863,7 @@ package gmod;
 		```
     **/
     
-    static function unpack(tbl:AnyTable, ?startIndex:Float, ?endIndex:Float):Rest<Dynamic>;
+    static function unpack(tbl:AnyTable, ?startIndex:Int, ?endIndex:Int):AnyMultiReturn;
     
     #if client
     /**
@@ -5953,10 +5953,21 @@ var a:Function;
 var b:AnyTable;
 
 }
-@:multiReturn extern class GlobalLibPcallReturn {
-var a:Bool;
-var b:Rest<Dynamic>;
-
+@:multiReturn extern class GlobalLibPcallReturn{
+/**
+ * Whether successful
+ */
+var success:Bool;
+/**
+ * The first return, or the error message upon failure
+ */
+var msgOrA:Null<EitherType<String,Dynamic>>;
+/**
+ * 2nd return
+ */
+var b:Null<Dynamic>;
+var c:Null<Dynamic>;
+var d:Null<Dynamic>;
 }
 @:multiReturn extern class GlobalLibPairsReturn {
 var a:Function;
@@ -6017,10 +6028,35 @@ var b:Float;
 var c:Float;
 
 }
-@:multiReturn extern class GlobalLibAssertReturn {
-var a:Dynamic;
+@:multiReturn extern class GlobalLibAssertReturn<X> {
+var a:X;
 var b:Dynamic;
-var c:Rest<Dynamic>;
+var c:AnyVargsTable;
 
 }
 
+typedef AnyVargsTable = VargsTable<Dynamic>
+
+abstract VargsTable<X>(AnyTable) to AnyTable {
+    public inline function unpack(?startIndex:Int, ?endIndex:Int):VarMultiReturn<X> {
+        return cast Gmod.unpack(this,startIndex,endIndex);
+    }
+}
+
+
+/**
+ * This function has multiple unknown returns.
+ */
+typedef AnyMultiReturn = VarMultiReturn<Dynamic>;
+/**
+ * This function has multiple known returns.
+ */
+@:multiReturn extern class VarMultiReturn<X> {
+    var a:Null<X>;
+    var b:Null<X>;
+    var c:Null<X>;
+    var d:Null<X>;
+    var e:Null<X>;
+    var f:Null<X>;
+    var g:Null<X>;
+}
