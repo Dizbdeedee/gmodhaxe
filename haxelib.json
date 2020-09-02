@@ -4,9 +4,9 @@
     "license": "MIT",
     "tags": ["lua", "gmod","extern"],
     "description": "Externs + macros for gmodlua development",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "classPath": "src",
-    "releasenote": "Updated to 4.1. Added panel support, redid sent/swep/effect macros",
+    "releasenote": "Lambda support for lua tables, Environment improvements",
     "contributors": ["ponobodod"],
     "main": "gmod.macros.Run",
     "dependencies" : {
