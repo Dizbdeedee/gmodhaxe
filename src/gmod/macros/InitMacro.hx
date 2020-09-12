@@ -16,7 +16,7 @@ class InitMacro {
 
     public static var baseEntFolder:String;
 
-    public static var exportName:String;
+    public static var entLuaStorage:String;
 
     public static final serverName = "haxe_init";
 
@@ -25,6 +25,7 @@ class InitMacro {
     #if macro
 
     static public function init() {
+
         Compiler.include("gmod.macros.include",true,null,null,true);
         Compiler.keep("gmod.macros.include",null,true);
         no.Spoon.bend("Sys",macro class {
@@ -32,7 +33,6 @@ class InitMacro {
                 return gmod.Gmod.SysTime();
             }
         });
-
         #if (haxe >= "4.1.0")
             Compiler.includeFile("gmod/macros/include/PrintPatch.lua");
         #end
@@ -56,7 +56,8 @@ class InitMacro {
         if (Context.defined("gmodAddonFolder") && (Context.defined("client") || Context.defined("loner"))) {
             Context.onAfterGenerate(updateAddonFolder);
         }
-        Context.onAfterGenerate(envPatch);
+	trace("runonce");
+	Context.onAfterGenerate(envPatch);
         #end
     }
     static function updateAddonFolder() {
@@ -106,7 +107,7 @@ class InitMacro {
     static function generateGamemodeFiles(addonName:String) {
         final gamemodeName = Context.definedValue("gamemode").toLowerCase();
         final game = 'generated/$addonName/gamemodes/$gamemodeName';
-        exportName = '${gamemodeName}';
+        entLuaStorage = '__${gamemodeName}_ents';
         baseEntFolder = '$game/entities';
         final gmfolder = '$game/gamemode';
         if (!FileSystem.exists('$baseEntFolder/entities')) {
@@ -143,7 +144,7 @@ end');
     }
 
     static function generateNonGamemodeFiles(addonName:String) {
-        exportName = '${addonName}';
+        entLuaStorage = '__${addonName}_ents';
         baseEntFolder = 'generated/$addonName/lua';
         FileSystem.createDirectory('generated/$addonName/lua/$addonName');
         if (Context.defined("generateLuaInit")) {

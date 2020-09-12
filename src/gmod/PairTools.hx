@@ -2,20 +2,28 @@ package gmod;
 
 import lua.*;
 
+/**
+ * Haxe makes functions inside a structure as if the function is for the object. This is not always desired behavior
+ */
+private typedef Workaround = {
+   var key:Dynamic;
+   var value : Dynamic ;
+}
+
 class PairTools {
 
     /**
         Uses `Lua.pairs`
     **/
-    public static function keyValueIterator<A, B>(table:Table<A, B>):KeyValueIterator<A,B> {
-        var p = Lua.pairs(table);
-        var next = p.next;
+    public inline static function keyValueIterator<A, B>(table:Table<A, B>):KeyValueIterator<A,B> {
+        final p = Lua.pairs(table);
+        final next = p.next;
         var i = p.index;
         return {
             next: function() {
                 var res = next(table, i);
                 i = res.index;
-                return {key: res.index, value: res.value};
+                return ({key: res.index, value: res.value } : Workaround);
             },
             hasNext: function() {
                 return Lua.next(table, i).value != null;
@@ -25,9 +33,9 @@ class PairTools {
     /**
         Uses `Lua.pairs`
     **/
-    public static function iterator<B>(table:Table<Dynamic, B>):Iterator<B> {
-        var p = Lua.pairs(table);
-        var next = p.next;
+    public inline static function iterator<B>(table:Table<Dynamic, B>):Iterator<B> {
+        final p = Lua.pairs(table);
+        final next = p.next;
         var i = p.index;
         return {
             next: function() {

@@ -87,11 +87,16 @@ class SentMacro {
         }
         var genName = switch (cls.meta.extract(":expose")) {
             case [{params : [{expr : EConst(CString(s,_))}]}]:
-                s.toLowerCase();
+                final newName = s.toLowerCase();
+		final name = InitMacro.entLuaStorage + "." + newName;
+		cls.meta.remove(":expose");
+                cls.meta.add(":expose",[macro $v{name}],Context.currentPos());
+		newName;
             default:
-                var newname = cls.name.toLowerCase();
-                cls.meta.add(":expose",[macro $v{newname}],Context.currentPos());
-                newname;
+                final newName = cls.name.toLowerCase();
+		final name = InitMacro.entLuaStorage + "." + newName;
+                cls.meta.add(":expose",[macro $v{name}],Context.currentPos());
+                newName;
         }
         var entLuaType = switch (esent) {
         case Sent:
@@ -172,7 +177,7 @@ class SentMacro {
             trace("no base storage to generate entity lua files");
             return;
         }
-        var exportName = InitMacro.exportName;
+        var exportName = InitMacro.entLuaStorage;
         for (gen in generate) {
             var baseIdent:String;
             var _baseStorage:String;

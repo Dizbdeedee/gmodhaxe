@@ -209,7 +209,7 @@ import gmod.Hook;
 		```
     **/
     
-    static function GetTable():Table<String,Table<String,Function>>;
+    static function GetTable():Table<String,Table<String,Dynamic>>; //function can cause problems here
     
     
     /**

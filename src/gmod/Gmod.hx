@@ -1178,7 +1178,7 @@ package gmod;
 		```
     **/
     
-    static function collectgarbage(?action:String, arg:Float):Dynamic;
+    static function collectgarbage(?action:String, ?arg:Float):Dynamic;
     
     #if client
     /**
@@ -6038,9 +6038,9 @@ var c:AnyVargsTable;
 typedef AnyVargsTable = VargsTable<Dynamic>
 
 abstract VargsTable<X>(AnyTable) to AnyTable {
-    public inline function unpack(?startIndex:Int, ?endIndex:Int):VarMultiReturn<X> {
-        return cast Gmod.unpack(this,startIndex,endIndex);
-    }
+    // public inline function unpack(?startIndex:Int, ?endIndex:Int):VarMultiReturn<X> {
+    //     return cast Gmod.unpack(this,startIndex,endIndex);
+    // }
 }
 
 

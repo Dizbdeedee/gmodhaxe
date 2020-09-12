@@ -4,20 +4,20 @@ package gmod.structs;
 **/
 typedef Color = {
     /**
+        The red channel
+    **/
+    var r : Float;
+    /**
         The green channel
     **/
     var g : Float;
-    /**
-        The alpha channel
-    **/
-    var a : Float;
     /**
         The blue channel
     **/
     var b : Float;
     /**
-        The red channel
+        The alpha channel
     **/
-    var r : Float;
+    var a : Float;
     
 }
