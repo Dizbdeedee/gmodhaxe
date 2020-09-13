@@ -56,7 +56,6 @@ class InitMacro {
         if (Context.defined("gmodAddonFolder") && (Context.defined("client") || Context.defined("loner"))) {
             Context.onAfterGenerate(updateAddonFolder);
         }
-	trace("runonce");
 	Context.onAfterGenerate(envPatch);
         #end
     }

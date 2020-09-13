@@ -4,6 +4,12 @@ package gmod;
     This is the list of global functions.
 **/
 @:native("_G")extern class Gmod {
+
+    static final GAMEMODE:lua.Table.AnyTable;
+
+    static final CLIENT:Bool;
+
+    static final SERVER:Bool;
     
     /**
         ***INTERNAL** 
