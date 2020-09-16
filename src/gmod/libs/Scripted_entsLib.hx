@@ -183,7 +183,7 @@ package gmod.libs;
 		```
     **/
     
-    static function GetStored(classname:String):AnyTable;
+    static function GetStored(classname:String):ScriptedEntList;
     
     
 
@@ -195,7 +195,7 @@ typedef ScriptedEntList = {
     /**
        The ENT associated with the entitiy
     **/
-    var t:ENT;
+    var t:gmod.StructuredTable.AnyStructuredTable<ENT>;
 
     /**
        Always true

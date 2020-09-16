@@ -11,7 +11,9 @@ import haxe.macro.Context;
 import haxe.macro.Expr.TypeDefinition;
 using haxe.macro.TypeTools;
 using StringTools;
+
 #end
+
 class InitMacro {
 
     public static var baseEntFolder:String;
@@ -25,7 +27,6 @@ class InitMacro {
     #if macro
 
     static public function init() {
-
         Compiler.include("gmod.macros.include",true,null,null,true);
         Compiler.keep("gmod.macros.include",null,true);
         no.Spoon.bend("Sys",macro class {
@@ -53,10 +54,7 @@ class InitMacro {
         } else {
             generateNonGamemodeFiles(addonName);
         }
-        if (Context.defined("gmodAddonFolder") && (Context.defined("client") || Context.defined("loner"))) {
-            Context.onAfterGenerate(updateAddonFolder);
-        }
-	Context.onAfterGenerate(envPatch);
+	Context.onAfterGenerate(afterGenerate);
         #end
     }
     static function updateAddonFolder() {
@@ -84,7 +82,13 @@ class InitMacro {
         final fl = File.append(Compiler.getOutput());
         fl.write(curoutput);
         fl.close();
+    }
 
+    static function afterGenerate() {
+	envPatch();
+        if (Context.defined("gmodAddonFolder") && (Context.defined("client") || Context.defined("loner"))) {
+            updateAddonFolder();
+        }
     }
 
     static function recurseCopy(curFolder:String,output:String) {

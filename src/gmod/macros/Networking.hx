@@ -16,9 +16,8 @@ class Networking {
         var netName:String;
         var anon:haxe.macro.Type;
         var fields:Array<ClassField>;
-        
         switch (type) {
-            case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), tdef = _.follow() => a = TAnonymous(_.get() => {fields : f})]):
+            case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), tdef = _.follow() => TAnonymous(_.get() => {fields : f})]):
                 netName = s;
                 fields = f;
                 anon = tdef;
