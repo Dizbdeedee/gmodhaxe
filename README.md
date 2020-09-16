@@ -208,8 +208,3 @@ class MyClass {
 
 }
 ```
-#### hxbit
-
-Hxbit is a full networking library intended for full games, so is a bit overkill, and will bloat your filesize. However, it comes with full support for haxe types, and may be useful if you want to take advantage of the fact that haxe is cross platform. This is very wip.
-
-See https://github.com/HeapsIO/hxbit
