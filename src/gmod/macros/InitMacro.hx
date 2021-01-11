@@ -77,9 +77,17 @@ class InitMacro {
     }
 
     static function envPatch() {
+        final addonName = Context.definedValue("addonName").toLowerCase();
         final curoutput = File.getBytes(Compiler.getOutput());
-        File.copy(Context.resolvePath("gmod/macros/include/EnvPatch.lua"),Compiler.getOutput());
-        final fl = File.append(Compiler.getOutput());
+        final fl = File.write(Compiler.getOutput());
+        fl.writeString('--gmod haxe environment patch
+local haxeEnv = {}
+local _hx_exports = {}
+_G.HAXE_$addonName = haxeEnv 
+setmetatable(_hx_exports,{__newindex = _G})
+setmetatable(haxeEnv,{__index = _G})
+setfenv(1,haxeEnv) --if using more than one project + dce, global collisions and missing indexes will ensue. dont want that 
+'); //TODO move to template system
         fl.write(curoutput);
         fl.close();
     }
@@ -122,25 +130,13 @@ class InitMacro {
         if (Context.defined("client")) {
             if (Context.defined("generateLuaInit")) {
                 File.saveContent('$gmfolder/cl_init.lua',
-                'local exports = include("$clientName.lua")
-${gamemodeName}_HAXE = exports.__env
-for i,p in pairs(exports) do
-    if i ~= "__env" then
-        _G[i] = p
-    end
-end');
+                'local exports = include("$clientName.lua")');
             }
             Compiler.setOutput('$gmfolder/$clientName.lua');
         } else if (Context.defined("server")) {
             if (Context.defined("generateLuaInit")) {
                 File.saveContent('$gmfolder/init.lua',
-                'AddCSLuaFile("$clientName.lua")\nlocal exports = include("$serverName.lua")
-${gamemodeName}_HAXE = exports.__env
-for i,p in pairs(exports) do
-    if i ~= "__env" then
-        _G[i] = p
-    end
-end');
+                'AddCSLuaFile("$clientName.lua")\nlocal exports = include("$serverName.lua")');
             }
             Compiler.setOutput('$gmfolder/$serverName.lua');
         }
@@ -152,19 +148,7 @@ end');
         FileSystem.createDirectory('generated/$addonName/lua/$addonName');
         if (Context.defined("generateLuaInit")) {
             final initFile:String = 'local exports if SERVER then AddCSLuaFile("$addonName/$clientName.lua") exports = include("$addonName/$serverName.lua") end
-if CLIENT then exports = include("$addonName/$clientName.lua") end
-if exports.toGlobalTable ~= nil then
-    for i,p in pairs(exports.toGlobalTable) do
-        _G[i] = p
-    end
-end
-${addonName}_HAXE = exports.__env
-for i,p in pairs(exports) do
-    if i ~= "__env" and i ~= "toGlobalTable" then
-        _G[i] = p
-    end
-end
-';
+if CLIENT then exports = include("$addonName/$clientName.lua") end';
             FileSystem.createDirectory('generated/$addonName/lua/autorun/');
             File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',initFile);
         }
