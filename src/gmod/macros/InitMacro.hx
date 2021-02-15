@@ -34,6 +34,15 @@ class InitMacro {
                 return gmod.Gmod.SysTime();
             }
         });
+        //use haxe json parser, no dynamic modules
+        #if (haxe >= "4.2.0")
+        no.Spoon.bend("haxe.format.JsonParser",macro class {
+            public static inline function parse(str:String):Dynamic {
+                return new haxe.format.JsonParser(str).doParse();
+            }
+        });
+        #end
+        
         #if (haxe >= "4.1.0")
             Compiler.includeFile("gmod/macros/include/PrintPatch.lua");
         #end
@@ -54,7 +63,7 @@ class InitMacro {
         } else {
             generateNonGamemodeFiles(addonName);
         }
-	Context.onAfterGenerate(afterGenerate);
+	    Context.onAfterGenerate(afterGenerate);
         #end
     }
     static function updateAddonFolder() {
