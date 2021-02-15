@@ -23,8 +23,18 @@ class InitMacro {
     public static final serverName = "haxe_init";
 
     public static final clientName = "haxe_cl_init";
-
     #if macro
+    
+    #if (haxe >= "4.2.0")
+    static final pos = Context.makePosition({min : 0, max: 0, file : "gmodhaxe - InitMacro.hx"});
+    #else
+    static extern inline final pos(get,never):Position;
+
+    static function get_pos() {
+        return Context.currentPos();
+    }
+    #end
+
 
     static public function init() {
         Compiler.include("gmod.helpers.macros.include",true,null,null,true);
@@ -57,7 +67,7 @@ class InitMacro {
             addonName = Context.definedValue("addonName").toLowerCase();
             FileSystem.createDirectory('generated/${addonName}');
         } else {
-            Context.warning("InitMacro : No \"-D addonName=your_addon_name_here\" defined in .hxml file. Will not generate folder structure",Context.currentPos());
+            Context.warning("InitMacro : No \"-D addonName=your_addon_name_here\" defined in .hxml file. Will not generate folder structure",pos);
             return;
         }
         if (Context.defined("gamemode")) {
@@ -78,11 +88,11 @@ class InitMacro {
             case [true,true,true]:
                 recurseCopy("generated",gmodAddonFolder);
             case [false,_,_]:
-                Context.warning("gmodAddonFolder defined but does not exist",Context.currentPos());
+                Context.warning("gmodAddonFolder defined but does not exist",pos);
             case [_,false,_]:
-                Context.warning("gmodAddonFolder defined but is in invalid format",Context.currentPos());
+                Context.warning("gmodAddonFolder defined but is in invalid format",pos);
             case [_,_,false]:
-                Context.warning("gmodAddonFolder defined but is not a directory",Context.currentPos());
+                Context.warning("gmodAddonFolder defined but is not a directory",pos);
         }
         #end
     }
