@@ -6,7 +6,7 @@
     "description": "Externs + macros for gmodlua development",
     "version": "0.1.2",
     "classPath": "src",
-    "releasenote": "Fixed issue with entities",
+    "releasenote": "Update to haxe 4.2",
     "contributors": ["ponobodod"],
     "main": "gmod.macros.Run",
     "dependencies" : {
