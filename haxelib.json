@@ -4,11 +4,11 @@
     "license": "MIT",
     "tags": ["lua", "gmod","extern"],
     "description": "Externs + macros for gmodlua development",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "classPath": "src",
-    "releasenote": "Fixed issue with entities",
+    "releasenote": "Non externs moved to helpers package",
     "contributors": ["ponobodod"],
-    "main": "gmod.macros.Run",
+    "main": "gmod.helpers.macros.Run",
     "dependencies" : {
         "no-spoon": ""
 

@@ -195,7 +195,7 @@ typedef ScriptedEntList = {
     /**
        The ENT associated with the entitiy
     **/
-    var t:gmod.StructuredTable.AnyStructuredTable<ENT>;
+    var t:gmod.helpers.StructuredTable.AnyStructuredTable<ENT>;
 
     /**
        Always true
