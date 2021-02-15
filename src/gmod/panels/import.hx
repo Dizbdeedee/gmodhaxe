@@ -6,7 +6,7 @@ import haxe.Constraints.Function;
 import gmod.gclass.*;
 import gmod.enums.*;
 import gmod.structs.*;
-import gmod.EntityClass;
+import gmod.stringtypes.EntityClass;
 // import gmod.types.*;
 // import gmod.gclass.Panel;
 

@@ -13,7 +13,6 @@ _hx_print_2 = function(str)
         print(str)
     end
 end or (function() end)
-debug.setmetatable(_hx_print_2,{printHandler = true}) -- TODO remove
 
 function _hx_print_class(obj, depth)
     local first = true

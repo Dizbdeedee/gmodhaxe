@@ -50,34 +50,34 @@ class SentMacro {
         var exprBuffer = macro {}
         for (field in fields) {
             switch [field.name,field.kind] {
-            case ["properties",FVar(_, e)]:
-                try {
-                    properties = e.getValue();
-                } catch (x:Dynamic) {
-                    trace("Unable to get the value of properties");
-                    return null;
-                }
-            case [name,FFun(f)]:
-                switch (field.access) {
-                case [Access.AStatic]:
-                case [Access.AOverride]:
-                    switch name {
-                    case "Initialize" | "Init":
-                        overridenInit = true;
-                    case "Think":
-                        overridenThink = true;
+                case ["properties",FVar(_, e)]:
+                    try {
+                        properties = e.getValue();
+                    } catch (x:Dynamic) {
+                        trace("Unable to get the value of properties");
+                        return null;
                     }
-                    field.meta.push({
-                        name: ":engineHook",
-                        pos: Context.currentPos()
-                    });
-                    fOverride.push(field);
+                case [name,FFun(f)]:
+                    switch (field.access) {
+                        case [Access.AStatic]:
+                        case [Access.AOverride]:
+                            switch name {
+                            case "Initialize" | "Init":
+                                overridenInit = true;
+                            case "Think":
+                                overridenThink = true;
+                            }
+                            field.meta.push({
+                                name: ":engineHook",
+                                pos: Context.currentPos()
+                            });
+                            fOverride.push(field);
+                        default:
+                            if (field.meta.filter((f) -> return f.name == ":entExpose").length > 0) {
+                                fOverride.push(field);
+                            }
+                    }
                 default:
-                    if (field.meta.filter((f) -> return f.name == ":entExpose").length > 0) {
-                        fOverride.push(field);
-                    }
-                }
-            default:
             }
         }
         switch [properties,esent] {
@@ -128,8 +128,8 @@ class SentMacro {
             trace("failed");
             return null;
         }
-        var hxgen = (macro : gmod.HaxeGen<$superreal,$ourtype>);
-        var panelclass = (macro : gmod.PanelClass<gmod.HaxeGen<$superreal,$ourtype>>);
+        var hxgen = (macro : gmod.helpers.GLinked<$superreal,$ourtype>);
+        
         var classname = cls.name;
         var fieldstor = macro class {
             public final self:$superreal;

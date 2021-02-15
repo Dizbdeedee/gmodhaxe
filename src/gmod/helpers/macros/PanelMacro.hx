@@ -60,7 +60,7 @@ class PanelMacro {
         }
         final fieldArray = cls.fields.get().map(classFieldToField);
         anon.fields = fieldArray;
-        var complextype = TPath({pack : ["gmod"],name : "HaxeMultiReturn",
+        var complextype = TPath({pack : ["gmod","helpers"],name : "HaxeMultiReturn",
                     params : [TPType(TPath({pack : [],name : 'A_$name'})) ]});
         multireturnMap.set(cls.name,complextype);
         generates.set('A_$name',anon);

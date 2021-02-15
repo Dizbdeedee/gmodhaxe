@@ -65,8 +65,8 @@ class PanelMacroOverride {
             trace("failed");
             return null;
         }
-        var hxgen = (macro : gmod.HaxeGen<$superreal,$ourtype>);
-        var panelclass = (macro : gmod.PanelClass<gmod.HaxeGen<$superreal,$ourtype>>);
+        var hxgen = (macro : gmod.helpers.GLinked<$superreal,$ourtype>);
+        var panelclass = (macro : gmod.stringtypes.PanelClass<gmod.helpers.GLinked<$superreal,$ourtype>>);
         var classname = cls.name;
         var fieldstor = macro class {
             public static function register() {

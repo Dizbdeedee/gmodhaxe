@@ -2,7 +2,7 @@ package gmod.helpers;
 
 import lua.Lua;
 
-abstract LuaArray<Y>(lua.Table<Int,Y>) to lua.Table<Int,Y> from lua.Table<Int,Y> to lua.Table<Dynamic,Dynamic> {
+abstract LuaArray<Y>(lua.Table<Int,Y>) to lua.Table<Int,Y> from lua.Table<Int,Y> {
 
     @:op([])
     inline function get(n:Int):Y {
