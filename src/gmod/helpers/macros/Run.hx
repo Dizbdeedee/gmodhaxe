@@ -51,8 +51,6 @@ client.hxml";
     static var _main = 
 "import gmod.libs.PlayerLib;
 
-using gmod.PairTools;
-
 class Main {
 	public static function main() {
 		for (player in PlayerLib.GetAll()) {
@@ -63,9 +61,9 @@ class Main {
 }";
 
     static var exampleent =
-"import gmod.sent.SentBuild;
+"import gmod.helpers.sent.SentBuild;
 
-class ExampleEnt extends gmod.sent.SentBuild<gmod.sent.ENT_ANIM> {
+class ExampleEnt extends gmod.helpers.sent.SentBuild<gmod.sent.ENT_ANIM> {
 
     final properties:EntFields = {
         Base : \"base_entity\"
@@ -79,9 +77,9 @@ class ExampleEnt extends gmod.sent.SentBuild<gmod.sent.ENT_ANIM> {
 ";
 
     static var exampleGM =
-"import gmod.gamemode.GMBuild;
+"import gmod.helpers.gamemode.GMBuild;
 
-class ExampleGMOverride extends gmod.gamemode.GMBuild<gmod.gamemode.GM> {
+class ExampleGMOverride extends gmod.helpers.gamemode.GMBuild<gmod.gamemode.GM> {
 
     override function Initialize() {
         trace('Example GM override!');
