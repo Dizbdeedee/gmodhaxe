@@ -97,8 +97,24 @@ class Test {
 In lua...
 
 ```lua
-myaddon_HAXE_EXPORT.func()
-myaddon_HAXE_EXPORT.Test.exposedFuncLong()
+func()
+Test.exposedFuncLong()
+```
+
+You can add paths to any exposure, and expose classes if you wish
+
+```haxe
+@:expose("myaddon.MyClass")
+class Test {
+
+  static var myString:String = "hello";
+
+}
+```
+
+```lua
+print(myaddon.MyClass.myString)
+>hello
 ```
 
 See https://haxe.org/manual/target-javascript-expose.html (for javascript but same rules apply)
