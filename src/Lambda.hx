@@ -22,10 +22,10 @@
 
 import haxe.ds.List;
 #if lua
-using gmod.PairTools;
+using gmod.helpers.PairTools;
 
 private typedef ValuesTable<A> = lua.Table<Dynamic,A>;
-private typedef KeyTable<A> = gmod.PairTools.KeyTable<A,Dynamic>;
+private typedef KeyTable<A> = gmod.helpers.PairTools.KeyTable<A,Dynamic>;
 #end
 /**
 	The `Lambda` class is a collection of methods to support functional

@@ -2,7 +2,7 @@ package gmod.libs;
 
 
 import gmod.Gmod.AnyMultiReturn;
-import gmod.Hook;
+import gmod.stringtypes.Hook;
 
 /**
     The hook library allows you to add hooks called by the game engine, allowing multiple scripts to modify game function.
@@ -106,7 +106,6 @@ import gmod.Hook;
 		"CustomHook table: 0x00000000 Player [1][PotatoMan]"
     **/
     static function Add<T:Function>(eventName:Hook<T>, identifier:Any, func:T):Void;
-    
     
     /**
         Calls all hooks associated with the given event until one returns something other than nil, and then returns that data. 

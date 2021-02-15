@@ -1,4 +1,4 @@
 -D lua-vanilla
 -D lua-5.1
 -D luajit
-gmod.macros.include.__ForceExpose
+gmod.helpers.macros.include.__ForceExpose
