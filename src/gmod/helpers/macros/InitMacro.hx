@@ -52,6 +52,8 @@ class InitMacro {
             }
         });
         #end
+        no.Spoon.replace('gmod.gclass.Vector',macro : gmod.helpers.types.Vector);
+        no.Spoon.replace('gmod.gclass.Angle',macro : gmod.helpers.types.Angle);
         
         #if (haxe >= "4.1.0")
             Compiler.includeFile("gmod/helpers/macros/include/PrintPatch.lua");
