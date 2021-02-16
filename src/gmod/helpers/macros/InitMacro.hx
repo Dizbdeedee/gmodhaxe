@@ -151,16 +151,12 @@ setfenv(1,haxeEnv) --if using more than one project + dce, global collisions and
         }
         if (!FileSystem.exists(gmfolder)) FileSystem.createDirectory(gmfolder);
         if (Context.defined("client")) {
-            if (Context.defined("generateLuaInit")) {
-                File.saveContent('$gmfolder/cl_init.lua',
-                'local exports = include("$clientName.lua")');
-            }
+            File.saveContent('$gmfolder/cl_init.lua',
+            'local exports = include("$clientName.lua")');
             Compiler.setOutput('$gmfolder/$clientName.lua');
         } else if (Context.defined("server")) {
-            if (Context.defined("generateLuaInit")) {
-                File.saveContent('$gmfolder/init.lua',
-                'AddCSLuaFile("$clientName.lua")\nlocal exports = include("$serverName.lua")');
-            }
+            File.saveContent('$gmfolder/init.lua',
+            'AddCSLuaFile("$clientName.lua")\nlocal exports = include("$serverName.lua")');
             Compiler.setOutput('$gmfolder/$serverName.lua');
         }
     }
@@ -169,12 +165,10 @@ setfenv(1,haxeEnv) --if using more than one project + dce, global collisions and
         entLuaStorage = '__${addonName}_ents';
         baseEntFolder = 'generated/$addonName/lua';
         FileSystem.createDirectory('generated/$addonName/lua/$addonName');
-        if (Context.defined("generateLuaInit")) {
-            final initFile:String = 'local exports if SERVER then AddCSLuaFile("$addonName/$clientName.lua") exports = include("$addonName/$serverName.lua") end
+        final initFile:String = 'local exports if SERVER then AddCSLuaFile("$addonName/$clientName.lua") exports = include("$addonName/$serverName.lua") end
 if CLIENT then exports = include("$addonName/$clientName.lua") end';
-            FileSystem.createDirectory('generated/$addonName/lua/autorun/');
-            File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',initFile);
-        }
+        FileSystem.createDirectory('generated/$addonName/lua/autorun/');
+        File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',initFile);
         if (Context.defined("client")) {
             trace("generated non gamemode client.lua");
             Compiler.setOutput('generated/$addonName/lua/$addonName/$clientName.lua');
