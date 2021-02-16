@@ -121,7 +121,6 @@ end
 becomes
 ```haxe
 import gmod.libs.PlayerLib; //or import gmod.libs.*;
-import gmod.types.Vector;
 ...
 ...
 for (player in PlayerLib.GetAll()) {
@@ -185,7 +184,7 @@ See https://haxe.org/manual/target-javascript-expose.html (for javascript but sa
 Create a class like so
 
 ```haxe
-class MyGamemodeHooks extends gmod.gamemode.GMBuild<gmod.gamemode.GM> {
+class MyGamemodeHooks extends gmod.helpers.gamemode.GMBuild<gmod.gamemode.GM> {
 
   override function Think() {
     trace("Thinking...");
@@ -209,7 +208,7 @@ Functions aren't automatically overridden, so you must create a new instance of 
 #### Custom sent
 
 ```haxe
-class MyCoolEntity extends gmod.sent.SentBuild<gmod.sent.ENT_ANIM> {
+class MyCoolEntity extends gmod.helpers.sent.SentBuild<gmod.sent.ENT_ANIM> {
   
   //required
   final properties:gmod.sent.SentBuild.EntFields = {
@@ -242,11 +241,11 @@ To create a new custom panel, use VguiLib.Create(`gclass`) where `gclass` is loc
 
 #### Custom swep/effect
 
-Same as entity, `extends gmod.helpers.SwepBuild` and `extends gmod.helpers.effects.EffectBuild`
+Same as entity, `extends gmod.helpers.swep.SwepBuild` and `extends gmod.helpers.effects.EffectBuild`
 
 ### Networking
 
-`NET_Server/NET_Client`
+`gmod.helpers.net.NET_Server/NET_Client`
 
 Automatically builds net messages from a given typedef, with the ability to add more than one reciever. Probably adds some overhead.
 ```haxe
