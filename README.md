@@ -5,8 +5,16 @@ Haxe externs for gmod + macros intended for gamemode development. [Haxe](https:/
 All externs are fully client/server context dependent, so will only work in proper context
 (i.e only functions that exist in server/client will autocomplete/build in current context)
 
-Externs have been generated from scraped info from gmod wiki. Things may be improperly typed
+Externs have been generated from scraped info from an older version of the gmod wiki. Things may be improperly typed.
 
+## Changelog
+### 0.2.0
+
+- Most non externs have been moved to the `gmod.helpers` package
+- `gmod.PairTools` and `gmod.TableTools` are now automatically used by default
+- hxbit tests removed for now
+- `Vector` and `Angle` are now replaced by abstracts
+- `HaxeGen` renamed to `GLinked`
 ## Setup
 
 [Download haxe](https://haxe.org/download/)
@@ -37,6 +45,55 @@ If you want to automatically copy files on a successful build, uncomment this li
 
 `#-D gmodAddonFolder=C:/steam/garrysmod/addons`
 
+### Non starter pack usage
+
+If you have your own custom hxml setup, ensure you include the line 
+`--macro gmod.helpers.macros.InitMacro.init()` somewhere in every build, otherwise this libraries helpers and folder generation will not work.
+
+### **See below for examples**
+
+## Layout
+
+`gmod.Gmod` 
+
+All the global library functions of Gmod, and some variables. e.g [IsValid](https://wiki.facepunch.com/gmod/Global.IsValid), [CurTime](https://wiki.facepunch.com/gmod/Global.CurTime), [GAMEMODE](https://wiki.facepunch.com/gmod/gmod.GetGamemode)
+
+`gmod/gclass`
+
+Contains gmod classes e.g [Entity](https://wiki.facepunch.com/gmod/Entity), [Player](https://wiki.facepunch.com/gmod/Player). You can't use these classes without going through a `gmod/libs` function first. (Exceptions being `Vector` and `Angle`)
+
+`gmod/libs`
+
+Gmod libraries e.g [ents.](https://wiki.facepunch.com/gmod/ents) , [hook.](https://wiki.facepunch.com/gmod/hook)
+
+`gmod/structs`
+
+Different types of structs/tables. Most of these return from gmod's library functions
+
+`gmod/enums`
+
+Gmod enums. These are always retrieved from the global table.
+
+`gmod/stringtypes`
+
+Stringly typed gmod helper abstracts. You'll find abstracts like `Hook` and `EntityClass` here. If you combine them with thier respective `gmod.libs` functions, you'll have more type safe results. 
+
+For example, using a `Hook` abstract e.g `gmod.stringtypes.Hook.GMHooks.Think` (corresponding to the string `"Think"`) along with the library function `gmod.libs.HookLib.Add` will only allow you to add a function that conforms to a `Think` hook - a function that takes no arguments and returns nothing.
+
+See [abstracts](https://haxe.org/manual/types-abstract.html) for more details on what an abstract is
+
+`gmod/effects` | `gmod/gamemode` | `gmod/sent` | `gmod/panels` | `gmod/swep`
+
+Mostly intended for use with building macros. You can safely ignore if you're not using them.
+
+`gmod/helpers`
+
+Helper classes and macros that can make development a lot simpler. `PairTools` and `TableTools` allow you to treat treat lua tables as haxe tables in for loops, and are automatically imported by default. Classes ending with `Tools` are [static extensions](https://haxe.org/manual/lf-static-extension.html) and need to be imported using the `using` keyword.
+
+`gmod/helpers/gamemode` | `gmod/helpers/effects` | `gmod/helpers/swep` | `gmod/helpers/sent` | `gmod/helpers/swep`
+
+Building macros. If you want to build a custom version of one of these, then extending the classes contained is a good place to start. See examples for more details.
+
 ## Examples
 
 ### Clientside/serverside
@@ -63,7 +120,6 @@ end
 ```
 becomes
 ```haxe
-using gmod.PairTools;
 import gmod.libs.PlayerLib; //or import gmod.libs.*;
 import gmod.types.Vector;
 ...
@@ -78,7 +134,10 @@ for (index => player in PlayerLib.GetAll()) {
 ```
 
 Ipairs versions are also avaliable from gmod.PairTools
-#### Exposing to lua
+### Exposing to lua
+
+If you wish to access haxe functions, variables or classes from a different lua file then you must expose them.
+
 ```haxe
 
 class Test {
@@ -141,7 +200,6 @@ class MyGamemodeHooks extends gmod.gamemode.GMBuild<gmod.gamemode.GM> {
   
   }
   
-  
 }
 ```
 
@@ -153,8 +211,8 @@ Functions aren't automatically overridden, so you must create a new instance of 
 ```haxe
 class MyCoolEntity extends gmod.sent.SentBuild<gmod.sent.ENT_ANIM> {
   
-  //required to generate files
-  final properties:EntFields = {
+  //required
+  final properties:gmod.sent.SentBuild.EntFields = {
     Base : "base_entity"
     //other fields go here. in vscode can control + space to see fields
   }
@@ -172,11 +230,11 @@ class MyCoolEntity extends gmod.sent.SentBuild<gmod.sent.ENT_ANIM> {
   }
 }
 ```
-Because this relies on generated files, all functions will be automatically overridden, no need to call any functions. Make sure to import it somewhere in your code, otherwise it won't generate.
+Because this relies on generated files, all functions will be automatically overridden, no need to call any functions. However, you must make sure to import it somewhere in your code, otherwise it won't generate.
 
 #### Custom panel
 
-Extend from `gmod.cpanel.PanelBuild<panel here>`
+Extend from `gmod.helpers.panels.PanelBuild<panel here>`
 
 Register your custom panel by calling .register() on your custom panel class.
 
@@ -184,11 +242,12 @@ To create a new custom panel, use VguiLib.Create(`gclass`) where `gclass` is loc
 
 #### Custom swep/effect
 
-Same as entity, `extends gmod.swep.SwepBuild` and `extends gmod.effects.EffectBuild`
+Same as entity, `extends gmod.helpers.SwepBuild` and `extends gmod.helpers.effects.EffectBuild`
 
 ### Networking
 
-#### NET_Server/NET_Client
+`NET_Server/NET_Client`
+
 Automatically builds net messages from a given typedef, with the ability to add more than one reciever. Probably adds some overhead.
 ```haxe
 typedef MyTestMessage = {
@@ -200,7 +259,7 @@ typedef MyTestMessage = {
 
 class MyClass {
 
-  static var net_test = new gmod.net.NET_Server<"netMessageName",MyTestMessage>;
+  static var net_test = new gmod.helpers.net.NET_Server<"netMessageName",MyTestMessage>;
   
   #if server
   static public function send() {
@@ -224,3 +283,11 @@ class MyClass {
 
 }
 ```
+
+### Lambda
+
+Functional programming (ish) for lua tables!
+
+To use, add an `using Lambda` import somewhere in your code.
+
+See haxe [Lambda](https://haxe.org/manual/std-Lambda.html)
