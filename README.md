@@ -39,7 +39,7 @@ This means you can create projects that talk to gmod lua in one consistent langu
 
 As a bonus, you can also utilise great haxe libraries that are cross platform compatabile!
 
-Also, it seems S&Box is going to have the C# scripting language. Haxe compiles to C#, and as such it should be totally possible to create an addon that compiles to both S&Box and gmod! This won't solve the issue of library compatability between the two games, it is likely you would have to make your own layer between the two APIs, however, you can be assured that the bulk of your logic is not locked to one platform.
+Also, it seems S&Box is going to have C# as it's scripting language. Haxe compiles to C#, and as such it should be totally possible to create an addon that compiles to both S&Box and gmod! This won't solve the issue of library compatability between the two games, it is likely you would have to make your own layer between the two APIs, however, you can be assured that the bulk of your logic is not locked to one platform.
 
 ### Cons
 However, Haxe -> lua is not free of flaws, and certainly does not fit every use case. Here are some reasons why you shouldn't use it
