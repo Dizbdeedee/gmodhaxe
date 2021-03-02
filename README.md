@@ -7,6 +7,54 @@ All externs are fully client/server context dependent, so will only work in prop
 
 Externs have been generated from scraped info from an older version of the gmod wiki. Things may be improperly typed.
 
+## Why?
+Haxe comes with some advantages over just plain (gmod) lua development
+
+### Pros
+- Free autocompletion and compiler 
+
+Not just hacked onto lua, and so a lot more reliable
+
+- Typing
+
+Type all the things! Compile errors instead of runtime errors! Horray!
+
+When developing a gamemode, nothing is worse than being trapped in the cycle of save code -> run through game -> mispelled variable name -> back to square one
+
+This might be because I'm a bad developer though...
+    
+- Target defines for server + client
+
+Goodbye shared.lua, and unavaliable functions cluttering your autocompletion solution
+- Macros mean we can take post compile steps 
+
+This enables gmodhaxe to copy your build on save, meaning you can develop a lua addon from your documents folder instead of delving into the depths of your gmod installation each time
+
+- Consistent definition of classes
+
+Class syntax is free, and always the same instead of being DIY
+- Cross compilation 
+
+This means you can create projects that talk to gmod lua in one consistent language + syntax. Less context switching required
+
+As a bonus, you can also utilise great haxe libraries that are cross platform compatabile!
+
+### Cons
+However, Haxe -> lua is not free of flaws, and certainly does not fit every use case. Here are some reasons why you shouldn't use it
+
+- The compiled code is bloated, and slower.
+
+There's no getting away from it, the code that is made using Haxe -> lua is going to be bloated (see -dce full for mitigations), and less efficient than    handwritten lua code. If your code is performance critical and is not a large project, you're better of just using lua directly instead.
+- You're not making a large project
+
+If your're making something small, or maybe even medium sized and you already know and love lua, then there's not much point in learning haxe.
+- Edge cases
+
+There will be edge cases where incorrect lua is generated, or what you're trying to do hasn't been properly mapped into this library. If this is the case, please file an issue! Anything that helps this library be more accessible and easier to use is appreciated.
+- Not intrested in typing
+
+If you like lua because of it's dynamic typing, there's not much point in using haxe.
+
 ## Changelog
 ### 0.2.0
 
@@ -15,6 +63,7 @@ Externs have been generated from scraped info from an older version of the gmod 
 - hxbit tests removed for now
 - `Vector` and `Angle` are now replaced by abstracts
 - `HaxeGen` renamed to `GLinked`
+
 ## Setup
 
 [Download haxe](https://haxe.org/download/)
