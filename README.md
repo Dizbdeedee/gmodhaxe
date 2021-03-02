@@ -42,9 +42,9 @@ As a bonus, you can also utilise great haxe libraries that are cross platform co
 ### Cons
 However, Haxe -> lua is not free of flaws, and certainly does not fit every use case. Here are some reasons why you shouldn't use it
 
-- The compiled code is bloated, and slower.
+- The compiled code has a larger file size, and is slower.
 
-There's no getting away from it, the code that is made using Haxe -> lua is going to be bloated (see -dce full for mitigations), and less efficient than    handwritten lua code. If your code is performance critical and is not a large project, you're better of just using lua directly instead.
+There's no getting away from it, the code that is made using Haxe -> lua is going to be larger (see -dce full for mitigations), and less efficient than    handwritten lua code. If your code is performance critical and is not a large project, you're better of just using lua directly instead.
 - You're not making a large project
 
 If your're making something small, or maybe even medium sized and you already know and love lua, then there's not much point in learning haxe.
