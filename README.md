@@ -50,6 +50,8 @@ If you want to automatically copy files on a successful build, uncomment this li
 If you have your own custom hxml setup, ensure you include the line 
 `--macro gmod.helpers.macros.InitMacro.init()` somewhere in every build, otherwise this libraries helpers and folder generation will not work.
 
+To use server functions, add -D server to your build and vice versa. Do not add both -D server and -D client to one build, as this could have undefined effects on the build process. Instead, use two seperate builds for both the server and the client. Haxe code that is included from both builds will appear in both lua files, effectively filling the role of a traditional `shared.lua` file.
+
 ### **See below for examples**
 
 ## Layout
