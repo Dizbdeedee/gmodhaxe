@@ -31,7 +31,7 @@ Run this command in an empty folder to get started
 
 Switch between developing for the server/client/both by switching the autocompletion context to `server.hxml`, `client.hxml` and `shared_view.hxml`.
 
-<img src=https://user-images.githubusercontent.com/46794914/109648654-ca823e00-7b52-11eb-8cb1-2f43bd541c1b.gif width=893 height=702)
+<img src="https://user-images.githubusercontent.com/46794914/109648654-ca823e00-7b52-11eb-8cb1-2f43bd541c1b.gif" width="893" height="702">
 
 Build your overall project using `build.hxml`
 
