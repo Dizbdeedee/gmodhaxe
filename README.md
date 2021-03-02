@@ -138,7 +138,7 @@ import gmod.Gmod;
 var time = Gmod.CurTime();
 if (time > 0) {
   trace('The server time is $time');
-  //or lua.Lua.print if you perfer
+  //or lua.Lua.print if you prefer
 }
 ```
 ### Loops
