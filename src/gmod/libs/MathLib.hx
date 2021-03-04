@@ -1070,9 +1070,124 @@ package gmod.libs;
 		end
 		```
 	**/
-	@:overload(function ():Float {})
-    @:overload(function (upperLimit:Int):Int {})
-    static function random(m:Int, n:Int):Int;
+	// @:overload(function ():Float {})
+    // @:overload(function (upperLimit:Int):Int {})
+	static overload function random(m:Int, n:Int):Int;
+	
+	/**
+        When called without arguments, returns a uniform pseudo-random real number in the range 0 to 1 which includes 0 but excludes 1. 
+		
+		When called with an integer number m, returns a uniform pseudo-random integer in the range 1 to m inclusive. 
+		
+		When called with two integer numbers m and n, returns a uniform pseudo-random integer in the range m to n inclusive. 
+		
+		See also math.Rand
+		
+		
+		`**Returns:** Uniform pseudo-random real number in the range 0 to 1 which includes 0 but excludes 1. 
+		
+		___
+		### Lua Examples
+		#### Example 1
+		Generate a random number between 1 and 400 with both math.random and math.Rand.
+		
+		```lua 
+		print(math.random(1,400))
+		
+		print(math.Rand(1,400))
+		```
+		
+		#### Example 2
+		Select a random key from a table, where the keys have a different probability of being selected.
+		
+		```lua 
+		function GetWeightedRandomKey(tab)
+		    local sum = 0
+		
+		    for _, chance in pairs(tab) do
+		        sum = sum + chance
+		    end
+		
+		    local select = math.random() * sum
+		
+		    for key, chance in pairs(tab) do
+		        select = select - chance
+		        if select < 0 then return key end
+		    end
+		end
+		
+		-- Example usage:
+		local fruit = {
+		    Grape = 4.5,
+		    Orange = 20,
+		    Banana = 3.14
+		}
+		
+		for i = 1, 5 do
+		    print(GetWeightedRandomKey(fruit))
+		end
+		```
+	**/
+	static overload function random():Float;
+
+	/**
+        When called without arguments, returns a uniform pseudo-random real number in the range 0 to 1 which includes 0 but excludes 1. 
+		
+		When called with an integer number m, returns a uniform pseudo-random integer in the range 1 to m inclusive. 
+		
+		 When called with two integer numbers m and n, returns a uniform pseudo-random integer in the range m to n inclusive. 
+		
+		 See also math.Rand
+		
+		Name | Description
+		--- | ---
+		`upperLimit` | If m is the only parameter: upper limit. If provided, this must be an integer.
+		
+		`**Returns:** Uniform pseudo-random integer in the range 1 to upperLimit inclusive.
+		
+		___
+		### Lua Examples
+		#### Example 1
+		Generate a random number between 1 and 400 with both math.random and math.Rand.
+		
+		```lua 
+		print(math.random(1,400))
+		
+		print(math.Rand(1,400))
+		```
+		
+		#### Example 2
+		Select a random key from a table, where the keys have a different probability of being selected.
+		
+		```lua 
+		function GetWeightedRandomKey(tab)
+		    local sum = 0
+		
+		    for _, chance in pairs(tab) do
+		        sum = sum + chance
+		    end
+		
+		    local select = math.random() * sum
+		
+		    for key, chance in pairs(tab) do
+		        select = select - chance
+		        if select < 0 then return key end
+		    end
+		end
+		
+		-- Example usage:
+		local fruit = {
+		    Grape = 4.5,
+		    Orange = 20,
+		    Banana = 3.14
+		}
+		
+		for i = 1, 5 do
+		    print(GetWeightedRandomKey(fruit))
+		end
+		```
+	**/
+	static overload function random(upperLimit:Int):Int;
     
     
     /**
