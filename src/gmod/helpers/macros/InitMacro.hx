@@ -87,8 +87,21 @@ class InitMacro {
             }
         });
         #end
-        no.Spoon.replace('gmod.gclass.Vector',macro : gmod.helpers.types.Vector);
-        no.Spoon.replace('gmod.gclass.Angle',macro : gmod.helpers.types.Angle);
+        var x:TypeDefinition = {
+            pack : ["gmod","helpers","macros"],
+            name : "StoredInfo",
+            pos: pos,
+            kind : TDAlias(macro : Math),
+            fields : []
+        }
+        try {
+            Context.getType("gmod.helpers.macros.StoredInfo");
+        } catch (e) {
+            no.Spoon.replace('gmod.gclass.Vector',macro : gmod.helpers.types.Vector);
+            no.Spoon.replace('gmod.gclass.Angle',macro : gmod.helpers.types.Angle);
+            Context.defineType(x);
+        }
+        
         
         #if (haxe >= "4.1.0")
             Compiler.includeFile("gmod/helpers/macros/include/PrintPatch.lua");
