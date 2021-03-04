@@ -7,6 +7,7 @@ typedef HLinked<G,H:HLinked<G,H>> = {
     If you create a custom entity using SentBuild, you will be able to get the haxe class equivalent from this
 **/
 @:forward
+@:transitive
 abstract GLinked<GBASE,HAXE:HLinked<GBASE,HAXE>>(GBASE) from GBASE to GBASE {
 
     public var linkedHaxe(get,never):HAXE;
