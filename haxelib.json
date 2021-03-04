@@ -4,9 +4,9 @@
     "license": "MIT",
     "tags": ["lua", "gmod","extern"],
     "description": "Externs + macros for gmodlua development",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "classPath": "src",
-    "releasenote": "Non externs moved to helpers package",
+    "releasenote": "New post compile step",
     "contributors": ["ponobodod"],
     "main": "gmod.helpers.macros.Run",
     "dependencies" : {
