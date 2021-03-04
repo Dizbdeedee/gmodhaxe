@@ -12,4 +12,11 @@ package gmod.helpers.net;
 extern class NET_Server<Const,Data> {
 }
 
+/**
+	Mangled name version of NET_Server
+**/
+@:genericBuild(gmod.helpers.macros.Networking.build())
+extern class NET_Sv<Data> {
+
+} 
 

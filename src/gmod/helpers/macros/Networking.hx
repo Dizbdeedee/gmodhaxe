@@ -11,6 +11,8 @@ using haxe.macro.PositionTools;
 
 class Networking {
     
+	static var netID = 0; 
+	
     public static function build():ComplexType {
         var type = Context.getLocalType();
         var netName:String;
@@ -21,6 +23,25 @@ class Networking {
                 netName = s;
                 fields = f;
                 anon = tdef;
+			case TInst(_,[tdef = _.follow() => TAnonymous(_.get() => {fields : f})]):
+				netName = 'haxe${netID++}';
+				fields = f;
+				anon = tdef;
+			#if hxbit
+			case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), cls = TInst(_.get() => {name : clsString,module : clsModule},_)]):
+
+				final netName = s;
+				final str = clsModule + "." + clsString;
+				final clsPath = str.split(".");
+				final sClass = cls;
+                return buildhxbit(netName,sClass,clsPath);
+            case TInst(_,[cls = TInst(_.get() => {name : clsString,module : clsModule},_)]):
+                final netName = 'haxe${netID++}';
+                final str = clsModule + "." + clsString;
+                final clsPath = str.split(".");
+                final sClass = cls;
+                return buildhxbit(netName,sClass,clsPath);
+            #end
             default:
                 trace("Could not generate net message");
                 return null;
@@ -68,7 +89,9 @@ class Networking {
             #end
             public function new() {
                 #if client
+				#if tink_core
                 untyped signal = signalTrigger.asSignal();
+				#end
                 gmod.libs.NetLib.Receive($v{netName},receive);
                 #end
                 #if server
@@ -105,6 +128,10 @@ class Networking {
                 netName = s;
                 fields = f;
                 anon = tdef;
+			case TInst(_,[tdef = _.follow() => TAnonymous(_.get() => {fields : f})]):
+				netName = 'haxe${netID++}';
+				fields = f;
+				anon = tdef;
             default:
                 trace("Could not generate net message");
                 return null;
@@ -139,7 +166,9 @@ class Networking {
             #end
             public function new() {
                 #if server
+                #if tink_core
                 untyped signal = signalTrigger.asSignal();
+                #end
                 gmod.libs.NetLib.Receive($v{netName},receive);
                 gmod.libs.UtilLib.AddNetworkString($v{netName});
                 #end
@@ -160,6 +189,89 @@ class Networking {
         Context.defineType(cls);
         return TPath({name : clsName,pack: []});
     }
+
+	public static function buildhxbit(netName:String,sClass:haxe.macro.Type,clsPath:Array<String>) {
+		final exprSClass:Expr = macro $p{clsPath};
+		var complexSClass = Context.toComplexType(sClass);
+		// trace(complexSClass);
+		var clsName = 'NETMESSAGE_$netName';
+		var cls = macro class $clsName {
+#if server
+			public function send(data:$complexSClass,recv:gmod.gclass.Player,?unreliable=false) {
+				final seralizer = new hxbit.Serializer();
+				final bytes = seralizer.serialize(data);
+				gmod.libs.NetLib.Start($v{netName},unreliable);
+				gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
+				gmod.libs.NetLib.Send(recv);
+			}
+
+			public function sendTable(data:$complexSClass,recv:lua.Table<Dynamic,gmod.gclass.Player>,?unreliable=false) {
+				final seralizer = new hxbit.Serializer();
+				final bytes = seralizer.serialize(data);
+				gmod.libs.NetLib.Start($v{netName},unreliable);
+				gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
+				gmod.libs.NetLib.Send(recv);
+			}
+
+			public function sendFilter(data:$complexSClass,recv:gmod.gclass.CRecipientFilter,?unreliable=false) {
+				final seralizer = new hxbit.Serializer();
+				final bytes = seralizer.serialize(data);
+				gmod.libs.NetLib.Start($v{netName},unreliable);
+				gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
+				gmod.libs.NetLib.Send(recv);
+			}
+
+			public function broadcast(data:$complexSClass,?unreliable=false) {
+				final seralizer = new hxbit.Serializer();
+				final bytes = seralizer.serialize(data);
+				gmod.libs.NetLib.Start($v{netName},unreliable);
+				gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
+				gmod.libs.NetLib.Broadcast();
+			}
+#end
+#if client
+#if tink_core
+			public final signal:tink.CoreApi.Signal<$complexSClass>;
+
+			final signalTrigger = new tink.CoreApi.SignalTrigger<$complexSClass>();
+#else
+			var recievers:Map<String,(data:$complexSClass) -> Void> = new Map();
+
+			public function addReceiver(ident:String,recv:(data:$complexSClass) -> Void) {
+				recievers.set(ident,recv);
+			}
+
+			public function removeReceiver(ident:String) {
+				recievers.remove(ident);
+			}
+#end
+			function receive() {
+				final bytString = gmod.libs.NetLib.ReadData(gmod.libs.NetLib.BytesLeft().bytes);
+				final bytes = haxe.io.Bytes.ofString(bytString);
+				final seralizer = new hxbit.Serializer();
+				final result = seralizer.unserialize(bytes,$exprSClass);
+				#if tink_core
+				signalTrigger.trigger(result);
+				#else
+				for (recv in recievers) {
+					recv(result);
+				}
+				#end
+			}
+				#end
+			public function new() {
+				#if client
+				untyped signal = signalTrigger.asSignal();
+				gmod.libs.NetLib.Receive($v{netName},receive);
+				#end
+				#if server
+				gmod.libs.UtilLib.AddNetworkString($v{netName});
+				#end
+			}
+		}
+		Context.defineType(cls);
+		return TPath({name : clsName,pack: []});
+	}
 
     static function genSendExpr(anon:haxe.macro.Type,name:String,fields:Array<ClassField>,?broadcast=false,?client=false):Expr {
         var macArray:Array<Expr> = [];

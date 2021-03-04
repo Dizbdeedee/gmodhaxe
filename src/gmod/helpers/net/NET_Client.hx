@@ -16,3 +16,11 @@ typedef NET_CL_Message = {
 extern class NET_Client<Const:String,X:NET_CL_Message> {
 
 } 
+
+/**
+	Mangled name version of NET_Client
+**/
+@:genericBuild(gmod.helpers.macros.Networking.buildclient())
+extern class NET_Cl<X:NET_CL_Message> {
+
+} 
