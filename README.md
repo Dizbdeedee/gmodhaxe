@@ -66,6 +66,8 @@ If you like lua because of it's dynamic typing, there's not much point in using 
 
 - This should fix issues where you had to build twice for the lua files to copy over/update
 
+- Fix for redfined types error
+
 
 ## Setup
 
