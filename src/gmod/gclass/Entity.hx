@@ -8665,8 +8665,8 @@ var b:Vector;
 
 }
 @:multiReturn extern class EntityGetModelBoundsReturn {
-var a:Vector;
-var b:Vector;
+var mins:Vector;
+var maxs:Vector;
 
 }
 @:multiReturn extern class EntityGetHitboxSetReturn {
@@ -8695,8 +8695,8 @@ var b:Entity;
 
 }
 @:multiReturn extern class EntityGetCollisionBoundsReturn {
-var a:Vector;
-var b:Vector;
+var mins:Vector;
+var maxs:Vector;
 
 }
 @:multiReturn extern class EntityGetBrushPlaneReturn {

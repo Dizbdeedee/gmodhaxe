@@ -93,6 +93,7 @@ typedef DebugInfo = {
 enum abstract What(String) {
     var Lua;
     var C;
+    var main;
 }
 
 enum abstract NameWhat(String) {

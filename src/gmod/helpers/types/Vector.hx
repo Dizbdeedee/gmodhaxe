@@ -15,26 +15,28 @@ extern abstract Vector(GVector) from GVector to GVector {
 	**/
     public var z(get,set):Float;
 
+    @:noCompletion
     public extern inline function get_x():Float {
         return untyped this[1];
     }
 
+    @:noCompletion
     public extern inline function set_x(x:Float):Float {
         return untyped this[1] = x;
     }
-
+    @:noCompletion
     public extern inline function get_y():Float {
         return untyped this[2];
     }
-
+    @:noCompletion
     public extern inline function set_y(x:Float):Float {
         return untyped this[2] = x;
     }
-
+    @:noCompletion
     public extern inline function get_z():Float {
         return untyped this[3];
     }
-
+    @:noCompletion
     public extern inline function set_z(x:Float):Float {
         return untyped this[3] = x;
     }
@@ -62,7 +64,12 @@ extern abstract Vector(GVector) from GVector to GVector {
     @:op(A / B)
     public inline function div(other:Float):Vector {
         return untyped __lua__("{0} / {1}",this,other);
-    }
+	}
+	
+	@:op(-A)
+	public inline function neg():Vector {
+		return untyped __lua__("-{0}",this);
+	}
 
 }
 

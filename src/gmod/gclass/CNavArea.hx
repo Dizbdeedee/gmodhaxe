@@ -587,7 +587,7 @@ extern class CNavArea {
 		`**Returns:** The unique ID.
     **/
     
-    function GetID():Float;
+    function GetID():Int;
     
     
     /**

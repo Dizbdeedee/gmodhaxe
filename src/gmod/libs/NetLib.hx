@@ -733,8 +733,8 @@ var b:Float;
 
 }
 @:multiReturn extern class NetLibBytesLeftReturn {
-var a:Float;
-var b:Float;
+var bytes:Int;
+var bits:Int;
 
 }
 

@@ -82,6 +82,16 @@ package gmod.libs;
 
 }
 
+extern class JitUtilLib {
+
+    /**
+        Retrieves LuaJIT information about a given function, similarly to debug.getinfo. 
+    **/
+    static function funcinfo(f:Function, ?pos:Int):Any;
+
+}
+
+
 
 @:multiReturn extern class JitLibStatusReturn {
 var a:Bool;
