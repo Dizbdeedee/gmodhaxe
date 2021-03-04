@@ -7,19 +7,33 @@ import sys.io.File;
 class Run {
 
     static var args =
-"-cp src
+
+"
+#The folder where your haxe files are searched for. You can add more than one
+-cp src
 #Use this to generate a folder structure for an addon
 -D addonName=myaddon
 #Use this + above to generate a folder structure for a gamemode
 -D gamemode=myaddon
--D generateLuaInit
 
-#A fully qualified path to your addon folder. Will automatically copy everything inside generated to it
+#A fully qualified path to your addon folder. Will automatically copy everything inside generated to your addon folder.
+#Uncomment and add your path below
 #-D gmodAddonFolder=C:/steamapps/ect/my/gmod/addon/folder
-#comment below if you want seperate entry points for the server/client
+
+#The entry point for your addon. Equivalent to init.lua/cl_init.lua. 
 -main Main
+
+#Keeps the lua file from being to bloated. Will remove everything your not actively using/importing, so be careful
+--dce=full
+#No need to turn this off
+-D analyzer-optimize
+
+#Add haxe libraries here
 -lib gmodhaxe
+#-lib safety
+
 --macro gmod.helpers.macros.InitMacro.init()
+--cmd haxe -lib gmodhaxe --run gmod.helpers.macros.PostCompileMacro
 ";
 
     static var client = 

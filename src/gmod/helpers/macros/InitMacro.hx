@@ -1,4 +1,5 @@
 package gmod.helpers.macros;
+
 #if macro
 import haxe.macro.Expr.Function;
 import haxe.macro.Expr.FieldType;
@@ -14,11 +15,16 @@ using StringTools;
 
 #end
 
+
+
 class InitMacro {
 
     public static var baseEntFolder:String;
 
     public static var entLuaStorage:String;
+
+    
+    public static var buildIdent:String;
 
     public static final serverName = "haxe_init";
 
@@ -35,16 +41,45 @@ class InitMacro {
     }
     #end
 
+    static final nato = [
+        "Alpha", 
+        "Bravo", 
+        "Charlie", 
+        "Delta", 
+        "Echo", 
+        "Foxtrot", 
+        "Golf", 
+        "Hotel", 
+        "India", 
+        "Juliett", 
+        "Kilo", 
+        "Lima", 
+        "Mike", 
+        "November", 
+        "Oscar", 
+        "Papa", 
+        "Quebec", 
+        "Romeo", 
+        "Sierra", 
+        "Tango", 
+        "Uniform", 
+        "Victor", 
+        "Whiskey", 
+        "Xray", 
+        "Yankee", 
+        "Zulu"
+    ];
 
     static public function init() {
         Compiler.include("gmod.helpers.macros.include",true,null,null,true);
         Compiler.keep("gmod.helpers.macros.include",null,true);
+        var buildident = Math.floor(Math.random() * 729);
+        buildIdent = nato[Math.floor(buildident / 27)] + " " + nato[buildident % 27];
         no.Spoon.bend("Sys",macro class {
             public static function time():Float {
                 return gmod.Gmod.SysTime();
             }
         });
-        //use haxe json parser, no dynamic modules
         #if (haxe >= "4.2.0")
         no.Spoon.bend("haxe.format.JsonParser",macro class {
             public static inline function parse(str:String):Dynamic {
@@ -72,71 +107,23 @@ class InitMacro {
             Context.warning("InitMacro : No \"-D addonName=your_addon_name_here\" defined in .hxml file. Will not generate folder structure",pos);
             return;
         }
+        Sys.putEnv("gmodhaxe_addonName", addonName);
+        if (Context.defined("gmodAddonFolder")) {
+            Sys.putEnv("gmodhaxe_gmodAddonFolder",Context.definedValue("gmodAddonFolder"));
+        }
+        
         if (Context.defined("gamemode")) {
             generateGamemodeFiles(addonName);
         } else {
             generateNonGamemodeFiles(addonName);
         }
-	    Context.onAfterGenerate(afterGenerate);
+        Sys.putEnv("gmodhaxe_buildIdent",Std.string(buildident));
+        if (Context.defined("printBuildIdent")) {
+            Sys.putEnv("gmodhaxe_printIdent","yes");
+        }
+        Sys.putEnv("gmodhaxe_output",Compiler.getOutput());
         #end
     }
-    static function updateAddonFolder() {
-        #if !display
-        var gmodAddonFolder = Context.definedValue("gmodAddonFolder");
-        var exists = FileSystem.exists(gmodAddonFolder);
-        var abs = Path.isAbsolute(gmodAddonFolder);
-        var isdir = FileSystem.isDirectory(gmodAddonFolder);
-        switch ([exists,abs,isdir]) {
-            case [true,true,true]:
-                recurseCopy("generated",gmodAddonFolder);
-            case [false,_,_]:
-                Context.warning("gmodAddonFolder defined but does not exist",pos);
-            case [_,false,_]:
-                Context.warning("gmodAddonFolder defined but is in invalid format",pos);
-            case [_,_,false]:
-                Context.warning("gmodAddonFolder defined but is not a directory",pos);
-        }
-        #end
-    }
-
-    static function envPatch() {
-        final addonName = Context.definedValue("addonName").toLowerCase();
-        final curoutput = File.getBytes(Compiler.getOutput());
-        final fl = File.write(Compiler.getOutput());
-        fl.writeString('--gmod haxe environment patch
-local haxeEnv = {}
-local _hx_exports = {}
-_G.HAXE_$addonName = haxeEnv 
-setmetatable(_hx_exports,{__index = _G,__newindex = _G})
-setmetatable(haxeEnv,{__index = _G})
-setfenv(1,haxeEnv) --if using more than one project + dce, global collisions and missing indexes will ensue. dont want that 
-'); //TODO move to template system
-        fl.write(curoutput);
-        fl.close();
-    }
-
-    static function afterGenerate() {
-	envPatch();
-        if (Context.defined("gmodAddonFolder") && (Context.defined("client") || Context.defined("loner"))) {
-            updateAddonFolder();
-        }
-    }
-
-    static function recurseCopy(curFolder:String,output:String) {
-        #if !display
-        for (name in FileSystem.readDirectory(curFolder)) {
-            var curFile = Path.join([curFolder,name]);
-            var otherFile = Path.join([output,name]);
-            if (FileSystem.isDirectory(Path.join([curFolder,name]))) {
-                FileSystem.createDirectory(otherFile);
-                recurseCopy(Path.join([curFolder,name]),Path.join([output,name]));
-            } else {
-                File.copy(curFile,otherFile);
-            }
-        }
-        #end
-    }
-
 
     static function generateGamemodeFiles(addonName:String) {
         final gamemodeName = Context.definedValue("gamemode").toLowerCase();
@@ -154,6 +141,7 @@ setfenv(1,haxeEnv) --if using more than one project + dce, global collisions and
             File.saveContent('$gmfolder/cl_init.lua',
             'local exports = include("$clientName.lua")');
             Compiler.setOutput('$gmfolder/$clientName.lua');
+           
         } else if (Context.defined("server")) {
             File.saveContent('$gmfolder/init.lua',
             'AddCSLuaFile("$clientName.lua")\nlocal exports = include("$serverName.lua")');
