@@ -58,13 +58,14 @@ There will be edge cases where incorrect lua is generated, or what you're trying
 If you like lua because of it's dynamic typing, there's not much point in using haxe.
 
 ## Changelog
-### 0.2.0
+### 0.2.1
 
-- Most non externs have been moved to the `gmod.helpers` package
-- `gmod.PairTools` and `gmod.TableTools` are now automatically used by default
-- hxbit tests removed for now
-- `Vector` and `Angle` are now replaced by abstracts
-- `HaxeGen` renamed to `GLinked`
+- Now has a proper post compile step. Please add the follwing line to your hxml file next to the `--macro` line
+
+`--cmd haxe -lib gmodhaxe --run gmod.helpers.macros.PostCompileMacro`
+
+- This should fix issues where you had to build twice for the lua files to copy over/update
+
 
 ## Setup
 
@@ -106,8 +107,13 @@ If you want to automatically copy files on a successful build, uncomment this li
 
 ### Non starter pack usage
 
-If you have your own custom hxml setup, ensure you include the line 
-`--macro gmod.helpers.macros.InitMacro.init()` somewhere in every build, otherwise this libraries helpers and folder generation will not work.
+If you have your own custom hxml setup, ensure you include the lines
+
+`--macro gmod.helpers.macros.InitMacro.init()` 
+
+`--cmd haxe -lib gmodhaxe --run gmod.helpers.macros.PostCompileMacro`
+
+somewhere in every build, otherwise this libraries helpers and folder generation will not work.
 
 To use server functions, add `-D server` to your build and vice versa. Do not add both `-D server` and `-D client` to one build, as this could have undefined effects on the build process. Instead, use two seperate builds for both the server and the client. Haxe code that is included from both builds will appear in both lua files, effectively filling the role of a traditional `shared.lua` file. To make this double build process easier, you can always include a `buildall.hxml` type file, that contains `server.hxml --next client.hxml`. Upon building through buildall, both builds will be executed in order.
 
