@@ -5,7 +5,7 @@ import haxe.macro.Context;
 
 #if lua
 import lua.Lua;
-
+using gmod.helpers.PairTools;
 abstract LuaArray<Y>(lua.Table<Int,Y>) to lua.Table<Int,Y> from lua.Table<Int,Y> {
 
     @:op([])
@@ -25,78 +25,139 @@ abstract LuaArray<Y>(lua.Table<Int,Y>) to lua.Table<Int,Y> from lua.Table<Int,Y>
     /**
         Uses `Lua.ipairs`
     **/
-    public function keyValueIterator():KeyValueIterator<Int,Y> {
-        var p = Lua.ipairs(this);
-        var next = p.next;
-        var i = p.index;
-        return {
-            next: function() {
-                var res = next(this, i);
-                i = res.index;
-                return {key: res.index, value: res.value};
-            },
-            hasNext: function() {
-                return next(this, i).value != null;
-            }
-        }
+    public inline function keyValueIterator():KeyValueIterator<Int,Y> {
+        return this.ipairsKVIterator();
     }
 
     /**
         Uses `Lua.ipairs`
     **/
-    public function iterator():Iterator<Y> {
-        var p = Lua.ipairs(this);
-        var next = p.next;
-        var i = p.index;
-        return {
-            next: function() {
-                var res = next(this, i);
-                i = res.index;
-                return res.value;
-            },
-            hasNext: function() {
-                return next(this, i).value != null;
-            }
-        }
+    public inline function iterator():Iterator<Y> {
+        return this.ipairsIterator();
     }
 
     /**
         Uses `Lua.pairs`
     **/
-    public function pairsKVIterator<X>():KeyValueIterator<X,Y> {
-        var p = Lua.pairs(this);
-        var next = p.next;
-        var i = p.index;
-        return {
-            next: function() {
-                var res = next(this, i);
-                i = res.index;
-                return {key: cast res.index, value: res.value};
-            },
-            hasNext: function() {
-                return Lua.next(this, i).value != null;
-            }
-        }
+    public inline function pairsKVIterator<X>():KeyValueIterator<X,Y> {
+        return cast this.keyValueIterator();
     }
 
     /**
         Uses `Lua.pairs`
     **/
-    public function pairsIterator():Iterator<Y> {
-        var p = Lua.pairs(this);
-        var next = p.next;
-        var i = p.index;
-        return {
-            next: function() {
-                var res = next(this, i);
-                i = res.index;
-                return res.value;
-            },
-            hasNext: function() {
-                return Lua.next(this, i).value != null;
-            }
-        }
+    public inline function pairsIterator():Iterator<Y> {
+        return this.iterator();
     }
+}
+
+class LuaArrayFastIterator<V> {
+
+    var i:Int;
+
+    var tbl:LuaArrayFast<V>;
+
+    var len:Int;
+    
+    public inline function new(x:LuaArrayFast<V>) {
+        i = 1;
+        tbl = x;
+        len = tbl.length;
+    }
+
+    public inline function next() {
+        return tbl[i++];
+    }
+
+    public inline function hasNext() {
+        return i <= len;
+    }
+}
+
+class LuaArrayFastKeyValueIterator<V> {
+    var i:Int;
+
+    var len:Int;
+
+    var tbl:LuaArrayFast<V>;
+    
+    public inline function new(x:LuaArrayFast<V>) {
+        i = 1;
+        len = tbl.length;
+        tbl = x;
+    }
+
+    public inline function next() {
+        final result = {key : i, value : tbl[i]};
+        i++;
+        return result;
+    }
+
+    public inline function hasNext() {
+        return i <= len;
+    }
+}
+
+/**
+    Faster iteration than ipairs over a lua array (hopefully). Must ensure length is a valid value to properly iterate
+**/
+@:transitive
+abstract LuaArrayFast<V>(LuaArray<V>) to LuaArray<V> {
+
+    
+    public var length(get,set):Int;
+
+    @:op([])
+    inline function get(n:Int):V {
+        return this[n];
+    }
+
+    @:op([])
+    inline function set(n:Int,v:V):V {
+        return this[n] = v;
+    }
+
+
+    inline function set_length(n:Int) {
+        return untyped this.length = n;
+    }
+
+    inline function get_length() {
+        return untyped this.length;
+    }
+
+    /**
+        Update length by using lua length operator (which involves binary search)
+    **/
+    public inline function updateLength() {
+        return length = untyped __lua__("#{0}",this);
+    }
+
+    public inline function add(val:V) {
+        set(++length,val);
+    }
+
+    public inline function new() {
+        this = lua.Table.create();
+        untyped this.length = 0;
+    }
+
+    @:from
+    public static inline function fromLuaArr<V>(x:LuaArray<V>):LuaArrayFast<V> {
+        final x:LuaArrayFast<V> = cast x;
+        x.updateLength();
+        return cast x;
+    }
+
+    public inline function iterator():Iterator<V> {
+        return new LuaArrayFastIterator(cast this);
+    }
+
+    public inline function keyValueIterator():KeyValueIterator<Int,V> {
+        return new LuaArrayFastKeyValueIterator(cast this);
+    }
+
+
 }
 #end
 class __LuaArray {
