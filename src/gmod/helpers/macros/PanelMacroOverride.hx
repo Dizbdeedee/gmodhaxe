@@ -50,7 +50,7 @@ class PanelMacroOverride {
             }
         }
         if (!overrideninit) {
-            exprBuffer.push(macro untyped __lua__("PANEL.Init = function (dis,...) dis.gHaxeBurrow = {0}.new(dis) end",$i{classname}));
+            exprBuffer.push(macro untyped __lua__("PANEL.Init = function (dis,...) dis._gHaxeBurrow = {0}.new(dis) end",$i{classname}));
         }
         cls.meta.add(":FirstPanel",[],Context.currentPos());
         var ourtype = Context.toComplexType(Context.getLocalType());

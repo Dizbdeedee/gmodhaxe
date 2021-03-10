@@ -1094,7 +1094,7 @@ package gmod.libs;
 		```
     **/
     
-    static function DrawQuad(vert1:Vector, vert2:Vector, vert3:Vector, vert4:Vector, ?color:AnyTable):Void;
+    static function DrawQuad(vert1:Vector, vert2:Vector, vert3:Vector, vert4:Vector, ?color:Color):Void;
     
     
     /**
