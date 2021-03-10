@@ -11,12 +11,51 @@ private typedef Workaround = {
    var value : Dynamic ;
 }
 
-class Experimental<V> {
+
+
+/**
+    Pairs iterator
+**/
+class LuaPIterator<V> {
+
+    var tbl:lua.Table<Dynamic,V>;
+
+    var lnext:(x:lua.Table<Dynamic,V>,ind:Dynamic) -> NextResult<Dynamic, V>;
+
+    var nextV:V;
+
+    var i:Dynamic;
+
+    public inline function new(x:lua.Table<Dynamic,V>) {
+        tbl = x;
+        final p = Lua.pairs(x);
+        lnext = p.next;
+        final init = lnext(tbl,p.index);
+        nextV = init.value;
+        i = init.index;
+    }
+
+    public inline function next() {
+        final v = nextV;
+        final nextResult = lnext(tbl,i);
+        i = nextResult.index;
+        nextV = nextResult.value;
+        return v;
+    }
+
+    public inline function hasNext() {
+        return nextV != null;
+    }
+
+
+}
+/**
+    Ipairs iterator
+**/
+class LuaIPIterator<V> {
     var tbl:lua.Table<Dynamic,V>;
 
     var lnext:(x:lua.Table<Dynamic,V>,ind:Int) -> NextResult<Int, V>;
-
-    // var nextInd:Dynamic;
 
     var nextV:V;
 
@@ -46,93 +85,40 @@ class Experimental<V> {
 }
 
 /**
-    Pairs iterator
-**/
-class LuaPIterator<V> {
-
-    // var p:IPairsResult<Dynamic,Dynamic>;
-
-    var tbl:lua.Table<Dynamic,V>;
-
-    var lnext:(x:lua.Table<Dynamic,V>,ind:Dynamic) -> NextResult<Dynamic, V>;
-
-    var i:Dynamic;
-
-    public inline function new(x:lua.Table<Dynamic,V>) {
-        tbl = x;
-        final p = Lua.pairs(x);
-        lnext = p.next;
-        i = p.index;
-    }
-
-
-    public inline function next() {
-        final res = lnext(tbl,i);
-        i = res.index;
-        return res.value;
-    }
-
-    public inline function hasNext() {
-        return lnext(tbl, i).value != null;
-    }
-
-}
-/**
-    Ipairs iterator
-**/
-class LuaIPIterator<V> {
-    var tbl:lua.Table<Dynamic,V>;
-
-    var lnext:(x:lua.Table<Dynamic,V>,ind:Int) -> NextResult<Int, V>;
-
-    var i:Int;
-
-    public inline function new(x:lua.Table<Dynamic,V>) {
-        tbl = x;
-        final p = Lua.ipairs(x);
-        lnext = p.next;
-        i = p.index;
-    }
-
-
-    public inline function next() {
-        final res = lnext(tbl,i);
-        i = res.index;
-        return res.value;
-    }
-
-    public inline function hasNext() {
-        return lnext(tbl, i).value != null;
-    }
-}
-
-/**
     Key value pairs iterator
 **/
 class LuaKVPIterator<K,V> {
+
     var tbl:lua.Table<K,V>;
 
     var lnext:(x:lua.Table<K,V>,ind:K) -> NextResult<K, V>;
 
-    var i:K;
+    var nextV:V;
+
+    var nextI:Dynamic;
 
     public inline function new(x:lua.Table<K,V>) {
         tbl = x;
         final p = Lua.pairs(x);
         lnext = p.next;
-        i = p.index;
+        final init = lnext(tbl,p.index);
+        nextV = init.value;
+        nextI = init.index;
     }
 
-
     public inline function next() {
-        final res = lnext(tbl,i);
-        i = res.index;
-        return {key : res.index, value : res.value};
+        final v = nextV;
+        final i = nextI;
+        final nextResult = lnext(tbl,nextI);
+        nextI = nextResult.index;
+        nextV = nextResult.value;
+        return {key : i, value : v};
     }
 
     public inline function hasNext() {
-        return lnext(tbl, i).value != null;
+        return nextV != null;
     }
+    
 }
 /**
     Key value ipairs iterator
@@ -142,24 +128,30 @@ class LuaKVIPIterator<V> {
 
     var lnext:(x:lua.Table<Dynamic,V>,ind:Int) -> NextResult<Int, V>;
 
-    var i:Int;
+    var nextV:V;
+
+    var nextI:Int;
 
     public inline function new(x:lua.Table<Dynamic,V>) {
         tbl = x;
         final p = Lua.ipairs(x);
         lnext = p.next;
-        i = p.index;
+        final init = lnext(tbl,p.index);
+        nextV = init.value;
+        nextI = init.index;
     }
 
-
     public inline function next() {
-        final res = lnext(tbl,i);
-        i = res.index;
-        return {key : res.index, value : res.value};
+        final v = nextV;
+        final i = nextI;
+        final nextResult = lnext(tbl,nextI);
+        nextI = nextResult.index;
+        nextV = nextResult.value;
+        return {key : i, value : v};
     }
 
     public inline function hasNext() {
-        return lnext(tbl, i).value != null;
+        return nextV != null;
     }
 }
 
@@ -171,24 +163,29 @@ class LuaKeyTablePIterator<K> {
 
     var lnext:(x:lua.Table<K,Dynamic>,ind:K) -> NextResult<K, Dynamic>;
 
-    var i:K;
+    var nextV:Dynamic;
+
+    var nextI:K;
 
     public inline function new(x:lua.Table<K,Dynamic>) {
         tbl = x;
         final p = Lua.pairs(x);
         lnext = p.next;
-        i = p.index;
+        final init = lnext(tbl,p.index);
+        nextV = init.value;
+        nextI = init.index;
     }
 
-
     public inline function next() {
-        final res = lnext(tbl,i);
-        i = res.index;
-        return res.index;
+        final i = nextI; 
+        final nextResult = lnext(tbl,nextI);
+        nextI = nextResult.index;
+        nextV = nextResult.value;
+        return i;
     }
 
     public inline function hasNext() {
-        return lnext(tbl, i).value != null;
+        return nextV != null;
     }
 }
 
