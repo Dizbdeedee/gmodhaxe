@@ -60,7 +60,7 @@ If you like lua because of it's dynamic typing, there's not much point in using 
 ## Changelog
 ### 0.2.1
 
-- Now has a proper post compile step. Please add the follwing line to your hxml file next to the `--macro` line
+- Now has a proper post compile step. Please add the following line to your hxml file next to the `--macro` line
 
 `--cmd haxe -lib gmodhaxe --run gmod.helpers.macros.PostCompileMacro`
 
