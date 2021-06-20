@@ -7,6 +7,8 @@ All externs are fully client/server context dependent, so will only work in prop
 
 Externs have been generated from scraped info from an older version of the gmod wiki. Things may be improperly typed.
 
+This has been developed alongside a new gamemode I hope to release soon - [Decept/Infect](https://github.com/ponobodod/deceptinfect). See this project for examples of use for this library.
+
 ## Why?
 Haxe comes with some advantages over just plain (gmod) lua development
 
