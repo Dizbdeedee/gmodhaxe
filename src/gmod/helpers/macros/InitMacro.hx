@@ -80,6 +80,8 @@ class InitMacro {
                 return gmod.Gmod.SysTime();
             }
         });
+        
+        
         #if (haxe >= "4.2.0")
         no.Spoon.bend("haxe.format.JsonParser",macro class {
             public static inline function parse(str:String):Dynamic {
@@ -87,6 +89,8 @@ class InitMacro {
             }
         });
         #end
+        Compiler.addGlobalMetadata("","@:build(gmod.helpers.macros.HookMacro.build())");
+
         var x:TypeDefinition = {
             pack : ["gmod","helpers","macros"],
             name : "StoredInfo",
@@ -94,6 +98,7 @@ class InitMacro {
             kind : TDAlias(macro : Math),
             fields : []
         }
+        
         try {
             Context.getType("gmod.helpers.macros.StoredInfo");
         } catch (e) {
@@ -102,7 +107,11 @@ class InitMacro {
             Context.defineType(x);
         }
         
-        
+        if (Context.defined("server")) {
+            Sys.putEnv("gmodhaxe_notCopy",clientName);
+        } else if (Context.defined("client")) {
+            Sys.putEnv("gmodhaxe_notCopy",serverName);
+        }
         #if (haxe >= "4.1.0")
             Compiler.includeFile("gmod/helpers/macros/include/PrintPatch.lua");
         #end
@@ -151,13 +160,16 @@ class InitMacro {
         }
         if (!FileSystem.exists(gmfolder)) FileSystem.createDirectory(gmfolder);
         if (Context.defined("client")) {
-            File.saveContent('$gmfolder/cl_init.lua',
-            'local exports = include("$clientName.lua")');
+            if (!Context.defined("noGenInit")) {
+                File.saveContent('$gmfolder/cl_init.lua',
+                'local exports = include("$clientName.lua")');
+            }
             Compiler.setOutput('$gmfolder/$clientName.lua');
-           
         } else if (Context.defined("server")) {
-            File.saveContent('$gmfolder/init.lua',
-            'AddCSLuaFile("$clientName.lua")\nlocal exports = include("$serverName.lua")');
+            if (!Context.defined("noGenInit")) {
+                File.saveContent('$gmfolder/init.lua',
+                'AddCSLuaFile("$clientName.lua")\nlocal exports = include("$serverName.lua")');
+            }
             Compiler.setOutput('$gmfolder/$serverName.lua');
         }
     }
@@ -169,7 +181,9 @@ class InitMacro {
         final initFile:String = 'local exports if SERVER then AddCSLuaFile("$addonName/$clientName.lua") exports = include("$addonName/$serverName.lua") end
 if CLIENT then exports = include("$addonName/$clientName.lua") end';
         FileSystem.createDirectory('generated/$addonName/lua/autorun/');
-        File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',initFile);
+        if (!Context.defined("noGenInit")) {
+            File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',initFile);
+        }
         if (Context.defined("client")) {
             trace("generated non gamemode client.lua");
             Compiler.setOutput('generated/$addonName/lua/$addonName/$clientName.lua');

@@ -43,6 +43,12 @@ class WeakTools {
     
     public static function setWeakKeyValuesM(objMap:haxe.ds.ObjectMap<Dynamic,Dynamic>) {
 		setWeakKeyValues(objMap.h);
-		setWeakValues(objMap.k);
+		setWeakKeys(objMap.k);
     }
+
+	
+
+	public static function setWeakValuesArr(arr:Array<Dynamic>) {
+		setWeakValues(cast arr);
+	}
 }

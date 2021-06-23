@@ -1,4 +1,7 @@
 package gmod.helpers.macros;
+import sys.io.FileInput;
+import haxe.io.Bytes;
+import haxe.io.BytesData;
 import haxe.macro.Context;
 import sys.FileSystem;
 import haxe.io.Path;
@@ -38,6 +41,8 @@ class PostCompileMacro {
         "Zulu"
     ];
 
+    static final sizeLimit = 600000;
+
 	public static function main() {
 		if (Sys.getEnv("gmodhaxe_addonName") != null && Sys.getEnv("gmodhaxe_output") != null) {
 			envPatch();
@@ -47,6 +52,9 @@ class PostCompileMacro {
             if (Sys.getEnv("gmodhaxe_buildIdent") != null && Sys.getEnv("gmodhaxe_printIdent") != null) {
                 printIdent();
             }
+            // if (FileSystem.stat(Sys.getEnv("gmodhaxe_output")).size > sizeLimit) {
+            //     splitFiles();
+            // }
 		}
 	}
 
@@ -62,7 +70,10 @@ class PostCompileMacro {
                 FileSystem.createDirectory(otherFile);
                 recurseCopy(Path.join([curFolder,name]),Path.join([output,name]));
             } else {
-                File.copy(curFile,otherFile);
+                final curname = Path.withoutExtension(Path.withoutDirectory(curFile));
+                if (Sys.getEnv("gmodhaxe_notCopy") != curname) {
+                    File.copy(curFile,otherFile);
+                }
             }
         }
     }
@@ -73,6 +84,7 @@ class PostCompileMacro {
         Sys.putEnv("gmodhaxe_output","");
         Sys.putEnv("gmodhaxe_buildIdent","");
 		Sys.putEnv("gmodhaxe_printIdent","");
+        Sys.putEnv("gmodhaxe_notCopy","");
 	}
 
 	static function updateAddonFolder() {
@@ -90,6 +102,57 @@ class PostCompileMacro {
             case [_,_,false]:
                 Context.warning("gmodAddonFolder defined but is not a directory",pos);
         }
+    }
+
+    static function readUntilBlankNewLine(f:FileInput) {
+        final str = "";
+        while (!f.eof()) {
+            final one = f.readString(1);
+            final two = f.readString(1);
+            f.seek(-1,SeekCur);
+            str += one;
+            if (one == "\n" && two == "\n") {
+                return str;
+            }
+        }
+        throw "Reached eof without two newlines...";
+    }
+
+
+    static function splitFiles() {
+        final addonName = Sys.getEnv("gmodhaxe_addonName").toLowerCase();
+        final outputName = Sys.getEnv("gmodhaxe_output");
+        final read = File.read(outputName);
+        final beforeBytes = {
+            final before = read.read(sizeLimit);
+            final beforeLineStr = readUntilBlankNewLine(read);
+            final beforeLine = Bytes.ofString(beforeLineStr);
+            final newBytes = new haxe.io.Bytes(before.length + beforeLine.length,before);
+            newBytes.blit(before.length,beforeLine,0,beforeLine.length);
+//             final include = Bytes.ofString("
+// CompileFile(\"deceptinfect/gamemode/\")")
+            final directory = Path.join([addonName,"gamemode",outputName]);
+            final include = Bytes.ofString('
+local compenv = {}
+for i=1,9999 do
+    local n,v = debug.getlocal(1,i)
+    if n == nil then break end
+    compenv[n] = l
+end
+local compenv = setmetatable({},{__index})
+final result = CompileFile("$directory")
+
+');
+            newBytes;
+        }
+        read.seek(sizeLimit,SeekBegin);
+        readUntilBlankNewLine(read);
+        if (read.eof()) throw "Invalid..";
+        final cutBytes = read.readAll();
+        read.close();
+        FileSystem.deleteFile(outputName);
+        File.saveBytes(outputName,beforeBytes);
+        File.saveBytes(outputName.substr(0,outputName.length - 4) + "_1.lua",cutBytes);
     }
 
 	static function envPatch() {
