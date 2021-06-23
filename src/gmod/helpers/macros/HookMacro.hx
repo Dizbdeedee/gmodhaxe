@@ -3,19 +3,18 @@ package gmod.helpers.macros;
 import haxe.macro.Expr.Field;
 import haxe.macro.Context;
 using Lambda;
+using StringTools;
 #end
 
 #if macro
 class HookMacro {
 
-    static var mangle = 0;
     public static function build():Array<Field> {
-        // if (Context.getLocalClass() == null) return null;
         final fields = Context.getBuildFields();
-        // trace("hello");
         var addExpr = false;
         var initField = null;
         var initExpr:Array<haxe.macro.Expr> = [];
+        var module = Context.getLocalModule();
         for (field in fields) {
             final meta = field.meta.find((meta) -> meta.name == ":gmodHook");
             if (meta == null) continue;
@@ -35,7 +34,8 @@ class HookMacro {
                     addExpr = true;
                     initExpr.push(macro gmod.libs.HookLib.Add($e{expr},$v{str},$i{field.name}));
                 case [expr = {expr: EConst(CIdent(ident)), pos : pos}]:
-                    final mangleName = "haxe_" + field.name + "_" + mangle++;
+                    final mangleName = "haxe_" + Context.getLocalModule().replace(".","_") + "_" + field.name;
+                    
                     addExpr = true;
                     try {
                         Context.typeExpr(expr);
@@ -44,7 +44,7 @@ class HookMacro {
                         initExpr.push(macro gmod.libs.HookLib.Add(gmod.stringtypes.Hook.GMHook.$ident,$v{mangleName},$i{field.name}));
                     }
                 case [expr = {expr: _, pos: pos}]:
-                    final mangleName = "haxe_" + field.name + "_" + mangle++;
+                    final mangleName = "haxe_" + Context.getLocalModule().replace(".","_") + "_" + field.name;
                     addExpr = true;
                     initExpr.push(macro gmod.libs.HookLib.Add($e{expr},$v{mangleName},$i{field.name}));
                 default:
