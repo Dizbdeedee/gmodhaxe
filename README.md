@@ -60,6 +60,10 @@ There will be edge cases where incorrect lua is generated, or what you're trying
 If you like lua because of it's dynamic typing, there's not much point in using haxe.
 
 ## Changelog
+
+### 0.2.2
+
+
 ### 0.2.1
 
 - Now has a proper post compile step. Please add the following line to your hxml file next to the `--macro` line
