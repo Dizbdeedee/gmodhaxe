@@ -17,6 +17,7 @@ class GamemodeMacro {
         var inst = haxe.macro.Type.TInst(cls.superClass.t,cls.superClass.params);
         var superType = Context.toComplexType(inst);
         var exprBuffer:Array<Expr> = [];
+        
         for (field in fields) {
             switch (field.kind) {
                 case FFun(f):

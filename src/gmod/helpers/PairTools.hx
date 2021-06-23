@@ -95,12 +95,13 @@ class LuaKVPIterator<K,V> {
 
     var nextV:V;
 
-    var nextI:Dynamic;
+    var nextI:K;
 
     public inline function new(x:lua.Table<K,V>) {
         tbl = x;
         final p = Lua.pairs(x);
         lnext = p.next;
+        
         final init = lnext(tbl,p.index);
         nextV = init.value;
         nextI = init.index;

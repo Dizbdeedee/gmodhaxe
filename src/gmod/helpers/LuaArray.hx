@@ -134,7 +134,8 @@ abstract LuaArrayFast<V>(LuaArray<V>) to LuaArray<V> {
     }
 
     public inline function add(val:V) {
-        set(++length,val);
+        length++;
+        set(length,val);
     }
 
     public inline function new() {
