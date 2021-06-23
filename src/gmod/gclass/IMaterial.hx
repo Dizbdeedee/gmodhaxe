@@ -245,7 +245,7 @@ extern class IMaterial {
 		```
     **/
     
-    function SetTexture(materialTexture:String, texture:ITexture):Void;
+    function SetTexture(materialTexture:String, texture:haxe.extern.EitherType<ITexture,String>):Void;
     
     
     /**

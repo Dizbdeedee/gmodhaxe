@@ -940,7 +940,7 @@ package gmod;
 		equal
     **/
     
-    static function Color(r:Float, g:Float, b:Float, ?a:Float):Color;
+    static function Color(r:Float, g:Float, b:Float, ?a:Float):gmod.gclass.Color;
     
     
     /**
@@ -5916,7 +5916,7 @@ package gmod;
 		```
     **/
     
-    static function ParticleEmitter(position:Vector, use3D:Bool):CLuaEmitter;
+    static function ParticleEmitter(position:Vector, ?use3D:Bool):CLuaEmitter;
     #end
     
     /**
@@ -6041,7 +6041,7 @@ var c:AnyVargsTable;
 
 }
 
-typedef AnyVargsTable = VargsTable<Dynamic>
+typedef AnyVargsTable = VargsTable<Dynamic>;
 
 abstract VargsTable<X>(AnyTable) to AnyTable {
     // public inline function unpack(?startIndex:Int, ?endIndex:Int):VarMultiReturn<X> {

@@ -255,7 +255,7 @@ package gmod.libs;
 		`**Returns:** The closest CNavArea found with the given parameters.
     **/
     
-    static function GetNearestNavArea(pos:Vector, ?anyZ:Bool, ?maxDist:Float, ?checkLOS:MASK, ?checkGround:Bool, ?team:Float):CNavArea;
+    static function GetNearestNavArea(pos:Vector, ?anyZ:Bool, ?maxDist:Float, ?checkLOS:Bool, ?checkGround:Bool, ?team:Float):CNavArea; //invalidity possible
     
     
     /**

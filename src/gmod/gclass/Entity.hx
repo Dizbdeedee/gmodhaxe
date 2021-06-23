@@ -3735,6 +3735,13 @@ extern class Entity {
     **/
     
     function GetBrushPlaneCount():Float;
+
+	/**
+		Returns a table of brushes surfaces for brush model entities.
+
+		`**Returns:** Table of SurfaceInfos if the entity has a brush model, or no value otherwise.
+	**/
+	function GetBrushSurfaces():Null<LuaArray<SurfaceInfo>>;
     
     #if server
     /**
@@ -4598,7 +4605,7 @@ extern class Entity {
 		If successful, the previous physics object will be removed.
 		
 		**Bug:** BUG Clientside physics objects are broken and do not move properly in some cases. Physics objects should only created on the server or you will experience incorrect physgun beam position, prediction issues, and other unexpected behavior. You can use the following work-around for movement, though clientside collisions will still be broken. function ENT:Think()
-		
+		```lua
 		if ( CLIENT ) then
 		
 				local physobj = self:GetPhysicsObject()
@@ -4616,7 +4623,7 @@ extern class Entity {
 			end
 		
 		end
-		
+		```
 		Name | Description
 		--- | ---
 		`vertices` | A table consisting of tables of Vectors. Each sub-table defines a set of points to be used in the computation of one convex mesh.
@@ -4751,6 +4758,7 @@ extern class Entity {
     **/
     
     function Extinguish():Void;
+
     #end
     
     /**

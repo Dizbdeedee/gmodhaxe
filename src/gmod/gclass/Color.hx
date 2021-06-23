@@ -2,19 +2,39 @@ package gmod.gclass;
 
 
 /**
-    
+    Color with metatable, created by gmod color functions.
 **/
 extern class Color {
+
+	/**
+		The red channel (0-255)
+	**/
+	public var r:Float;
+
+	/**
+		The green channel (0-255)
+	**/
+	public var g:Float;
+
+	/**
+		The blue channel (0-255)
+	**/
+	public var b:Float;
+
+	/**
+		The alpha channel (0-255)
+	**/
+	public var a:Float;
     
     /**
         Sets the r, g, b, and a of the color.
 		
 		Name | Description
 		--- | ---
-		`r` | 
-		`g` | 
-		`b` | 
-		`a` | 
+		`r` | red
+		`g` | green
+		`b` | blue
+		`a` | alpha
     **/
     
     function SetUnpacked(r:Float, g:Float, b:Float, a:Float):Void;
@@ -26,7 +46,7 @@ extern class Color {
 		`**Returns:** The table with elements 1 = r, 2 = g, 3 = b, 4 = a.
     **/
     
-    function ToTable():AnyTable;
+    function ToTable():LuaArray<Float>;
     
     
     /**
@@ -71,9 +91,9 @@ extern class Color {
 
 
 @:multiReturn extern class ColorUnpackReturn {
-var a:Float;
+var r:Float;
+var g:Float;
 var b:Float;
-var c:Float;
-
+var a:Float;
 }
 

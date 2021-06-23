@@ -129,7 +129,7 @@ extern class CNavArea {
 		`**Returns:** The CNavLadders that have a ( one or two way ) connection from this CNavArea in given direction.
     **/
     
-    function GetLaddersAtSide(navDir:Float):AnyTable;
+    function GetLaddersAtSide(navDir:Float):LuaArray<CNavLadder>;
     
     
     /**
@@ -178,7 +178,7 @@ extern class CNavArea {
 		`**Returns:** A table of all CNavArea that have a ( one and two way ) connection from this CNavArea in given direction. Returns an empty table if this area has no outgoing connections to any other areas in given direction.
     **/
     
-    function GetAdjacentAreasAtSide(navDir:NavDir):AnyTable;
+    function GetAdjacentAreasAtSide(navDir:NavDir):LuaArray<CNavArea>;
     
     
     /**
@@ -295,7 +295,7 @@ extern class CNavArea {
 		`**Returns:** A table of Vectors
     **/
     
-    function GetHidingSpots(?type:Float):AnyTable;
+    function GetHidingSpots(?type:Float):LuaArray<Vector>;
     
     
     /**
@@ -379,7 +379,7 @@ extern class CNavArea {
 		`**Returns:** A table of all CNavAreas with one-way connection to this CNavArea. Returns an empty table if there are no one-way incoming connections to this CNavArea.
     **/
     
-    function GetIncomingConnections():AnyTable;
+    function GetIncomingConnections():LuaArray<CNavArea>;
     
     
     /**
@@ -567,7 +567,7 @@ extern class CNavArea {
 		`**Returns:** A table of Vectors
     **/
     
-    function GetExposedSpots():AnyTable;
+    function GetExposedSpots():LuaArray<CNavArea>;
     
     
     /**
@@ -628,7 +628,7 @@ extern class CNavArea {
 		`**Returns:** The CNavLadders that have a ( one or two way ) connection from this CNavArea.
     **/
     
-    function GetLadders():AnyTable;
+    function GetLadders():LuaArray<CNavLadder>;
     
     
     /**
@@ -730,7 +730,7 @@ extern class CNavArea {
 		`**Returns:** A table of all CNavArea that have a ( one and two way ) connection from this CNavArea. Returns an empty table if this area has no outgoing connections to any other areas.
     **/
     
-    function GetAdjacentAreas():AnyTable;
+    function GetAdjacentAreas():LuaArray<CNavArea>;
     
     
     /**
