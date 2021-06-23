@@ -63,7 +63,9 @@ If you like lua because of it's dynamic typing, there's not much point in using 
 
 ### 0.2.2
 
+- Ability to add the `@:gmodHook` metadata to a function to attempt to automatically add a hook for it. See examples for more detail
 
+- Proper hxbit support in progress
 ### 0.2.1
 
 - Now has a proper post compile step. Please add the following line to your hxml file next to the `--macro` line
@@ -273,7 +275,28 @@ print(myaddon.MyClass.myString)
 
 See https://haxe.org/manual/target-javascript-expose.html (for javascript but same rules apply)
 
-### Overriding hooks
+### Hooks
+
+#### Static functions
+
+To automatically add a hook on script startup, add the following metadata on top of your function.
+
+`@:gmodHook()`
+
+For example, to add a think hook to your function
+
+```haxe
+
+class Example {
+  
+  @:gmodHook(Think)
+  @:gmodHook(Think,"myhookname") //if you wish to name the hook
+  static function myThinkHook() {
+
+  }
+
+}
+```
 
 #### Gamemode
 
