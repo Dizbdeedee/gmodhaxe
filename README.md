@@ -5,7 +5,7 @@ Haxe externs for gmod + macros intended for gamemode development. [Haxe](https:/
 All externs are fully client/server context dependent, so will only work in proper context
 (i.e only functions that exist in server/client will autocomplete/build in current context)
 
-Externs have been generated from scraped info from an older version of the gmod wiki. Things may be improperly typed.
+Externs have been generated from scraped info from an older version of the gmod wiki. Things may be improperly typed, and therefore if you see any out of date documentation, definition or need to use a new function not avaliable, please submit a pull request or an issue.
 
 This has been developed alongside a new gamemode I hope to release soon - [Decept/Infect](https://github.com/ponobodod/deceptinfect). See this project for examples of use for this library.
 
@@ -13,6 +13,7 @@ This has been developed alongside a new gamemode I hope to release soon - [Decep
 Haxe comes with some advantages over just plain (gmod) lua development
 
 ### Pros
+
 - Free autocompletion and compiler 
 
 Not just hacked onto lua, and so a lot more reliable
@@ -28,6 +29,7 @@ This might be because I'm a bad developer though...
 - Target defines for server + client
 
 Goodbye shared.lua, and unavaliable functions cluttering your autocompletion solution
+
 - Macros mean we can take post compile steps 
 
 This enables gmodhaxe to copy your build on save, meaning you can develop a lua addon from your documents folder instead of delving into the depths of your gmod installation each time
@@ -35,6 +37,7 @@ This enables gmodhaxe to copy your build on save, meaning you can develop a lua 
 - Consistent definition of classes
 
 Class syntax is free, and always the same instead of being DIY
+
 - Cross compilation 
 
 This means you can create projects that talk to gmod lua in one consistent language + syntax. Less context switching required
@@ -49,12 +52,15 @@ However, Haxe -> lua is not free of flaws, and certainly does not fit every use 
 - The compiled code has a larger file size, and is slower.
 
 There's no getting away from it, the code that is made using Haxe -> lua is going to be larger (see -dce full for mitigations), and less efficient than    handwritten lua code. If your code is performance critical and is not a large project, you're better of just using lua directly instead.
+
 - You're not making a large project
 
 If your're making something small, or maybe even medium sized and you already know and love lua, then there's not much point in learning haxe.
+
 - Edge cases
 
 There will be edge cases where incorrect lua is generated, or what you're trying to do hasn't been properly mapped into this library. If this is the case, please file an issue! Anything that helps this library be more accessible and easier to use is appreciated.
+
 - Not intrested in typing
 
 If you like lua because of it's dynamic typing, there's not much point in using haxe.
