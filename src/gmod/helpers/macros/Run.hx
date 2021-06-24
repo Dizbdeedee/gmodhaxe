@@ -30,7 +30,6 @@ class Run {
 
 #Add haxe libraries here
 -lib gmodhaxe
-#-lib safety
 
 --macro gmod.helpers.macros.InitMacro.init()
 --cmd haxe -lib gmodhaxe --run gmod.helpers.macros.PostCompileMacro
@@ -77,7 +76,7 @@ class Main {
     static var exampleent =
 "import gmod.helpers.sent.SentBuild;
 
-class ExampleEnt extends gmod.helpers.sent.SentBuild<gmod.sent.ENT_ANIM> {
+class ExampleEntity extends gmod.helpers.sent.SentBuild<gmod.sent.ENT_ANIM> {
 
     final properties:EntFields = {
         Base : \"base_entity\"

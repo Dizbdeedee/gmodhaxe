@@ -186,10 +186,8 @@ if CLIENT then exports = include("$addonName/$clientName.lua") end';
             File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',initFile);
         }
         if (Context.defined("client")) {
-            trace("generated non gamemode client.lua");
             Compiler.setOutput('generated/$addonName/lua/$addonName/$clientName.lua');
         } else if (Context.defined("server")) {
-            trace("generated non gamemode server.lua");
             Compiler.setOutput('generated/$addonName/lua/$addonName/$serverName.lua');
         }
     }
