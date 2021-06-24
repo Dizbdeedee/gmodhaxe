@@ -95,7 +95,7 @@ Switch between developing for the server/client/both by switching the autocomple
 
 <img src="https://user-images.githubusercontent.com/46794914/109648654-ca823e00-7b52-11eb-8cb1-2f43bd541c1b.gif" width="893" height="702">
 
-Build your overall project using `build.hxml`
+Build your overall project using the `build.hxml` task, or hit CTRL-SHIFT-B
 
 To get started, see the examples section below.
 
