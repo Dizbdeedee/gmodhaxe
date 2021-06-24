@@ -5,7 +5,7 @@ Haxe externs for gmod + macros intended for gamemode development. [Haxe](https:/
 All externs are fully client/server context dependent, so will only work in proper context
 (i.e only functions that exist in server/client will autocomplete/build in current context)
 
-Externs have been generated from scraped info from an older version of the gmod wiki. Things may be improperly typed.
+Externs have been generated from scraped info from an older version of the gmod wiki. Things may be improperly typed, and therefore if you see any out of date documentation, definition or need to use a new function not avaliable, please submit a pull request or an issue.
 
 This has been developed alongside a new gamemode I hope to release soon - [Decept/Infect](https://github.com/ponobodod/deceptinfect). See this project for examples of use for this library.
 
