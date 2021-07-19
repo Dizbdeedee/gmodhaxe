@@ -3,7 +3,7 @@ package gmod.enums;
     Default defined teams in Garry's Mod. This does not include any custom teams created in custom gamemodes. Enumerations to use with Player:Team
 **/
 @:native("_G")
-extern enum abstract TEAM(Int) {
+extern enum abstract TEAM(Int) to Int {
     /**
         Unassigned team ID, set right after player connected
     **/
