@@ -34,7 +34,7 @@ class SentMacro {
 
     static function build(esent:ESent):Array<Field> {
         var cls = Context.getLocalClass().get();
-        if (cls.meta.has(":PanelHelper")) return null;
+        if (cls.meta.has(":HaxeGenExtern")) return null;
         switch [esent,Context.defined("server")] {
             case [Effect,true]:
                 throw "Effects aren't on the server...";
@@ -52,7 +52,7 @@ class SentMacro {
             switch [field.name,field.kind] {
                 case ["properties",FVar(_, e)]:
                     try {
-                        properties = e.getValue();
+                        properties = PanelMacro.getValue(e);
                     } catch (x:Dynamic) {
                         trace("Unable to get the value of properties");
                         return null;
@@ -114,9 +114,9 @@ class SentMacro {
         default:
             null;
         }
-        var superexpr = superType.meta.extract(":RealPanel")[0].params[0];
+        var superexpr = superType.meta.extract(":RealExtern")[0].params[0];
         cls.meta.add(":FirstPanel",[],Context.currentPos());
-        cls.meta.add(":RealPanel",[superexpr],Context.currentPos());
+        cls.meta.add(":RealExtern",[superexpr],Context.currentPos());
         var ourtype = Context.toComplexType(Context.getLocalType());
         var superreal = switch (superexpr) {
         case {expr: EArrayDecl(arr)}:

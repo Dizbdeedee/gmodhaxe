@@ -15,7 +15,7 @@ class PanelMacroOverride {
         #if macro
         var fields = Context.getBuildFields();
         var cls = Context.getLocalClass().get();
-        if (cls.meta.has(":PanelHelper")) {
+        if (cls.meta.has(":HaxeGenExtern")) {
             return null;
         }
         var exprAddToTable:Array<Expr> = [];
@@ -52,14 +52,14 @@ class PanelMacroOverride {
         if (!overrideninit) {
             exprBuffer.push(macro untyped __lua__("PANEL.Init = function (dis,...) dis._gHaxeBurrow = {0}.new(dis) end",$i{classname}));
         }
-        cls.meta.add(":FirstPanel",[],Context.currentPos());
+        cls.meta.add(":UserPanel",[],Context.currentPos());
         var ourtype = Context.toComplexType(Context.getLocalType());
-        var superreal = switch (superType.meta.extract(":RealPanel")) {
+        var superreal = switch (superType.meta.extract(":RealExtern")) {
         case  [{params : [expr = {expr: EArrayDecl(arr)}]}]:
             var pack = arr.map((e) -> e.getValue());
             var name = pack[arr.length - 1];
             pack.resize(arr.length - 1);
-            cls.meta.add(":RealPanel",[expr],Context.currentPos());
+            cls.meta.add(":RealExtern",[expr],Context.currentPos());
             TPath({pack : pack,name : name});
         default:
             trace("failed");
@@ -72,18 +72,30 @@ class PanelMacroOverride {
             public static function register() {
 
             }
-            //public final BaseClass:
+
             public static inline final gclass:$panelclass = $v{classname};
             public final self:$superreal;//TODO possibly improve self
 
             final function new (x:$superreal) {
                self = x;
             }
+
+            public static function create(?parent:Panel,?name:String) {
+                gmod.libs.VguiLib.Create(gclass,parent,name);
+            }
+
+            static function __init__() {
+                register();
+            }
+
+
         }
         (fieldstor.fields[0].kind.getParameters()[0]:Function).expr = macro $b{exprBuffer};
+        trace('userPanel $classname');
         fields.push(fieldstor.fields[0]);
         fields.push(fieldstor.fields[1]);
-        if (!superType.meta.has(":FirstPanel")) {
+        if (!superType.meta.has(":UserPanel")) {
+            trace('adding to $classname');
             fields.push(fieldstor.fields[2]);
             fields.push(fieldstor.fields[3]);
         }
