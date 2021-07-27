@@ -1,5 +1,6 @@
 package gmod.helpers.macros;
 
+import haxe.Resource;
 #if (macro)
 import gmod.helpers.macros.InitMacro;
 import sys.FileSystem;
@@ -14,7 +15,7 @@ private typedef Generate = {
     genName : String,
     ?entLuaType : String,
     funcs : Array<Field>,
-    properties : {},
+    properties : Bool,
     esent : ESent,
     overridenInit : Bool,
     overridenThink : Bool
@@ -51,12 +52,7 @@ class SentMacro {
         for (field in fields) {
             switch [field.name,field.kind] {
                 case ["properties",FVar(_, e)]:
-                    try {
-                        properties = PanelMacro.getValue(e);
-                    } catch (x:Dynamic) {
-                        trace("Unable to get the value of properties");
-                        return null;
-                    }
+                    properties = true;
                 case [name,FFun(f)]:
                     switch (field.access) {
                         case [Access.AStatic]:
@@ -192,90 +188,50 @@ class SentMacro {
                 _baseStorage = '$baseStorage/effects';
                 baseIdent = "EFFECT";
             }
-            var filebuf = new StringBuf();
-            var dyn:haxe.DynamicAccess<Dynamic> = cast gen.properties;
-            function insertKV(key:String,val:Dynamic,?table = "") {
-                if (Reflect.isObject(val) && Type.getClass(val) == null) {
-                    filebuf.add('$key = {\n');
-                    var structIterate:haxe.DynamicAccess<Dynamic> = val;
-                    for (key_2 => val_2 in structIterate) {
-                        insertKV(key_2,val_2,",");
+            final client = Context.defined("client");
+            var temp = new erazor.Template(Resource.getString("gmodhaxe_sent"));
+            var str = temp.execute({
+                baseIdent : baseIdent,
+                genName : gen.genName,
+                client : client,
+                overridenThink : gen.overridenThink,
+                overridenInit : gen.overridenInit,
+                esent : gen.esent,
+                sent : () -> gen.esent == Sent,
+                sentSwep : () -> switch (gen.esent) {
+                    case Sent | Swep:
+                        true;
+                    default:
+                        false;
+                },
+                exportName : exportName,
+                entLuaType : gen.entLuaType,
+                shouldAdd : function (field) {
+                    return switch [field.name,gen.esent] {
+                        case ["Initialize",_]:
+                            false;
+                        case ["Init",Effect]:
+                            false;
+                        #if client
+                        case ["Think",Swep | Sent]:
+                            false;
+                        #end
+                        default:
+                            true;
                     }
-                    filebuf.add('}$table\n');                    
-                } else if (Std.is(val,String)) {
-                    filebuf.add('$key = "$val"$table\n');
-                } else {
-                    filebuf.add('$key = $val$table\n');
-                }
-            }
-            for (key => val in dyn) {
-                insertKV('$baseIdent.$key',val);
-            }
-            switch gen.esent {
-            case Sent:
-                filebuf.add('$baseIdent.Type = "${gen.entLuaType}"\n');
-            default:
-            }
-            #if server
-                filebuf.add("AddCSLuaFile(\"cl_init.lua\")\n");
-            #end
-            switch (gen.esent) {
-            case Sent | Swep:
-                #if client
-                    filebuf.add('\nfunction $baseIdent:Think()\n');
-                    filebuf.add('\tif (not self._gHaxeInit) then\n');
-                    filebuf.add('\t\tself:Initialize()\n');
-                    filebuf.add('\tend\n');
-                    if (gen.overridenThink) {
-                        filebuf.add('\tself._gHaxeBurrow:Think()\n');
-                    }
-                    filebuf.add('end\n\n');
-                #end
-                filebuf.add('\nfunction $baseIdent:Initialize()\n');
-                filebuf.add('\tlocal ent = $exportName.${gen.genName}.new(self)\n');
-                filebuf.add("\tself._gHaxeBurrow = ent\n");
-                if (gen.overridenInit) {
-                    filebuf.add("\tself._gHaxeBurrow:Initialize()\n");
-                }
-                #if client
-                    filebuf.add("\tself._gHaxeInit = true\n");
-                #end
-                filebuf.add('end\n\n');
-            case Effect:
-                filebuf.add('\nfunction $baseIdent:Init(...)\n');
-                filebuf.add('\tlocal ent = $exportName.${gen.genName}.new(self)\n');
-                filebuf.add("\tself._gHaxeBurrow = ent\n");
-                if (gen.overridenInit) {
-                    filebuf.add("\tself._gHaxeBurrow:Init(...)\n");
-                }
-                filebuf.add('end\n\n');
-            }
-            for (field in gen.funcs) {
-                switch [field.name,gen.esent] {
-                case ["Initialize",_]:
-                    continue;
-                case ["Init",Effect]:
-                    continue;
-                #if client
-                case ["Think",Swep | Sent]:
-                    continue;
-                #end
-                default:
-                }
-                filebuf.add('function $baseIdent:${field.name}(...)\n');
-                filebuf.add('\tself._gHaxeBurrow:${field.name}(...)\n');
-                filebuf.add('end\n\n');
-            }
+                },
+                funcs : gen.funcs
+            });
             FileSystem.createDirectory('$_baseStorage/${gen.genName}');
             #if client
             switch (gen.esent) {
             case Effect:
-                File.saveContent('$_baseStorage/${gen.genName}/init.lua',filebuf.toString());
+                File.saveContent('$_baseStorage/${gen.genName}/init.lua',str);
             case Swep | Sent:
-                File.saveContent('$_baseStorage/${gen.genName}/cl_init.lua',filebuf.toString());
+                File.saveContent('$_baseStorage/${gen.genName}/cl_init.lua',str);
             }
             #elseif server
-            File.saveContent('$_baseStorage/${gen.genName}/init.lua',filebuf.toString());
+            File.saveContent('$_baseStorage/${gen.genName}/init.lua',str);
             #end
         }
     }

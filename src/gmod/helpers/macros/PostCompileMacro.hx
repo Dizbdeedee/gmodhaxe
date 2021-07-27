@@ -7,6 +7,7 @@ import sys.FileSystem;
 import haxe.io.Path;
 import sys.io.File;
 import sys.FileSystem;
+import haxe.Resource;
 
 class PostCompileMacro {
 
@@ -62,22 +63,6 @@ class PostCompileMacro {
         trace("build ident: " + buildStr(Sys.getEnv("gmodhaxe_buildIdent")));
     }    
 
-    static function recurseCopy(curFolder:String,output:String) {
-        for (name in FileSystem.readDirectory(curFolder)) {
-            var curFile = Path.join([curFolder,name]);
-            var otherFile = Path.join([output,name]);
-            if (FileSystem.isDirectory(Path.join([curFolder,name]))) {
-                FileSystem.createDirectory(otherFile);
-                recurseCopy(Path.join([curFolder,name]),Path.join([output,name]));
-            } else {
-                final curname = Path.withoutExtension(Path.withoutDirectory(curFile));
-                if (Sys.getEnv("gmodhaxe_notCopy") != curname) {
-                    File.copy(curFile,otherFile);
-                }
-            }
-        }
-    }
-
 	static function clearEnvs() {
 		Sys.putEnv("gmodhaxe_gmodAddonFolder","");
 		Sys.putEnv("gmodhaxe_addonName","");
@@ -94,7 +79,7 @@ class PostCompileMacro {
         var isdir = FileSystem.isDirectory(gmodAddonFolder);
         switch ([exists,abs,isdir]) {
             case [true,true,true]:
-                recurseCopy("generated",gmodAddonFolder);
+                Util.recurseCopy("generated",gmodAddonFolder,(str) -> Sys.getEnv("gmodhaxe_notCopy") != str);
             case [false,_,_]:
                 Context.warning("gmodAddonFolder defined but does not exist",pos);
             case [_,false,_]:
@@ -159,14 +144,8 @@ final result = CompileFile("$directory")
         final addonName = Sys.getEnv("gmodhaxe_addonName").toLowerCase();
         final curoutput = File.getBytes(Sys.getEnv("gmodhaxe_output"));
         final fl = File.write(Sys.getEnv("gmodhaxe_output"));
-        fl.writeString('--gmod haxe environment patch
-local haxeEnv = {}
-local _hx_exports = {}
-_G.HAXE_$addonName = haxeEnv 
-setmetatable(_hx_exports,{__index = _G,__newindex = _G})
-setmetatable(haxeEnv,{__index = _G})
-setfenv(1,haxeEnv) --if using more than one project + dce, global collisions and missing indexes will ensue. dont want that 
-'); //TODO move to template system
+        var temp = new erazor.Template(Resource.getString("gmodhaxe_top"));
+        fl.writeString(temp.execute({addonName : addonName})); //TODO move to template system
         if (Sys.getEnv("gmodhaxe_buildIdent") != null) {
             fl.writeString('--build ident: ${buildStr(Sys.getEnv("gmodhaxe_buildIdent"))}\n');
         }

@@ -1,0 +1,4 @@
+-cp src
+-main Main
+--lua lua/shared.lua
+--no-output

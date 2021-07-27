@@ -1,0 +1,24 @@
+#The folder where your haxe files are searched for. You can add more than one
+-cp src
+#Use this to generate a folder structure for an addon
+-D addonName=myaddon
+#Use this + above to generate a folder structure for a gamemode
+-D gamemode=myaddon
+
+#A fully qualified path to your addon folder. Will automatically copy everything inside generated to your addon folder.
+#Uncomment and add your path below
+#-D gmodAddonFolder=C:/steamapps/ect/my/gmod/addon/folder
+
+#The entry point for your addon. Equivalent to init.lua/cl_init.lua. 
+-main Main
+
+#Keeps the lua file from being to bloated. Will remove everything your not actively using/importing, so be careful
+--dce=full
+#No need to turn this off
+-D analyzer-optimize
+
+#Add haxe libraries here
+-lib gmodhaxe
+
+--macro gmod.helpers.macros.InitMacro.init()
+--cmd haxe -lib gmodhaxe --run gmod.helpers.macros.PostCompileMacro

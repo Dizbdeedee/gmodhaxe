@@ -1,5 +1,7 @@
 package gmod.helpers.macros;
 
+import haxe.Template;
+import haxe.Resource;
 #if macro
 import haxe.macro.Expr.Function;
 import haxe.macro.Expr.FieldType;
@@ -162,14 +164,16 @@ class InitMacro {
         if (!FileSystem.exists(gmfolder)) FileSystem.createDirectory(gmfolder);
         if (Context.defined("client")) {
             if (!Context.defined("noGenInit")) {
+                var temp = new erazor.Template(Resource.getString("gmodhaxe_cl_init"));
                 File.saveContent('$gmfolder/cl_init.lua',
-                'local exports = include("$clientName.lua")');
+                temp.execute({clientName : clientName}));
             }
             Compiler.setOutput('$gmfolder/$clientName.lua');
         } else if (Context.defined("server")) {
             if (!Context.defined("noGenInit")) {
+                var temp = new erazor.Template(Resource.getString("gmodhaxe_init"));
                 File.saveContent('$gmfolder/init.lua',
-                'AddCSLuaFile("$clientName.lua")\nlocal exports = include("$serverName.lua")');
+                temp.execute({clientName : clientName, serverName : serverName}));
             }
             Compiler.setOutput('$gmfolder/$serverName.lua');
         }
@@ -179,11 +183,12 @@ class InitMacro {
         entLuaStorage = '__${addonName}_ents';
         baseEntFolder = 'generated/$addonName/lua';
         FileSystem.createDirectory('generated/$addonName/lua/$addonName');
-        final initFile:String = 'local exports if SERVER then AddCSLuaFile("$addonName/$clientName.lua") exports = include("$addonName/$serverName.lua") end
-if CLIENT then exports = include("$addonName/$clientName.lua") end';
+       
         FileSystem.createDirectory('generated/$addonName/lua/autorun/');
         if (!Context.defined("noGenInit")) {
-            File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',initFile);
+            var temp = new erazor.Template(Resource.getString("gmodhaxe_autorun"));
+            File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',
+            temp.execute({addonName : addonName, clientName : clientName, serverName: serverName}));
         }
         if (Context.defined("client")) {
             Compiler.setOutput('generated/$addonName/lua/$addonName/$clientName.lua');

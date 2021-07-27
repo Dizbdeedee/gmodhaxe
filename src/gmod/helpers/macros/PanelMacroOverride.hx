@@ -91,11 +91,11 @@ class PanelMacroOverride {
 
         }
         (fieldstor.fields[0].kind.getParameters()[0]:Function).expr = macro $b{exprBuffer};
-        trace('userPanel $classname');
+        // trace('userPanel $classname');
         fields.push(fieldstor.fields[0]);
         fields.push(fieldstor.fields[1]);
         if (!superType.meta.has(":UserPanel")) {
-            trace('adding to $classname');
+            // trace('adding to $classname');
             fields.push(fieldstor.fields[2]);
             fields.push(fieldstor.fields[3]);
         }

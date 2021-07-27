@@ -4,13 +4,14 @@
     "license": "MIT",
     "tags": ["lua", "gmod","extern"],
     "description": "Externs + macros for gmodlua development",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "classPath": "src",
-    "releasenote": "@:gmodHook metadata",
+    "releasenote": "Under the hood refactoring",
     "contributors": ["ponobodod"],
     "main": "gmod.helpers.macros.Run",
     "dependencies" : {
-        "no-spoon": ""
+        "no-spoon": "",
+        "erazor": ""
 
     }
 }

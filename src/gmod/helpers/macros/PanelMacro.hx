@@ -267,7 +267,6 @@ class PanelMacro {
             }
             extendname = 'HaxeGenExtern_${superType.name}';
             var path:TypePath = {pack : [],name : extendname,params: [TPType((macro : T))]};
-            trace('$clsname Extends $path');
             newCls = macro class $clsname extends $path {
             }
         }
