@@ -1,1 +1,1 @@
-local exports = include("@(clientName).lua")
+local exports = include("::clientName::.lua")

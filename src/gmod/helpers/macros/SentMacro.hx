@@ -168,6 +168,7 @@ class SentMacro {
     }
 
     static function afterGenerate() {
+        var temp = new haxe.Template(Resource.getString("gmodhaxe_sent"));
         var baseStorage = InitMacro.baseEntFolder;
         if (baseStorage == null) {
             trace("no base storage to generate entity lua files");
@@ -188,40 +189,40 @@ class SentMacro {
                 _baseStorage = '$baseStorage/effects';
                 baseIdent = "EFFECT";
             }
-            final client = Context.defined("client");
-            var temp = new erazor.Template(Resource.getString("gmodhaxe_sent"));
+            var funcShouldAdd = gen.funcs.map((f) -> {
+                Reflect.setField(f,"shouldAdd",switch [f.name,gen.esent] {
+                    case ["Initialize",_]:
+                        false;
+                    case ["Init",Effect]:
+                        false;
+                    #if client
+                    case ["Think",Swep | Sent]:
+                        false;
+                    #end
+                    default:
+                        true;
+                });
+                f;
+            });
             var str = temp.execute({
                 baseIdent : baseIdent,
                 genName : gen.genName,
-                client : client,
+                client : Context.defined("client"),
                 overridenThink : gen.overridenThink,
                 overridenInit : gen.overridenInit,
                 esent : gen.esent,
-                sent : () -> gen.esent == Sent,
-                sentSwep : () -> switch (gen.esent) {
+                exportName : exportName,
+                entLuaType : gen.entLuaType,
+                sent : gen.esent == Sent,
+                sentSwep : switch gen.esent {
                     case Sent | Swep:
                         true;
                     default:
                         false;
                 },
-                exportName : exportName,
-                entLuaType : gen.entLuaType,
-                shouldAdd : function (field) {
-                    return switch [field.name,gen.esent] {
-                        case ["Initialize",_]:
-                            false;
-                        case ["Init",Effect]:
-                            false;
-                        #if client
-                        case ["Think",Swep | Sent]:
-                            false;
-                        #end
-                        default:
-                            true;
-                    }
-                },
-                funcs : gen.funcs
+                funcs : funcShouldAdd
             });
+            
             FileSystem.createDirectory('$_baseStorage/${gen.genName}');
             #if client
             switch (gen.esent) {

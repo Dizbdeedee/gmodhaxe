@@ -57,7 +57,13 @@ class PostCompileMacro {
             //     splitFiles();
             // }
 		}
+        filter();
 	}
+
+    static macro function filter() {
+        Util.filter();
+        return macro null;
+    }
 
     static function printIdent() {
         trace("build ident: " + buildStr(Sys.getEnv("gmodhaxe_buildIdent")));
@@ -144,7 +150,7 @@ final result = CompileFile("$directory")
         final addonName = Sys.getEnv("gmodhaxe_addonName").toLowerCase();
         final curoutput = File.getBytes(Sys.getEnv("gmodhaxe_output"));
         final fl = File.write(Sys.getEnv("gmodhaxe_output"));
-        var temp = new erazor.Template(Resource.getString("gmodhaxe_top"));
+        var temp = new haxe.Template(Resource.getString("gmodhaxe_top"));
         fl.writeString(temp.execute({addonName : addonName})); //TODO move to template system
         if (Sys.getEnv("gmodhaxe_buildIdent") != null) {
             fl.writeString('--build ident: ${buildStr(Sys.getEnv("gmodhaxe_buildIdent"))}\n');

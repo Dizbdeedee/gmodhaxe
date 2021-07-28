@@ -10,8 +10,6 @@
     "contributors": ["ponobodod"],
     "main": "gmod.helpers.macros.Run",
     "dependencies" : {
-        "no-spoon": "",
-        "erazor": ""
-
+        "no-spoon": ""
     }
 }

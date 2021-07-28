@@ -41,48 +41,18 @@ class InitMacro {
     static function get_pos() {
         return Context.currentPos();
     }
-    #end
-
-    static final nato = [
-        "Alpha", 
-        "Bravo", 
-        "Charlie", 
-        "Delta", 
-        "Echo", 
-        "Foxtrot", 
-        "Golf", 
-        "Hotel", 
-        "India", 
-        "Juliett", 
-        "Kilo", 
-        "Lima", 
-        "Mike", 
-        "November", 
-        "Oscar", 
-        "Papa", 
-        "Quebec", 
-        "Romeo", 
-        "Sierra", 
-        "Tango", 
-        "Uniform", 
-        "Victor", 
-        "Whiskey", 
-        "Xray", 
-        "Yankee", 
-        "Zulu"
-    ];
+    #end 
 
     static public function init() {
         Compiler.include("gmod.helpers.macros.include",true,null,null,true);
         Compiler.keep("gmod.helpers.macros.include",null,true);
         var buildident = Math.floor(Math.random() * 729);
-        buildIdent = nato[Math.floor(buildident / 27)] + " " + nato[buildident % 27];
+        buildIdent = Util.nato[Math.floor(buildident / 27)] + " " + Util.nato[buildident % 27];
         no.Spoon.bend("Sys",macro class {
             public static function time():Float {
                 return gmod.Gmod.SysTime();
             }
         });
-        
         
         #if (haxe >= "4.2.0")
         no.Spoon.bend("haxe.format.JsonParser",macro class {
@@ -164,14 +134,14 @@ class InitMacro {
         if (!FileSystem.exists(gmfolder)) FileSystem.createDirectory(gmfolder);
         if (Context.defined("client")) {
             if (!Context.defined("noGenInit")) {
-                var temp = new erazor.Template(Resource.getString("gmodhaxe_cl_init"));
+                var temp = new haxe.Template(Resource.getString("gmodhaxe_cl_init"));
                 File.saveContent('$gmfolder/cl_init.lua',
                 temp.execute({clientName : clientName}));
             }
             Compiler.setOutput('$gmfolder/$clientName.lua');
         } else if (Context.defined("server")) {
             if (!Context.defined("noGenInit")) {
-                var temp = new erazor.Template(Resource.getString("gmodhaxe_init"));
+                var temp = new haxe.Template(Resource.getString("gmodhaxe_init"));
                 File.saveContent('$gmfolder/init.lua',
                 temp.execute({clientName : clientName, serverName : serverName}));
             }
@@ -186,7 +156,7 @@ class InitMacro {
        
         FileSystem.createDirectory('generated/$addonName/lua/autorun/');
         if (!Context.defined("noGenInit")) {
-            var temp = new erazor.Template(Resource.getString("gmodhaxe_autorun"));
+            var temp = new haxe.Template(Resource.getString("gmodhaxe_autorun"));
             File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',
             temp.execute({addonName : addonName, clientName : clientName, serverName: serverName}));
         }
