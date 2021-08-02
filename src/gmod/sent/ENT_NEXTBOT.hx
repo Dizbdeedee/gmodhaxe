@@ -3,6 +3,7 @@ package gmod.sent;
 
 #if server
 extern class ENT_NEXTBOT extends gmod.macros.ENTFix<NextBot> {
+    public static inline final gclass = "base_nextbot";
     public static inline final TYPE = "nextbot";
 
     /**

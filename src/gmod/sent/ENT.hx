@@ -5,6 +5,8 @@ package gmod.sent;
    Base entity. NPC and nextbot extend from a clone of this class that extends from npc and nextbot.
 **/
 extern class ENT extends Entity {
+
+	public static inline final gclass = "base_entity";
 	/**
         Called when the entity is created. This is called when you Entity:Spawn the custom entity. 
 		

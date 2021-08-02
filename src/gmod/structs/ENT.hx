@@ -70,7 +70,7 @@ typedef ENT = {
     /**
         Type of the entity. This must be one of these:
     **/
-    var Type : String;
+    var Type : ENT_TYPE;
     /**
         (Clientside) The contacts of the entity creator 
 		
@@ -80,7 +80,7 @@ typedef ENT = {
     /**
         The folder from where the entity was loaded. This should always be "entity/ent_myentity", regardless whether your entity is stored as a file, or multiple files in a folder. This is set automatically before the entity file is loaded.
     **/
-    var Folder : String;
+    var ?Folder : String;
     /**
         (Clientside) Set this to true if your entity has animations. You should also apply changes to the ENTITY:Think function from the example on that page. 
 		
@@ -102,6 +102,15 @@ typedef ENT = {
     /**
         Entity class name of the entity (File or folder name of your entity). This is set automatically after the entity file is loaded.
     **/
-    var ClassName : String;
+    var ?ClassName : String;
     
+}
+
+enum abstract ENT_TYPE(String) {
+    var anim;
+    var brush;
+    var point;
+    var ai;
+    var nextbot;
+    var filter;
 }

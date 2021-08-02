@@ -1,6 +1,7 @@
 package gmod.sent;
 extern class ENT_POINT extends gmod.sent.ENT {
-    // var self(default,never):gmod.gclass.Entity;
+	public static inline final gclass = "base_point";
+
 	public static inline final TYPE = "point";
     /**
         Called whenever the transmit state should be updated. 

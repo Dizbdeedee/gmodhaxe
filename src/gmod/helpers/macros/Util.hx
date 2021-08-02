@@ -134,3 +134,87 @@ function filter() {
     //     });
     // });
 }
+
+function arrToTypePath(path:Array<String>):TypePath {
+    return {
+        pack : path.slice(path.length - 1),
+        name : path[path.length - 1]
+    }
+}
+
+function typeExists(path:String) {
+    try {
+        Context.getType(path);
+        return true;
+    } catch (e:Dynamic) {
+        return false;
+    }
+}
+
+function extractClassType(x:haxe.macro.Type) {
+    return switch (x) {
+        case TInst({get : _() => cls}, _):
+            cls;
+        default:
+            throw "Not a classtype!"; 
+    }
+}
+
+function extractPath(x:ComplexType) {
+    return switch (x) {
+        case TPath(p):
+            p;
+        default:
+            throw "Not a path!";
+    }
+}
+
+
+abstract TypePathHelper(Array<String>) from Array<String> to Array<String> {
+    
+    public var pack(get,never):Array<String>;
+
+    public var name(get,never):String;
+
+    function get_pack() {
+        return this.slice(0,this.length - 1);
+    }
+
+    function get_name() {
+        return this[this.length - 1];
+    }
+
+    @:from
+    public static function fromTypePath(x:TypePath) {
+        return cast x.pack.concat([x.name]);
+    }
+
+    @:from
+    public static function fromComplexType(x:ComplexType) {
+        return switch (x) {
+            case TPath(tp):
+                fromTypePath(tp);
+            default:
+                throw "Not a type path";   
+        }   
+    } 
+    
+    @:to 
+    public function toTypePath():TypePath {
+        return {
+            pack : pack,
+            name : name,
+        }
+    }
+
+    
+
+    @:to
+    public function toComplexType():ComplexType {
+        return TPath(toTypePath());
+    }
+
+    public function toString():String {
+        return this.join(".");
+    }
+} 

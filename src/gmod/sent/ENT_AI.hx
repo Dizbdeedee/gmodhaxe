@@ -5,6 +5,9 @@ extern class ENT_AI extends gmod.macros.ENTFix<NPC> {
     
 	public static inline final TYPE = "ai";
 
+	public static inline final gclass = "base_ai";
+
+
     /**
         ***INTERNAL:**  
 		
