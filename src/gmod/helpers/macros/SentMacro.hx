@@ -74,10 +74,9 @@ class SentMacro {
                         fOverride.push(field);
                     }
                 default: 
-                }
+                
             }
         }
-
         switch [properties,esent] {
         case [null,Swep | Sent]:
             Context.error("No ent properties found",cls.pos);
@@ -170,6 +169,7 @@ class SentMacro {
                 Context.error("Could not intepret gclass field",cls.pos);
                 return null;
         }
+        trace(base);
         fields = fields.concat(fieldStore.fields);
         generate.push({
             genName : genName,
