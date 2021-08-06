@@ -4891,7 +4891,7 @@ extern class Panel {
     **/
     
     @:hook
-    function PreAutoRefresh():Void;
+    private function PreAutoRefresh():Void;
     
     
     /**
@@ -4907,7 +4907,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnCursorMoved(cursorX:Float, cursorY:Float):Bool;
+    private function OnCursorMoved(cursorX:Float, cursorY:Float):Bool;
     
     
     /**
@@ -4915,7 +4915,7 @@ extern class Panel {
     **/
     
     @:hook
-    function ApplySchemeSettings():Void;
+    private function ApplySchemeSettings():Void;
     
     
     /**
@@ -4929,7 +4929,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnChildViewCreated(sourceURL:String, targetURL:String, isPopup:Bool):Void;
+    private function OnChildViewCreated(sourceURL:String, targetURL:String, isPopup:Bool):Void;
     
     
     /**
@@ -4945,7 +4945,7 @@ extern class Panel {
     **/
     
     @:hook
-    function PaintOver(width:Float, height:Float):Bool;
+    private function PaintOver(width:Float, height:Float):Bool;
     
     
     /**
@@ -4969,7 +4969,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnFocusChanged(gained:Bool):Void;
+    private function OnFocusChanged(gained:Bool):Void;
     
     
     /**
@@ -4981,7 +4981,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnDocumentReady(url:String):Void;
+    private function OnDocumentReady(url:String):Void;
     
     
     /**
@@ -4993,7 +4993,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnChangeTitle(newTitle:String):Void;
+    private function OnChangeTitle(newTitle:String):Void;
     
     
     /**
@@ -5001,7 +5001,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnCursorExited():Void;
+    private function OnCursorExited():Void;
     
     
     /**
@@ -5018,7 +5018,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnKeyCodePressed(keyCode:KEY):Bool;
+    private function OnKeyCodePressed(keyCode:KEY):Bool;
     
     
     /**
@@ -5033,7 +5033,7 @@ extern class Panel {
     **/
     
     @:hook
-    function PerformLayout(width:Float, height:Float):Void;
+    private function PerformLayout(width:Float, height:Float):Void;
     
     
     /**
@@ -5043,7 +5043,7 @@ extern class Panel {
     **/
     @:deprecated("INTERNAL")
     @:hook
-    function OnStopDragging():Void;
+    private function OnStopDragging():Void;
     
     
     /**
@@ -5060,7 +5060,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnSizeChanged(newWidth:Float, newHeight:Float):Void;
+    private function OnSizeChanged(newWidth:Float, newHeight:Float):Void;
     
     
     /**
@@ -5097,7 +5097,7 @@ extern class Panel {
     **/
     
     @:hook
-    function Paint(width:Float, height:Float):Bool;
+    private function Paint(width:Float, height:Float):Bool;
     
     
     /**
@@ -5109,7 +5109,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnChangeTargetURL(targetURL:String):Void;
+    private function OnChangeTargetURL(targetURL:String):Void;
     
     
     /**
@@ -5124,7 +5124,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnMousePressed(keyCode:MOUSE):Bool;
+    private function OnMousePressed(keyCode:MOUSE):Bool;
     
     
     /**
@@ -5138,7 +5138,7 @@ extern class Panel {
     **/
     
     @:hook
-    function DragHoverClick(hoverTime:Float):Void;
+    private function DragHoverClick(hoverTime:Float):Void;
     
     
     /**
@@ -5146,7 +5146,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnRemove():Void;
+    private function OnRemove():Void;
     
     
     /**
@@ -5161,7 +5161,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnScreenSizeChanged(oldWidth:Float, oldHeight:Float):Void;
+    private function OnScreenSizeChanged(oldWidth:Float, oldHeight:Float):Void;
     
     
     /**
@@ -5175,7 +5175,7 @@ extern class Panel {
     **/
     
     @:hook
-    function DroppedOn(pnl:Panel):Void;
+    private function DroppedOn(pnl:Panel):Void;
     
     
     /**
@@ -5213,7 +5213,7 @@ extern class Panel {
     **/
     
     @:hook
-    function GenerateExample(_class:String, dpropertysheet:Panel, width:Float, height:Float):Void;
+    private function GenerateExample(_class:String, dpropertysheet:Panel, width:Float, height:Float):Void;
     
     
     /**
@@ -5237,7 +5237,7 @@ extern class Panel {
     **/
     
     @:hook
-    function LoadCookies():Void;
+    private function LoadCookies():Void;
     
     
     /**
@@ -5254,7 +5254,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnKeyCodeReleased(keyCode:KEY):Bool;
+    private function OnKeyCodeReleased(keyCode:KEY):Bool;
     
     
     /**
@@ -5266,7 +5266,7 @@ extern class Panel {
     **/
     
     @:hook
-    function PostAutoRefresh():Void;
+    private function PostAutoRefresh():Void;
     
     
     /**
@@ -5276,7 +5276,7 @@ extern class Panel {
     **/
     @:deprecated("INTERNAL")
     @:hook
-    function OnActivate():Void;
+    private function OnActivate():Void;
     
     
     /**
@@ -5284,7 +5284,7 @@ extern class Panel {
     **/
     
     @:hook
-    function Think():Void;
+    private function Think():Void;
     
     
     /**
@@ -5319,7 +5319,7 @@ extern class Panel {
     **/
     
     @:hook
-    function Init():Void;
+    private function Init():Void;
     
     
     /**
@@ -5334,7 +5334,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnMouseReleased(keyCode:MOUSE):Bool;
+    private function OnMouseReleased(keyCode:MOUSE):Bool;
     
     
     /**
@@ -5349,7 +5349,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnMouseWheeled(scrollDelta:Float):Bool;
+    private function OnMouseWheeled(scrollDelta:Float):Bool;
     
     
     /**
@@ -5359,7 +5359,7 @@ extern class Panel {
     **/
     @:deprecated("INTERNAL")
     @:hook
-    function OnDeactivate():Void;
+    private function OnDeactivate():Void;
     
     
     /**
@@ -5371,7 +5371,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnChildRemoved(child:Panel):Void;
+    private function OnChildRemoved(child:Panel):Void;
     
     
     /**
@@ -5383,7 +5383,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnDrop():Panel;
+    private function OnDrop():Panel;
     
     
     /**
@@ -5391,7 +5391,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnCursorEntered():Void;
+    private function OnCursorEntered():Void;
     
     
     /**
@@ -5406,7 +5406,7 @@ extern class Panel {
     **/
     
     @:hook
-    function ActionSignal(signalName:String, signalValue:String):Void;
+    private function ActionSignal(signalName:String, signalValue:String):Void;
     
     
     /**
@@ -5420,7 +5420,7 @@ extern class Panel {
     **/
     
     @:hook
-    function OnChildAdded(child:Panel):Void;
+    private function OnChildAdded(child:Panel):Void;
     
     
     /**
@@ -5432,12 +5432,12 @@ extern class Panel {
     **/
     
     @:hook
-    function AnimationThink():Void;
+    private function AnimationThink():Void;
     
     
 }
 
-
+//nocheckin
 @:multiReturn extern class PanelScreenToLocalReturn {
 var a:Float;
 var b:Float;
