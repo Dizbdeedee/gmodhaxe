@@ -5437,7 +5437,6 @@ extern class Panel {
     
 }
 
-//nocheckin
 @:multiReturn extern class PanelScreenToLocalReturn {
 var a:Float;
 var b:Float;

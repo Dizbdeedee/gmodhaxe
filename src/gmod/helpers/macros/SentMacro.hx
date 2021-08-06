@@ -1,5 +1,7 @@
 package gmod.helpers.macros;
 
+import gmod.helpers.macros.Util.getDocsFromParent;
+import gmod.helpers.macros.Util.extractGmodParent;
 import haxe.Resource;
 #if (macro)
 import gmod.helpers.macros.InitMacro;
@@ -10,6 +12,7 @@ import haxe.macro.Expr;
 using haxe.macro.ExprTools;
 using haxe.macro.TypeTools;
 using haxe.macro.TypedExprTools;
+using Lambda;
 
 private typedef Generate = {
     genName : String,
@@ -18,7 +21,8 @@ private typedef Generate = {
     properties : Bool,
     esent : ESent,
     overridenInit : Bool,
-    overridenThink : Bool
+    overridenThink : Bool,
+    base : String
 }
 
 private enum ESent {
@@ -38,7 +42,8 @@ class SentMacro {
         if (cls.meta.has(":HaxeGenExtern")) return null;
         switch [esent,Context.defined("server")] {
             case [Effect,true]:
-                throw "Effects aren't on the server...";
+                Context.error("Effects aren't on the server",cls.pos);
+                return null;
             default:
         }
         var properties = null;
@@ -48,63 +53,63 @@ class SentMacro {
         var overridenInit = false;
         var overridenThink = false;
         var fOverride:Array<Field> = [];
-        var exprBuffer = macro {}
         for (field in fields) {
             switch [field.name,field.kind] {
                 case ["properties",FVar(_, e)]:
                     properties = true;
                 case [name,FFun(f)]:
-                    switch (field.access) {
-                        case [Access.AStatic]:
-                        case [Access.AOverride]:
-                            switch name {
+                    if (field.access == null) continue;
+                    if (field.access.contains(Access.AOverride)) { //no...
+                        switch (name) {
                             case "Initialize" | "Init":
                                 overridenInit = true;
                             case "Think":
                                 overridenThink = true;
-                            }
-                            field.meta.push({
-                                name: ":engineHook",
-                                pos: Context.currentPos()
-                            });
-                            fOverride.push(field);
-                        default:
-                            if (field.meta.filter((f) -> return f.name == ":entExpose").length > 0) {
-                                fOverride.push(field);
-                            }
+                        }
+                        //:engineHook??
+                        getDocsFromParent(field,superType);
+                        fOverride.push(field);
                     }
-                default:
+                    if (field.meta.exists(f -> f.name == ":entExpose")) {
+                        fOverride.push(field);
+                    }
+                default: 
+                }
             }
         }
+
         switch [properties,esent] {
         case [null,Swep | Sent]:
-            throw "No ent properties found";
+            Context.error("No ent properties found",cls.pos);
+            return null;
         default:
         }
+
         var genName = switch (cls.meta.extract(":expose")) {
             case [{params : [{expr : EConst(CString(s,_))}]}]:
                 final newName = s.toLowerCase();
-		final name = InitMacro.entLuaStorage + "." + newName;
-		cls.meta.remove(":expose");
+                final name = InitMacro.entLuaStorage + "." + newName;
+                cls.meta.remove(":expose");
                 cls.meta.add(":expose",[macro $v{name}],Context.currentPos());
-		newName;
+                newName;
             default:
                 final newName = cls.name.toLowerCase();
-		final name = InitMacro.entLuaStorage + "." + newName;
+                final name = InitMacro.entLuaStorage + "." + newName;
                 cls.meta.add(":expose",[macro $v{name}],Context.currentPos());
                 newName;
         }
+
         var entLuaType = switch (esent) {
         case Sent:
             var type = cls.findField("TYPE",true);
             switch (type) {
                 case null:
-                    trace("no TYPE for ENT definition");
+                    Context.warning("no TYPE for ENT definition",cls.pos);
                     return null;
                 case _.expr() => {expr : TConst(TString(s))}:
                     s;
                 default:
-                    trace("no TYPE for ENT definition");
+                    Context.warning("no TYPE for ENT definition",cls.pos);
                     return null;
             }
         default:
@@ -114,30 +119,58 @@ class SentMacro {
         cls.meta.add(":FirstPanel",[],Context.currentPos());
         cls.meta.add(":RealExtern",[superexpr],Context.currentPos());
         var ourtype = Context.toComplexType(Context.getLocalType());
-        var superreal = switch (superexpr) {
-        case {expr: EArrayDecl(arr)}:
-            var pack = arr.map((e) -> e.getValue());
-            var name = pack[arr.length - 1];
-            pack.resize(arr.length - 1);
-            TPath({pack : pack,name : name});
-        default:
-            trace("failed");
-            return null;
-        }
-        var hxgen = (macro : gmod.helpers.GLinked<$superreal,$ourtype>);
+        var gmodParent = extractGmodParent(superType);
+        var gen = PanelMacro.generateGmodSideExtern({target: cls,gmodParent: gmodParent,targetFields: fields});
+        var gmodType = gen.link.toComplexType();
+        var entClass = (macro : gmod.stringtypes.EntityClass<$gmodType>);
         
-        var classname = cls.name;
-        var fieldstor = macro class {
-            public final self:$superreal;
+        var fieldStore = if (superType.findField("self") != null) {
+            macro class {
+                #if server
+                public static function create():$gmodType {
+                    return gmod.libs.EntsLib.Create(gclass);
+                }
+                #end
 
-            final function new(x:$superreal) {
-                self = x;
+                public static inline final gclass:$entClass = $v{cls.name};
+
+                public override function get_self():$gmodType {
+                    return cast self;
+                }
+            }
+        } else {
+            macro class {
+                #if server
+                public static function create():$gmodType {
+                    return gmod.libs.EntsLib.Create(gclass);
+                }
+                #end
+                final self:Dynamic;
+
+                public static inline final gclass:$entClass = $v{cls.name};
+
+                final function new(x:Dynamic) {
+                    self = x;
+                }
+
+                public function get_self():$gmodType {
+                    return cast self;
+                }
             }
         }
-        if (!superType.meta.has(":FirstPanel")) {
-            fields.push(fieldstor.fields[0]);
-            fields.push(fieldstor.fields[1]);
+        final resultGClass = superType.findField("gclass",true);
+        if (resultGClass == null) {
+            Context.error("Cannot find gclass field",cls.pos);
+            return null;
         }
+        final base = switch (resultGClass.expr().expr) {
+            case TConst(TString(s)):
+                s;
+            default:
+                Context.error("Could not intepret gclass field",cls.pos);
+                return null;
+        }
+        fields = fields.concat(fieldStore.fields);
         generate.push({
             genName : genName,
             entLuaType : entLuaType,
@@ -145,7 +178,8 @@ class SentMacro {
             properties : properties,
             esent:esent,
             overridenThink: overridenThink,
-            overridenInit: overridenInit
+            overridenInit: overridenInit,
+            base : base
         });
         if (!onGenerate) {
             Context.onAfterGenerate(afterGenerate);
@@ -171,7 +205,7 @@ class SentMacro {
         var temp = new haxe.Template(Resource.getString("gmodhaxe_sent"));
         var baseStorage = InitMacro.baseEntFolder;
         if (baseStorage == null) {
-            trace("no base storage to generate entity lua files");
+            Context.warning("Failed to save entity lua files",Context.currentPos());
             return;
         }
         var exportName = InitMacro.entLuaStorage;
@@ -220,7 +254,8 @@ class SentMacro {
                     default:
                         false;
                 },
-                funcs : funcShouldAdd
+                funcs : funcShouldAdd,
+                base : gen.base
             });
             
             FileSystem.createDirectory('$_baseStorage/${gen.genName}');

@@ -5,7 +5,10 @@ import haxe.io.Path;
 import sys.io.File;
 import haxe.macro.Expr;
 import haxe.macro.Context;
+import haxe.macro.Type.ClassType;
+using haxe.macro.ExprTools;
 using StringTools;
+using haxe.macro.TypeTools;
 
 final nato = [
     "Alpha", 
@@ -168,6 +171,40 @@ function extractPath(x:ComplexType) {
             throw "Not a path!";
     }
 }
+
+function extractGmodParent(cls:ClassType):ComplexType {
+    return switch (cls.meta.extract(":RealExtern")) {
+        case  [{params : [expr = {expr: EArrayDecl(arr)}]}]:
+            var pack = arr.map((e) -> e.getValue());
+            var name = pack[arr.length - 1];
+            pack.resize(arr.length - 1);
+            TPath({pack : pack,name : name}); // cls.meta.add(":RealExtern",[expr],Context.currentPos());
+        case []:
+            trace(cls.fields.get());
+            throw "No such :RealExtern metadata";
+        default:
+            throw "Failed to extract RealExtern";
+        }
+}
+
+function argToFuncArg(x:{name: String,opt : Bool,t: haxe.macro.Type}):FunctionArg {
+    var arg:FunctionArg = {
+        name: x.name,
+        opt: x.opt,
+        type : Context.toComplexType(x.t)
+    }
+    return arg;
+}
+
+function getDocsFromParent(field:Field,parent:ClassType) {
+    if (field.doc != null) return;
+    final parentField = parent.findField(field.name);
+    trace(parentField);
+    if (parentField == null) return;
+    if (parentField.doc == null) return;
+    field.doc = parentField.doc;
+}
+
 
 
 abstract TypePathHelper(Array<String>) from Array<String> to Array<String> {

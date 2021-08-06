@@ -3,73 +3,66 @@ package gmod.helpers.macros;
 import haxe.macro.Type.ClassKind;
 import haxe.macro.Expr;
 import haxe.macro.Context;
+import gmod.helpers.macros.Util;
 using haxe.macro.TypeTools;
 using haxe.macro.ExprTools;
-import gmod.helpers.macros.Util;
+using haxe.macro.ComplexTypeTools;
+using Lambda;
 class PanelMacroOverride {
 
-    public static function generateBaseClass(superFields:Dynamic):TypeDefinition { //classfield
-        return null;
+    static var comp:ComplexType;
+
+    static function remapSelf(e:Expr) {
+        return switch (e.expr) {
+            case EConst(CIdent("self")):
+                {
+                    expr : ECheckType({expr : EConst(CIdent("self")), pos : e.pos},comp), 
+                    pos : e.pos
+                }
+            default:
+                ExprTools.map(e,remapSelf);
+        }
     }
 
-    public static function genericBuild():ComplexType {
-        // var fieldstor = macro class $classname extends $superComp2 {
-        //     public static function register() {
-
-        //     }
-
-        //     public static inline final gclass:$panelclass = $v{classname};
-        //     public final self:$gmodType;//TODO possibly improve self
-
-        //     final function new (x:Dynamic) {
-        //        self = cast x;
-        //     }
-
-        //     public static function create(?parent:gmod.gclass.Panel,?name:String):$gmodType {
-        //         return cast gmod.libs.VguiLib.Create(gclass,parent,name);
-        //     }
-
-        
-        // }
-        return (macro : Math);
+    static function shouldAdd(name:String) {
+        return name == ":exposePanel" || name == ":exposeGmod" || name == ":hook";
     }
+
 
     public static function build():Array<Field> {
         #if macro
         var fields = Context.getBuildFields();
         var cls = Context.getLocalClass().get();
-        if (cls.meta.has(":HaxeGenExtern") || cls.meta.has(":NO")) {
-            trace("!NO!");
+        // return null;
+        if (cls.meta.has(":HaxeGenExtern")) {
             return null;
         }
-        var exprAddToTable:Array<Expr> = [];
-        var exprBuffer:Array<Expr> = [];
-        var panelType = extractClassType(Context.getType("gmod.panels.DFrame"));
-        var superComp:ComplexType = PanelMacro.build2(panelType);
-        var superType = extractClassType(Context.resolveType(superComp,Context.currentPos()));
-    
-        
-        // switch (cls.superClass) {
-        //     case {params : p,t : _.get() => supercls}:
-        //         supercls;
-        //     default:
-        //         return null;
-        // }
+        var parent = cls.superClass.t.get();
+        var parentGmod:ComplexType = extractGmodParent(cls.superClass.t.get());
+        final exprBuffer:Array<Expr> = [];
         exprBuffer.push(macro var PANEL = lua.Table.create());
         var overrideninit = false;
-        var classname = cls.name;
         for (field in fields) {
             switch (field.kind) {
                 case FFun(f):
-                    if (field.access.contains(Access.AOverride) ||
-                        field.meta.filter(f -> f.name == ":exposePANEL").length > 0
-                        ) {
+                    
+                    if (field.access != null && field.access.contains(Access.AOverride)) {
+                        if (field.meta == null) {
+                            field.meta = [];
+                        }
+                        var result = parent.findField(field.name);
+                        if (result != null) {
+                            field.meta = field.meta.concat(result.meta.get());
+                        }
+                        getDocsFromParent(field,parent);
+                    }
+                    if (field.meta != null && field.meta.exists(f -> shouldAdd(f.name))) {
                         field.meta.push({name: ":keep",pos : Context.currentPos()});
                         var name = field.name;
                         if (name == "Init") {
                             overrideninit = true;
                             var str = 'PANEL.$name = function(dis,...) dis._gHaxeBurrow = {0}.new(dis) dis._gHaxeBurrow:$name(...) end';
-                            exprBuffer.push(macro untyped __lua__($v{str},$i{classname}));
+                            exprBuffer.push(macro untyped __lua__($v{str},$i{cls.name}));
                         } else {
                             var str = 'PANEL.$name = function(dis,...) return dis:$name(...) end';
                             exprBuffer.push(macro untyped __lua__($v{str}));
@@ -79,54 +72,89 @@ class PanelMacroOverride {
             }
         }
         if (!overrideninit) {
-            exprBuffer.push(macro untyped __lua__("PANEL.Init = function (dis,...) dis._gHaxeBurrow = {0}.new(dis) end",$i{classname}));
+            exprBuffer.push(macro untyped __lua__("PANEL.Init = function (dis,...) dis._gHaxeBurrow = {0}.new(dis) end",$i{cls.name}));
         }
-        cls.meta.add(":UserPanel",[],Context.currentPos());
-        var ourtype = Context.toComplexType(Context.getLocalType());
-        var gmodType = PanelMacro.generateGmodSideExtern({target: cls,gmodParent: superreal,targetFields: fields});
+        var gmodParentClassName = parent.meta.extract(":GmodClassName")[0].params[0];
+        exprBuffer.push(macro gmod.libs.VguiLib.Register($v{cls.name},PANEL,$gmodParentClassName));
+        var extResult = PanelMacro.generateGmodSideExtern({target: cls,gmodParent: parentGmod,targetFields: fields});
+        var gmodType = extResult.link.toComplexType();
+        var gmodRaw = extResult.rawClass.toComplexType();
         var panelclass = (macro : gmod.stringtypes.PanelClass<$gmodType>);
-        var classname = cls.name;
-        final superComp2 = extractPath(superComp);
-        var fieldstor = macro class $classname extends $superComp2 {
-            public static function register() {
+        fields.iter((f) -> {
+            switch (f.kind) {
+                case FFun(func = {expr : e}) if (e != null):
+                    comp = gmodType;
+                    func.expr = e.map(remapSelf);
+                default:
+            }
+        });
+
+        var fieldstor = if (parent.findField("self") != null) {
+            macro class {
+     
+                static function register() {
+
+                }
+            
+                public static inline final gclass:$panelclass = $v{cls.name};
+                
+                public static function create(?parent:gmod.gclass.Panel,?name:String):$gmodType {
+                    return cast gmod.libs.VguiLib.Create(gclass,parent,name);
+                }
+
+                public override function get_self():$gmodType {
+                    return cast self;
+                }
+                
+                static function __init__() {
+                    register();
+                }
 
             }
+        } else {
+            macro class {
 
-            public static inline final gclass:$panelclass = $v{classname};
-            public final self:$gmodType;//TODO possibly improve self
+                static function register() {
+    
+                }
+              
+                public static inline final gclass:$panelclass = $v{cls.name};
+                
+                final self:Dynamic;
+                
+                @:keep
+                final function new (x:Dynamic) {
+                    self = x;
+                }
 
-            final function new (x:Dynamic) {
-               self = cast x;
+                public function get_self():$gmodType {
+                    return cast self;
+                }
+
+                public static function create(?parent:gmod.gclass.Panel,?name:String):$gmodType {
+                    return cast gmod.libs.VguiLib.Create(gclass,parent,name);
+                }
+
+                static function __init__() {
+                    register();
+                }
             }
-
-            public static function create(?parent:gmod.gclass.Panel,?name:String):$gmodType {
-                return cast gmod.libs.VguiLib.Create(gclass,parent,name);
-            }
-
-        
         }
+        fieldstor.fields.iter(f -> 
+            if (f.meta != null) 
+                f.meta.push({name : ":notUser", pos : Context.currentPos()});
+            else 
+                f.meta = [{name : ":notUser", pos : Context.currentPos()}]
+            );
+        // cls.meta.add(":keep",[],Context.currentPos());
+        cls.meta.add(":UserPanel",[],Context.currentPos());
+        var tp:Array<String> = TypePathHelper.fromComplexType(gmodRaw);
+        var strArr = tp.map((x) -> macro $v{x});
+        cls.meta.add(":RealExtern",[macro $a{strArr}],Context.currentPos());
+        cls.meta.add(":GmodClassName",[macro $v{cls.name}],Context.currentPos());
         // fieldstor.meta.push({name: ":NO",pos : Context.currentPos()});
         (fieldstor.fields[0].kind.getParameters()[0]:Function).expr = macro $b{exprBuffer};
-        fieldstor.fields = fieldstor.fields.concat(fields);
-        // trace('userPanel $classname');
-        // fields.push(fieldstor.fields[0]);
-        // fields.push(fieldstor.fields[1]);
-        // if (!superType.meta.has(":UserPanel")) {
-        //     // trace('adding to $classname');
-        //     fields.push(fieldstor.fields[2]);
-        //     fields.push(fieldstor.fields[3]);
-        //     fields.push(fieldstor.fields[4]);
-        //     // fields.push(fieldstor.fields[5]);
-        // }
-        
-        cls.exclude();
-        fields = [];
-        trace("lole!");
-        if (!typeExists(cls.name)) {
-            Context.defineType(fieldstor);
-
-        }
-        trace("blah");
+        fields = fields.concat(fieldstor.fields);
         return fields;
         #else
         return null;

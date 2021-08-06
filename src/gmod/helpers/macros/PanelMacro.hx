@@ -37,6 +37,11 @@ private enum MType {
     Effect;
 }
 
+typedef GmodExtern = {
+    link : haxe.macro.Type,
+    rawClass : haxe.macro.Type
+}
+
 typedef GenerateGmod = {
     target : ClassType,
     targetFields : Array<Field>,
@@ -89,6 +94,7 @@ class PanelMacro {
         return arg;
     }
 
+    
     public static function cleanClassFuncToField(x:ClassField):Field {
         var args:Array<FunctionArg> = [];
         var exprArgs = [];
@@ -102,7 +108,8 @@ class PanelMacro {
                 }
                 ret = oldRet;
             default:
-                throw "unhandled yet...";
+                Context.error("Unhandled cleanClassFuncToField",x.pos);
+                throw null;
         }
         var func:Function = {
             args : args,
@@ -114,7 +121,11 @@ class PanelMacro {
             name : x.name,
             pos : Context.currentPos(),
             doc : x.doc,
-            access: []
+            access: [],
+            meta: x.meta.get().concat([{
+                name: ":inheritDoc",
+                pos: Context.currentPos()
+            }])
         }
         return field;
     }
@@ -130,7 +141,8 @@ class PanelMacro {
                     access : [Access.AStatic,Access.AInline]
                 };
             default:
-                throw "hmm";
+                Context.error("Unhandled classVarToField",x.pos);
+                throw null;
         };
     }
 
@@ -153,8 +165,8 @@ class PanelMacro {
                 exprArgs = args.map((arg) -> macro $i{arg.name});
                 funcReturn = ret;
             case y:
-                trace(classField);
-                throw "unhandled yet...";
+                Context.error("Unhandled classFuncToField",classField.pos);
+                throw null;
         }
         final name = classField.name;
         final func:Function = switch (funcReturn) {
@@ -162,7 +174,7 @@ class PanelMacro {
                 {
                     args : funcArgs,
                     ret : generateMultiReturn(luaMR),
-                    expr :null
+                    expr : null
                 }
             case ret:
                 {
@@ -176,8 +188,28 @@ class PanelMacro {
             name : classField.name,
             pos : Context.currentPos(),
             doc : classField.doc,
-            access: if (!classField.isPublic) [Access.APrivate] else [] //always a hook so mneh
+            access: if (!classField.isPublic) [Access.APrivate] else [], //always a hook so mneh,
+            meta : classField.meta.get().concat([{
+                name: ":inheritDoc",
+                pos: Context.currentPos()
+            }])
         };
+    }
+
+    static function shouldGenGmodExtField(field:Field):Bool {
+        if (field.meta.exists(f -> f.name == ":notUser")) return false;
+        return switch (field.kind) {
+            case FFun({args : args, ret : ret}) if (
+                args.exists((a) -> a.type == null) || ret == null):
+                Context.warning("Cannot generate field without full type annotations",field.pos);
+                false;
+            case FVar(null, _) 
+            | FProp(_, _, null, _):
+                Context.warning("Cannot generate field without full type annotations",field.pos);
+                false;
+            default:
+                true;
+        }
     }
 
     static function genGmodExtFields(field:Field):Field {
@@ -204,7 +236,7 @@ class PanelMacro {
         }
     }
 
-    public static function generateGmodSideExtern(gen:GenerateGmod):haxe.macro.Type {
+    public static function generateGmodSideExtern(gen:GenerateGmod):GmodExtern {
         final target = gen.target;
         final targetFields = gen.targetFields;
         final targetGmod = gen.gmodParent;
@@ -215,7 +247,7 @@ class PanelMacro {
         // final linkedDerka = TPath({pack : [], name : gmodExternName});
         final parentPath:TypePath = targetGmod;
         if (typeExists(gmodExternName) || typeExists(linkExternName) ) { //|| typeExists(linkExternName)) {
-            return Context.getType(linkExternName);
+            return {link : Context.getType(linkExternName), rawClass: Context.getType(gmodExternName)};
         }
         final gmodExtern:TypeDefinition = macro class $gmodExternName extends $parentPath {
 
@@ -224,7 +256,11 @@ class PanelMacro {
         gmodExtern.pack = [];
         var fields = targetFields.filter((f) -> 
             f.meta.exists((m) -> m.name == ":exposeGmod"));
-        final newFields = fields.map(genGmodExtFields);
+        final newFields = [for (f in fields) 
+            if (shouldGenGmodExtField(f)) {
+                genGmodExtFields(f);
+            }
+        ];
         gmodExtern.fields = newFields;
         gmodExtern.isExtern = true;
         trace(gmodExtern.pack);
@@ -244,9 +280,13 @@ class PanelMacro {
         });
         trace("generated");
         if (!typeExists(gmodExternName) || !(typeExists(linkExternName))) {
-            throw "Oh haahaa.....";
+            Context.error("Failed to generate gmod externs",gen.target.pos);
+            return null;
         }
-        return Context.getType(linkExternName);
+        return {
+            link : Context.getType(linkExternName),
+            rawClass : Context.getType(gmodExternName)
+        }
     }
 
     
@@ -284,7 +324,12 @@ class PanelMacro {
         },{
             name: ":HaxeGenExtern",
             pos: Context.currentPos()
-        }]);
+        },{
+            name: ":GmodClassName",
+            pos : Context.currentPos(),
+            params : [macro $v{cls.name}]
+        }
+    ]);
         // newCls.params = [{name: "T",constraints: [TPath({pack : cls.pack,name : cls.name})]}];
         newCls.fields = [
             for (clsField in cls.fields.get().concat(cls.statics.get()))
@@ -296,26 +341,21 @@ class PanelMacro {
         ];
         if (first) {
             newCls.meta.push({
-                name : ":autoBuild",
-                pos : Context.currentPos(),
-                params : [macro Macros.generateAll()]
+                name: ":autoBuild",
+                pos: Context.currentPos(),
+                params: switch (mType) {
+                    case Panel:
+                        [macro gmod.helpers.macros.PanelMacroOverride.build()];
+                    case Gamemode:
+                        [macro gmod.helpers.macros.GamemodeMacro.build()];
+                    case Sent:
+                        [macro gmod.helpers.macros.SentMacro.buildSent()];
+                    case Swep:
+                        [macro gmod.helpers.macros.SentMacro.buildSwep()];
+                    case Effect:
+                        [macro gmod.helpers.macros.SentMacro.buildEffect()];
+                    },
             });
-            // newCls.meta.push({
-            //     name: ":autoBuild",
-            //     pos: Context.currentPos(),
-            //     params: switch (mType) {
-            //         case Panel:
-            //             [macro gmod.helpers.macros.PanelMacroOverride.build()];
-            //         case Gamemode:
-            //             [macro gmod.helpers.macros.GamemodeMacro.build()];
-            //         case Sent:
-            //             [macro gmod.helpers.macros.SentMacro.buildSent()];
-            //         case Swep:
-            //             [macro gmod.helpers.macros.SentMacro.buildSwep()];
-            //         case Effect:
-            //             [macro gmod.helpers.macros.SentMacro.buildEffect()];
-            //         },
-            // });
         }
         generatedStorage.set('HaxeGenExtern_${cls.name}',newCls);
         generate.set(cls.name,true);
