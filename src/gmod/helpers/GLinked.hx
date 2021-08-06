@@ -1,6 +1,6 @@
 package gmod.helpers;
 typedef HLinked<G,H:HLinked<G,H>> = {
-    final self:GLinked<G,H>;
+    function get_self():GLinked<G,H>;
 }
 /**
     A gmod object containing a custom haxe class equivalent
@@ -10,10 +10,10 @@ typedef HLinked<G,H:HLinked<G,H>> = {
 @:transitive
 abstract GLinked<GBASE,HAXE:HLinked<GBASE,HAXE>>(GBASE) from GBASE to GBASE {
 
-    public var linkedHaxe(get,never):HAXE;
+    public var haxe(get,never):HAXE;
     
     @:noCompletion
-    extern inline function get_linkedHaxe():HAXE {
+    extern inline function get_haxe():HAXE {
         return untyped this._gHaxeBurrow;
     }
 
@@ -24,7 +24,7 @@ abstract GLinked<GBASE,HAXE:HLinked<GBASE,HAXE>>(GBASE) from GBASE to GBASE {
 
     @:from
     public inline static function fromHaxe<GBASE,HAXE:HLinked<GBASE,HAXE>>(x:HAXE):GLinked<GBASE,HAXE> {
-        return x.self;
+        return x.get_self();
     }
 
 }
