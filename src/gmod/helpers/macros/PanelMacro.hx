@@ -243,8 +243,6 @@ class PanelMacro {
         final gmodExternName = '_Gmod${target.name}';
         final linkExternName = 'Gmod${target.name}';
         final curMod:TypePathHelper = Context.getLocalModule().split(".");        
-        
-        // final linkedDerka = TPath({pack : [], name : gmodExternName});
         final parentPath:TypePath = targetGmod;
         if (typeExists(gmodExternName) || typeExists(linkExternName) ) { //|| typeExists(linkExternName)) {
             return {link : Context.getType(linkExternName), rawClass: Context.getType(gmodExternName)};
@@ -252,7 +250,6 @@ class PanelMacro {
         final gmodExtern:TypeDefinition = macro class $gmodExternName extends $parentPath {
 
         };
-
         gmodExtern.pack = [];
         var fields = targetFields.filter((f) -> 
             f.meta.exists((m) -> m.name == ":exposeGmod"));
@@ -263,11 +260,7 @@ class PanelMacro {
         ];
         gmodExtern.fields = newFields;
         gmodExtern.isExtern = true;
-        trace(gmodExtern.pack);
-
-        trace("generating...");
         Context.defineType(gmodExtern);
-        trace("generating link...");
         final gmodType = Context.getType(gmodExternName).toComplexType();
         final otherType = Context.getLocalType().toComplexType();
         final linkType = (macro : gmod.helpers.GLinked<$gmodType,$otherType>);

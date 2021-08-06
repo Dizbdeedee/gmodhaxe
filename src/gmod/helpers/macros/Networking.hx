@@ -14,22 +14,6 @@ class Networking {
     
 	static var netID = 0;
 
-    public static function buildRPC() {
-        // final fields = Context.getBuildFields();
-        // final sendExpr:Array<Expr> = [];
-        // for (field in fields) {
-        //     final meta = field.meta.find((meta) -> meta.name == ":gmodHook");
-        //     if (meta == null) continue;
-        //     if (field.name == "__init__") {
-        //         initField = field;
-        //     }
-        //     switch (field.kind) {
-        //         case FFun({args: args, ret: ret, expr: expr, params: params}):
-        //             args.map((a) -> macro serializer)
-        //     }
-        // }
-    }
-	
     public static function build():ComplexType {
         var type = Context.getLocalType();
         var netName:String;

@@ -199,7 +199,6 @@ function argToFuncArg(x:{name: String,opt : Bool,t: haxe.macro.Type}):FunctionAr
 function getDocsFromParent(field:Field,parent:ClassType) {
     if (field.doc != null) return;
     final parentField = parent.findField(field.name);
-    trace(parentField);
     if (parentField == null) return;
     if (parentField.doc == null) return;
     field.doc = parentField.doc;
