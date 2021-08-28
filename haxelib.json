@@ -6,7 +6,7 @@
     "description": "Externs + macros for gmodlua development",
     "version": "0.2.3",
     "classPath": "src",
-    "releasenote": "Under the hood refactoring",
+    "releasenote": "Internal macro overhaul",
     "contributors": ["ponobodod"],
     "main": "gmod.helpers.macros.Run",
     "dependencies" : {

@@ -67,22 +67,21 @@ If you like lua because of it's dynamic typing, there's not much point in using 
 
 ## Changelog
 
+### 0.2.3
+
+- Properties now should work for gamemode/entities. Must be static.
+
+- Documentation is now copied from parents if not defined yourself.
+
+- Overhauled some macro generation, panels are now properly defined. Should fix some outstanding issues
+
+- Cleaned up internal macros to use the templating system
+
 ### 0.2.2
 
 - Ability to add the `@:gmodHook` metadata to a function to attempt to automatically add a hook for it. See examples for more detail
 
 - Proper hxbit support in progress
-### 0.2.1
-
-- Now has a proper post compile step. Please add the following line to your hxml file next to the `--macro` line
-
-`--cmd haxe -lib gmodhaxe --run gmod.helpers.macros.PostCompileMacro`
-
-- This should fix issues where you had to build twice for the lua files to copy over/update
-
-- Fix for redfined types error
-
-
 ## Setup
 
 [Download haxe](https://haxe.org/download/)

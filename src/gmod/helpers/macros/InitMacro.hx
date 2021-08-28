@@ -62,7 +62,7 @@ class InitMacro {
         });
         #end
         if (!Context.defined("noGmodHook")) {        
-            Compiler.addGlobalMetadata("","@:build(gmod.helpers.macros.HookMacro.build())");
+            Compiler.addGlobalMetadata("","@:build(gmod.helpers.macros.HookMacro.build())"); 
         }
         var x:TypeDefinition = {
             pack : ["gmod","helpers","macros"],

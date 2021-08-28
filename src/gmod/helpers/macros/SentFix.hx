@@ -13,6 +13,42 @@ class SentFix {
 
     #if macro
 
+    static function cleanClassFuncToField(x:ClassField):Field {
+        var args:Array<FunctionArg> = [];
+        var exprArgs = [];
+        var ret:haxe.macro.Type;
+        switch (x.type) {
+            case TFun(oldArgs, oldRet):
+                exprArgs = [];
+                for (oldArg in oldArgs) {
+                    args.push(argToFuncArg(oldArg));
+                    exprArgs.push(macro $i{oldArg.name});
+                }
+                ret = oldRet;
+            default:
+                Context.error("Unhandled cleanClassFuncToField",x.pos);
+                throw null;
+        }
+        var func:Function = {
+            args : args,
+            ret : Context.toComplexType(ret),
+            expr : null
+        }
+        var field:Field = {
+            kind : FieldType.FFun(func),
+            name : x.name,
+            pos : Context.currentPos(),
+            doc : x.doc,
+            access: [],
+            meta: x.meta.get().concat([{
+                name: ":inheritDoc",
+                pos: Context.currentPos()
+            }])
+        }
+        return field;
+    }
+
+
 
     static function generate(cls:ClassType,name:String,_extend:ComplexType):TypeDefinition {
         var extend = switch (_extend) {

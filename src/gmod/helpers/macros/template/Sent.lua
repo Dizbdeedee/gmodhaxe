@@ -2,9 +2,10 @@
 AddCSLuaFile("cl_init.lua")
 ::if sentSwep:: 
 ::baseIdent::.Base = "::base::" ::end::
-for i,p in pairs(::exportName::.::genName::.properties) do
-    ::baseIdent::[i] = p
-end
+--for i,p in pairs(::exportName::.::genName::.properties) do
+--    if i == "__fields__" then continue end
+--    ::baseIdent::[i] = p
+--end
 ::if sent::
 ::baseIdent::.Type = "::entLuaType::" ::end::
 
@@ -37,7 +38,7 @@ end
 ::foreach funcs::
 ::if shouldAdd:: 
 function ::baseIdent:::::name::(...)
-    self._gHaxeBurrow.::name::(...)
+    self._gHaxeBurrow:::name::(...)
 end
 ::end::
 ::end::

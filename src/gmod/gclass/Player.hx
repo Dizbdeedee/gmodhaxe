@@ -551,7 +551,7 @@ extern class Player extends Entity {
 		`ent` | If the player is spectating an entity, this should be the entity the player is spectating, so we can use its hands model instead.
     **/
     
-    function SetupHands(ent:Entity):Void;
+    function SetupHands(?ent:Entity):Void;
     #end
     #if client
     /**

@@ -5,7 +5,7 @@ package gmod;
 **/
 @:native("_G")extern class Gmod {
 
-    static final GAMEMODE:lua.Table.AnyTable;
+    static final GAMEMODE:gmod.gamemode.GM;
 
     static final CLIENT:Bool;
 

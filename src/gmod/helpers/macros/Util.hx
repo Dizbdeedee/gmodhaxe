@@ -9,6 +9,7 @@ import haxe.macro.Type.ClassType;
 using haxe.macro.ExprTools;
 using StringTools;
 using haxe.macro.TypeTools;
+using Lambda;
 
 final nato = [
     "Alpha", 
@@ -204,6 +205,50 @@ function getDocsFromParent(field:Field,parent:ClassType) {
     field.doc = parentField.doc;
 }
 
+var comp:ComplexType;
+
+
+function remapSelf(e:Expr) {
+    return switch (e.expr) {
+        case EConst(CIdent("self")):
+            {
+                expr : ECheckType({expr : EConst(CIdent("self")), pos : e.pos},comp), 
+                pos : e.pos
+            }
+        default:
+            ExprTools.map(e,remapSelf);
+    }
+}
+
+function replaceSelfInFields(fields:Array<Field>,gmodType:ComplexType) {
+    fields.iter((f) -> {
+        switch (f.kind) {
+            case FFun(func = {expr : e}) if (e != null):
+                comp = gmodType;
+                func.expr = e.map(remapSelf);
+            default:
+        }
+    });
+}
+
+function findMeta(cls:ClassType,name:String) {
+    final results = cls.meta.extract(name);
+    if (results[0] != null) return results[0];
+    return if (cls.superClass != null) {
+        findMeta(cls.superClass.t.get(),name);
+    } else {
+        null;
+    }
+}
+
+function blockToExprArr(block:haxe.macro.Expr):Array<Expr> {
+    return switch (block) {
+        case {expr: EBlock(exprs), pos: pos}:
+            exprs;
+        case {pos : pos}:
+            Context.error("Not a block...",pos);
+    }
+}
 
 
 abstract TypePathHelper(Array<String>) from Array<String> to Array<String> {

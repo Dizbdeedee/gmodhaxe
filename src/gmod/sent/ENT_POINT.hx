@@ -1,8 +1,9 @@
 package gmod.sent;
+@:gclass("base_point")
+@:TYPE("point")
 extern class ENT_POINT extends gmod.sent.ENT {
-	public static inline final gclass = "base_point";
+	public static inline final gclass:EntityClass<ENT_POINT> = "base_point";
 
-	public static inline final TYPE = "point";
     /**
         Called whenever the transmit state should be updated. 
 		

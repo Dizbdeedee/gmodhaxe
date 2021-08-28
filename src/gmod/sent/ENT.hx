@@ -4,9 +4,10 @@ package gmod.sent;
 /**
    Base entity. NPC and nextbot extend from a clone of this class that extends from npc and nextbot.
 **/
+@:gclass("base_entity")
 extern class ENT extends Entity {
 
-	public static inline final gclass = "base_entity";
+	public static inline final gclass:EntityClass<ENT> = "base_entity";
 	/**
         Called when the entity is created. This is called when you Entity:Spawn the custom entity. 
 		
@@ -62,7 +63,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-	function Initialize():Void;
+	private function Initialize():Void;
 	
 	#if server
     /**
@@ -83,7 +84,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function AcceptInput(inputName:String, activator:Entity, caller:Entity, data:String):Bool;
+    private function AcceptInput(inputName:String, activator:Entity, caller:Entity, data:String):Bool;
 	#end
 	
 	#if server
@@ -105,7 +106,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function KeyValue(key:String, value:String):Bool;
+    private function KeyValue(key:String, value:String):Bool;
 	#end
 	
 	/**
@@ -116,7 +117,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-	function OnReloaded():Void;
+	private function OnReloaded():Void;
 	
 	/**
         Called when the entity is about to be removed. 
@@ -128,7 +129,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-	function OnRemove():Void;
+	private function OnRemove():Void;
 	
 	/**
         Called when the entity is reloaded from a Source Engine save (not the Sandbox saves or dupes) or on a changelevel (for example Half-Life 2 campaign level transitions). 
@@ -140,7 +141,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-	function OnRestore():Void;
+	private function OnRestore():Void;
 	
 	#if server
     /**
@@ -173,7 +174,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function StoreOutput(name:String, info:String):Void;
+    private function StoreOutput(name:String, info:String):Void;
 	#end
 	
 
@@ -203,7 +204,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-	function Think():Bool;
+	private function Think():Bool;
 	
 	#if server
     /**
@@ -221,7 +222,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function TriggerOutput(output:String, activator:Entity, ?data:String):Void;
+    private function TriggerOutput(output:String, activator:Entity, ?data:String):Void;
 	#end
 	
 
@@ -247,7 +248,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-	function CalcAbsolutePosition(pos:Vector, ang:Angle):EntCalcAbsolutePositionReturn;
+	private function CalcAbsolutePosition(pos:Vector, ang:Angle):EntCalcAbsolutePositionReturn;
 	
 
     /**
@@ -268,7 +269,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-	function CanProperty(ply:Player, property:String):Bool;
+	private function CanProperty(ply:Player, property:String):Bool;
 	
 
     /**
@@ -305,7 +306,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-	function DoImpactEffect(tr:AnyTable, damageType:Float):Bool;
+	private function DoImpactEffect(tr:AnyTable, damageType:Float):Bool;
 	
 	#if client
     /**
@@ -328,7 +329,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function FireAnimationEvent(pos:Vector, ang:Angle, event:Float, name:String):Bool;
+    private function FireAnimationEvent(pos:Vector, ang:Angle, event:Float, name:String):Bool;
 	#end
 	
 	#if client
@@ -476,7 +477,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function GetRenderMesh():AnyTable;
+    private function GetRenderMesh():AnyTable;
 	#end
 	
 	#if server
@@ -495,7 +496,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function GravGunPickupAllowed(ply:Player):Bool;
+    private function GravGunPickupAllowed(ply:Player):Bool;
 	#end
 	
 	/**
@@ -527,7 +528,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-	function GravGunPunt(ply:Player):Bool;
+	private function GravGunPunt(ply:Player):Bool;
 	
 	#if server
     /**
@@ -549,7 +550,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function HandleAnimEvent(event:Float, eventTime:Float, cycle:Float, type:Float, options:String):Void;
+    private function HandleAnimEvent(event:Float, eventTime:Float, cycle:Float, type:Float, options:String):Void;
 	#end
 	
 	#if server
@@ -570,7 +571,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function IsJumpLegal(startPos:Vector, apex:Vector, endPos:Vector):Bool;
+    private function IsJumpLegal(startPos:Vector, apex:Vector, endPos:Vector):Bool;
 	#end
 	
 	#if server
@@ -589,7 +590,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function OnDuplicated(entTable:AnyTable):Void;
+    private function OnDuplicated(entTable:AnyTable):Void;
 	#end
 	
 	#if server
@@ -619,7 +620,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function OnEntityCopyTableFinish(data:AnyTable):Void;
+    private function OnEntityCopyTableFinish(data:AnyTable):Void;
 	#end
 	
 	#if server
@@ -640,7 +641,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function PostEntityPaste(ply:Player, ent:Entity, createdEntities:AnyTable):Void;
+    private function PostEntityPaste(ply:Player, ent:Entity, createdEntities:AnyTable):Void;
 	#end
 	
 	#if server
@@ -674,7 +675,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function PreEntityCopy():Void;
+    private function PreEntityCopy():Void;
 	#end
 	
 	#if client
@@ -709,7 +710,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-    function RenderOverride():Void;
+    private function RenderOverride():Void;
 	#end
 
 	
@@ -763,7 +764,7 @@ extern class ENT extends Entity {
     **/
     
     @:hook
-	function SetupDataTables():Void;
+	private function SetupDataTables():Void;
 	
 }
 

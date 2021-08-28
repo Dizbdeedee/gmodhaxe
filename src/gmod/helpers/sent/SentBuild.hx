@@ -6,91 +6,92 @@ typedef EntFields = {
 		
 		Default: "entity"
     **/
-    var ?ScriptedEntityType : String;
+    final ?ScriptedEntityType : String;
     /**
         Whether or not only admins can spawn the entity from their spawn menu 
 		
 		Default: false
     **/
-    var ?AdminOnly : Bool;
+    final ?AdminOnly : Bool;
     /**
         Whether the entity supports Editing. See Editable Entities for more info. 
 		
 		Default: false
     **/
-    var ?Editable : Bool;
+    final ?Editable : Bool;
     /**
         (Clientside) Spawnmenu category to put the entity into 
 		
 		Default: Other
     **/
-    var ?Category : String;
+    final ?Category : String;
     /**
         Whether this entity should be displayed and is spawnable in the spawn menu 
 		
 		Default: false
     **/
-    var ?Spawnable : Bool;
+    final ?Spawnable : Bool;
     /**
         (Clientside) The entity's render group, see RENDERGROUP_ Enums. 
 		
 		Default: RENDERGROUP_OPAQUE
     **/
 
-    var ?RenderGroup : gmod.enums.RENDERGROUP;
+    final ?RenderGroup : gmod.enums.RENDERGROUP;
     /**
         The base entity to derive from. This must be a valid Lua entity
     **/
-    var Base : String;
+    final ?Base : String;
     /**
         (Clientside) The purpose of the entity creation 
 		
 		Default: ""
     **/
-    var ?Purpose : String;
+    final ?Purpose : String;
     /**
         (Clientside) Nice name of the entity to appear in the spawn menu 
 		
 		Default: ""
     **/
-    var ?PrintName : String;
+    final ?PrintName : String;
     /**
         (Serverside) Disable the ability for players to duplicate this entity. 
 		
 		Default: false
     **/
-    var ?DisableDuplicator : Bool;
+    final ?DisableDuplicator : Bool;
     /**
         (Serverside) If set, the entity will not be duplicated via the built-in duplicator system.
     **/
-    var ?DoNotDuplicate : Bool;
+    final ?DoNotDuplicate : Bool;
     /**
         (Clientside) The contacts of the entity creator 
 		
 		Default: ""
     **/
-    var ?Contact : String;
+    final ?Contact : String;
     /**
         (Clientside) Set this to true if your entity has animations. You should also apply changes to the ENTITY:Think function from the example on that page. 
 		
 		Default: false
     **/
-    var ?AutomaticFrameAdvance : Bool;
+    final ?AutomaticFrameAdvance : Bool;
     /**
         (Clientside) How to use your entity 
 		
 		Default: ""
     **/
-    var ?Instructions : String;
+    final ?Instructions : String;
     /**
         (Clientside) The author of the entity 
 		
 		Default: ""
     **/
-    var ?Author : String;
+    final ?Author : String;
 }
 
 @:genericBuild(gmod.helpers.macros.PanelMacro.buildSent())
+@:keepSub
 class SentBuild<T:gmod.sent.ENT> {
 
 }

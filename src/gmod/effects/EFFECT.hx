@@ -10,6 +10,7 @@ package gmod.effects;
 	
 	 An EFFECT is made using either a combination of the EFFECT:Init, EFFECT:Render and optionally the EFFECT:Think hook. Another way is to create all particles in one go in the Init hook and don't use the other hooks at all.
 **/
+@:gclass("base_effect")
 extern class EFFECT extends Entity {
     
     /**
