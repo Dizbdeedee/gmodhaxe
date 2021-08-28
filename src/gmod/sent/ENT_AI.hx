@@ -1,11 +1,12 @@
 package gmod.sent;
 #if server
 
+
+@:TYPE("ai")
+@:gclass("base_ai")
 extern class ENT_AI extends gmod.macros.ENTFix<NPC> {
     
-	public static inline final TYPE = "ai";
-
-	public static inline final gclass = "base_ai";
+	public static inline final gclass:EntityClass<ENT_AI> = "base_ai";
 
 
     /**

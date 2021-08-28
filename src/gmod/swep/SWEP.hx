@@ -6,9 +6,10 @@ package gmod.swep;
 	
 	You can find all available SWEP fields here: SWEP structure
 **/
+@:gclass("weapon_base")
 extern class SWEP extends Weapon {
 
-    public static inline final gclass:EntityClass<SWEP> = "base_weapon";
+    public static inline final gclass:EntityClass<SWEP> = "weapon_base";
 
     public final Owner:Null<Entity>;
 

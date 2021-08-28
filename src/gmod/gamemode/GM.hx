@@ -6,6 +6,7 @@ package gmod.gamemode;
 	
 	See also: GM structure
 **/
+@:gamemodeName("base")
 extern class GM {
     /**
         Executes when a player connects to the server. Called before the player has been assigned a UserID and entity. See the player_connect gameevent for a version of this hook called after the player entity has been created.

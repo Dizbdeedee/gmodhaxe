@@ -1,9 +1,10 @@
 package gmod.helpers.macros;
 
-import gmod.helpers.macros.Util.getDocsFromParent;
-import gmod.helpers.macros.Util.extractGmodParent;
+import haxe.macro.Type.TypedExpr;
 import haxe.Resource;
 #if (macro)
+import gmod.helpers.macros.Util;
+
 import gmod.helpers.macros.InitMacro;
 import sys.FileSystem;
 import sys.io.File;
@@ -40,6 +41,7 @@ class SentMacro {
     static function build(esent:ESent):Array<Field> {
         var cls = Context.getLocalClass().get();
         if (cls.meta.has(":HaxeGenExtern")) return null;
+        if (cls.meta.has(":Generated")) return null;
         switch [esent,Context.defined("server")] {
             case [Effect,true]:
                 Context.error("Effects aren't on the server",cls.pos);
@@ -47,7 +49,6 @@ class SentMacro {
             default:
         }
         var properties = null;
-        var type = Context.toComplexType(Context.getLocalType());
         var fields = Context.getBuildFields();
         var superType = cls.superClass.t.get();
         var overridenInit = false;
@@ -56,10 +57,26 @@ class SentMacro {
         for (field in fields) {
             switch [field.name,field.kind] {
                 case ["properties",FVar(_, e)]:
+                    if (!field.access.contains(Access.AStatic)) {
+                        Context.error("Properties must be static!",field.pos);
+                        return null;
+                    }
+                    if (!field.access.contains(Access.AFinal)) {
+                        field.access.push(AFinal);
+                    }
+                    field.kind = switch (esent) {
+                        case Swep:
+                            FVar(Context.getType("gmod.helpers.swep.SwepBuild.SwepFields").toComplexType(),e);
+                        case Sent:
+                            FVar(Context.getType("gmod.helpers.sent.SentBuild.EntFields").toComplexType(),e);
+                        default:
+                            Context.error("Not implemented",Context.currentPos());
+                            return null;
+                    }
                     properties = true;
                 case [name,FFun(f)]:
                     if (field.access == null) continue;
-                    if (field.access.contains(Access.AOverride)) { //no...
+                    if (field.access.contains(Access.AOverride)) { //no...1
                         switch (name) {
                             case "Initialize" | "Init":
                                 overridenInit = true;
@@ -67,7 +84,7 @@ class SentMacro {
                                 overridenThink = true;
                         }
                         //:engineHook??
-                        getDocsFromParent(field,superType);
+                        getDocsFromParent(field,superType); 
                         fOverride.push(field);
                     }
                     if (field.meta.exists(f -> f.name == ":entExpose")) {
@@ -77,12 +94,7 @@ class SentMacro {
                 
             }
         }
-        switch [properties,esent] {
-        case [null,Swep | Sent]:
-            Context.error("No ent properties found",cls.pos);
-            return null;
-        default:
-        }
+
 
         var genName = switch (cls.meta.extract(":expose")) {
             case [{params : [{expr : EConst(CString(s,_))}]}]:
@@ -100,38 +112,39 @@ class SentMacro {
 
         var entLuaType = switch (esent) {
         case Sent:
-            var type = cls.findField("TYPE",true);
+            var type = findMeta(cls,":TYPE");
             switch (type) {
                 case null:
                     Context.warning("no TYPE for ENT definition",cls.pos);
-                    return null;
-                case _.expr() => {expr : TConst(TString(s))}:
+                    null;
+                case {params : [{expr: EConst(CString(s, _))}]}:
                     s;
                 default:
                     Context.warning("no TYPE for ENT definition",cls.pos);
-                    return null;
+                    null;
             }
         default:
             null;
         }
-        var superexpr = superType.meta.extract(":RealExtern")[0].params[0];
         cls.meta.add(":FirstPanel",[],Context.currentPos());
-        cls.meta.add(":RealExtern",[superexpr],Context.currentPos());
         var ourtype = Context.toComplexType(Context.getLocalType());
         var gmodParent = extractGmodParent(superType);
         var gen = PanelMacro.generateGmodSideExtern({target: cls,gmodParent: gmodParent,targetFields: fields});
         var gmodType = gen.link.toComplexType();
         var entClass = (macro : gmod.stringtypes.EntityClass<$gmodType>);
-        
+        var tp:Array<String> = TypePathHelper.fromComplexType(gen.rawClass.toComplexType());
+        var strArr = tp.map((x) -> macro $v{x});
+        cls.meta.add(":RealExtern",[macro $a{strArr}],Context.currentPos());
         var fieldStore = if (superType.findField("self") != null) {
             macro class {
-                #if server
+                
+                #if server 
                 public static function create():$gmodType {
                     return gmod.libs.EntsLib.Create(gclass);
                 }
                 #end
 
-                public static inline final gclass:$entClass = $v{cls.name};
+                public static inline final gclass:$entClass = $v{genName};
 
                 public override function get_self():$gmodType {
                     return cast self;
@@ -144,10 +157,11 @@ class SentMacro {
                     return gmod.libs.EntsLib.Create(gclass);
                 }
                 #end
-                final self:Dynamic;
+                var self:Dynamic;
 
-                public static inline final gclass:$entClass = $v{cls.name};
+                public static inline final gclass:$entClass = $v{genName};
 
+                @:keep
                 final function new(x:Dynamic) {
                     self = x;
                 }
@@ -157,20 +171,24 @@ class SentMacro {
                 }
             }
         }
-        final resultGClass = superType.findField("gclass",true);
-        if (resultGClass == null) {
-            Context.error("Cannot find gclass field",cls.pos);
-            return null;
-        }
-        final base = switch (resultGClass.expr().expr) {
-            case TConst(TString(s)):
+        replaceSelfInFields(fields,gmodType);
+        switch [properties,esent] {
+            case [null,Swep | Sent]: 
+                var props = macro class {static final properties = {}};
+                fieldStore.fields.push(props.fields[0]);
+                default:
+            }
+        final resultGClass = findMeta(superType,":gclass");
+        final base = switch (resultGClass) {
+            case null:
+                Context.warning("Could not intepret gclass meta",cls.pos);
+                "null";
+            case {params : [{expr: EConst(CString(s, _))}]}:
                 s;
             default:
-                Context.error("Could not intepret gclass field",cls.pos);
-                return null;
+                Context.warning("Could not intepret gclass meta",cls.pos);
+                "null";
         }
-        trace(base);
-        fields = fields.concat(fieldStore.fields);
         generate.push({
             genName : genName,
             entLuaType : entLuaType,
@@ -186,7 +204,9 @@ class SentMacro {
             onGenerate = true;
         }
         cls.meta.add(":keep",[],Context.currentPos());
-        return fields;
+        cls.meta.add(":gclass",[macro $v{genName}],Context.currentPos());
+        cls.meta.add(":Generated",[],Context.currentPos());
+        return fields.concat(fieldStore.fields);
     }
     
     public static function buildSent() {
@@ -205,7 +225,7 @@ class SentMacro {
         var temp = new haxe.Template(Resource.getString("gmodhaxe_sent"));
         var baseStorage = InitMacro.baseEntFolder;
         if (baseStorage == null) {
-            Context.warning("Failed to save entity lua files",Context.currentPos());
+            Context.warning("Failed to save entity lua files. Try restarting the language server.",Context.currentPos());
             return;
         }
         var exportName = InitMacro.entLuaStorage;
