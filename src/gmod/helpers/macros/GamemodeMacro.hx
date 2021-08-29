@@ -32,15 +32,15 @@ class GamemodeMacro {
         var superType = Context.toComplexType(inst);
         var exprBuffer:Array<Expr> = [];
         var superClass = cls.superClass.t.get();
-        final resultGClass = findMeta(superClass,":gclass");
+        final resultGClass = findMeta(superClass,":gamemodeName");
         final base = switch (resultGClass) {
             case null:
-                Context.warning("Could not intepret gclass meta",cls.pos);
+                Context.warning("Could not intepret gamemodeName meta",cls.pos);
                 "null";
             case {params : [{expr: EConst(CString(s, _))}]}:
                 s;
             default:
-                Context.warning("Could not intepret gclass meta",cls.pos);
+                Context.warning("Could not intepret gamemodeName meta",cls.pos);
                 "null";
         }
         if (base != "null") {
