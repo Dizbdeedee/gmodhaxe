@@ -5118,6 +5118,20 @@ extern class GM {
     
     @:hook
     function FindUseEntity(ply:Player, defaultEnt:Entity):Entity;
+
+	/**
+		Called when a player's sign on state changes.
+
+		**Bug:** You cannot get a valid player object from the userID at any point during this hook. Issue Tracker: 4899
+
+		Name | Description
+		--- | ---
+		`userID` | The userID of the player whose sign on state has changed.
+		`oldState` | The previous sign on state. See SIGNONSTATE enums.
+		`newState` | The new/current sign on state. See SIGNONSTATE enums.
+	**/
+	@:hook
+	function ClientSignOnStateChanged(userID:Int, oldState:SIGNONSTATE, newState:SIGNONSTATE):Void;
     
     
 }
