@@ -1,5 +1,7 @@
 package gmod.helpers.macros;
 
+import haxe.macro.Compiler;
+import gmod.helpers.macros.Util.typeExists;
 #if macro
 import haxe.macro.Type.ClassField;
 
@@ -10,8 +12,7 @@ using haxe.macro.TypeTools;
 using haxe.macro.ComplexTypeTools;
 using haxe.macro.PositionTools;
 using StringTools;
-class Networking {
-    
+class Networking { 
 	static var netID = 0;
 
     public static function build():ComplexType {
@@ -126,6 +127,7 @@ class Networking {
 
     public static function buildclient():ComplexType {
         var type = Context.getLocalType();
+        
         var netName:String;
         var anon:haxe.macro.Type;
         var fields:Array<ClassField>;
@@ -135,7 +137,8 @@ class Networking {
                 fields = f;
                 anon = tdef;
 			case TInst(_,[tdef = _.follow() => TAnonymous(_.get() => {fields : f})]):
-				netName = 'haxe${netID++}';
+				netName = '${Context.getLocalModule()}_${Context.signature(tdef)}';
+                netName = netName.replace(".","_");
 				fields = f;
 				anon = tdef;
             default:
@@ -144,6 +147,9 @@ class Networking {
         }
         var complexAnon = Context.toComplexType(anon);
         var clsName = 'NETMESSAGECL_$netName';
+        if (typeExists(clsName)) {
+            return Context.getType(clsName).toComplexType();
+        }
         var cls = macro class $clsName {
             #if client
             public function send(data:$complexAnon,?unreliable=false) {
@@ -170,11 +176,19 @@ class Networking {
 
             }
             #end
-            public function new() {
+            public function new(?recvs:Array<(data:$complexAnon) -> Void>) {
                 #if server
                 #if tink_core
                 untyped signal = signalTrigger.asSignal();
                 #end
+                var i = 0;
+                for (recv in recvs) {
+                    #if tink_core
+                    signal.handle(recv);
+                    #else
+                    addReciever(Std.toString(i++),recv);
+                    #end
+                }
                 gmod.libs.NetLib.Receive($v{netName},receive);
                 gmod.libs.UtilLib.AddNetworkString($v{netName});
                 #end
@@ -270,7 +284,9 @@ class Networking {
 			}
 #end
 			public function new(?recvs:Array<(data:$complexSClass) -> Void>) {
-                gmod.libs.NetLib.Receive($v{netName},() -> {});
+                gmod.libs.NetLib.Receive($v{netName},() -> {
+                    trace("RECIEVED MESSAGE BEFORE INIT!!! OH GOD");
+                });
                 gmod.libs.TimerLib.Simple(0,() -> {
                     seralizer = new hxbit.Serializer();
                     init = true;
@@ -281,7 +297,6 @@ class Networking {
 				#if client
 				untyped signal = signalTrigger.asSignal();
                 @:privateAccess tink.CoreApi.Callback.depth;
-				// gmod.libs.NetLib.Receive($v{netName},receive);
                 for (recv in recvs) {
                     #if tink_core
                     signal.handle(recv);
@@ -359,7 +374,7 @@ class Networking {
     
         for (field in fields) {
             var name = field.name;
-            if (name == "sentPlayer") continue;
+            if (name == "_sentPlayer") continue;
             //trace(name);
             switch (field.type) {
                 case twoWayUni(_,int) => true:

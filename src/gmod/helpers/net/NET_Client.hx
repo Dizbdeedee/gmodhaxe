@@ -1,4 +1,4 @@
-package gmod.helpers;
+package gmod.helpers.net;
 
 /**
     Extend your data typedef with this
@@ -23,4 +23,4 @@ extern class NET_Client<Const:String,X:NET_CL_Message> {
 @:genericBuild(gmod.helpers.macros.Networking.buildclient())
 extern class NET_Cl<X:NET_CL_Message> {
 
-} 
+}
