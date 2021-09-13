@@ -5,7 +5,7 @@ package gmod;
 **/
 @:native("_G")extern class Gmod {
 
-    static final GAMEMODE:gmod.gamemode.GM;
+    static final GAMEMODE:gmod.helpers.StructuredTable<gmod.gamemode.GM,String,Any>;
 
     static final CLIENT:Bool;
 
