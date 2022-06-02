@@ -109,9 +109,11 @@ end
 -- haxe is a little too eager to require modules sometimes, so this prevents script shutdown
 -- TODO figure out a way to make this not affect global workspace
 _G.require = function (str)
-   local val,rtn = xpcall(_G._oldRequire,function (err) print("Failed to load module:" .. str .. " but did not halt" ) end,str)
+   local val,rtn = pcall(_G._oldRequire,str)
    if val then
-	  print("require loaded " .. str) return _G[str]
+	    print("require loaded " .. str) return _G[str]
+   else
+        print("failed to load require " .. str)
    end
 end
 

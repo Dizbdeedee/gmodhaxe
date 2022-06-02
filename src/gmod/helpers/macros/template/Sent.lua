@@ -2,10 +2,6 @@
 AddCSLuaFile("cl_init.lua")
 ::if sentSwep:: 
 ::baseIdent::.Base = "::base::" ::end::
---for i,p in pairs(::exportName::.::genName::.properties) do
---    if i == "__fields__" then continue end
---    ::baseIdent::[i] = p
---end
 ::if sent::
 ::baseIdent::.Type = "::entLuaType::" ::end::
 

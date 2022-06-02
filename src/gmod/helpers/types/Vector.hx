@@ -1,6 +1,7 @@
 package gmod.helpers.types;
 import gmod.Gmod;
 @:forward
+@:forward.variance
 extern abstract Vector(GVector) from GVector to GVector {
     /**
 		The X component of the vector.
