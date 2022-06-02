@@ -96,7 +96,7 @@ class PostCompileMacro {
     }
 
     static function readUntilBlankNewLine(f:FileInput) {
-        final str = "";
+        var str = "";
         while (!f.eof()) {
             final one = f.readString(1);
             final two = f.readString(1);
