@@ -20,17 +20,17 @@ class WeakTools {
     }
   
     public static function setWeakValues(table:lua.Table.AnyTable):Void {
-		final meta = createMTIfNotExists(table)
+		final meta = createMTIfNotExists(table);
 		meta.__mode = "v";
     }
 
     public static function setWeakKeyValues(table:lua.Table.AnyTable):Void {
-		final meta = createMTIfNotExists(table)
+		final meta = createMTIfNotExists(table);
 		meta.__mode = "kv";
     }
 
 	public static function setGCMethod(table:lua.Table.AnyTable, meth:Dynamic) {
-		final meta = createMTIfNotExists(table)
+		final meta = createMTIfNotExists(table);
 		meta.__gc = meth;
 	}
 
