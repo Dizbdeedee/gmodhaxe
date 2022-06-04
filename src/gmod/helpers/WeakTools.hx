@@ -15,7 +15,7 @@ class WeakTools {
 	}
 	
     public static function setWeakKeys(table:lua.Table.AnyTable):Void {
-		final meta = createMTIfNotExists(table)
+		final meta = createMTIfNotExists(table);
 		meta.__mode = "k";
     }
   
