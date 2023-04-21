@@ -49,6 +49,7 @@ abstract LuaArray<Y>(lua.Table<Int,Y>) to lua.Table<Int,Y> from lua.Table<Int,Y>
     public inline function pairsIterator():Iterator<Y> {
         return this.iterator();
     }
+    
 }
 
 class LuaArrayFastIterator<V> {

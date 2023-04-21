@@ -1,8 +1,9 @@
 package gmod.helpers.macros;
+#if macro
 
+import gmod.helpers.macros.Util.recurseCopy;
 import haxe.Template;
 import haxe.Resource;
-#if macro
 import haxe.macro.Expr.Function;
 import haxe.macro.Expr.FieldType;
 import haxe.io.Path;
@@ -63,6 +64,9 @@ class InitMacro {
         #end
         if (!Context.defined("noGmodHook")) {        
             Compiler.addGlobalMetadata("","@:build(gmod.helpers.macros.HookMacro.build())"); 
+        }
+        if (Context.defined("gmod_PreCopyFiles")) {
+            recurseCopy(Context.definedValue("gmod_PreCopyFiles"),"generated",_ -> true);
         }
         var x:TypeDefinition = {
             pack : ["gmod","helpers","macros"],

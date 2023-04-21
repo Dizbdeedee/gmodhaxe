@@ -40,6 +40,9 @@ final nato = [
     "Zulu"
 ];
 
+/**
+    Recursecopy copies all files IN the target dir
+**/
 function recurseCopy(curFolder:String,output:String,copyFilePred:(String) -> Bool) {
     for (name in FileSystem.readDirectory(curFolder)) {
         var curFile = Path.join([curFolder,name]);
