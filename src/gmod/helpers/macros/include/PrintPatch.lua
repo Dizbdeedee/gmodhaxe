@@ -20,7 +20,7 @@ function _hx_print_class(obj, depth)
     local x = 0
     for k,v in pairs(obj) do
         if _hx_hidden[k] == nil then
-            x = x + 1;
+            x = x + 1
             if x > 5 then result = result .. ', <...>' break end
             if first then
                 first = false
@@ -65,12 +65,12 @@ function _hx_tostring(obj, depth)
     elseif tstr == "table" then
         if obj.__enum__ ~= nil then
             return _hx_print_enum(obj, depth)
-        elseif obj.toString ~= nil and not _hx_is_array(obj) then return obj:toString()
+        --elseif obj.toString ~= nil and not _hx_is_array(obj) then return obj:toString() --run into some problems with gmdebug, so it can go on the backbench
         elseif _hx_is_array(obj) then
             if obj.length > 5 then
                 return "[...]"
             else
-                str = ""
+                local str = ""
                 for i=0, (obj.length-1) do
                     if i == 0 then
                         str = str .. _hx_tostring(obj[i], depth+1)
@@ -81,24 +81,30 @@ function _hx_tostring(obj, depth)
                 return "[" .. str .. "]"
             end
         elseif obj.__class__ ~= nil then
-            return _hx_print_class(obj, depth)
+            return _hx_print_class(obj, depth+1) --ran into some issues. Not sure if +1 is 'correct' but it solves it.
         else
-            first = true
-            buffer = {}
-            for k,v in pairs(obj) do
-                if _hx_hidden[k] == nil then
-                    _G.table.insert(buffer, _hx_tostring(k, depth+1) .. ' : ' .. _hx_tostring(obj[k], depth+1))
-                end
+            local buffer = {}
+            local ref = obj
+            if obj.__fields__ ~= nil then
+               ref = obj.__fields__
+            end
+            local len = 0
+            for k,v in pairs(ref) do
+               len = len + 1
+               if (len > 5) then return "<...>" end --might as well treat all identically.
+               if _hx_hidden[k] == nil and _hx_hidden[v] == nil then
+                   _G.table.insert(buffer, _hx_tostring(k, depth+1) .. ' : ' .. _hx_tostring(obj[k], depth+1))
+               end
             end
             return "{ " .. table.concat(buffer, ", ") .. " }"
         end
     else
         if (_G.TypeID(obj) == _G.TYPE_NONE) then
-          _G.error("Unknown lua type")
-          return ""
-        else
-          return _G.tostring(obj)
-        end
+            _G.error("Unknown lua type")
+            return ""
+          else
+            return _G.tostring(obj)
+          end
     end
 end
 
