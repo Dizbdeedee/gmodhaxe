@@ -221,7 +221,7 @@ package gmod.libs;
 		List of players.
     **/
     
-    static function GetPlayers(teamIndex:Float):AnyTable;
+    static function GetPlayers(teamIndex:Float):LuaArrayExt<Player>;
     
     
     /**

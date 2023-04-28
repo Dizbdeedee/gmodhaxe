@@ -44,7 +44,7 @@ class GamemodeMacro {
                 "null";
         }
         if (base != "null") {
-            exprBuffer.push(macro Gmod.DeriveGamemode($v{base}));
+            exprBuffer.push(macro gmod.Gmod.DeriveGamemode($v{base}));
         }
         var gmodParent = extractGmodParent(superClass);
         var gen = PanelMacro.generateGmodSideExtern({

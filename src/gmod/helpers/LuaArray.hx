@@ -6,7 +6,7 @@ import haxe.macro.Context;
 #if lua
 import lua.Lua;
 using gmod.helpers.PairTools;
-abstract LuaArray<Y>(lua.Table<Int,Y>) to lua.Table<Int,Y> from lua.Table<Int,Y> {
+abstract LuaArrayExt<Y>(lua.Table<Int,Y>) to lua.Table<Int,Y> from lua.Table<Int,Y> {
 
     @:op([])
     inline function get(n:Int):Y {
@@ -20,6 +20,10 @@ abstract LuaArray<Y>(lua.Table<Int,Y>) to lua.Table<Int,Y> from lua.Table<Int,Y>
     
     public inline function new<Y>() {
         this = lua.Table.create();
+    }
+
+    public inline function push(item:Y) {
+        untyped __lua__("{0}[#{0} + 1] = {1} ",this,item);
     }
 
     /**
@@ -56,11 +60,11 @@ class LuaArrayFastIterator<V> {
 
     var i:Int;
 
-    var tbl:LuaArrayFast<V>;
+    var tbl:LuaArray<V>;
 
     var len:Int;
     
-    public inline function new(x:LuaArrayFast<V>) {
+    public inline function new(x:LuaArray<V>) {
         i = 1;
         tbl = x;
         len = tbl.length;
@@ -80,9 +84,9 @@ class LuaArrayFastKeyValueIterator<V> {
 
     var len:Int;
 
-    var tbl:LuaArrayFast<V>;
+    var tbl:LuaArray<V>;
     
-    public inline function new(x:LuaArrayFast<V>) {
+    public inline function new(x:LuaArray<V>) {
         i = 1;
         len = tbl.length;
         tbl = x;
@@ -103,7 +107,7 @@ class LuaArrayFastKeyValueIterator<V> {
     Faster iteration than ipairs over a lua array (hopefully). Must ensure length is a valid value to properly iterate
 **/
 @:transitive
-abstract LuaArrayFast<V>(LuaArray<V>) to LuaArray<V> {
+abstract LuaArray<V>(LuaArrayExt<V>) to LuaArrayExt<V> {
 
     
     public var length(get,set):Int;
@@ -120,12 +124,14 @@ abstract LuaArrayFast<V>(LuaArray<V>) to LuaArray<V> {
 
 
     inline function set_length(n:Int) {
-        return untyped this.length = n;
+        return untyped set(0,cast n);
     }
 
     inline function get_length() {
-        return untyped this.length;
+        return untyped get(0);
     }
+
+    
 
     /**
         Update length by using lua length operator (which involves binary search)
@@ -134,19 +140,23 @@ abstract LuaArrayFast<V>(LuaArray<V>) to LuaArray<V> {
         return length = untyped __lua__("#{0}",this);
     }
 
-    public inline function add(val:V) {
-        length++;
-        set(length,val);
+    // public inline function add(val:V) {
+    //     length++;
+    //     set(length,val);
+    // }
+
+    public inline function push(item:V) {
+        set(length++,item);
     }
 
     public inline function new() {
         this = lua.Table.create();
-        untyped this.length = 0;
+        length = 0;
     }
 
     @:from
-    public static inline function fromLuaArr<V>(x:LuaArray<V>):LuaArrayFast<V> {
-        final x:LuaArrayFast<V> = cast x;
+    public static inline function fromLuaArr<V>(x:LuaArrayExt<V>):LuaArray<V> {
+        final x:LuaArray<V> = cast x;
         x.updateLength();
         return cast x;
     }

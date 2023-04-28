@@ -87,6 +87,17 @@ class PanelMacro {
         return classField.meta.has(":hook");
     }
 
+    static function generateExpr(name:String,argsArray:Array<FunctionArg>) {
+        var exprArgs = [];
+        for (arg in argsArray) {
+            exprArgs.push(macro $i{arg.name});
+        }
+        return macro {
+            var gamemode = gmod.Gmod.GAMEMODE;
+            return untyped gamemode.$name($a{exprArgs});
+        }
+    }
+
     static function classFuncToField(classField:ClassField):Field {
         var funcArgs:Array<FunctionArg> = [];
         var exprArgs = [];
@@ -107,13 +118,13 @@ class PanelMacro {
                 {
                     args : funcArgs,
                     ret : generateMultiReturn(luaMR), 
-                    expr : null
+                    expr : generateExpr(name,funcArgs)
                 }
             case ret:
                 {
                     args : funcArgs,
                     ret :  Context.toComplexType(ret),
-                    expr : null
+                    expr : generateExpr(name,funcArgs)
                 };
         }
         return {
@@ -244,18 +255,12 @@ class PanelMacro {
                 }
         }
         newCls.meta = cls.meta.get();
-        newCls.isExtern = true;
         var rpPack = cls.pack.concat([cls.name]);
         var newarray = rpPack.map((str) -> macro $v{str});
         newCls.meta = newCls.meta.concat([{
             name: ":RealExtern",
             pos: Context.currentPos(),
             params: [macro $a{newarray}]
-        }
-        ,{ 
-            name : ":native",
-            pos : Context.currentPos(),
-            params: [macro '{} or a'] //{prototype = {}} does not work... we've gone over this
         }
         ,{
             name: ":HaxeGenExtern",
