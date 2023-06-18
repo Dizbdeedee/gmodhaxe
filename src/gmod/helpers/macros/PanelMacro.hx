@@ -47,6 +47,7 @@ typedef GenerateGmod = {
 }
 
 class PanelMacro {
+
     #if macro
 
     static var generate:Map<String,Bool> = [];
@@ -82,7 +83,7 @@ class PanelMacro {
         generatedStorage.set('A_$name',anon);
         return complextype;
     }
-    
+
     static function shouldProcessClassFunc(classField:ClassField) {
         return classField.meta.has(":hook");
     }
@@ -104,7 +105,7 @@ class PanelMacro {
         var funcReturn:haxe.macro.Type;
         switch classField.type {
             case TFun(args, ret):
-                exprArgs = [];    
+                exprArgs = [];
                 funcArgs = args.map(argToFuncArg);
                 exprArgs = args.map((arg) -> macro $i{arg.name});
                 funcReturn = ret;
@@ -116,15 +117,21 @@ class PanelMacro {
         final func:Function = switch (funcReturn) {
             case TInst(_.get() => luaMR = {name : n} , _) if (n.endsWith("Return")):
                 {
-                    args : funcArgs,
-                    ret : generateMultiReturn(luaMR), 
-                    expr : generateExpr(name,funcArgs)
+                    args: funcArgs,
+                    ret: generateMultiReturn(luaMR),
+                    expr: macro {return null;} //generateExpr(name,funcArgs)
+                }
+            case TAbstract(_.get() => {name: "Void"},_):
+                {
+                    args: funcArgs,
+                    ret: Context.toComplexType(funcReturn),
+                    expr: macro {}
                 }
             case ret:
                 {
                     args : funcArgs,
                     ret :  Context.toComplexType(ret),
-                    expr : generateExpr(name,funcArgs)
+                    expr: macro {return null;} //generateExpr(name,funcArgs)
                 };
         }
         return {
@@ -146,7 +153,7 @@ class PanelMacro {
                 args.exists((a) -> a.type == null) || ret == null):
                 Context.warning("Cannot generate field without full type annotations",field.pos);
                 false;
-            case FVar(null, _) 
+            case FVar(null, _)
             | FProp(_, _, null, _):
                 Context.warning("Cannot generate field without full type annotations",field.pos);
                 false;
@@ -187,16 +194,16 @@ class PanelMacro {
         final targetGmod = gen.gmodParent;
         final gmodExternName = '_Gmod${target.name}';
         final linkExternName = 'Gmod${target.name}';
-        final curMod:TypePathHelper = Context.getLocalModule().split(".");        
+        final curMod:TypePathHelper = Context.getLocalModule().split(".");
         final parentPath:TypePath = targetGmod;
-        if (typeExists(gmodExternName) || typeExists(linkExternName) ) { 
+        if (typeExists(gmodExternName) || typeExists(linkExternName) ) {
             return {link : Context.getType(linkExternName), rawClass: Context.getType(gmodExternName)};
         }
         final gmodExtern:TypeDefinition = macro class $gmodExternName extends $parentPath {
 
         };
         gmodExtern.pack = [];
-        var fields = targetFields.filter((f) -> 
+        var fields = targetFields.filter((f) ->
             f.meta.exists((m) -> gen.markExpose(m.name)));
         final gmodSuperType = try {
             targetGmod.toComplexType().toType().getClass();
@@ -205,18 +212,17 @@ class PanelMacro {
             return null;
         }
         final newFields = [for (f in fields)
-            
             if (shouldGenGmodExtField(f)) {
                 genGmodExtFields(f,gmodSuperType);
             }
         ];
         gmodExtern.fields = newFields;
         gmodExtern.isExtern = true;
-        Context.defineType(gmodExtern);
+        generatedStorage.set(gmodExternName,gmodExtern);
         final gmodType = Context.getType(gmodExternName).toComplexType();
         final otherType = Context.getLocalType().toComplexType();
         final linkType = (macro : gmod.helpers.GLinked<$gmodType,$otherType>);
-        Context.defineType({
+        generatedStorage.set(linkExternName,{
             pack: [],
             name: linkExternName,
             pos: Context.currentPos(),
@@ -233,7 +239,7 @@ class PanelMacro {
         }
     }
 
-    
+
 
     static function generateHaxeSideExtern(cls:ClassType,mType:MType,first=false) {
         var extendname;
@@ -243,7 +249,7 @@ class PanelMacro {
             case null:
                 extendname = null;
                 newCls = macro class $clsname {
-                    
+
                 }
             case {t: _.get() => superType}:
                 if (!generate.exists(superType.name)) {
@@ -327,9 +333,9 @@ class PanelMacro {
         }
         generateHaxeSideExtern(cls,x,true);
         var tp2:TypePath = {pack : cls.pack,name : cls.name}
-        var tp:TypePath = {pack : [],name : 'HaxeGenExtern_${cls.name}'} 
+        var tp:TypePath = {pack : [],name : 'HaxeGenExtern_${cls.name}'}
         var rtn = TPath(tp);
-        return rtn; 
+        return rtn;
     }
 
 
@@ -355,4 +361,3 @@ class PanelMacro {
 
     #end
 }
-

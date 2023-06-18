@@ -12,145 +12,104 @@ using haxe.macro.TypeTools;
 using haxe.macro.ComplexTypeTools;
 using haxe.macro.PositionTools;
 using StringTools;
-class Networking { 
-	static var netID = 0;
+class Networking {
 
-    public static function build():ComplexType {
-        var type = Context.getLocalType();
-        var netName:String;
-        var anon:haxe.macro.Type;
-        var fields:Array<ClassField>;
-        switch (type) {
-            case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), tdef = _.follow() => TAnonymous(_.get() => {fields : f})]):
-                netName = s;
-                fields = f;
-                anon = tdef;
-			case TInst(_,[tdef = _.follow() => TAnonymous(_.get() => {fields : f})]):
-				var netName = '${Context.getLocalModule()}_${Context.getLocalMethod()}';
-                netName = netName.replace(".","_");
-				fields = f;
-				anon = tdef;
-			#if hxbit
-			case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), cls = TInst(_.get() => {name : clsString,module : clsModule},_)]):
+    static var netID = 0;
 
-				final netName = s;
-				final str = clsModule + "." + clsString;
-				final clsPath = str.split(".");
-				final sClass = cls;
-                return buildhxbit(netName,sClass,clsPath);
-            case TInst(_,[cls = TInst(_.get() => {name : clsString,module : clsModule},_)]):
-                
-                var netName = '${Context.getLocalModule()}_${Context.getLocalMethod()}';
-                netName = netName.replace(".","_");
-                
-                final str = clsModule + "." + clsString;
-                final clsPath = str.split(".");
-                final sClass = cls;
-                return buildhxbit(netName,sClass,clsPath);
-            #end
-            default:
-                trace("Could not generate net message");
-                return null;
+    static var test = 0;
+
+    static var generatedStorage:Map<String,haxe.macro.Expr.TypeDefinition> = [];
+
+    static var generated = false;
+
+    static function enableNotFound() {
+        if (!generated) {
+            Context.onTypeNotFound((clsName) -> {
+                return if (generatedStorage.exists(clsName)) {
+                    generatedStorage.get(clsName);
+                } else {
+                    null;
+                }
+            });
+            generated = true;
         }
-        var complexAnon = Context.toComplexType(anon);
-        var clsName = 'NETMESSAGE_$netName';
-        var cls = macro class $clsName {
-            #if server
-
-            public function send(data:$complexAnon,recv:gmod.gclass.Player,?unreliable=false) {
-
-            }
-
-            public function sendTable(data:$complexAnon,recv:lua.Table<Dynamic,gmod.gclass.Player>,?unreliable=false) {
-
-            }
-
-            public function sendFilter(data:$complexAnon,recv:gmod.gclass.CRecipientFilter,?unreliable=false) {
-
-            }
-
-            public function broadcast(data:$complexAnon,?unreliable=false) {
-
-            }
-            #end
-            #if client
-            #if tink_core
-            public var signal(default,never):tink.CoreApi.Signal<$complexAnon>;
-
-            var signalTrigger = new tink.CoreApi.SignalTrigger<$complexAnon>();
-            #else
-            var recievers:Map<String,(data:$complexAnon) -> Void> = new Map();
-
-            public function addReceiver(ident:String,recv:(data:$complexAnon) -> Void) {
-                recievers.set(ident,recv);
-            }
-
-            public function removeReceiver(ident:String) {
-                recievers.remove(ident);
-            }
-            #end
-            function receive() {
-
-            }
-            #end
-            public function new() {
-                #if client
-				#if tink_core
-                untyped signal = signalTrigger.asSignal();
-                
-				#end
-                gmod.libs.NetLib.Receive($v{netName},receive);
-                #end
-                #if server
-                gmod.libs.UtilLib.AddNetworkString($v{netName});
-                #end
-            }
-        }
-        
-        #if server
-        var sendExpr = genSendExpr(anon,netName,fields);
-        (cls.fields[0].kind.getParameters()[0]:Function).expr = sendExpr;
-        (cls.fields[1].kind.getParameters()[0]:Function).expr = sendExpr;
-        (cls.fields[2].kind.getParameters()[0]:Function).expr = sendExpr;
-        (cls.fields[3].kind.getParameters()[0]:Function).expr = genSendExpr(anon,netName,fields,true);
-        #end
-        #if client
-        #if tink_core
-        (cls.fields[2].kind.getParameters()[0]:Function).expr = genRecvExpr(anon,fields);
-        #else
-        (cls.fields[3].kind.getParameters()[0]:Function).expr = genRecvExpr(anon,fields);
-        #end
-        #end
-        Context.defineType(cls);
-        return TPath({name : clsName,pack: []});
     }
 
-    public static function buildclient():ComplexType {
+    public static function build(client:Bool):ComplexType {
+        enableNotFound();
         var type = Context.getLocalType();
-        
-        var netName:String;
-        var anon:haxe.macro.Type;
-        var fields:Array<ClassField>;
-        switch (type) {
-            case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), tdef = _.follow() => a = TAnonymous(_.get() => b = {fields : f})]):
-                netName = s;
-                fields = f;
-                anon = tdef;
-			case TInst(_,[tdef = _.follow() => TAnonymous(_.get() => {fields : f})]):
-				netName = '${Context.getLocalModule()}_${Context.signature(tdef)}';
+        final tpathresult = if (client) {
+            clientchoose(type);
+        } else {
+            serverchoose(type);
+        }
+        return tpathresult;
+    }
+
+    static function setupbuild(buildname:String,generate:() -> haxe.macro.Expr.TypeDefinition) {
+        generatedStorage.set(buildname,generate());
+        return TPath({name : buildname,pack: []});
+    }
+
+    static function serverchoose(type:haxe.macro.Type) {
+        return switch (type) {
+            case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), anon = _.follow() => TAnonymous(_.get() => {fields : fields})]):
+                var netName = s;
+                setupbuild(netName,() -> buildanon(netName,anon,fields));
+            case TInst(_,[anon = _.follow() => TAnonymous(_.get() => {fields : fields})]):
+                var netName = '${Context.getLocalModule()}_${Context.signature(anon)}';
                 netName = netName.replace(".","_");
-				fields = f;
-				anon = tdef;
+                setupbuild(netName,() -> buildanon(netName,anon,fields));
+            #if hxbit
+            case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), hxClass = TInst(_.get() => {name : clsString,module : clsModule},_)]):
+                final netName = s;
+                final str = clsModule + "." + clsString;
+                final clsPath = str.split(".");
+                setupbuild(netName,() -> buildhxbit(netName,hxClass,clsPath));
+            case TInst(_,[hxClass = TInst(_.get() => {name : clsString,module : clsModule},_)]):
+                var netName = '${Context.getLocalModule()}_${Context.signature(hxClass)}';
+                netName = netName.replace(".","_");
+                final str = clsModule + "." + clsString;
+                final clsPath = str.split(".");
+                setupbuild(netName,() -> buildhxbit(netName,hxClass,clsPath));
+            #end
             default:
-                trace("Could not generate net message");
-                return null;
+                Context.error("Could not generate server net message", Context.currentPos());
+                null;
         }
+    }
+    static function clientchoose(type:haxe.macro.Type) {
+        return switch (type) {
+            case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), anon = _.follow() => TAnonymous(_.get() => {fields : fields})]):
+                var netName = s;
+                setupbuild(netName,() -> buildanonclient(netName,anon,fields));
+            case TInst(_,[anon = _.follow() => TAnonymous(_.get() => {fields : fields})]):
+                var netName = '${Context.getLocalModule()}_${Context.signature(anon)}';
+                netName = netName.replace(".","_");
+                setupbuild(netName,() -> buildanonclient(netName,anon,fields));
+            // #if hxbit
+            // case TInst(_,[TInst(_.get() => {kind : KExpr(_.getValue() => s) },_), hxClass = TInst(_.get() => {name : clsString,module : clsModule},_)]):
+            //     final netName = s;
+            //     final str = clsModule + "." + clsString;
+            //     final clsPath = str.split(".");
+            //     setupbuild(netName,() -> buildhxbit(netName,hxClass,clsPath));
+            // case TInst(_,[hxClass = TInst(_.get() => {name : clsString,module : clsModule},_)]):
+            //     var netName = '${Context.getLocalModule()}_${Context.signature(hxClass)}';
+            //     netName = netName.replace(".","_");
+            //     final str = clsModule + "." + clsString;
+            //     final clsPath = str.split(".");
+            //     setupbuild(netName,() -> buildhxbit(netName,hxClass,clsPath));
+            // #end
+            default:
+                Context.error("Could not generate client net message",Context.currentPos());
+                null;
+        }
+    }
+
+    public static function buildanonclient(netName:String,anon:haxe.macro.Type,fields) {
+        var type = Context.getLocalType();
         var complexAnon = Context.toComplexType(anon);
-        var clsName = 'NETMESSAGECL_$netName';
-        if (typeExists(clsName)) {
-            return Context.getType(clsName).toComplexType();
-        }
-        var cls = macro class $clsName {
+        var cls = macro class $netName {
             #if client
             public function send(data:$complexAnon,?unreliable=false) {
 
@@ -194,7 +153,6 @@ class Networking {
                 #end
             }
         }
-        
         #if client
         var sendExpr = genSendExpr(anon,netName,fields,false,true);
         (cls.fields[0].kind.getParameters()[0]:Function).expr = sendExpr;
@@ -206,84 +164,155 @@ class Networking {
         (cls.fields[3].kind.getParameters()[0]:Function).expr = genRecvExpr(anon,fields,true);
         #end
         #end
-        Context.defineType(cls);
-        return TPath({name : clsName,pack: []});
+        return cls;
     }
 
-    
 
-	public static function buildhxbit(netName:String,sClass:haxe.macro.Type,clsPath:Array<String>) {
-		final exprSClass:Expr = macro $p{clsPath};
-		var complexSClass = Context.toComplexType(sClass);
-		// trace(complexSClass);
-		var clsName = 'NETMESSAGE_$netName';
-		var cls = macro class $clsName {
+    static function buildanon(netName:String,anon:haxe.macro.Type,fields) {
+        var complexAnon = Context.toComplexType(anon);
+        var definedClass = macro class $netName {
+            #if server
+
+            public function send(data:$complexAnon,recv:gmod.gclass.Player,?unreliable=false) {
+
+            }
+
+            public function sendTable(data:$complexAnon,recv:lua.Table<Dynamic,gmod.gclass.Player>,?unreliable=false) {
+
+            }
+
+            public function sendFilter(data:$complexAnon,recv:gmod.gclass.CRecipientFilter,?unreliable=false) {
+
+            }
+
+            public function broadcast(data:$complexAnon,?unreliable=false) {
+
+            }
+            #end
+            #if client
+            #if tink_core
+            public var signal(default,never):tink.CoreApi.Signal<$complexAnon>;
+
+            var signalTrigger = new tink.CoreApi.SignalTrigger<$complexAnon>();
+            #else
+            var recievers:Map<String,(data:$complexAnon) -> Void> = new Map();
+
+            public function addReceiver(ident:String,recv:(data:$complexAnon) -> Void) {
+                recievers.set(ident,recv);
+            }
+
+            public function removeReceiver(ident:String) {
+                recievers.remove(ident);
+            }
+            #end
+            function receive() {
+
+            }
+            #end
+            public function new() {
+                #if client
+                #if tink_core
+                untyped signal = signalTrigger.asSignal();
+
+                #end
+                gmod.libs.NetLib.Receive($v{netName},receive);
+                #end
+                #if server
+                gmod.libs.UtilLib.AddNetworkString($v{netName});
+                #end
+            }
+        }
+
+        #if server
+        var sendExpr = genSendExpr(anon,netName,fields);
+        (definedClass.fields[0].kind.getParameters()[0]:Function).expr = sendExpr;
+        (definedClass.fields[1].kind.getParameters()[0]:Function).expr = sendExpr;
+        (definedClass.fields[2].kind.getParameters()[0]:Function).expr = sendExpr;
+        (definedClass.fields[3].kind.getParameters()[0]:Function).expr = genSendExpr(anon,netName,fields,true);
+        #end
+        #if client
+        #if tink_core
+        (definedClass.fields[2].kind.getParameters()[0]:Function).expr = genRecvExpr(anon,fields);
+        #else
+        (definedClass.fields[3].kind.getParameters()[0]:Function).expr = genRecvExpr(anon,fields);
+        #end
+        #end
+        return definedClass;
+    }
+
+
+
+    static function buildhxbit(netName:String,sClass:haxe.macro.Type,clsPath:Array<String>) {
+        final exprSClass:Expr = macro $p{clsPath};
+        var complexSClass = Context.toComplexType(sClass);
+        // trace(complexSClass);
+        var cls = macro class $netName {
             var seralizer:hxbit.Serializer;
             var init:Bool = false;
-            
+
 #if server
-			public function send(data:$complexSClass,recv:gmod.gclass.Player,?unreliable=false) {
+            public function send(data:$complexSClass,recv:gmod.gclass.Player,?unreliable=false) {
                 if (!init) return;
-				final bytes = seralizer.serialize(data);
-				gmod.libs.NetLib.Start($v{netName},unreliable);
-				gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
-				gmod.libs.NetLib.Send(recv);
-			}
+                final bytes = seralizer.serialize(data);
+                gmod.libs.NetLib.Start($v{netName},unreliable);
+                gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
+                gmod.libs.NetLib.Send(recv);
+            }
 
-			public function sendTable(data:$complexSClass,recv:lua.Table<Dynamic,gmod.gclass.Player>,?unreliable=false) {
+            public function sendTable(data:$complexSClass,recv:lua.Table<Dynamic,gmod.gclass.Player>,?unreliable=false) {
                 if (!init) return;
-				final bytes = seralizer.serialize(data);
-				gmod.libs.NetLib.Start($v{netName},unreliable);
-				gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
-				gmod.libs.NetLib.Send(recv);
-			}
+                final bytes = seralizer.serialize(data);
+                gmod.libs.NetLib.Start($v{netName},unreliable);
+                gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
+                gmod.libs.NetLib.Send(recv);
+            }
 
-			public function sendFilter(data:$complexSClass,recv:gmod.gclass.CRecipientFilter,?unreliable=false) {
+            public function sendFilter(data:$complexSClass,recv:gmod.gclass.CRecipientFilter,?unreliable=false) {
                 if (!init) return;
-				final bytes = seralizer.serialize(data);
-				gmod.libs.NetLib.Start($v{netName},unreliable);
-				gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
-				gmod.libs.NetLib.Send(recv);
-			}
+                final bytes = seralizer.serialize(data);
+                gmod.libs.NetLib.Start($v{netName},unreliable);
+                gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
+                gmod.libs.NetLib.Send(recv);
+            }
 
-			public function broadcast(data:$complexSClass,?unreliable=false) {
+            public function broadcast(data:$complexSClass,?unreliable=false) {
                 if (!init) return;
-				final bytes = seralizer.serialize(data);
-				gmod.libs.NetLib.Start($v{netName},unreliable);
-				gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
-				gmod.libs.NetLib.Broadcast();
-			}
+                final bytes = seralizer.serialize(data);
+                gmod.libs.NetLib.Start($v{netName},unreliable);
+                gmod.libs.NetLib.WriteData(bytes.toString(),bytes.length);
+                gmod.libs.NetLib.Broadcast();
+            }
 #end
 #if client
 #if tink_core
-			public final signal:tink.CoreApi.Signal<$complexSClass>;
+            public final signal:tink.CoreApi.Signal<$complexSClass>;
 
-			final signalTrigger = new tink.CoreApi.SignalTrigger<$complexSClass>();
+            final signalTrigger = new tink.CoreApi.SignalTrigger<$complexSClass>();
 #else
-			var recievers:Map<String,(data:$complexSClass) -> Void> = new Map();
+            var recievers:Map<String,(data:$complexSClass) -> Void> = new Map();
 
-			public function addReceiver(ident:String,recv:(data:$complexSClass) -> Void) {
-				recievers.set(ident,recv);
-			}
+            public function addReceiver(ident:String,recv:(data:$complexSClass) -> Void) {
+                recievers.set(ident,recv);
+            }
 
-			public function removeReceiver(ident:String) {
-				recievers.remove(ident);
-			}
+            public function removeReceiver(ident:String) {
+                recievers.remove(ident);
+            }
 #end
-			function receive() {
-				final bytString = gmod.libs.NetLib.ReadData(gmod.libs.NetLib.BytesLeft().bytes);
-				final bytes = haxe.io.Bytes.ofString(bytString);                
-				final result = seralizer.unserialize(bytes,$exprSClass);
-				#if tink_core
-				signalTrigger.trigger(result);
-				#else
-				for (recv in recievers) {
-					recv(result);
-				}
-				#end
-			}
+            function receive() {
+                final bytString = gmod.libs.NetLib.ReadData(gmod.libs.NetLib.BytesLeft().bytes);
+                final bytes = haxe.io.Bytes.ofString(bytString);
+                final result = seralizer.unserialize(bytes,$exprSClass);
+                #if tink_core
+                signalTrigger.trigger(result);
+                #else
+                for (recv in recievers) {
+                    recv(result);
+                }
+                #end
+            }
 #end
-			public function new(?recvs:Array<(data:$complexSClass) -> Void>) {
+            public function new(?recvs:Array<(data:$complexSClass) -> Void>) {
                 gmod.libs.NetLib.Receive($v{netName},() -> {
                     trace("RECIEVED MESSAGE BEFORE INIT!!! OH GOD");
                 });
@@ -294,23 +323,22 @@ class Networking {
                     gmod.libs.NetLib.Receive($v{netName},receive);
                     #end
                 });
-				#if client
-				untyped signal = signalTrigger.asSignal();
+                #if client
+                untyped signal = signalTrigger.asSignal();
                 @:privateAccess tink.CoreApi.Callback.depth;
                 for (recv in recvs) {
                     #if tink_core
                     signal.handle(recv);
                     #end
                 }
-				#end
-				#if server
-				gmod.libs.UtilLib.AddNetworkString($v{netName});
-				#end
-			}
-		}
-		Context.defineType(cls);
-		return TPath({name : clsName,pack: []});
-	}
+                #end
+                #if server
+                gmod.libs.UtilLib.AddNetworkString($v{netName});
+                #end
+            }
+        }
+        return cls;
+    }
 
     static function genSendExpr(anon:haxe.macro.Type,name:String,fields:Array<ClassField>,?broadcast=false,?client=false):Expr {
         var macArray:Array<Expr> = [];
@@ -359,7 +387,7 @@ class Networking {
         return macro $b{macArray};
     }
 
-    static function genRecvExpr(anon:haxe.macro.Type,fields:Array<ClassField>,?client=false):Expr { 
+    static function genRecvExpr(anon:haxe.macro.Type,fields:Array<ClassField>,?client=false):Expr {
         var recvAnon:Array<ObjectField> = [];
         var entity = Context.resolveType((macro : gmod.gclass.Entity),Context.currentPos());
         var string = Context.resolveType((macro : String),Context.currentPos());
@@ -370,12 +398,9 @@ class Networking {
         var table = Context.resolveType((macro : lua.Table.AnyTable),Context.currentPos());
         var bool = Context.resolveType((macro : Bool),Context.currentPos());
         var twoWayUni = (x:haxe.macro.Type,y:haxe.macro.Type) -> x.unify(y) && y.unify(x);
-        // var mac:EObjectDecl = EObjectDecl()
-    
         for (field in fields) {
             var name = field.name;
             if (name == "_sentPlayer") continue;
-            //trace(name);
             switch (field.type) {
                 case twoWayUni(_,int) => true:
                     recvAnon.push({field : name, expr : macro gmod.libs.NetLib.ReadInt(32)});
