@@ -46,7 +46,7 @@ extern class Color {
 		`**Returns:** The table with elements 1 = r, 2 = g, 3 = b, 4 = a.
     **/
     
-    function ToTable():LuaArray<Float>;
+    function ToTable():LuaArrayExt<Float>;
     
     
     /**

@@ -30,7 +30,7 @@ package gmod.libs;
 		```
     **/
     
-    static function GetAll():LuaArray<Player>;
+    static function GetAll():LuaArrayExt<Player>;
     
     #if server
     /**
@@ -118,7 +118,7 @@ package gmod.libs;
 		`**Returns:** A table only containing bots ( AI / non human players )
     **/
     
-    static function GetBots():LuaArray<Player>;
+    static function GetBots():LuaArrayExt<Player>;
     
     
     /**
@@ -152,7 +152,7 @@ package gmod.libs;
 		`**Returns:** A table of all human ( non bot/AI ) players.
     **/
     
-    static function GetHumans():LuaArray<Player>;
+    static function GetHumans():LuaArrayExt<Player>;
     
     
     /**

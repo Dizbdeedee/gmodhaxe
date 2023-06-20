@@ -66,7 +66,7 @@ abstract StructuredLuaArray<S,V>(S) to S {
     }
 
     @:to
-    public inline function toLuaArr():LuaArray<V> {
+    public inline function toLuaArr():LuaArrayExt<V> {
 		  return cast this;
     }
 }

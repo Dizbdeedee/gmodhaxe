@@ -85,7 +85,7 @@ package gmod.libs;
 			-- The rest of the SWEP table
     **/
     
-    static function GetList():LuaArray<Dynamic>;
+    static function GetList():LuaArrayExt<Dynamic>;
     
     
     /**

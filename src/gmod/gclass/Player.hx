@@ -3522,7 +3522,7 @@ extern class Player extends Entity {
 		The number of weapons the player has (e.g. 5).
     **/
     
-    function GetWeapons():LuaArray<Weapon>;
+    function GetWeapons():LuaArrayExt<Weapon>;
     
     
     /**
