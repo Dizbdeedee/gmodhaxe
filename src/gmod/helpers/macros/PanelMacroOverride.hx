@@ -10,14 +10,11 @@ using haxe.macro.ComplexTypeTools;
 using Lambda;
 class PanelMacroOverride {
 
-
-    
-
     static function shouldAdd(name:String) {
         return name == ":exposePanel" || name == ":exposeGmod" || name == ":hook";
     }
 
-    
+
     public static function build():Array<Field> {
         #if macro
         var fields = Context.getBuildFields();
@@ -34,7 +31,7 @@ class PanelMacroOverride {
             switch (field.kind) {
                 case FVar(t, e):
                 case FFun(f):
-                    
+
                     if (field.access != null && field.access.contains(Access.AOverride)) {
                         if (field.meta == null) {
                             field.meta = [];
@@ -63,24 +60,24 @@ class PanelMacroOverride {
         if (!overrideninit) {
             exprBuffer.push(macro untyped __lua__("PANEL.Init = function (dis,...) dis._gHaxeBurrow = {0}.new(dis) end",$i{cls.name}));
         }
-        
+
         var gmodParentClassName = parent.meta.extract(":GmodClassName")[0].params[0];
         exprBuffer.push(macro gmod.libs.VguiLib.Register($v{cls.name},PANEL,$gmodParentClassName));
         var extResult = PanelMacro.generateGmodSideExtern({target: cls,gmodParent: parentGmod,targetFields: fields,markExpose: shouldAdd});
-        var gmodType = extResult.link.toComplexType();
-        var gmodRaw = extResult.rawClass.toComplexType();
+        var gmodType = extResult.link;
+        var gmodRaw = extResult.rawClass;
         var panelclass = (macro : gmod.stringtypes.PanelClass<$gmodType>);
         replaceSelfInFields(fields,gmodType);
 
         var fieldstor = if (parent.findField("self") != null) {
             macro class {
-     
+
                 static function register() {
 
                 }
-            
+
                 public static inline final gclass:$panelclass = $v{cls.name};
-                
+
                 public static function create(?parent:gmod.gclass.Panel,?name:String):$gmodType {
                     return cast gmod.libs.VguiLib.Create(gclass,parent,name);
                 }
@@ -88,7 +85,7 @@ class PanelMacroOverride {
                 public override function get_self():$gmodType {
                     return cast self;
                 }
-                
+
                 static function __init__() {
                     register();
                 }
@@ -98,13 +95,13 @@ class PanelMacroOverride {
             macro class {
 
                 static function register() {
-    
+
                 }
-              
+
                 public static inline final gclass:$panelclass = $v{cls.name};
-                
+
                 final self:Dynamic;
-                
+
                 @:keep
                 final function new (x:Dynamic) {
                     self = x;
@@ -123,10 +120,10 @@ class PanelMacroOverride {
                 }
             }
         }
-        fieldstor.fields.iter(f -> 
-            if (f.meta != null) 
+        fieldstor.fields.iter(f ->
+            if (f.meta != null)
                 f.meta.push({name : ":notUser", pos : Context.currentPos()});
-            else 
+            else
                 f.meta = [{name : ":notUser", pos : Context.currentPos()}]
             );
         cls.meta.add(":UserPanel",[],Context.currentPos());
@@ -141,5 +138,5 @@ class PanelMacroOverride {
         return null;
         #end
     }
-    
+
 }

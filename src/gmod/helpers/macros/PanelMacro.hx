@@ -35,8 +35,8 @@ private enum MType {
 }
 
 typedef GmodExtern = {
-    link : haxe.macro.Type,
-    rawClass : haxe.macro.Type
+    link : haxe.macro.ComplexType,
+    rawClass : haxe.macro.ComplexType
 }
 
 typedef GenerateGmod = {
@@ -189,6 +189,7 @@ class PanelMacro {
 
     public static function generateGmodSideExtern(gen:GenerateGmod):GmodExtern {
         if (gen.markExpose == null) gen.markExpose = (name) -> return name == ":exposeGmod";
+        enableNotFound();
         final target = gen.target;
         final targetFields = gen.targetFields;
         final targetGmod = gen.gmodParent;
@@ -196,8 +197,8 @@ class PanelMacro {
         final linkExternName = 'Gmod${target.name}';
         final curMod:TypePathHelper = Context.getLocalModule().split(".");
         final parentPath:TypePath = targetGmod;
-        if (typeExists(gmodExternName) || typeExists(linkExternName) ) {
-            return {link : Context.getType(linkExternName), rawClass: Context.getType(gmodExternName)};
+        if (generatedStorage.exists(gmodExternName) || generatedStorage.exists(linkExternName) ) {
+            return {link : TPath({pack : [], name: linkExternName}), rawClass: TPath({pack : [], name: gmodExternName})};
         }
         final gmodExtern:TypeDefinition = macro class $gmodExternName extends $parentPath {
 
@@ -208,6 +209,7 @@ class PanelMacro {
         final gmodSuperType = try {
             targetGmod.toComplexType().toType().getClass();
         } catch (e) {
+            trace("FAILURE");
             Context.error("Failed to get gmodSuperType",Context.currentPos());
             return null;
         }
@@ -219,7 +221,7 @@ class PanelMacro {
         gmodExtern.fields = newFields;
         gmodExtern.isExtern = true;
         generatedStorage.set(gmodExternName,gmodExtern);
-        final gmodType = Context.getType(gmodExternName).toComplexType();
+        final gmodType:ComplexType = TPath({pack : [],name : gmodExternName});
         final otherType = Context.getLocalType().toComplexType();
         final linkType = (macro : gmod.helpers.GLinked<$gmodType,$otherType>);
         generatedStorage.set(linkExternName,{
@@ -229,13 +231,9 @@ class PanelMacro {
             kind: TDAlias(linkType),
             fields: []
         });
-        if (!typeExists(gmodExternName) || !(typeExists(linkExternName))) {
-            Context.error("Failed to generate gmod externs",gen.target.pos);
-            return null;
-        }
         return {
-            link : Context.getType(linkExternName),
-            rawClass : Context.getType(gmodExternName)
+            link : TPath({pack : [], name: linkExternName}),
+            rawClass : gmodType
         }
     }
 
@@ -308,7 +306,7 @@ class PanelMacro {
 
     static var generated = false;
 
-    static function enableNotFound() {
+    public static function enableNotFound() {
         if (!generated) {
             Context.onTypeNotFound((clsName) -> {
                 return if (generatedStorage.exists(clsName)) {

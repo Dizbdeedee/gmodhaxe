@@ -127,9 +127,9 @@ class SentMacro {
         var ourtype = Context.toComplexType(Context.getLocalType());
         var gmodParent = extractGmodParent(superType);
         var gen = PanelMacro.generateGmodSideExtern({target: cls,gmodParent: gmodParent,targetFields: fields});
-        var gmodType = gen.link.toComplexType();
+        var gmodType = gen.link;
         var entClass = (macro : gmod.stringtypes.EntityClass<$gmodType>);
-        var tp:Array<String> = TypePathHelper.fromComplexType(gen.rawClass.toComplexType());
+        var tp:Array<String> = TypePathHelper.fromComplexType(gen.rawClass);
         var strArr = tp.map((x) -> macro $v{x});
         cls.meta.add(":RealExtern",[macro $a{strArr}],Context.currentPos());
         var fieldStore = if (superType.findField("self") != null) {
