@@ -1,7 +1,5 @@
 package gmod.helpers.macros;
 #if macro
-
-import gmod.helpers.macros.Util.recurseCopy;
 import haxe.Template;
 import haxe.Resource;
 import haxe.macro.Expr.Function;
@@ -16,6 +14,8 @@ import haxe.macro.Expr.TypeDefinition;
 using haxe.macro.TypeTools;
 using StringTools;
 
+import gmod.helpers.macros.Util.recurseCopy;
+import gmod.helpers.macros.WordList;
 #end
 
 
@@ -26,14 +26,14 @@ class InitMacro {
 
     public static var entLuaStorage:String;
 
-    
+
     public static var buildIdent:String;
 
     public static final serverName = "haxe_init";
 
     public static final clientName = "haxe_cl_init";
     #if macro
-    
+
     #if (haxe >= "4.2.0")
     static final pos = Context.makePosition({min : 0, max: 0, file : "gmodhaxe - InitMacro.hx"});
     #else
@@ -42,19 +42,18 @@ class InitMacro {
     static function get_pos() {
         return Context.currentPos();
     }
-    #end 
+    #end
 
     static public function init() {
         Compiler.include("gmod.helpers.macros.include",true,null,null,true);
         Compiler.keep("gmod.helpers.macros.include",null,true);
-        var buildident = Math.floor(Math.random() * 729);
-        buildIdent = Util.nato[Math.floor(buildident / 27)] + " " + Util.nato[buildident % 27];
+        var buildident = getRandomWord();
         no.Spoon.bend("Sys",macro class {
             public static function time():Float {
                 return gmod.Gmod.SysTime();
             }
         });
-        
+
         #if (haxe >= "4.2.0")
         no.Spoon.bend("haxe.format.JsonParser",macro class {
             public static inline function parse(str:String):Dynamic {
@@ -62,8 +61,8 @@ class InitMacro {
             }
         });
         #end
-        if (!Context.defined("noGmodHook")) {        
-            Compiler.addGlobalMetadata("","@:build(gmod.helpers.macros.HookMacro.build())"); 
+        if (!Context.defined("noGmodHook")) {
+            Compiler.addGlobalMetadata("","@:build(gmod.helpers.macros.HookMacro.build())");
         }
         if (Context.defined("gmod_PreCopyFiles")) {
             recurseCopy(Context.definedValue("gmod_PreCopyFiles"),"generated",_ -> true);
@@ -75,7 +74,7 @@ class InitMacro {
             kind : TDAlias(macro : Math),
             fields : []
         }
-        
+
         try {
             Context.getType("gmod.helpers.macros.StoredInfo");
         } catch (e) {
@@ -83,14 +82,15 @@ class InitMacro {
             no.Spoon.replace('gmod.gclass.Angle',macro : gmod.helpers.types.Angle);
             Context.defineType(x);
         }
-        
+
         if (Context.defined("server")) {
             Sys.putEnv("gmodhaxe_notCopy",clientName);
         } else if (Context.defined("client")) {
             Sys.putEnv("gmodhaxe_notCopy",serverName);
         }
         #if (haxe >= "4.1.0")
-            Compiler.includeFile("gmod/helpers/macros/include/PrintPatch.lua");
+            // Compiler.includeFile("gmod/helpers/macros/include/PrintPatch.lua");
+            // maybe don't need this
         #end
         Compiler.addMetadata(":using(gmod.helpers.PairTools)","lua.Table");
         Compiler.addMetadata(":using(gmod.helpers.TableTools)","lua.Table");
@@ -110,15 +110,19 @@ class InitMacro {
         if (Context.defined("gmodAddonFolder")) {
             Sys.putEnv("gmodhaxe_gmodAddonFolder",Context.definedValue("gmodAddonFolder"));
         }
-        
+
         if (Context.defined("gamemode")) {
             generateGamemodeFiles(addonName);
         } else {
             generateNonGamemodeFiles(addonName);
         }
-        Sys.putEnv("gmodhaxe_buildIdent",Std.string(buildident));
-        if (Context.defined("printBuildIdent")) {
-            Sys.putEnv("gmodhaxe_printIdent","yes");
+        //don't ask me what i was smoking with the previous system...
+        //^ nothing, cause i'm a bore
+        if (Sys.getEnv("gmodhaxe_buildident") == null) {
+            Sys.putEnv("gmodhaxe_buildIdent",Std.string(buildident));
+            if (Context.defined("printBuildIdent")) {
+                Sys.putEnv("gmodhaxe_printIdent","yes");
+            }
         }
         Sys.putEnv("gmodhaxe_output",Compiler.getOutput());
         #end
@@ -157,7 +161,7 @@ class InitMacro {
         entLuaStorage = '__${addonName}_ents';
         baseEntFolder = 'generated/$addonName/lua';
         FileSystem.createDirectory('generated/$addonName/lua/$addonName');
-       
+
         FileSystem.createDirectory('generated/$addonName/lua/autorun/');
         if (!Context.defined("noGenInit")) {
             var temp = new haxe.Template(Resource.getString("gmodhaxe_autorun"));

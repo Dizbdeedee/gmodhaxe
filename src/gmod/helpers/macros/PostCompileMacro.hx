@@ -1,4 +1,5 @@
 package gmod.helpers.macros;
+
 import sys.io.FileInput;
 import haxe.io.Bytes;
 import haxe.io.BytesData;
@@ -9,56 +10,29 @@ import sys.io.File;
 import sys.FileSystem;
 import haxe.Resource;
 
+import gmod.helpers.macros.WordList;
+
 class PostCompileMacro {
 
-	static final pos = Context.makePosition({min : 0, max: 0, file : "gmodhaxe - FinalMacro.hx"});
-
-    static final nato = [
-        "Alpha", 
-        "Bravo", 
-        "Charlie", 
-        "Delta", 
-        "Echo", 
-        "Foxtrot", 
-        "Golf", 
-        "Hotel", 
-        "India", 
-        "Juliett", 
-        "Kilo", 
-        "Lima", 
-        "Mike", 
-        "November", 
-        "Oscar", 
-        "Papa", 
-        "Quebec", 
-        "Romeo", 
-        "Sierra", 
-        "Tango", 
-        "Uniform", 
-        "Victor", 
-        "Whiskey", 
-        "Xray", 
-        "Yankee", 
-        "Zulu"
-    ];
+    static final pos = Context.makePosition({min : 0, max: 0, file : "gmodhaxe - FinalMacro.hx"});
 
     static final sizeLimit = 600000;
 
-	public static function main() {
-		if (Sys.getEnv("gmodhaxe_addonName") != null && Sys.getEnv("gmodhaxe_output") != null) {
-			envPatch();
-			if (Sys.getEnv("gmodhaxe_gmodAddonFolder") != null) {
-				updateAddonFolder();
-			}
+    public static function main() {
+        if (Sys.getEnv("gmodhaxe_addonName") != null && Sys.getEnv("gmodhaxe_output") != null) {
+            envPatch();
+            if (Sys.getEnv("gmodhaxe_gmodAddonFolder") != null) {
+                updateAddonFolder();
+            }
             if (Sys.getEnv("gmodhaxe_buildIdent") != null && Sys.getEnv("gmodhaxe_printIdent") != null) {
                 printIdent();
             }
             // if (FileSystem.stat(Sys.getEnv("gmodhaxe_output")).size > sizeLimit) {
             //     splitFiles();
             // }
-		}
+        }
         filter();
-	}
+    }
 
     static macro function filter() {
         Util.filter();
@@ -66,19 +40,19 @@ class PostCompileMacro {
     }
 
     static function printIdent() {
-        trace("build ident: " + buildStr(Sys.getEnv("gmodhaxe_buildIdent")));
-    }    
+        trace("build ident: " + Sys.getEnv("gmodhaxe_buildIdent"));
+    }
 
-	static function clearEnvs() {
-		Sys.putEnv("gmodhaxe_gmodAddonFolder","");
-		Sys.putEnv("gmodhaxe_addonName","");
+    static function clearEnvs() {
+        Sys.putEnv("gmodhaxe_gmodAddonFolder","");
+        Sys.putEnv("gmodhaxe_addonName","");
         Sys.putEnv("gmodhaxe_output","");
         Sys.putEnv("gmodhaxe_buildIdent","");
-		Sys.putEnv("gmodhaxe_printIdent","");
+        Sys.putEnv("gmodhaxe_printIdent","");
         Sys.putEnv("gmodhaxe_notCopy","");
-	}
+    }
 
-	static function updateAddonFolder() {
+    static function updateAddonFolder() {
         var gmodAddonFolder = Sys.getEnv("gmodhaxe_gmodAddonFolder");
         var exists = FileSystem.exists(gmodAddonFolder);
         var abs = Path.isAbsolute(gmodAddonFolder);
@@ -146,21 +120,16 @@ final result = CompileFile("$directory")
         File.saveBytes(outputName.substr(0,outputName.length - 4) + "_1.lua",cutBytes);
     }
 
-	static function envPatch() {
+    static function envPatch() {
         final addonName = Sys.getEnv("gmodhaxe_addonName").toLowerCase();
         final curoutput = File.getBytes(Sys.getEnv("gmodhaxe_output"));
         final fl = File.write(Sys.getEnv("gmodhaxe_output"));
         var temp = new haxe.Template(Resource.getString("gmodhaxe_top"));
         fl.writeString(temp.execute({addonName : addonName})); //TODO move to template system
         if (Sys.getEnv("gmodhaxe_buildIdent") != null) {
-            fl.writeString('--build ident: ${buildStr(Sys.getEnv("gmodhaxe_buildIdent"))}\n');
+            fl.writeString('\n--build ident: ${Sys.getEnv("gmodhaxe_buildIdent")}\n');
         }
         fl.write(curoutput);
         fl.close();
-    }
-
-    static function buildStr(s:String) {
-        final buildIdent = Std.parseInt(s);
-        return nato[Math.floor(buildIdent / 27)] + " " + nato[buildIdent % 27];
     }
 }
