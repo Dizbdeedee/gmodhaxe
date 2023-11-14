@@ -12,7 +12,7 @@ package gmod.libs;
 		`**Returns:** Table of all existing Entitys.
     **/
     
-    static function GetAll():LuaArray<Entity>;
+    static function GetAll():LuaArrayExt<Entity>;
     
     
     /**
@@ -29,7 +29,7 @@ package gmod.libs;
 		`**Returns:** A table of all found Entitys. Has a limit of 1024 entities.
     **/
     
-    static function FindInSphere(origin:Vector, radius:Float):LuaArray<Entity>;
+    static function FindInSphere(origin:Vector, radius:Float):LuaArrayExt<Entity>;
     
     #if server
     /**
@@ -104,7 +104,7 @@ package gmod.libs;
 		`**Returns:** A table of all found entities
     **/
     
-    static function FindByName(name:String):LuaArray<Entity>;
+    static function FindByName(name:String):LuaArrayExt<Entity>;
     
     
     /**
@@ -145,7 +145,7 @@ package gmod.libs;
 		```
     **/
     
-    static function FindInBox(boxMins:Vector, boxMaxs:Vector):LuaArray<Entity>;
+    static function FindInBox(boxMins:Vector, boxMaxs:Vector):LuaArrayExt<Entity>;
     
     #if server
     /**
@@ -161,8 +161,8 @@ package gmod.libs;
 		`**Returns:** The found Entitys.
     **/
     
-	@:overload(function (viewPoint:Vector):LuaArray<Entity> {})
-    static function FindInPVS(viewPoint:Entity):LuaArray<Entity>;
+	@:overload(function (viewPoint:Vector):LuaArrayExt<Entity> {})
+    static function FindInPVS(viewPoint:Entity):LuaArrayExt<Entity>;
     #end
     
     /**
@@ -217,7 +217,7 @@ package gmod.libs;
 		```
     **/
     
-    static function FindInCone(origin:Vector, normal:Vector, range:Float, angle_cos:Float):LuaArray<Entity>;
+    static function FindInCone(origin:Vector, normal:Vector, range:Float, angle_cos:Float):LuaArrayExt<Entity>;
     
     
     /**
@@ -261,7 +261,7 @@ package gmod.libs;
 		`**Returns:** A table of all found entities.
     **/
     
-    static function FindByModel(model:String):LuaArray<Entity>;
+    static function FindByModel(model:String):LuaArrayExt<Entity>;
     
     #if server
     /**
@@ -319,7 +319,7 @@ package gmod.libs;
 		The location of each prop on the map. In gm_construct, the output might be as follows: -2936.288818 -1376.545532 -73.852913 -2943.928467 -1375.800171 -84.964996 -2932.637695 -1288.051636 -76.791924 -2064.000000 -183.000000 -179.216003 -2384.000000 -183.000000 -179.216003 -2704.000000 -183.000000 -179.216003 -1744.000000 -183.000000 -179.216003 -1424.000000 -183.000000 -179.216003 -3019.895020 -1095.824829 -78.900757
 	**/
 	
-	static function FindByClass<T:Entity>(_class:EntityClass<T>):LuaArray<T>;
+	static function FindByClass<T:Entity>(_class:EntityClass<T>):LuaArrayExt<T>;
     
     
     /**
@@ -336,7 +336,7 @@ package gmod.libs;
 		`**Returns:** Table of the found entities.
     **/
     
-    static function FindAlongRay(start:Vector, end:Vector, ?mins:Vector, ?maxs:Vector):LuaArray<Entity>;
+    static function FindAlongRay(start:Vector, end:Vector, ?mins:Vector, ?maxs:Vector):LuaArrayExt<Entity>;
     
     #if server
     /**
@@ -366,7 +366,7 @@ package gmod.libs;
 	**/
 	
   
-    static function FindByClassAndParent<T:Entity>(_class:EntityClass<T>, parent:Entity):LuaArray<T>;
+    static function FindByClassAndParent<T:Entity>(_class:EntityClass<T>, parent:Entity):LuaArrayExt<T>;
     
     #if client
     /**

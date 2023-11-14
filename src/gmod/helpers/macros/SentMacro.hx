@@ -84,18 +84,15 @@ class SentMacro {
                                 overridenThink = true;
                         }
                         //:engineHook??
-                        getDocsFromParent(field,superType); 
+                        getDocsFromParent(field,superType);
                         fOverride.push(field);
                     }
                     if (field.meta.exists(f -> f.name == ":entExpose")) {
                         fOverride.push(field);
                     }
-                default: 
-                
+                default:
             }
         }
-
-
         var genName = switch (cls.meta.extract(":expose")) {
             case [{params : [{expr : EConst(CString(s,_))}]}]:
                 final newName = s.toLowerCase();
@@ -130,15 +127,15 @@ class SentMacro {
         var ourtype = Context.toComplexType(Context.getLocalType());
         var gmodParent = extractGmodParent(superType);
         var gen = PanelMacro.generateGmodSideExtern({target: cls,gmodParent: gmodParent,targetFields: fields});
-        var gmodType = gen.link.toComplexType();
+        var gmodType = gen.link;
         var entClass = (macro : gmod.stringtypes.EntityClass<$gmodType>);
-        var tp:Array<String> = TypePathHelper.fromComplexType(gen.rawClass.toComplexType());
+        var tp:Array<String> = TypePathHelper.fromComplexType(gen.rawClass);
         var strArr = tp.map((x) -> macro $v{x});
         cls.meta.add(":RealExtern",[macro $a{strArr}],Context.currentPos());
         var fieldStore = if (superType.findField("self") != null) {
             macro class {
-                
-                #if server 
+
+                #if server
                 public static function create():$gmodType {
                     return gmod.libs.EntsLib.Create(gclass);
                 }
@@ -173,7 +170,7 @@ class SentMacro {
         }
         replaceSelfInFields(fields,gmodType);
         switch [properties,esent] {
-            case [null,Swep | Sent]: 
+            case [null,Swep | Sent]:
                 var props = macro class {static final properties = {}};
                 fieldStore.fields.push(props.fields[0]);
                 default:
@@ -208,7 +205,7 @@ class SentMacro {
         cls.meta.add(":Generated",[],Context.currentPos());
         return fields.concat(fieldStore.fields);
     }
-    
+
     public static function buildSent() {
         return build(Sent);
     }
@@ -277,7 +274,7 @@ class SentMacro {
                 funcs : funcShouldAdd,
                 base : gen.base
             });
-            
+
             FileSystem.createDirectory('$_baseStorage/${gen.genName}');
             #if client
             switch (gen.esent) {

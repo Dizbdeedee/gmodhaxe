@@ -129,7 +129,7 @@ extern class CNavArea {
 		`**Returns:** The CNavLadders that have a ( one or two way ) connection from this CNavArea in given direction.
     **/
     
-    function GetLaddersAtSide(navDir:Float):LuaArray<CNavLadder>;
+    function GetLaddersAtSide(navDir:Float):LuaArrayExt<CNavLadder>;
     
     
     /**
@@ -178,7 +178,7 @@ extern class CNavArea {
 		`**Returns:** A table of all CNavArea that have a ( one and two way ) connection from this CNavArea in given direction. Returns an empty table if this area has no outgoing connections to any other areas in given direction.
     **/
     
-    function GetAdjacentAreasAtSide(navDir:NavDir):LuaArray<CNavArea>;
+    function GetAdjacentAreasAtSide(navDir:NavDir):LuaArrayExt<CNavArea>;
     
     
     /**
@@ -295,7 +295,7 @@ extern class CNavArea {
 		`**Returns:** A table of Vectors
     **/
     
-    function GetHidingSpots(?type:Float):LuaArray<Vector>;
+    function GetHidingSpots(?type:Float):LuaArrayExt<Vector>;
     
     
     /**
@@ -379,7 +379,7 @@ extern class CNavArea {
 		`**Returns:** A table of all CNavAreas with one-way connection to this CNavArea. Returns an empty table if there are no one-way incoming connections to this CNavArea.
     **/
     
-    function GetIncomingConnections():LuaArray<CNavArea>;
+    function GetIncomingConnections():LuaArrayExt<CNavArea>;
     
     
     /**
@@ -567,7 +567,7 @@ extern class CNavArea {
 		`**Returns:** A table of Vectors
     **/
     
-    function GetExposedSpots():LuaArray<CNavArea>;
+    function GetExposedSpots():LuaArrayExt<CNavArea>;
     
     
     /**
@@ -628,7 +628,7 @@ extern class CNavArea {
 		`**Returns:** The CNavLadders that have a ( one or two way ) connection from this CNavArea.
     **/
     
-    function GetLadders():LuaArray<CNavLadder>;
+    function GetLadders():LuaArrayExt<CNavLadder>;
     
     
     /**
@@ -730,7 +730,7 @@ extern class CNavArea {
 		`**Returns:** A table of all CNavArea that have a ( one and two way ) connection from this CNavArea. Returns an empty table if this area has no outgoing connections to any other areas.
     **/
     
-    function GetAdjacentAreas():LuaArray<CNavArea>;
+    function GetAdjacentAreas():LuaArrayExt<CNavArea>;
     
     
     /**

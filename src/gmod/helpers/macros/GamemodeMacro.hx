@@ -12,6 +12,7 @@ using haxe.macro.ExprTools.ExprArrayTools;
 using haxe.macro.ComplexTypeTools;
 using haxe.macro.TypeTools;
 using Lambda;
+
 class GamemodeMacro {
 
     static function shouldExpose(name:String) {
@@ -19,7 +20,8 @@ class GamemodeMacro {
     }
 
     public static function build():Array<Field> {
-        var fields = Context.getBuildFields(); 
+        PanelMacro.enableNotFound();
+        var fields = Context.getBuildFields();
         var cls = Context.getLocalClass().get();
         if (!Context.defined("gamemode")) {
             Context.warning("Attempt to generate a gamemode without -D gamemode defined",cls.pos);
@@ -53,9 +55,18 @@ class GamemodeMacro {
             gmodParent: gmodParent,
             markExpose: shouldExpose
         });
-        var gmodType = gen.link.toComplexType();
+        var gmodType = gen.link;
         var propertiesDefined = false;
+        var newExpr = [];
         for (field in fields) {
+            if (field.name == "new") {
+                switch (field.kind) {
+                    case FFun({expr: {expr : EBlock(exprs)}}):
+                        newExpr = exprs;
+                    default:
+                        Context.error("GamemodeMacro: Invalid new function structure",Context.currentPos());
+                }
+            }
             switch (field.kind) {
                 case FVar(_, e) if (field.name == "properties"):
                     if (!field.access.contains(Access.AStatic)) {
@@ -67,6 +78,7 @@ class GamemodeMacro {
                     }
                     field.kind = FVar(Context.getType("gmod.helpers.gamemode.GMBuild.GamemodeFields").toComplexType(),e);
                     propertiesDefined = true;
+
                 case FFun(f):
                     if (field.access.contains(AOverride) || field.meta.exists(f -> shouldExpose(f.name))) {
                         var name = field.name;
@@ -74,7 +86,8 @@ class GamemodeMacro {
                         exprBuffer.push(macro untyped __lua__($v{str},this));
                         getDocsFromParent(field,superClass);
                     }
-                    
+
+
                 default:
             }
         }
@@ -85,29 +98,37 @@ class GamemodeMacro {
             self = untyped __lua__("GM");
             untyped instance = this;
             if (properties != null) {
-                
+
                 for (ind in Reflect.fields(properties)) {
                     Reflect.setField(self,ind,Reflect.field(properties,ind));
                 }
 
             }
         }));
+        exprBuffer = exprBuffer.concat(newExpr);
         final fieldStore = macro class {
-            
+
             public static inline final gclass:String = $v{gamemodeName}; //
 
             public static var instance(default,never):$gmodType;
-            
+
             final self:$gmodType;
 
             public function get_self():$gmodType {
                 return cast self;
             }
 
-            public final function new() $b{exprBuffer}
+            // public final function new() $b{exprBuffer}
 
         }
-        
+        fields.iter((f) -> {
+            switch (f) {
+                case {name : "new", kind : FFun(func = {expr : e})}:
+                    func.expr = {expr: EBlock(exprBuffer), pos: Context.currentPos()};
+                default:
+            }
+        });
+
         cls.meta.add(":keep",[],Context.currentPos());
         return fields.concat(fieldStore.fields);
     }

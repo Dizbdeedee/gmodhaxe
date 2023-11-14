@@ -153,7 +153,7 @@ extern class CRecipientFilter {
 		2 1 = Player [1][Player #1] 2 = Player [2][Player #2]
     **/
     
-    function GetPlayers():LuaArray<Player>;
+    function GetPlayers():LuaArrayExt<Player>;
     
     
     /**

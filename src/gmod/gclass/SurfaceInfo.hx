@@ -14,7 +14,7 @@ extern class SurfaceInfo {
 
         `**Returns:** A list of Vector points. This will usually be 4 corners of a quadrilateral in counter-clockwise order.
     **/
-    function GetVerticies():LuaArray<Vector>;
+    function GetVerticies():LuaArrayExt<Vector>;
 
     /**
         Checks if the brush surface is a nodraw surface, meaning it will not be drawn by the engine.
