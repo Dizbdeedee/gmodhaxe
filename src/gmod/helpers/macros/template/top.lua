@@ -111,6 +111,7 @@ local function _ptch_hx_handle_error(obj)
 end
 
 
+::if (haxeVersion != "4.3.2")::
 if not _G._oldRequire then
     _G._oldRequire = _G.require
 end
@@ -119,11 +120,30 @@ end
 -- TODO figure out a way to make this not affect global workspace
 -- we could use functions, or proxy tables, profile this plz
 _G.require = function (str)
+   local info = _G.debug.getinfo(2,"n")
+   if (info ~= nil and info.name == "pcall") then
+      print(info.name)
+      local val,rtn = pcall(_G.oldRequire,str)
+      print("RETURN" .. val)
+      print("RETURN2" .. rtn)
+      return val,rtn
+   end
    local val,rtn = pcall(_G._oldRequire,str)
    if val then
-        print("require loaded " .. str) return _G[str]
+        print("safe require loaded " .. str)
+        return _G[str]
    else
-        print("failed to load require " .. str)
+        print("failed to load safe require " .. str)
+   end
+end
+::end::
+
+local require = function (str)
+   if str == "bit" then
+      print("BIT PATCHED")
+      return _G.bit,true
+   else
+      return _G.require(str)
    end
 end
 

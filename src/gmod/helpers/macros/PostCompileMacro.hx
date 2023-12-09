@@ -125,7 +125,7 @@ final result = CompileFile("$directory")
         final curoutput = File.getBytes(Sys.getEnv("gmodhaxe_output"));
         final fl = File.write(Sys.getEnv("gmodhaxe_output"));
         var temp = new haxe.Template(Resource.getString("gmodhaxe_top"));
-        fl.writeString(temp.execute({addonName : addonName})); //TODO move to template system
+        fl.writeString(temp.execute({addonName : addonName, haxeVersion : Context.definedValue("haxe")})); //TODO move to template system
         if (Sys.getEnv("gmodhaxe_buildIdent") != null) {
             fl.writeString('\n--build ident: ${Sys.getEnv("gmodhaxe_buildIdent")}\n');
         }
