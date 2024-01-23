@@ -7,3 +7,4 @@
 --resource gmod/helpers/macros/template/top.lua@gmodhaxe_top
 --resource gmod/helpers/macros/template/autorun.lua@gmodhaxe_autorun
 gmod.helpers.macros.include.__ForceExpose
+haxe.CallStack
