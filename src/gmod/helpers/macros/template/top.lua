@@ -158,7 +158,7 @@ end
 
 --COMMITAREA, add old error
 --sorry, but this is probably for the best for now. Need to do more version checks
-if not _G._oldError then
+if not _G._haxeOldError then
 	_G._haxeOldError = _G.error
 end
 
