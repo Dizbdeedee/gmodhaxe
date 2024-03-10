@@ -9,7 +9,7 @@ AddCSLuaFile("cl_init.lua")
 ::if client:: 
 function ::baseIdent:::Think()
     if (not self._gHaxeInit) then
-        self:Initalize()
+        self:Initialize()
     end
     ::if overridenThink::
     self._gHaxeBurrow:Think() ::end::
