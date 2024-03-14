@@ -148,14 +148,12 @@ end
 ::end::
 
 local require = function (str)
-   if str == "bit" then
-	  print("BIT PATCHED")
-	  return _G.bit,true
-   else
-	  return _G.require(str)
-   end
-end
-
+	if str == "bit" or str == "bit32" then
+	   return _G.bit
+	else
+	   return _G.require(str)
+	end
+ end
 --COMMITAREA, add old error
 --sorry, but this is probably for the best for now. Need to do more version checks
 if not _G._haxeOldError then
