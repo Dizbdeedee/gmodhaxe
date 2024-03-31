@@ -1,14 +1,14 @@
 {
     "name": "gmodhaxe",
-    "url" : "https://github.com/ponobodod/gmodhaxe/",
+    "url" : "https://github.com/Dizbdeedee/gmodhaxe/",
     "license": "MIT",
     "tags": ["lua", "gmod","extern"],
     "description": "Externs + macros for gmodlua development",
-    "version": "0.2.3",
+    "version": "0.3.0",
     "classPath": "src",
-    "releasenote": "Internal macro overhaul",
+    "releasenote": "Haxe 4.3.X support and internal changes",
     "contributors": ["ponobodod"],
-    "main": "gmod.helpers.macros.Run",
+    "main": "scripts.Run",
     "dependencies" : {
         "no-spoon": ""
     }

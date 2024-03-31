@@ -1,8 +1,6 @@
-package gmod.helpers.macros;
+package scripts;
 
-import sys.FileSystem;
 import haxe.io.Path;
-import sys.io.File;
 
 class Run {
 
