@@ -1176,6 +1176,19 @@ package gmod.libs;
     **/
     
     static function Base64Encode(str:String):String;
+
+	/**
+        Decodes the specified string to base64.
+		
+		Name | Description
+		--- | ---
+		`str` | String to encode.
+		
+		
+		`**Returns:** Base 64 encoded string.
+    **/
+    
+    static function Base64Decode(str:String):String;
     
     #if server
     /**
@@ -1379,7 +1392,12 @@ package gmod.libs;
     
     static function QuickTrace(origin:Vector, endpos:Vector, ?filter:Trace):TraceResult;
     
-    
+	/**
+		Generates the MD5 hash of the specified string.
+
+		MD5 is considered cryptographically broken and is known to be vulnerable to a variety of attacks including duplicate return values. If security or duplicate returns is a concern, use util.SHA256.
+	**/
+    static function MD5(stringToHash:String):String;
 
 }
 

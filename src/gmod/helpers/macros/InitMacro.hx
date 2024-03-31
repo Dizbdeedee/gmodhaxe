@@ -16,9 +16,8 @@ using StringTools;
 
 import gmod.helpers.macros.Util.recurseCopy;
 import gmod.helpers.macros.WordList;
+import gmod.helpers.macros.template.*;
 #end
-
-
 
 class InitMacro {
 
@@ -90,8 +89,8 @@ class InitMacro {
 			// Compiler.includeFile("gmod/helpers/macros/include/PrintPatch.lua");
 			// maybe don't need this
 		#end
-		Compiler.addMetadata(":using(gmod.helpers.PairTools)","lua.Table");
-		Compiler.addMetadata(":using(gmod.helpers.TableTools)","lua.Table");
+		Compiler.addGlobalMetadata("lua.Table","@:using(gmod.helpers.PairTools)");
+		Compiler.addGlobalMetadata("lua.Table","@:using(gmod.helpers.TableTools)");
 		Compiler.includeFile("gmod/helpers/macros/include/OverrideLocals.lua");
 		#if (!display)
 		if (!Context.defined("lua") || Context.defined("display_details") ) {
@@ -141,14 +140,14 @@ class InitMacro {
 		if (!FileSystem.exists(gmfolder)) FileSystem.createDirectory(gmfolder);
 		if (Context.defined("client")) {
 			if (!Context.defined("noGenInit")) {
-				var temp = new haxe.Template(Resource.getString("gmodhaxe_cl_init"));
+				var temp = new haxe.Template(T_cl_init_lua.cl_init);
 				File.saveContent('$gmfolder/cl_init.lua',
 				temp.execute({clientName : clientName}));
 			}
 			Compiler.setOutput('$gmfolder/$clientName.lua');
 		} else if (Context.defined("server")) {
 			if (!Context.defined("noGenInit")) {
-				var temp = new haxe.Template(Resource.getString("gmodhaxe_init"));
+				var temp = new haxe.Template(T_init_lua.init);
 				File.saveContent('$gmfolder/init.lua',
 				temp.execute({clientName : clientName, serverName : serverName}));
 			}
@@ -163,7 +162,7 @@ class InitMacro {
 
 		FileSystem.createDirectory('generated/$addonName/lua/autorun/');
 		if (!Context.defined("noGenInit")) {
-			var temp = new haxe.Template(Resource.getString("gmodhaxe_autorun"));
+			var temp = new haxe.Template(T_autorun_lua.autorun);
 			File.saveContent('generated/$addonName/lua/autorun/haxe_init_$addonName.lua',
 			temp.execute({addonName : addonName, clientName : clientName, serverName: serverName}));
 		}

@@ -1,30 +1,31 @@
---gmod haxe environment patch
+package gmod.helpers.macros.template;
+var top = '--gmod haxe environment patch
 local haxeEnv = {}
 setmetatable(haxeEnv,{__index = _G})
 setfenv(1,haxeEnv) --context for patches
 
---used by _ptch_hx_tostring. and it's a local
+--used by _ptch_hx_tostring. and it\'s a local
 local _hx_hidden = {__id__=true, hx__closures=true, super=true, prototype=true, __fields__=true, __ifields__=true, __class__=true, __properties__=true, __fields__=true, __name__=true}
 
 local function _ptch_hx_print_class(obj,depth)
 	local first = true
-	local result = ''
+	local result = \'\'
 	local x = 0
 	for k,v in pairs(obj) do
 		if _hx_hidden[k] == nil then
 			x = x + 1
-			if x > 5 then result = result .. ', <...>' break end
+			if x > 5 then result = result .. \', <...>\' break end
 			if first then
 				first = false
 			else
-				result = result .. ', '
+				result = result .. \', \'
 			end
 			if _hx_hidden[k] == nil then
-				result = result .. k .. ':' .. _hx_tostring(v, depth+1)
+				result = result .. k .. \':\' .. _hx_tostring(v, depth+1)
 			end
 		end
 	end
-	return '{ ' .. result .. ' }'
+	return \'{ \' .. result .. \' }\'
 end
 
 local _haxelookupClass = {}
@@ -82,7 +83,7 @@ local function _ptch_hx_tostring(obj, depth)
 				return "[" .. str .. "]"
 			end
 		elseif obj.__class__ ~= nil then
-			return _hx_print_class(obj, depth+1) --ran into some issues. Not sure if +1 is 'correct' but it solves it.
+			return _hx_print_class(obj, depth+1) --ran into some issues. Not sure if +1 is \'correct\' but it solves it.
 		else
 			local buffer = {}
 			local ref = obj
@@ -94,7 +95,7 @@ local function _ptch_hx_tostring(obj, depth)
 			   len = len + 1
 			   if (len > 5) then return "<...>" end --might as well treat all identically.
 			   if _hx_hidden[k] == nil and _hx_hidden[v] == nil then
-				   _G.table.insert(buffer, _hx_tostring(k, depth+1) .. ' : ' .. _hx_tostring(obj[k], depth+1))
+				   _G.table.insert(buffer, _hx_tostring(k, depth+1) .. \' : \' .. _hx_tostring(obj[k], depth+1))
 			   end
 			end
 			return "{ " .. table.concat(buffer, ", ") .. " }"
@@ -116,7 +117,7 @@ local function _ptch_hx_handle_error(obj)
 	message = _G.debug.traceback(message, 2)
   end
   -- return setmetatable({}, { __tostring = function() return message end })
-  return message --i don't think our _G.error takes objects
+  return message --i don\'t think our _G.error takes objects
 end
 
 
@@ -168,8 +169,10 @@ _G.error = function (val,level)
    end
   if (__lua_Boot.__instanceof(val, __haxe_Exception)) then
 	   _G._haxeOldError(__gmod_helpers_macros_include_ForceInclude.exceptionToString(val),level)
-  else
+  elseif val ~= nil then
 	 _G._haxeOldError(val,level)
+  else
+	_G._haxeOldError("No error message")
   end;
 end
 
@@ -191,3 +194,4 @@ _G.HAXE_::addonName:: = haxeEnv
 setmetatable(_hx_exports,{__index = _G,__newindex = _G})
 setmetatable(haxeEnv,{__index = _G, __newindex = patchFuncs})
 setfenv(1,haxeEnv) --if using more than one project + dce, global collisions and missing indexes will ensue. dont want that, so we use our env
+';

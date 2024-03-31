@@ -1,10 +1,5 @@
 -D lua-vanilla
 -D lua-5.1
 -D luajit
---resource gmod/helpers/macros/template/Sent.lua@gmodhaxe_sent
---resource gmod/helpers/macros/template/init.lua@gmodhaxe_init
---resource gmod/helpers/macros/template/cl_init.lua@gmodhaxe_cl_init
---resource gmod/helpers/macros/template/top.lua@gmodhaxe_top
---resource gmod/helpers/macros/template/autorun.lua@gmodhaxe_autorun
 gmod.helpers.macros.include.__ForceExpose
 haxe.CallStack

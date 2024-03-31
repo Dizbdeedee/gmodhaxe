@@ -4,7 +4,7 @@ import haxe.macro.Type.TypedExpr;
 import haxe.Resource;
 #if (macro)
 import gmod.helpers.macros.Util;
-
+import gmod.helpers.macros.template.*;
 import gmod.helpers.macros.InitMacro;
 import sys.FileSystem;
 import sys.io.File;
@@ -14,6 +14,7 @@ using haxe.macro.ExprTools;
 using haxe.macro.TypeTools;
 using haxe.macro.TypedExprTools;
 using Lambda;
+
 
 private typedef Generate = {
     genName : String,
@@ -219,7 +220,7 @@ class SentMacro {
     }
 
     static function afterGenerate() {
-        var temp = new haxe.Template(Resource.getString("gmodhaxe_sent"));
+        var temp = new haxe.Template(T_Sent_lua.sent);
         var baseStorage = InitMacro.baseEntFolder;
         if (baseStorage == null) {
             Context.warning("Failed to save entity lua files. Try restarting the language server.",Context.currentPos());
