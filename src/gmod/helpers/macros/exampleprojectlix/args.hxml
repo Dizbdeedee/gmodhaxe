@@ -17,8 +17,8 @@
 #No need to turn this off
 -D analyzer-optimize
 
-#Add haxe libraries here
+#Add haxe libraries here. You will also have to add them via lix
 -lib gmodhaxe
 
 --macro gmod.helpers.macros.InitMacro.init()
---cmd haxe -lib gmodhaxe --run gmod.helpers.macros.PostCompileMacro
+--cmd lix -lib gmodhaxe --run gmod.helpers.macros.PostCompileMacro

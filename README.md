@@ -97,13 +97,16 @@ If you like lua because of it's dynamic typing, there's not much point in using 
 - Proper hxbit support in progress
 
 ## Setup - lix (preferred)
-Install npm/node (sorry)
 
-Install lix
+Install npm/node. Here's a [link](https://nodejs.org/en/download/). Maybe you want to use a version manager, that's up to you, it shouldn't really affect anything here
+
+Install lix using the command below, which is a library manager for haxe, like haxelib. Generally, it seems to have more flexibility and consistency compared to haxelib, and supports more than one haxe version at a time. Different haxe versions can break compatiblity, and this library is affected by these changes especially, so to keep your project sane, this is the best option.
+
+Of note - this may break existing haxe installations. Your mileage may vary, if you encounter errors it's best to uninstall any prexisting ones first. Alternatively, you can install lix as a npm module locally in your node_modules.  I've never tried this, and you will definitely have to prefix all lix commands with npx.
 
 `npm install -g lix`
 
-Install [vscode](https://code.visualstudio.com/) + [vshaxe](https://marketplace.visualstudio.com/items?itemName=nadako.vshaxe) + []
+Install [vscode](https://code.visualstudio.com/) + [vshaxe](https://marketplace.visualstudio.com/items?itemName=nadako.vshaxe) + [vslix](https://marketplace.visualstudio.com/items?itemName=lix.lix). Not required but recommended
 
 Create a new scope for lix with the following command
 
@@ -113,14 +116,23 @@ Tell it to use a haxe version that you define. Currently we're at 4.3.4 so
 
 `lix use haxe 4.3.4`
 
+Install gmodhaxe
 
+- via git
 
-Install gmodhaxe by running the following command
-`lix install gmodhaxe`
+`lix install gh:Dizbdeedee/gmodhaxe`
+
+- via haxelib (older)
+
+`lix install haxelib:gmodhaxe`
 
 Run this command in an empty folder to get started
-`haxelib run gmodhaxe`
 
+`npx lix run gmodhaxe` (command is slightly borked, needs npx)
+
+To build any hxml files, you can replace `haxe` with `lix`, or `npx haxe`. One of the methods should work
+
+`haxe build.hxml` -> `lix build.hxml`
 
 ## Setup - haxelib - less flexible and may error, but simpler
 
@@ -133,6 +145,16 @@ Install gmodhaxe by running the following command
 
 Run this command in an empty folder to get started
 `haxelib run gmodhaxe`
+
+## Setup - roll your own
+
+[Download haxe](https://haxe.org/download/)
+
+Download a zip of the library
+
+Drag it into your projects src folder
+
+Make changes to your hearts content
 
 ## Basic Usage
 

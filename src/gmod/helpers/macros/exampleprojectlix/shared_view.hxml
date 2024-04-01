@@ -1,0 +1,4 @@
+args.hxml
+-cp src
+--lua lua/shared.lua
+--no-output
