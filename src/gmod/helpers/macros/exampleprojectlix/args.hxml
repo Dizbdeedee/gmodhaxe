@@ -3,7 +3,8 @@
 #Use this to generate a folder structure for an addon
 -D addonName=myaddon
 #Use this + above to generate a folder structure for a gamemode
--D gamemode=myaddon
+#You will not get other structures needed for a functioning gamemode - just the folder structure
+#-D gamemode=myaddon
 
 #A fully qualified path to your addon folder. Will automatically copy everything inside generated to your addon folder.
 #Uncomment and add your path below
