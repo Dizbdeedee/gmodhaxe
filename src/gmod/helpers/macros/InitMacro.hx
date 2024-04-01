@@ -96,6 +96,17 @@ class InitMacro {
 		if (!Context.defined("lua") || Context.defined("display_details") ) {
 			return;
 		}
+		#if (haxe >= "4.3.1")
+		Context.filterMessages(function (msg) {
+			return switch (msg) {
+				case Warning(msg, Context.getPosInfos(_) => {file : f}) 
+					if (msg.startsWith("(WDeprecatedEnumAbstract)") && f.endsWith("BuildFields.hx")):
+						false;
+				default:
+					true;	
+			}
+		});
+		#end
 		var addonName:String;
 		if (Context.defined("addonName")) {
 			addonName = Context.definedValue("addonName").toLowerCase();

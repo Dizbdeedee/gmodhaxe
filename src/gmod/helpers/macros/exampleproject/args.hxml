@@ -21,5 +21,8 @@
 #Add haxe libraries here
 -lib gmodhaxe
 
+#Fancy warnings - cool
+-D message-reporting=pretty
+
 --macro gmod.helpers.macros.InitMacro.init()
 --cmd haxe -lib gmodhaxe --run gmod.helpers.macros.PostCompileMacro

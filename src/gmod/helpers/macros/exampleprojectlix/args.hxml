@@ -18,6 +18,9 @@
 #No need to turn this off
 -D analyzer-optimize
 
+#Fancy warnings - cool
+-D message-reporting=pretty
+
 #Add haxe libraries here. You will also have to add them via lix
 -lib gmodhaxe
 
