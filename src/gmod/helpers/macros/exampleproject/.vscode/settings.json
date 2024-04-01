@@ -1,0 +1,7 @@
+{
+    "haxe.configurations": [
+        ["server.hxml"],
+        ["client.hxml"],
+        ["shared_view.hxml"]
+    ],
+}
