@@ -50,7 +50,7 @@ As a bonus, you can also utilise great haxe libraries that are cross platform co
 
 ~~Also, it seems S&Box is going to have C# as it's scripting language. Haxe compiles to C#, and as such it should be totally possible to create an addon that compiles to both S&Box and gmod! This won't solve the issue of library compatability between the two games, it is likely you would have to make your own layer between the two APIs, however, you can be assured that the bulk of your logic is not locked to one platform.~~
 
-Haxe is dropping support for C# in version 5, and I'm not sure there was much support in the first place. I would suggest you look into this yourself if you're interested - there is certainly the possibility of getting haxe to work with C# cause it has in the past. For future support, it looks like it will be a community reflaxe library here https://github.com/SomeRanDev/reflaxe.CSharp
+Haxe may be dropping support for C# in version 5, and I think there was only limited support in the first place. I would suggest you look into this yourself if you're interested - there is certainly the possibility of getting haxe to work with C# and therefore S&Box. For future support, it looks like it will be a community reflaxe library here https://github.com/SomeRanDev/reflaxe.CSharp
 
 ### Cons
 However, Haxe -> lua is not free of flaws, and certainly does not fit every use case. Here are some reasons why you shouldn't use it
@@ -117,6 +117,8 @@ Install lix using the command below, which is a library manager for haxe, like h
 
 Of note - this may break existing haxe installations. Your mileage may vary, if you encounter errors it's best to uninstall any prexisting ones first. Alternatively, you can install lix as a npm module locally in your node_modules.  I've never tried this, and you will definitely have to prefix all lix commands with npx.
 
+More info about lix on it's github [here](https://github.com/lix-pm/lix.client)
+
 `npm install -g lix`
 
 Install [vscode](https://code.visualstudio.com/) + [vshaxe](https://marketplace.visualstudio.com/items?itemName=nadako.vshaxe) + [vslix](https://marketplace.visualstudio.com/items?itemName=lix.lix). Not required but recommended
@@ -151,7 +153,7 @@ Install gmodhaxe
 
 --
 
-Run this command in an empty folder to get started
+Run this command in an empty folder to get started with an example starter pack/template
 
 `npx lix run gmodhaxe` (command is slightly borked, needs npx)
 
